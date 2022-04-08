@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@400;500;700;900&display=swap');
+
+:root {
+
+
+    --primary: #03045e;
+    --junior:#197278;
+    --senior:#C44536;
+    --secondary:#E08A1E;
+    --bright:#E84B23;
+    --backdrop:#E6E6E6;
+    --dark:#3F3F3F;
+    --white:#FFFFFF;
+    --slate:#f8fafc;
+    --teal:#f9fafb;
+
+
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+
+}
+body{
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    max-width: 1280px;
+    margin: auto;
+    color: black;
+
+
+}
+h1, h2,h3,h4,h5,h6{
+    font-weight: 500;
+
+}
+h1{
+   font-weight: 800;
+    font-size: 48px;
+}
+h6{
+    color: var(--primary);
+}
+p{
+    color: #3F3F3F;
+    font-weight: 500;
+}
+span{
+    color: var(--junior);
+}
+a{
+    color: var(--primary);
+}
+a:hover{
+    color: var(--bright);
+}
+/*Navbar*/
+.navbar-brand h2{
+    color: var(--primary);
+
+}
+.nav-link,.navbar-nav .nav-item .nav-link{
+    color: black;
+    font-weight: 500;
+}
+.nav-link:hover,.navbar-nav .nav-item .nav-link:hover{
+    color: var(--primary);
+}
+@media screen and (min-width:820px){
+    .big-menu{
+        display: block;
+    }
+    .small-screen{
+        display: none;
+    }
+}
+@media screen and (max-width:819Px){
+    .small-screen{
+        display: block;
+    }
+    .big-menu{
+        display: none;
+    }
+}
+.smaller .nav .nav-item .nav-link{
+    font-weight: normal;
+    font-size: 20px;
+}
+label{
+    font-weight: bold;
+    font-size: 20px;
+}
+input[type=text],input[type=email]{
+    border-radius: 5px!important;
+    height: 40px;
+    color: var(--dark) !important;
+
+}
+input[type=text]:focus,input[type=email]:focus, select:focus{
+    box-shadow: none !important;
+}
+select{
+    background-color: white !important;
+    height: 40px;
+
+}
+::placeholder {
+    font-size: 18px !important;
+    font-weight: 100 !important;
+}
+option{
+
+}
+.pagination{
+    background: none !important;
+}
+.page-item .page-link{
+    background: none !important;
+    border: none;
+    color: var(--primary);
+    font-weight: 700;
+}
+.active .page-link {
+    background-color: var(--primary) !important;
+    border-radius: 30%;
+}
+/*----Buttons---*/
+.btn{
+    text-align: center;
+    background-color: transparent;
+    border: 2px solid transparent;
+    padding: 8px 15px 8px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+
+}
+.btn:focus{
+    box-shadow: none;
+}
+.btn-link{
+    color: var(--primary);
+
+}
+.btn-link:hover{
+    color: var(--senior);
+}
+.btn-primary{
+    background: rgba(3, 4,100, 1);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover{
+    background: rgba(3, 4,100, 0.8);
+    color: white;
+
+}
+.btn-secondary{
+    background: rgba(25, 114,120, 0.2);
+    color: var(--junior);
+    border: none !important;
+}
+.btn-secondary:hover{
+
+    background:rgba(224, 138,30, 0.2);
+    color: var(--secondary);
+    border: none!important;
+}
+.btn-view{
+    background:rgba(224, 138,30, 0.2);
+    color: var(--secondary);
+    border: none!important;
+}
+.btn-view:hover{
+    background: rgba(25, 114,120, 0.2);
+
+    color: var(--junior);
+    border: none !important;
+}
+/*homepage*/
+.intro{
+    background-color: var(--slate);
+}
+.access{
+    color: var(--dark);
+    font-size: 26px !important;
+}
+.trending{
+    border-radius: 8px;
+    min-height: 320px;
+}
+.trending:hover{
+    border: 1px solid var(--primary);
+}
+.trending .title{
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 22px;
+}
+.trending:hover .title{
+    text-decoration: underline;
+}
+.trending .addition p{
+    color: black;
+}
+.companies h4{
+    color: var(--dark);
+
+}
+.companies:hover h4{
+    text-decoration: underline;
+}
+.companies p{
+
+    font-size: 18px;
+}
+.companies:hover p{
+    color: var(--primary);
+}
+.subscribe ul li{
+    color: var(--dark);
+}
+.sign{
+    background-color:var(--slate) ;
+}
+/*homepage after login*/
+.home{
+    background-color: var(--slate);
+}
+.profile-company h4{
+    color: black;
+}
+/*jobs page*/
+.hunt{
+    background-color: var(--slate);
+}
+.hunt .nav .active{
+    text-decoration: underline;
+}
+.counter{
+    background-color: rgba(2,144,161,0.1);
+}
+#sort-select{
+    border: 0px;
+    text-transform: uppercase;
+    color: black;
+    margin-left: 0px !important;
+    width:130px;
+
+
+}
+
+#sort-select:focus,  #sort-select:hover{
+    box-shadow: none;
+}
+.job-card{
+    border-radius: 10px;
+}
+.job-card:hover{
+    border: 1px solid var(--primary);
+}
+.job-card h2{
+
+    font-size: 18px;
+    color: var(--junior);
+    font-weight: 700;
+}
+.job-card small{
+    font-size: 16px;
+    margin: 4px;
+    font-weight: 500;
+    color: var(--primary);
+}
+/*admin styles*/
+.admin-nav .nav-link{
+    color: var(--primary);
+}
+.folders a{
+    color: var(--primary);
+    text-decoration: none;
+}
+.folders a:hover{
+    color: var(--bright);
+}
+.profile-change{
+    background-color: var(--primary);
+    color: white;
+}
