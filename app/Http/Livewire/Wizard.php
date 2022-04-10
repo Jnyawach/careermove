@@ -34,29 +34,39 @@ class Wizard extends Component
     {
         return view('livewire.wizard');
     }
+
+    public function employerSubmit(){
+        return redirect()->to('employer_registration');
+
+    }
+
+    public function lastStep(){
+        $this->currentStep = $this->currentStep-1;
+    }
     public function firstStepSubmit(){
+        $this->currentStep = 2;
+    }
+
+    public function stepTwoSubmit(){
         $validatedData=$this->validate([
             'name' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
-        $this->currentStep = 2;
+        $this->currentStep = 3;
     }
-    public function lastStep(){
-        $this->currentStep = $this->currentStep-1;
-    }
+    public function stepThreeSubmit(){
 
-
-    public function stepTwoSubmit(){
         $validatedData=$this->validate([
             'experienceId' => 'required|string|max:255',
             'title' => 'required|string|max:255',
 
         ]);
-        $this->currentStep = 3;
+        $this->currentStep = 4;
+
     }
-    public function stepThreeSubmit(){
+    public function stepFourSubmit(){
         $validatedData=$this->validate([
             'professionId' => 'required|array|max:255',
         ]);

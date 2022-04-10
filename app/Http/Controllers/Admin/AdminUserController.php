@@ -18,8 +18,12 @@ class AdminUserController extends Controller
     public function index()
     {
         //
-        $users=User::all();
-        return  view('admin.users.index',compact('users'));
+        $users=User::all()->count();
+        $managers=User::role('Manager')->get();
+        $employers=User::role('Employer')->count();
+        $jobseekers=User::role('User')->count();
+        return  view('admin.users.index',
+            compact('users','managers', 'employers','jobseekers'));
     }
 
     /**
@@ -133,5 +137,14 @@ class AdminUserController extends Controller
         $user->delete();
         return redirect('admin/users')
             ->with('status','User Successfully Deleted');
+    }
+
+    public function adminEmployer(){
+        $employers=User::role('Employer')->get();
+        return view('admin/users/employer',compact('employers'));
+    }
+    public function adminJobseeker(){
+        $jobseekers=User::role('User')->get();
+        return view('admin/users/jobseeker',compact('jobseekers'));
     }
 }

@@ -94,9 +94,19 @@
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
+                        @can('Edit-model')
                         <ul class="list-unstyled folders">
 
-                            <li><a href="{{route('users.index')}}" title="Admins">Users</a> </li>
+                            <li><a href="{{route('users.index')}}" title="Admins">Managers</a> </li>
+                        </ul>
+                        @endcan
+                        <ul class="list-unstyled folders">
+
+                            <li><a href="{{route('admin-employer')}}" title="Admins">Employers</a> </li>
+                        </ul>
+                        <ul class="list-unstyled folders">
+
+                            <li><a href="{{route('admin-jobseeker')}}" title="Admins">Jobseekers</a> </li>
                         </ul>
                     </div>
                 </div>
@@ -219,11 +229,11 @@
                 <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-collapseFive" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                         <ul class="list-unstyled folders">
-                            <li><a href="#" title="Admins">Policies</a> </li>
+                            <li><a href="{{route('policies.index')}}" title="Admins">Policies</a> </li>
 
                         </ul>
                         <ul class="list-unstyled folders">
-                            <li><a href="#" title="Admins">Create Policy</a> </li>
+                            <li><a href="{{route('policies.create')}}" title="Admins">Create Policy</a> </li>
 
                         </ul>
                     </div>
@@ -267,70 +277,6 @@
 
             </div>
             <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTen">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
-                        <i class="fa-solid fa-newspaper me-2"></i>News
-                    </button>
-                </h2>
-                <div id="flush-collapseTen" class="accordion-collapse collapse" aria-labelledby="flush-collapseTen" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <ul class="list-unstyled folders">
-                            <li><a href="#" title="Admins">Manage News</a> </li>
-                        </ul>
-                        <ul class="list-unstyled folders">
-                            <li><a href="#" title="Admins">Post News</a> </li>
-                        </ul>
-
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingEleven">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false"
-                            aria-controls="flush-collapseEleven">
-                        <i class="fab fa-sketch me-2"></i>Sections
-                    </button>
-                </h2>
-                <div id="flush-collapseEleven" class="accordion-collapse collapse" aria-labelledby="flush-collapseEleven" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <ul class="list-unstyled folders">
-                            <li><a href="#" title="Admins">Create Sections</a> </li>
-
-                        </ul>
-
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwelve">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false"
-                            aria-controls="flush-collapseTwelve">
-                        <i class="fas fa-gift me-2"></i>Resources
-                    </button>
-                </h2>
-                <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-collapseTwelve" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <ul class="list-unstyled folders">
-                            <li><a href="#" title="Admins">Organize Resources</a> </li>
-
-                        </ul>
-                        <ul class="list-unstyled folders">
-                            <li><a href="#" title="Admins">Create Resources</a> </li>
-
-                        </ul>
-
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingThirteen">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThirteen" aria-expanded="false"
                             aria-controls="flush-headingThirteen">
@@ -340,11 +286,11 @@
                 <div id="flush-collapseThirteen" class="accordion-collapse collapse" aria-labelledby="flush-collapseTwelve" data-bs-parent="#flush-collapseThirteen">
                     <div class="accordion-body">
                         <ul class="list-unstyled folders">
-                            <li><a href="#" title="Admins">View Open Positions</a> </li>
+                            <li><a href="{{route('jobs.index')}}" title="Admins">View Job Listings</a> </li>
 
                         </ul>
                         <ul class="list-unstyled folders">
-                            <li><a href="#" title="Admins">Create Open Positions</a> </li>
+                            <li><a href="{{route('jobs.create')}}" title="Admins">Add Listings</a> </li>
 
                         </ul>
 

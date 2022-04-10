@@ -102,12 +102,30 @@ input[type=text],input[type=email],input[type=password]{
 input[type=text]:focus,input[type=email]:focus, select:focus{
     box-shadow: none !important;
 }
-select{
+select {
     background-color: white !important;
     height: 45px;
-
-
 }
+.ck-editor__editable {
+    min-height: 500px;
+}
+.ck-content .text-tiny {
+    font-size: 0.7em;
+}
+
+.ck-content .text-small {
+    font-size: 0.85em;
+}
+
+.ck-content .text-big {
+    font-size: 1.4em;
+}
+
+.ck-content .text-huge {
+    font-size: 1.8em;
+}
+
+
 ::placeholder {
     font-size: 18px !important;
     font-weight: 100 !important;

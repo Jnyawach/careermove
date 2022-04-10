@@ -4,102 +4,124 @@
     <link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet">
 @endsection
 @section('content')
-    <section>
+    <section class="p-5">
         <div class="row">
-            <div class="col-12 p-5">
-                <h2>Users</h2>
-                <hr>
-                <section>
-                    <div class="row">
-                        <div class="col-12 mx-auto">
-                            @include('includes.status')
-                            <div class="card shadow-sm">
-                                <div class="card-header p-3">
-                                    <h5 style="font-size: 18px">Users<span class="float-end fw-bold">Total:
-                                            {{$users->count()}}</span></h5>
-                                </div>
-                                <div class="card-body">
-                                    <table id="table_id4" class="display">
-                                        <thead>
-                                        <tr>
-                                            <th>User Id</th>
-                                            <th>Name</th>
-                                            <th>Registration date</th>
-                                            <th>Email</th>
-                                            <th>Role</th>
-                                            <th>Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @if($users->count()>0)
-                                            @foreach($users as $user)
-                                                <tr>
-                                                    <td>{{$user->id}}</td>
-                                                    <td>{{$user->name}}</td>
-                                                    <td>{{$user->created_at->isoFormat('MMM Do Y')}}</td>
-                                                    <td>{{$user->email}}</td>
-                                                    <td>{{$user->getRoleNames()->first()}}</td>
-                                                    <td>
-                                                        <!---remember to use auth for super admin-->
-                                                        <div class="dropdown">
-                                                            <button class="btn  p-0 m-0 dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                                                See action
-                                                            </button>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a class="dropdown-item" href="{{route('users.show',$user->id)}}">
-                                                                        View <i class="fas fa-external-link-square-alt ms-2"></i>
-                                                                  </a>
-                                                                </li>
-                                                                @can('Edit-model')
-                                                                    <li><a class="dropdown-item" href="{{route('users.edit',$user->id)}}">
-                                                                    Edit <i class="fas fa-bookmark ms-2"></i></a>
-                                                                    </li>
-
-                                                                    <li>
-                                                                        <form method="POST" action="{{route('users.destroy', $user->id)}}">
-                                                                            @method('DELETE')
-                                                                            @csrf
-                                                                            <input type="hidden" name="user_id"  value="{{$user->id}}">
-                                                                            <button type="submit"  class="btn text-danger">Delete
-                                                                                    <i class="far fa-trash-alt ms-2"></i>
-                                                                            </button>
-                                                                        </form>
-                                                                    </li>
-                                                                @endcan
-                                                            </ul>
-                                                        </div>
-
-                                                    </td>
-
-
-                                                </tr>
-
-                                            @endforeach
-                                        @endif
-                                        </tbody>
-                                        <tfoot>
-                                        <th>User Id</th>
-                                        <th>Name</th>
-                                        <th>Registration date</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>Action</th>
-                                        </tfoot>
-
-                                    </table>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="{{route('users.create')}}">Add User</a>
-                                </div>
-                            </div>
-
-
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h1>{{$users}}</h1>
                         </div>
+                        <h5>Total Users</h5>
                     </div>
-                </section>
+
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h1>{{$managers->count()}}</h1>
+                        </div>
+                        <h5>Managers</h5>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h1>{{$employers}}</h1>
+                        </div>
+                        <h5>Employers
+                        <a href="{{route('admin-employer')}}" class="float-end">See all</a> </h5>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h1>{{$jobseekers}}</h1>
+                        </div>
+                        <h5>Jobseekers
+                            <a href="{{route('admin-jobseeker')}}" class="float-end">See all</a> </h5>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        @include('includes.status')
+        <div class="card mt-5">
+            <div class="card-header">
+                <h5>Managers</h5>
+            </div>
+            <div class="card-body">
+                <table id="table_id4" class="display">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>EMAIL</th>
+                        <th>CREATED ON</th>
+                        <th>ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($managers as $manager)
+                        <tr>
+                            <td>{{$manager->id}}</td>
+                            <td>{{$manager->name}}</td>
+                            <td>{{$manager->email}}</td>
+                            <td>{{$manager->created_at->diffForHumans()}}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <h5 id="roleButton" class="dropdown-toggle fw-bold fs-6"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false" style="cursor: pointer">Action</h5>
+                                    <ul class="dropdown-menu" aria-labelledby="roleButton">
+                                        <li><a class="dropdown-item" href="{{route('users.show',$manager->id)
+                                        }}">View</a></li>
+                                        @can('Edit-model')
+                                        <li><a class="dropdown-item" href="{{route('users.edit',$manager->id)
+                                        }}">Edit</a></li>
+
+                                        <li>
+                                            <form action="{{route('users.destroy',$manager->id)}}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="dropdown-item text-danger">
+                                                    delete
+                                                </button>
+                                            </form>
+                                        </li>
+                                        @endcan
+                                    </ul>
+                                </div>
+
+
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>EMAIL</th>
+                        <th>CREATED ON</th>
+                        <th>ACTION</th>
+                    </tr>
+                    </tfoot>
+                </table>
 
             </div>
         </div>
+
+
     </section>
 @endsection
 @section('scripts')

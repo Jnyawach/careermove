@@ -30,4 +30,8 @@ class Profession extends Model
     public function users(){
         return $this->belongsToMany(User::class);
     }
+
+    public function subscriber(){
+        return $this->belongsToMany(Subscriber::class);
+    }
 }
