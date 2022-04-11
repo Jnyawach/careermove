@@ -12,7 +12,8 @@
                 'industries'=>$industries,
                 'companies'=>$companies,
                 'locations'=>$locations,
-                'experiences'=>$experiences])
+                'experiences'=>$experiences,
+                'types'=>$types])
             </div>
 
         </div>

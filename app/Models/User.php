@@ -49,7 +49,10 @@ class User extends Authenticatable
     public function profession(){
         return $this->belongsToMany(Profession::class);
     }
-    public function employers(){
-        return $this->hasMany(Employer::class);
+    public function employer(){
+        return $this->hasOne(Employer::class);
+    }
+    public function companies(){
+        return $this->belongsToMany(Company::class);
     }
 }

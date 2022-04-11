@@ -29,49 +29,10 @@
                             <td>{{$job->title}}</td>
                             <td>{{$job->created_at->diffForHumans()}}</td>
                             <td>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-link text-decoration-none" data-bs-toggle="modal"
-                                        data-bs-target="#statusModel{{$job->id}}">
+                                <a href="{{route('jobs.show', $job->slug)}}" class="btn btn-link p-0 m-0 text-decoration-none">
                                     {{$job->status->name}}<i class="fa-solid fa-square-pen ms-2"></i>
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="statusModel{{$job->id}}" tabindex="-1"
-                                     aria-labelledby="statusModel{{$job->id}}Label" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="statusModel{{$job->id}}Label">Change Job
-                                                    Status</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" action="{{route('jobs.update',$job->id)}}"
-                                                      id="status{{$job->id}}">
-                                                    @method('PATCH')
-                                                    @csrf
-                                                    <h6>Set Status to:</h6>
-                                                    @foreach($statuses as $id=>$status)
-                                                        <div class="form-check mt-3">
-                                                            <input class="form-check-input" type="radio"
-                                                                   name="status_id" value="{{$id}}" required>
-                                                            <label class="form-check-label " for="experience{{$id}}">
-                                                                {{$status}}
-                                                            </label>
-                                                        </div>
-                                                    @endforeach
-                                                    @error('lastName') <span class="error">{{ $message }}</span> @enderror<br>
-
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-
-                                                <button type="submit" class="btn btn-primary" form="status{{$job->id}}">Save
-                                                    changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></td>
+                                </a>
+                            </td>
                             <td>
                                 <div class="dropdown">
                                     <h5 id="roleButton" class="dropdown-toggle fw-bold fs-6"

@@ -17,6 +17,13 @@ use App\Http\Controllers\Admin\AdminJobsController;
 /*General*/
 use App\Http\Controllers\General\ContactController;
 use App\Http\Controllers\General\EmployerRegister;
+use App\Http\Controllers\General\ListingsController;
+
+/*Employer*/
+use App\Http\Controllers\Employer\EmployerController;
+use App\Http\Controllers\Employer\EmployerCompany;
+use App\Http\Controllers\Employer\EmployerCareerController;
+use App\Http\Controllers\Employer\EmployerProfileController;
 
 
 Route::get('/', function () {
@@ -32,7 +39,7 @@ Route::group(['middleware'=>['auth']],function (){
     Route::resource('admin/policies',AdminPolicyController::class);
     Route::resource('admin/companies',AdminCompanyController::class);
     Route::resource('admin/messages',AdminMessageController::class);
-    Route::get('admin/users/employer',  [AdminUserController::class, 'adminEmployer'])->name('admin-employer');
+    Route::get('admin/users/employers',  [AdminUserController::class, 'adminEmployer'])->name('admin-employers');
     Route::get('admin/users/jobseeker',  [AdminUserController::class, 'adminJobseeker'])->name('admin-jobseeker');
     Route::resource('admin/users',AdminUserController::class);
     Route::resource('admin/location',AdminLocationController::class);
@@ -44,8 +51,20 @@ Route::group(['middleware'=>['auth']],function (){
 });
 
 Route::group([],function (){
+    Route::resource('listings',ListingsController::class);
     Route::resource('contact',ContactController::class);
     Route::get('employer_registration',EmployerRegister::class);
+
+});
+Route::group(['middleware'=>['auth']],function (){
+    Route::get('employers/profile',['as'=>'profile.index', 'uses'=>EmployerProfileController::class]);
+    Route::get('employers/careers/blocked',  [EmployerCareerController::class, 'careersBlocked'])->name('careers-blocked');
+    Route::get('employers/careers/inactive',  [EmployerCareerController::class, 'careersInactive'])->name('careers-inactive');
+    Route::get('employers/careers/active',  [EmployerCareerController::class, 'careersActive'])->name('careers-active');
+    Route::get('employers/careers/pending',  [EmployerCareerController::class, 'careersPending'])->name('careers-pending');
+    Route::resource('employers/careers',EmployerCareerController::class);
+    Route::resource('employers/organizations',EmployerCompany::class);
+    Route::resource('employers',EmployerController::class);
 
 });
 

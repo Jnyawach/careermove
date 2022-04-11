@@ -2,12 +2,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
+    <link rel = "icon" href =
+        "{{asset('images/careermove-icon.png')}}"
+          type = "image/x-icon">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel = "icon" href =
-        "{{asset('images/careermove-icon-01.jpg')}}"
-          type = "image/x-icon">
+
     <title>Careermove:@yield('title')</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -102,7 +103,7 @@
                         @endcan
                         <ul class="list-unstyled folders">
 
-                            <li><a href="{{route('admin-employer')}}" title="Admins">Employers</a> </li>
+                            <li><a href="{{route('admin-employers')}}" title="Admins">Employers</a> </li>
                         </ul>
                         <ul class="list-unstyled folders">
 

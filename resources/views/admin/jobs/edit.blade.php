@@ -13,7 +13,8 @@
                 'companies'=>$companies,
                 'locations'=>$locations,
                 'experiences'=>$experiences,
-                'job'=>$job])
+                'job'=>$job,
+                'types'=>$types])
             </div>
 
         </div>

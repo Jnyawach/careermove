@@ -29,6 +29,9 @@ class Company extends Model implements HasMedia
     public function location(){
         return $this->belongsTo(Location::class);
     }
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('logo-icon')

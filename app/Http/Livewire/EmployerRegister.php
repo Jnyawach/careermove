@@ -30,7 +30,7 @@ class EmployerRegister extends Component
     }
     public function render()
     {
-        return view('livewire.employer-register');
+        return view('livewire.employers-register');
     }
 
     public function createEmployer(){
@@ -39,7 +39,7 @@ class EmployerRegister extends Component
             'email' => $this->email,
             'password' => Hash::make($this->password),
         ]);
-        $user->employers()->create([
+        $user->employer()->create([
             'organization'=>$this->organization,
             'cellphone'=>$this->cellphone,
             'lastName'=>$this->lastName,

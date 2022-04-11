@@ -87,6 +87,20 @@
                         @error('industryId') <span class="error">{{ $message }}</span> @enderror<br>
 
                     </div>
+
+                    <div class="col-md-4 col-lg-3 p-2">
+                        <label for="typeId" class="control-label">Job Type:</label>
+                        <select class="form-select mt-2" required name="typeId"
+                                wire:model.lazy="typeId" id="typeId">
+                            <option selected  value="">Select Job Type</option>
+                            @foreach($types as$type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
+
+                        </select>
+                        @error('typeId') <span class="error">{{ $message }}</span> @enderror<br>
+
+                    </div>
                 </div>
 
                 <div class="form-group mt-2 row">

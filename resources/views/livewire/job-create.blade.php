@@ -26,7 +26,7 @@
                         @endforeach
 
                     </select>
-                    <small>Didn't find your Company?<a href="#">Add company</a> </small>
+                    <small>Didn't find your Company?<a href="{{route('companies.create')}}">Add company</a> </small>
                     @error('companyId') <span class="error">{{ $message }}</span> @enderror<br>
 
                 </div>
@@ -87,6 +87,20 @@
                     @error('industryId') <span class="error">{{ $message }}</span> @enderror<br>
 
                 </div>
+
+                <div class="col-md-4 col-lg-3 p-2">
+                    <label for="typeId" class="control-label">Job Type:</label>
+                    <select class="form-select mt-2" required name="typeId"
+                            wire:model.lazy="typeId" id="typeId">
+                        <option selected  value="">Select Job Type</option>
+                        @foreach($types as$type)
+                            <option value="{{$type->id}}">{{$type->name}}</option>
+                        @endforeach
+
+                    </select>
+                    @error('typeId') <span class="error">{{ $message }}</span> @enderror<br>
+
+                </div>
             </div>
 
             <div class="form-group mt-2 row">
@@ -100,12 +114,12 @@
 
             </div>
             <div class="form-group mt-2 row">
-                <div class="col-8 col-sm-4 col-lg-2">
+                <div class="col-8 col-sm-4 col-lg-3">
                     <label for="link" class="control-label">Deadline:</label>
                     <input type="date" name="deadline" wire:model.lazy="deadline" id="deadline" required
                            class="form-control mt-2">
                     <small>Enter application deadline</small>
-                    @error('link') <span class="error">{{ $message }}</span> @enderror<br>
+                    @error('deadline') <span class="error">{{ $message }}</span> @enderror<br>
                 </div>
             </div>
 

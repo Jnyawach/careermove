@@ -141,7 +141,7 @@ class AdminUserController extends Controller
 
     public function adminEmployer(){
         $employers=User::role('Employer')->get();
-        return view('admin/users/employer',compact('employers'));
+        return view('admin/users/employers',compact('employers'));
     }
     public function adminJobseeker(){
         $jobseekers=User::role('User')->get();

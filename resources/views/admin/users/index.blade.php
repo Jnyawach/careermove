@@ -35,7 +35,7 @@
                             <h1>{{$employers}}</h1>
                         </div>
                         <h5>Employers
-                        <a href="{{route('admin-employer')}}" class="float-end">See all</a> </h5>
+                        <a href="{{route('admin-employers')}}" class="float-end">See all</a> </h5>
                     </div>
 
                 </div>

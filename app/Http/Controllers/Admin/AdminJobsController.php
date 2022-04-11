@@ -10,7 +10,9 @@ use App\Models\Job;
 use App\Models\Location;
 use App\Models\Profession;
 use App\Models\Status;
+use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminJobsController extends Controller
 {
@@ -35,13 +37,14 @@ class AdminJobsController extends Controller
     public function create()
     {
         //
+        $types=Type::all();
         $experiences=Experience::orderBy('name')->get();
         $industries=Industry::orderBy('name')->get();
         $professions=Profession::orderBy('name')->get();
         $locations=Location::orderBy('name')->get();
         $companies=Company::orderBy('name')->get();
         return  view('admin.jobs.create', compact('experiences',
-        'professions','locations','companies','industries'));
+        'professions','locations','companies','industries','types'));
     }
 
     /**
@@ -64,6 +67,9 @@ class AdminJobsController extends Controller
     public function show($id)
     {
         //
+        $statuses=Status::pluck('name','id');
+        $job=Job::findBySlugOrFail($id);
+        return  view('admin.jobs.show', compact('job','statuses'));
     }
 
     /**
@@ -75,6 +81,7 @@ class AdminJobsController extends Controller
     public function edit($id)
     {
         //
+        $types=Type::all();
         $job=Job::findOrFail($id);
         $experiences=Experience::orderBy('name')->get();
         $industries=Industry::orderBy('name')->get();
@@ -82,7 +89,7 @@ class AdminJobsController extends Controller
         $locations=Location::orderBy('name')->get();
         $companies=Company::orderBy('name')->get();
         return  view('admin.jobs.edit', compact('experiences',
-            'professions','locations','companies','industries','job'));
+            'professions','locations','companies','industries','job','types'));
     }
 
     /**
@@ -92,11 +99,25 @@ class AdminJobsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //
         $job=Job::findOrFail($id);
+        $validated=$request->validate([
+            'status_id' => ['required', 'integer', 'max:10'],
+            'reason' => ['required_if:status_id,==,4'],
+
+        ],[
+            'reason.required_if'=>'Required when blocking a Job listing'
+        ]);
         $job->update(['status_id'=>$request->status_id]);
+        if ($request->status_id==4){
+            $job->blocks()->create([
+                'reason'=>$validated['reason'],
+                'user_id'=>Auth::id(),
+            ]);
+        }
         return redirect()->back()
             ->with('status','Status Updated');
     }
@@ -112,7 +133,7 @@ class AdminJobsController extends Controller
         //
         $job=Job::findOrFail($id);
         $job->delete();
-        return redirect()->back()
+        return redirect()->to('admin/jobs')
             ->with('status','Job Listing Deleted Successfully');
     }
 

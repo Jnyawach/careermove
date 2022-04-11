@@ -10,7 +10,7 @@ class JobCreate extends Component
 {
     public $title, $industryId,$professionId,$companyId,$deadline,
     $locationId, $experienceId,$tags,$link,$content,$industries,$locations,
-    $companies,$professions, $experiences,$user_id;
+    $companies,$professions, $experiences,$user_id,$types,$typeId;
     public $success=false;
     public $currentStep=1;
     public function lastStep(){
@@ -26,6 +26,7 @@ class JobCreate extends Component
             'link'=>'nullable|string|max:255',
             'deadline'=>'required|string|max:255|date',
             'industryId' => 'required|integer|max:100',
+            'typeId' => 'required|integer|max:100',
             'professionId' => 'required|integer|max:100',
             'companyId' => 'required|integer|max:100',
             'experienceId' => 'required|integer|max:100',
@@ -48,6 +49,7 @@ class JobCreate extends Component
             'user_id'=>Auth::id(),
             'experience_id'=>$this->experienceId,
             'profession_id'=>$this->professionId,
+            'type_id'=>$this->typeId,
             'location_id'=>$this->locationId,
             'industry_id'=>$this->industryId,
             'company_id'=>$this->companyId,
