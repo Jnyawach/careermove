@@ -25,6 +25,10 @@ use App\Http\Controllers\Employer\EmployerCompany;
 use App\Http\Controllers\Employer\EmployerCareerController;
 use App\Http\Controllers\Employer\EmployerProfileController;
 
+/*User controller*/
+use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\Dashboard\UserAccountController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -66,6 +70,10 @@ Route::group(['middleware'=>['auth']],function (){
     Route::resource('employers/organizations',EmployerCompany::class);
     Route::resource('employers',EmployerController::class);
 
+});
+Route::group(['middleware'=>['auth']],function (){
+    Route::resource('dashboard/accounts',UserAccountController::class);
+    Route::resource('dashboard',UserController::class);
 });
 
 Auth::routes();

@@ -7,8 +7,8 @@
           type = "image/x-icon">
     <title>Careermove:@yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="css/awesome/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link href="{{asset('css/awesome/css/all.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
     @yield('styles')
 </head>
 <body>
@@ -20,7 +20,7 @@
                 <a class="navbar-brand me-5" href="/">
                     <!--<img src="images/excel-logo.png" class="img-fluid" alt="careermove-logo"
                     style="width: 200px">-->
-                    <h2>Careermove</h2>
+                    <h2 class="nav-logo">Careermove</h2>
                 </a>
 
                 <div class="navbar-collapse">
@@ -35,12 +35,58 @@
                     </ul>
                 </div>
                 <ul class="nav justify-content-end me-4">
+                    @auth()
+                        <li class="nav-item pe-5">
+                            <div class="dropdown">
+                                <button class="btn btn-link dropdown-toggle fw-bold text-uppercase  text-decoration-none"
+                                        type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-regular fa-user"></i> {{Auth::user()->name}}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li>
+                                        @role('User')
+                                        <a class="dropdown-item" href="{{route('dashboard.index')}}">Dashboard</a>
+                                       @endrole
+                                        @role('Employer')
+                                        <a class="dropdown-item" href="{{route('employers.index')}}">Dashboard</a>
+                                        @endrole
+                                        @role('Manager|super-admin')
+                                        <a class="dropdown-item" href="{{route('admin.index')}}">Dashboard</a>
+                                        @endrole
+
+                                    </li>
+                                    <li><hr class="dropdown-divider"> </li>
+                                    <li>
+                                        @role('User')
+                                        <a class="dropdown-item" href="{{route('accounts.index')}}">My Profile</a>
+                                        @endrole
+                                       <!-- <a class="dropdown-item" href="#">My Profile</a>-->
+                                    </li>
+                                    <li><hr class="dropdown-divider"> </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    @endauth
+                    @guest()
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('login')}}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('careers.create')}}">Post a Job</a>
                     </li>
+                        @endguest
                 </ul>
             </div>
         </nav>

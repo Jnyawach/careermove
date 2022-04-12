@@ -31,6 +31,7 @@ body{
 
 
 }
+
 h1, h2,h3,h4,h5,h6{
     font-weight: 500;
 
@@ -58,6 +59,8 @@ a:hover{
 /*Navbar*/
 .navbar-brand h2{
     color: var(--primary);
+    font-weight: 800 !important;
+    font-family: 'Assistant', sans-serif;
 
 }
 .nav-link,.navbar-nav .nav-item .nav-link{

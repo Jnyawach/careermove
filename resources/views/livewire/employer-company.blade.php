@@ -1,5 +1,7 @@
 <div>
-    @if($companies->count()>0)
+    @if($companies->count()<=0)
+        <h5>Looks like you have no company attached to your profile</h5>
+    @endif
        <div class="mb-5">
            <h6>Please Attach company/organization to this Profile. If you don't find your
                company profile-
@@ -44,9 +46,4 @@
             </div>
             @endforeach
         </div>
-
-
-
-
-    @endif
 </div>

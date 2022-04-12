@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Employer;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Job;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class EmployerController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,7 @@ class EmployerController extends Controller
     public function index()
     {
         //
-        $jobs=Job::where('user_id',Auth::id())->get();
-        return view('employers.index', compact('jobs'));
+        return  view('dashboard.index');
     }
 
     /**
