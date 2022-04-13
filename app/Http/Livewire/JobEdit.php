@@ -10,7 +10,7 @@ class JobEdit extends Component
 {
     public $title, $industryId,$professionId,$companyId,$deadline,
         $locationId, $experienceId,$tags,$link,$content,$industries,$locations,
-        $companies,$professions, $experiences,$user_id,$job, $types,$typeId;
+        $companies,$professions, $experiences,$user_id,$job, $types,$typeId,$ranges,$rangeId;
     public $success=false;
     public $currentStep=1;
     public function lastStep(){
@@ -28,6 +28,7 @@ class JobEdit extends Component
         $this->content=$this->job->description;
         $this->tags=$this->job->tags;
         $this->typeId=$this->job->type_id;
+        $this->rangeId=$this->job->range_id;
     }
 
     public function firstStepSubmit(){
@@ -41,6 +42,7 @@ class JobEdit extends Component
             'companyId' => 'required|integer|max:100',
             'experienceId' => 'required|integer|max:100',
             'locationId' => 'required|integer|max:100',
+            'rangeId' => 'required|integer|max:100',
 
         ]);
         $this->currentStep = 2;
@@ -65,7 +67,8 @@ class JobEdit extends Component
             'company_id'=>$this->companyId,
             'description'=>$this->content,
             'deadline'=>$this->deadline,
-            'tags'=>$this->tags
+            'tags'=>$this->tags,
+            'range_id'=>$this->rangeId,
 
         ]);
 

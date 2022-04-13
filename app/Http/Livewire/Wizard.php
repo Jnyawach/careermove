@@ -59,16 +59,20 @@ class Wizard extends Component
     public function stepThreeSubmit(){
 
         $validatedData=$this->validate([
-            'experienceId' => 'required|string|max:255',
+            'experienceId' => 'required|integer|max:255',
             'title' => 'required|string|max:255',
 
         ]);
         $this->currentStep = 4;
 
     }
+    protected $messages=[
+        'professionId.max'=>'You can only select upto three categories'
+
+    ];
     public function stepFourSubmit(){
         $validatedData=$this->validate([
-            'professionId' => 'required|array|max:255',
+            'professionId' => 'required|array|max:3',
         ]);
 
         $user=User::create([

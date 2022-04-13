@@ -3,15 +3,11 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Company;
-use App\Models\Job;
-use App\Models\Profession;
 use App\Models\Wishlist;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class SavedJobsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,13 +17,8 @@ class UserController extends Controller
     public function index()
     {
         //
-        $saves=Wishlist::where('user_id',Auth::id())->limit(4)->get();
-        $professions=Auth::user()->profession()->pluck('profession_id');
-        $jobs=Job::where('status_id',2)->whereIn('profession_id',$professions)->limit(8)->get();
-        $companies=Company::whereHas('jobs', function (Builder $query){
-            $query->where('status_id',2);
-        })->limit(9)->get();
-        return  view('dashboard.index',compact('saves','jobs','companies'));
+        $saves=Wishlist::where('user_id',Auth::id())->paginate(12);
+        return  view('dashboard.saved.index',compact('saves'));
     }
 
     /**
@@ -94,5 +85,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        $save=Wishlist::findOrFail($id);
+        $save->delete();
+        return redirect()->back();
     }
 }

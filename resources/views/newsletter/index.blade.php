@@ -1,12 +1,12 @@
 @extends('layouts.main')
-@section('title','Profile')
+@section('title','Subscribe tou our Jobs Newsletter')
 @section('styles')
     @livewireStyles
 @endsection
 @section('content')
-    <section  class="p-5">
-        @livewire('user-profile',
-        ['user'=>$user])
+    <section>
+        @livewire('newsletter',
+        ['professions'=>$professions])
     </section>
 @endsection
 @section('scripts')

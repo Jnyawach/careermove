@@ -10,7 +10,7 @@ class JobCreate extends Component
 {
     public $title, $industryId,$professionId,$companyId,$deadline,
     $locationId, $experienceId,$tags,$link,$content,$industries,$locations,
-    $companies,$professions, $experiences,$user_id,$types,$typeId;
+    $companies,$professions, $experiences,$user_id,$types,$typeId,$ranges,$rangeId;
     public $success=false;
     public $currentStep=1;
     public function lastStep(){
@@ -31,6 +31,7 @@ class JobCreate extends Component
             'companyId' => 'required|integer|max:100',
             'experienceId' => 'required|integer|max:100',
             'locationId' => 'required|integer|max:100',
+            'rangeId' => 'required|integer|max:100',
 
         ]);
         $this->currentStep = 2;
@@ -56,7 +57,8 @@ class JobCreate extends Component
             'description'=>$this->content,
             'deadline'=>$this->deadline,
             'status_id'=>2,
-            'tags'=>$this->tags
+            'tags'=>$this->tags,
+            'range_id'=>$this->rangeId,
         ]);
 
         $this->clearForm();

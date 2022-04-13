@@ -78,7 +78,7 @@
                                     <tr>
                                         <td>{{$industry->id}}</td>
                                         <td>{{$industry->name}}</td>
-                                        <td>100</td>
+                                        <td>{{$industry->jobs->count()}}</td>
                                         <td>{{$industry->created_at->diffForHumans()}}</td>
                                         <td>
                                             <div class="dropdown">

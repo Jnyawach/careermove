@@ -6,7 +6,7 @@
             <div class="col-11 mx-auto">
                 <h1 class="">Discover you next Career move</h1>
                 <p class="mt-2 access">Get unlimited access to over a 10000+ jobs</p>
-                <a href="#" class="btn btn-primary m-2">
+                <a href="{{route('listings.index')}}" class="btn btn-primary m-2">
                     Browse All Jobs <i class="fa-solid fa-angle-right ms-3"></i>
                 </a>
             </div>
@@ -16,243 +16,128 @@
         <div class="row">
             <div class="col-11 mx-auto">
                 <h2 class="fs-5 text-uppercase">Trending jobs
-                    <a href="#" class="float-end text-decoration-none fs-6"><i class="fa-solid fa-list
+                    <a href="{{route('listings.index')}}" class="float-end text-decoration-none fs-6"><i
+                            class="fa-solid fa-list
                    me-3"></i>View
                         all</a>
                 </h2>
 
                 <div class="row mt-5">
+                    @foreach($jobs as $job)
                     <div class="col-sm-6 col-md-4 col-lg-3 p-2">
-                        <a href="#" title="Job title" class="text-decoration-none">
+                        <a href="{{route('listings.show',$job->slug)}}" title="{{$job->title}}"
+                           class="text-decoration-none">
                             <div class="card trending">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-7">
-                                            <p class="p-0 m-0 fs-6"><span>Closing in 7days</span></p>
+                                        <div class="col-9">
+                                            <small class="p-0 m-0 fs-6 fw-bold"><span>{{\Carbon\Carbon::parse
+                                            ($job->deadline)->diffForHumans()
+                                            }}</span></small>
                                         </div>
-                                        <div class="col-5 text-end">
-                                            <form>
-                                                <button type="submit" title="save job" class="btn btn-link m-0 p-0">
-                                                    <i class="fa-regular fa-heart"></i>
+                                        <div class="col-3 text-end">
+                                            @if(Auth::user()->wishlist->where('job_id',$job->id)->count()>0)
+                                                <button type="button"  class="btn btn-link m-0 p-0">
+                                                    <i class="fa-solid fa-heart"></i>
                                                 </button>
-                                            </form>
+                                            @else
+                                                @include('includes.save')
+                                            @endif
 
                                         </div>
                                     </div>
 
-                                    <h6>Old Mutual</h6>
-                                    <p class="fs-5 title">Full Time Warehouse Worker- Freight Handler</p>
+
+                                    <h6>{{$job->company->name}}</h6>
+                                    <p class="fs-5 title">{{$job->title}}</p>
                                     <div class="addition">
-                                        <p><i class="fa-solid fa-money-bill me-2"></i>Unspecified</p>
-                                        <p><i class="fa-solid fa-location-crosshairs me-2"></i>Nairobi, Kenya</p>
-                                        <p><i class="fa-solid fa-briefcase me-2"></i>Full-time</p>
+                                        <p><i class="fa-solid fa-money-bill me-2"></i>{{$job->range->name}}</p>
+                                        <p><i class="fa-solid fa-location-crosshairs
+                                        me-2"></i>{{$job->location->name}},Kenya</p>
+                                        <p><i class="fa-solid fa-briefcase me-2"></i>{{$job->type->name}}</p>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
 
 
     </section>
+@if($companies->count()>0)
     <section class="mt-5">
         <div class="row">
             <div class="col-11 mx-auto">
-                <h2 class="fs-3">Companies Hiring today</h2>
+                <h2 class="fs-5 text-uppercase">Companies Hiring Today
+                    <a href="{{route('hiring.index')}}" class="float-end text-decoration-none fs-6"><i
+                            class="fa-solid fa-list
+                   me-3"></i>View
+                        all</a>
+                </h2>
                 <div class="row mt-5">
-                    <div class="col-sm-10 col-md-6 col-lg-4 p-3">
-                        <a href="#" title="Company name" class="text-decoration-none">
-                            <div class="companies">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img src="images/companies-02.jpg" class="img-fluid img-thumbnail"
-                                             alt="company name" title="company name">
+                   @foreach($companies as $company)
+                        <div class="col-sm-6 col-md-4 col-lg-3 p-1">
+                            <a href="{{route('hiring.show',$company->slug)}}" title="{{$company->name}}"
+                               class="text-decoration-none">
+                                <div class="profile-company">
+                                    <div class="card p-2 text-center">
+                                        <img src="{{asset($company->getFirstMediaUrl('logo')
+                                        ?$company->getFirstMediaUrl('logo'):'company-icon.jpg')}}" class="img-fluid mx-auto"
+                                             alt="{{$company->name}}" style="width: 60px">
+                                        <h4 class="fs-6">{{$company->name}}</h4>
+                                        <small class="fs-6 text-dark fw-bold">Open Positions {{$company->jobs->count()
+                                        }}</small>
                                     </div>
-                                    <div class="col-9 pt-2">
-                                        <h4 class="fs-5">Telkom kenya</h4>
-                                        <p>Positions: 16 &nbsp;Nairobi, Kenya.</p>
 
-                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
 
-                    </div>
-
-                    <div class="col-sm-10 col-md-6 col-lg-4 p-3">
-                        <a href="#" title="Company name" class="text-decoration-none">
-                            <div class="companies">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img src="images/companies-01.jpg" class="img-fluid img-thumbnail"
-                                             alt="company name" title="company name">
-                                    </div>
-                                    <div class="col-9 pt-2">
-                                        <h4 class="fs-5">Nairobi Metropolitan Services</h4>
-                                        <p>Positions: 4 &nbsp;Nairobi, Kenya.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-sm-10 col-md-6 col-lg-4 p-3">
-                        <a href="#" title="Company name" class="text-decoration-none">
-                            <div class="companies">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img src="images/companies-03.jpg" class="img-fluid img-thumbnail"
-                                             alt="company name" title="company name">
-                                    </div>
-                                    <div class="col-9 pt-2">
-                                        <h4 class="fs-5">Airtel Kenya</h4>
-                                        <p>Positions: 1 &nbsp;Nairobi, Kenya.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-sm-10 col-md-6 col-lg-4 p-3">
-                        <a href="#" title="Company name" class="text-decoration-none">
-                            <div class="companies">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img src="images/companies-04.jpg" class="img-fluid img-thumbnail"
-                                             alt="company name" title="company name">
-                                    </div>
-                                    <div class="col-9 pt-2">
-                                        <h4 class="fs-5">Lightstone</h4>
-                                        <p>Positions: 4 &nbsp;Nairobi, Kenya.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-sm-10 col-md-6 col-lg-4 p-3">
-                        <a href="#" title="Company name" class="text-decoration-none">
-                            <div class="companies">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img src="images/companies-05.jpg" class="img-fluid img-thumbnail"
-                                             alt="company name" title="company name">
-                                    </div>
-                                    <div class="col-9 pt-2">
-                                        <h4 class="fs-5">M-kopa</h4>
-                                        <p>Positions: 2 &nbsp;Kisumu, Kenya.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-sm-10 col-md-6 col-lg-4 p-3">
-                        <a href="#" title="Company name" class="text-decoration-none">
-                            <div class="companies">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img src="images/companies-06.jpg" class="img-fluid img-thumbnail"
-                                             alt="company name" title="company name">
-                                    </div>
-                                    <div class="col-9 pt-2">
-                                        <h4 class="fs-5">Optica Africa</h4>
-                                        <p>Positions: 4 &nbsp;Nairobi, Kenya.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-sm-10 col-md-6 col-lg-4 p-3">
-                        <a href="#" title="Company name" class="text-decoration-none">
-                            <div class="companies">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img src="images/companies-07.jpg" class="img-fluid img-thumbnail"
-                                             alt="company name" title="company name">
-                                    </div>
-                                    <div class="col-9 pt-2">
-                                        <h4 class="fs-5">Twiga Foods</h4>
-                                        <p>Positions: 4 &nbsp;Nairobi, Kenya.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-sm-10 col-md-6 col-lg-4 p-3">
-                        <a href="#" title="Company name" class="text-decoration-none">
-                            <div class="companies">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img src="images/companies-08.jpg" class="img-fluid img-thumbnail"
-                                             alt="company name" title="company name">
-                                    </div>
-                                    <div class="col-9 pt-2">
-                                        <h4 class="fs-5">Mpesa</h4>
-                                        <p>Positions: 4 &nbsp;Nairobi, Kenya.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                    <div class="col-sm-10 col-md-6 col-lg-4 p-3">
-                        <a href="#" title="Company name" class="text-decoration-none">
-                            <div class="companies">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <img src="images/companies-09.jpg" class="img-fluid img-thumbnail"
-                                             alt="company name" title="company name">
-                                    </div>
-                                    <div class="col-9 pt-2">
-                                        <h4 class="fs-5">Safaricom</h4>
-                                        <p>Positions: 4 &nbsp;Nairobi, Kenya.</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
 
             </div>
         </div>
     </section>
+    @endif
     <section class="mt-5 sign p-4">
         <div class="row">
             <div class="col-11 mx-auto">
                 <div class="subscribe">
+                    @guest()
                     <div class="row">
                         <div class="col-md-8 mx-auto">
-                            <h1 class="fs-1">Never Miss a Chance...</h1>
+                            <h1 class="fs-1">Never miss a Chance...</h1>
                             <p class="fs-4 mt-3"><mark>Sign up for free.</mark> Never miss out a thing. Latest job
                                 listings, career insights and company reviews</p>
-
-
                         </div>
                         <div class="col-md-3 mx-auto align-self-center text-end">
-                            <a href="#" title="Sign Up" class="btn btn-primary m-2">
+                            <a href="{{route('register')}}" title="Sign Up" class="btn btn-primary m-2">
                                 Sign up<i class="fa-solid fa-angle-right ms-3"></i></a>
                         </div>
                     </div>
-
-
-
+                    @endguest
+                    @auth()
+                            <div class="row">
+                                <div class="col-md-8 mx-auto">
+                                    <h1 class="fs-1">Never miss this Opportunity...</h1>
+                                    <p class="fs-4 mt-3"><mark>Subscribe.</mark> Never miss out a thing. Latest job
+                                        listings, career insights and company reviews</p>
+                                </div>
+                                <div class="col-md-3 mx-auto align-self-center text-end">
+                                    <a href="{{route('newsletter.index')}}" title="Subscribe to our Newsletter"
+                                       class="btn btn-primary m-2">
+                                        Subscribe<i class="fa-solid fa-angle-right ms-3"></i></a>
+                                </div>
+                            </div>
+                        @endauth
                 </div>
             </div>
         </div>
     </section>
 @endsection
+
 

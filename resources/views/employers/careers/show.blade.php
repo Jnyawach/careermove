@@ -28,7 +28,8 @@
                                     ($job->deadline)->diffForHumans()  }}</small>
                 <small><i class="fa-solid fa-bookmark"></i> {{$job->type->name}}</small>
                 <small><i class="fa-solid fa-user-tie"></i> {{$job->profession->name}}</small>
-                <small><i class="fa-solid fa-industry"></i> {{$job->industry->name}}</small><br>
+                <small><i class="fa-solid fa-industry"></i> {{$job->industry->name}}</small>
+                <small><i class="fa-solid fa-money-bill me-2"></i>{{$job->range->name}}</small><br>
                 <p>Status: <span>{{$job->status->name}}</span></p>
 
                 <a href="{{route('careers.edit',$job->id)}}" class="btn btn-view mt-2">

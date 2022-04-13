@@ -78,7 +78,7 @@
                                     <tr>
                                         <td>{{$profession->id}}</td>
                                         <td>{{$profession->name}}</td>
-                                        <td>100</td>
+                                        <td>{{$profession->jobs->count()}}</td>
                                         <td>{{$profession->created_at->diffForHumans()}}</td>
                                         <td>
                                             <div class="dropdown">

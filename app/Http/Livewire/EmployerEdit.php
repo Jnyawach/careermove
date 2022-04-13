@@ -10,7 +10,7 @@ class EmployerEdit extends Component
 {
     public $title, $industryId,$professionId,$companyId,$deadline,
         $locationId, $experienceId,$tags,$link,$content,$industries,$locations,
-        $companies,$professions, $experiences,$user_id,$job, $types,$typeId;
+        $companies,$professions, $experiences,$user_id,$job, $types,$typeId,$ranges,$rangeId;
     public $success=false;
     public $currentStep=1;
     public function lastStep(){
@@ -27,6 +27,7 @@ class EmployerEdit extends Component
         $this->deadline=$this->job->deadline;
         $this->content=$this->job->description;
         $this->tags=$this->job->tags;
+        $this->rangeId=$this->job->range_id;
         $this->typeId=$this->job->type_id;
     }
 
@@ -41,6 +42,7 @@ class EmployerEdit extends Component
             'companyId' => 'required|integer|max:100',
             'experienceId' => 'required|integer|max:100',
             'locationId' => 'required|integer|max:100',
+            'rangeId' => 'required|integer|max:100',
 
         ]);
         $this->currentStep = 2;
@@ -67,6 +69,7 @@ class EmployerEdit extends Component
             'deadline'=>$this->deadline,
             'tags'=>$this->tags,
             'status_id'=>1,
+            'range_id'=>$this->rangeId,
 
         ]);
         $this->success="Job Listing Updated Successfully";

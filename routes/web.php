@@ -18,6 +18,9 @@ use App\Http\Controllers\Admin\AdminJobsController;
 use App\Http\Controllers\General\ContactController;
 use App\Http\Controllers\General\EmployerRegister;
 use App\Http\Controllers\General\ListingsController;
+use App\Http\Controllers\General\HiringController;
+use App\Http\Controllers\General\NewsLetterController;
+
 
 /*Employer*/
 use App\Http\Controllers\Employer\EmployerController;
@@ -25,14 +28,14 @@ use App\Http\Controllers\Employer\EmployerCompany;
 use App\Http\Controllers\Employer\EmployerCareerController;
 use App\Http\Controllers\Employer\EmployerProfileController;
 
+
 /*User controller*/
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\UserAccountController;
+use App\Http\Controllers\Dashboard\SavedJobsController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::group(['middleware'=>['auth']],function (){
     Route::get('admin/jobs/pending',  [AdminJobsController::class, 'jobsPending'])->name('jobs-pending');
     Route::get('admin/jobs/active',  [AdminJobsController::class, 'jobsActive'])->name('jobs-active');
@@ -55,6 +58,8 @@ Route::group(['middleware'=>['auth']],function (){
 });
 
 Route::group([],function (){
+    Route::resource('newsletter',NewsLetterController::class);
+    Route::resource('hiring',HiringController::class);
     Route::resource('listings',ListingsController::class);
     Route::resource('contact',ContactController::class);
     Route::get('employer_registration',EmployerRegister::class);
@@ -72,10 +77,11 @@ Route::group(['middleware'=>['auth']],function (){
 
 });
 Route::group(['middleware'=>['auth']],function (){
+    Route::resource('dashboard/saved',SavedJobsController::class);
     Route::resource('dashboard/accounts',UserAccountController::class);
     Route::resource('dashboard',UserController::class);
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

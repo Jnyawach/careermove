@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
+use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class HomeController extends Controller
 {
@@ -11,10 +14,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     /**
      * Show the application dashboard.
@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $jobs=Job::where('status_id',2)->latest()->take(4)->get();
+        $companies=Company::whereHas('jobs', function (Builder $query){
+            $query->where('status_id',2);
+        })->limit(9)->get();
+        return view('welcome', compact('jobs','companies'));
     }
 }

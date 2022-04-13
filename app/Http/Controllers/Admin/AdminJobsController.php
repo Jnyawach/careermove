@@ -9,6 +9,7 @@ use App\Models\Industry;
 use App\Models\Job;
 use App\Models\Location;
 use App\Models\Profession;
+use App\Models\Range;
 use App\Models\Status;
 use App\Models\Type;
 use Illuminate\Http\Request;
@@ -43,8 +44,10 @@ class AdminJobsController extends Controller
         $professions=Profession::orderBy('name')->get();
         $locations=Location::orderBy('name')->get();
         $companies=Company::orderBy('name')->get();
+        $ranges=Range::all();
         return  view('admin.jobs.create', compact('experiences',
-        'professions','locations','companies','industries','types'));
+        'professions','locations','companies','industries','types',
+        'ranges'));
     }
 
     /**
@@ -88,8 +91,10 @@ class AdminJobsController extends Controller
         $professions=Profession::orderBy('name')->get();
         $locations=Location::orderBy('name')->get();
         $companies=Company::orderBy('name')->get();
+        $ranges=Range::all();
         return  view('admin.jobs.edit', compact('experiences',
-            'professions','locations','companies','industries','job','types'));
+            'professions','locations','companies','industries','job','types',
+        'ranges'));
     }
 
     /**

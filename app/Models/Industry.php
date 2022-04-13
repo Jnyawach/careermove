@@ -19,4 +19,8 @@ class Industry extends Model
         ];
     }
     protected $fillable=['name','status'];
+
+    public function jobs(){
+        return $this->hasMany(Job::class);
+    }
 }

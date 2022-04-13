@@ -103,12 +103,25 @@
                 </div>
 
                 <div class="form-group mt-2 row">
-                    <div class="col-8">
+                    <div class="col-md-8">
                         <label for="link" class="control-label">Application Link(optional):</label>
                         <input type="text" name="link" wire:model.lazy="link" id="link" required
                                class="form-control mt-2">
                         <small>Paste the link to the website that has listed the job.</small>
                         @error('link') <span class="error">{{ $message }}</span> @enderror<br>
+                    </div>
+                    <div class="col-md-4 col-lg-3">
+                        <label for="locationId" class="control-label">Salary Range</label>
+                        <select class="form-select mt-2" required name="locationId"
+                                wire:model.lazy="rangeId" id="rangeId">
+                            <option selected  value="">Select Salary Range</option>
+                            @foreach($ranges as $range)
+                                <option value="{{$range->id}}">{{$range->name}}</option>
+                            @endforeach
+
+                        </select>
+                        @error('rangeId') <span class="error">{{ $message }}</span> @enderror<br>
+
                     </div>
 
                 </div>
@@ -120,6 +133,7 @@
                         <small>Enter application deadline</small>
                         @error('deadline') <span class="error">{{ $message }}</span> @enderror<br>
                     </div>
+
                 </div>
 
                 <div class="form-group mt-3">

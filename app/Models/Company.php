@@ -29,6 +29,9 @@ class Company extends Model implements HasMedia
     public function location(){
         return $this->belongsTo(Location::class);
     }
+    public function jobs(){
+        return $this->hasMany(Job::class);
+    }
     public function users(){
         return $this->belongsToMany(User::class);
     }

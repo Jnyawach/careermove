@@ -12,7 +12,7 @@ class Job extends Model
     use HasFactory, Sluggable, SluggableScopeHelpers;
     protected $fillable=['status_id','title','industry_id',
         'profession_id','description','link','deadline','company_id',
-        'location_id','experience_id','user_id','tags', 'type_id'];
+        'location_id','experience_id','user_id','tags', 'type_id','range_id'];
     /* Return the sluggable configuration array for this model.
     *
     * @return array
@@ -37,6 +37,10 @@ class Job extends Model
         return $this->belongsTo(Company::class);
 
     }
+    public function range(){
+        return $this->belongsTo(Range::class);
+
+    }
 
     public function industry(){
         return $this->belongsTo(Industry::class);
@@ -44,6 +48,9 @@ class Job extends Model
 
     public function tags(){
         return $this->hasMany(Tag::class);
+    }
+    public function wishlist(){
+        return $this->hasMany(Wishlist::class);
     }
     public function location(){
         return $this->belongsTo(Location::class);

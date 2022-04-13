@@ -1,17 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
-use App\Models\Company;
-use App\Models\Job;
 use App\Models\Profession;
-use App\Models\Wishlist;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class NewsLetterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,13 +16,8 @@ class UserController extends Controller
     public function index()
     {
         //
-        $saves=Wishlist::where('user_id',Auth::id())->limit(4)->get();
-        $professions=Auth::user()->profession()->pluck('profession_id');
-        $jobs=Job::where('status_id',2)->whereIn('profession_id',$professions)->limit(8)->get();
-        $companies=Company::whereHas('jobs', function (Builder $query){
-            $query->where('status_id',2);
-        })->limit(9)->get();
-        return  view('dashboard.index',compact('saves','jobs','companies'));
+        $professions=Profession::orderBy('name')->get();
+        return  view('newsletter.index', compact('professions'));
     }
 
     /**

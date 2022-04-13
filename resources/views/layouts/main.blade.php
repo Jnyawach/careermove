@@ -11,7 +11,18 @@
     <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
     @yield('styles')
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Job Saved Successfully
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+
+    </div>
+</div>
 <header>
     <!--Big menu-->
     <section class="big-menu">
@@ -26,10 +37,10 @@
                 <div class="navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Discover Jobs</a>
+                            <a class="nav-link" aria-current="page" href="{{route('listings.index')}}">Discover Jobs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Companies</a>
+                            <a class="nav-link" href="{{route('hiring.index')}}">Companies</a>
                         </li>
 
                     </ul>
@@ -61,7 +72,13 @@
                                         @role('User')
                                         <a class="dropdown-item" href="{{route('accounts.index')}}">My Profile</a>
                                         @endrole
-                                       <!-- <a class="dropdown-item" href="#">My Profile</a>-->
+                                        @role('Manager')
+                                        <a class="dropdown-item" href="{{route('profile.index')}}">My Profile</a>
+                                        @endrole
+                                        @role('Manager|super-admin')
+                                        <a class="dropdown-item" href="{{route('users.index')}}">My Profile</a>
+                                        @endrole
+
                                     </li>
                                     <li><hr class="dropdown-divider"> </li>
                                     <li>
@@ -127,11 +144,11 @@
                     <div class="modal-body smaller">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">DiscoverJobs
+                                <a class="nav-link" href="{{route('listings.index')}}">DiscoverJobs
                                     <i class="fa-solid fa-chevron-right float-end"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Companies Hiring
+                                <a class="nav-link" href="{{route('hiring.index')}}">Companies Hiring
                                     <i class="fa-solid fa-chevron-right float-end"></i></a>
                             </li>
                             <li class="nav-item">
@@ -141,12 +158,42 @@
 
                             <li class="dropdown-divider"><hr></li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa-solid fa-envelope-open-text me-3"></i>SUBSCRIBE</a>
+                                <a class="nav-link" href="{{route('newsletter.index')}}"><i class="fa-solid
+                                fa-envelope-open-text
+                                me-3"></i>SUBSCRIBE</a>
                             </li>
+                            @guest()
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa-solid fa-user me-3"></i>LOGIN
+                                <a class="nav-link" href="{{route('login')}}"><i class="fa-solid fa-user me-3"></i>LOGIN
                                 </a>
                             </li>
+                            @endguest
+                            @auth()
+                                <li class="nav-item">
+                                    @role('User')
+                                    <a class="nav-link" href="{{route('dashboard.index')}}"><i class="fa-solid
+                                    fa-user me-3"></i> DASHBOARD</a>
+                                    @endrole
+                                    @role('Employer')
+                                    <a class="nav-link" href="{{route('employers.index')}}"><i class="fa-solid fa-user me-3"></i>DASHBOARD</a>
+                                    @endrole
+                                    @role('Manager|super-admin')
+                                    <a class="nav-link" href="{{route('admin.index')}}"><i class="fa-solid fa-user me-3"></i>DASHBOARD</a>
+                                    @endrole
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="btn btn-view" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i class="fa-solid fa-lock me-2"></i>LOGOUT
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            @endauth
 
                         </ul>
                     </div>
@@ -161,7 +208,10 @@
 
 
 </header>
-<main>@yield('content')</main>
+
+
+
+<main class="d-flex flex-column min-vh-100">@yield('content')</main>
 
 <footer class="pt-5">
     <ul class="nav">
@@ -169,21 +219,26 @@
             <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Browse Jobs</a>
+            <a class="nav-link" href="{{route('listings.index')}}" title="Find Jobs">Browse Jobs</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Find Companies</a>
+            <a class="nav-link" href="{{route('hiring.index')}}" title="Companies Hiring">Find Companies</a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="#">About</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('contact.index')}}">Contact us</a>
+            <a class="nav-link" href="{{route('contact.index')}}" title="Contact Us">Contact us</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="{{route('newsletter.index')}}" title="Subscribe to our Newsletter">Subscribe</a>
         </li>
+        @guest()
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('login')}}">Login</a>
+        </li>
+        @endguest
         <li class="nav-item">
             <a class="nav-link" href="#">Privacy Policy</a>
         </li>
@@ -193,8 +248,17 @@
 
     </ul>
     <p class="p-3">&copy; 2022 Careermove is a Cerve Ltd Company</p>
+
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 @yield('scripts')
+<script>
+
+    window.addEventListener('name-updated', event => {
+        var toastLiveExample = document.getElementById('liveToast')
+        var toast = new bootstrap.Toast(toastLiveExample)
+        toast.show()
+    })
+</script>
 </body>
 </html>

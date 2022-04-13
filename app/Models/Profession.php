@@ -34,4 +34,7 @@ class Profession extends Model
     public function subscriber(){
         return $this->belongsToMany(Subscriber::class);
     }
+    public function jobs(){
+        return $this->hasMany(Job::class);
+    }
 }

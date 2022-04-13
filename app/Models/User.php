@@ -55,4 +55,7 @@ class User extends Authenticatable
     public function companies(){
         return $this->belongsToMany(Company::class);
     }
+    public function wishlist(){
+        return $this->hasMany(Wishlist::class);
+    }
 }
