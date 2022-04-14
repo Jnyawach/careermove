@@ -8,6 +8,7 @@ use Livewire\Component;
 class SaveJob extends Component
 {
     public $job;
+
     public function render()
     {
         return view('livewire.save-job');

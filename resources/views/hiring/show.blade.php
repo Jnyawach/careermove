@@ -38,13 +38,13 @@
                                             }}</span></small>
                                     </div>
                                     <div class="col-3 text-end">
-                                        @if(Auth::user()->wishlist->where('job_id',$job->id)->count()>0)
-                                            <button type="button"  class="btn btn-link m-0 p-0">
-                                                <i class="fa-solid fa-heart"></i>
+                                        <form method="POST" action="{{route('saved.store')}}">
+                                            @csrf
+                                            <input type="hidden" value="{{$job->id}}" name="job_id">
+                                            <button type="submit" title="save job" class="btn btn-link m-0 p-0">
+                                                <i class="fa-regular fa-heart"></i>
                                             </button>
-                                        @else
-                                            @include('includes.save')
-                                        @endif
+                                        </form>
 
                                     </div>
                                 </div>
@@ -78,7 +78,7 @@
                                         ?$company->getFirstMediaUrl('logo'):'company-icon.jpg')}}" class="img-fluid mx-auto"
                                                  alt="{{$company->name}}" style="width: 60px">
                                             <h4 class="fs-6">{{$company->name}}</h4>
-                                            <small class="fs-6 text-dark fw-bold">Open Positions {{$company->jobs->count()
+                                            <small class="fs-6 text-dark fw-bold">Open Positions {{$company->jobs->where('status_id',2)->count()
                                         }}</small>
                                         </div>
 

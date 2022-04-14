@@ -20,6 +20,7 @@ use App\Http\Controllers\General\EmployerRegister;
 use App\Http\Controllers\General\ListingsController;
 use App\Http\Controllers\General\HiringController;
 use App\Http\Controllers\General\NewsLetterController;
+use App\Http\Controllers\General\ReportJob;
 
 
 /*Employer*/
@@ -58,6 +59,7 @@ Route::group(['middleware'=>['auth']],function (){
 });
 
 Route::group([],function (){
+    Route::post('report-job/{id}',['as'=>'report-job','uses'=>ReportJob::class]);
     Route::resource('newsletter',NewsLetterController::class);
     Route::resource('hiring',HiringController::class);
     Route::resource('listings',ListingsController::class);

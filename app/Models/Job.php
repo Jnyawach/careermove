@@ -55,12 +55,18 @@ class Job extends Model
     public function location(){
         return $this->belongsTo(Location::class);
     }
+    public function experience(){
+        return $this->belongsTo(Experience::class);
+    }
 
     public function status(){
         return $this->belongsTo(Status::class);
     }
     public function type(){
         return $this->belongsTo(Type::class);
+    }
+    public  function scopeActive($query){
+        return $query->where('status_id',2);
     }
 
 

@@ -17,10 +17,8 @@ class HiringController extends Controller
     public function index()
     {
         //
-        $companies=Company::whereHas('jobs', function (Builder $query){
-            $query->where('status_id',2);
-        })->paginate(20);
-        return  view('hiring.index', compact('companies'));
+
+        return  view('hiring.index');
     }
 
     /**

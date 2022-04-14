@@ -40,6 +40,16 @@ class SavedJobsController extends Controller
     public function store(Request $request)
     {
         //
+        $validated=$request->validate([
+            'job_id' => 'required|integer|max:255',
+        ]);
+
+        $user=Auth::user();
+       Wishlist::firstOrCreate([
+           'user_id'=>$user->id,
+           'job_id'=>$validated['job_id']
+       ]);
+        return redirect()->back();
     }
 
     /**

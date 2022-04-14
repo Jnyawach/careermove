@@ -103,7 +103,13 @@
                                                         <i class="fa-solid fa-heart"></i>
                                                     </button>
                                                 @else
-                                                    @include('includes.save')
+                                                    <form method="POST" action="{{route('saved.store')}}">
+                                                        @csrf
+                                                        <input type="hidden" value="{{$job->id}}" name="job_id">
+                                                        <button type="submit" title="save job" class="btn btn-link m-0 p-0">
+                                                            <i class="fa-regular fa-heart"></i>
+                                                        </button>
+                                                    </form>
                                                 @endif
 
                                             </div>

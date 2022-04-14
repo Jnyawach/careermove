@@ -23,9 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $jobs=Job::where('status_id',2)->latest()->take(4)->get();
+        $jobs=Job::active()->latest()->take(4)->get();
         $companies=Company::whereHas('jobs', function (Builder $query){
-            $query->where('status_id',2);
+            $query->active();
         })->limit(9)->get();
         return view('welcome', compact('jobs','companies'));
     }

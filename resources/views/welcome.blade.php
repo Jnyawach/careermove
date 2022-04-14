@@ -36,13 +36,13 @@
                                             }}</span></small>
                                         </div>
                                         <div class="col-3 text-end">
-                                            @if(Auth::user()->wishlist->where('job_id',$job->id)->count()>0)
-                                                <button type="button"  class="btn btn-link m-0 p-0">
-                                                    <i class="fa-solid fa-heart"></i>
+                                            <form method="POST" action="{{route('saved.store')}}">
+                                                @csrf
+                                                <input type="hidden" value="{{$job->id}}" name="job_id">
+                                                <button type="submit" title="save job" class="btn btn-link m-0 p-0">
+                                                    <i class="fa-regular fa-heart"></i>
                                                 </button>
-                                            @else
-                                                @include('includes.save')
-                                            @endif
+                                            </form>
 
                                         </div>
                                     </div>

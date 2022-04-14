@@ -7,9 +7,11 @@
           type = "image/x-icon">
     <title>Careermove:@yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <link href="{{asset('css/awesome/css/all.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
     @yield('styles')
+
 </head>
 <body class="d-flex flex-column min-vh-100">
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
@@ -252,13 +254,7 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 @yield('scripts')
-<script>
 
-    window.addEventListener('name-updated', event => {
-        var toastLiveExample = document.getElementById('liveToast')
-        var toast = new bootstrap.Toast(toastLiveExample)
-        toast.show()
-    })
-</script>
+
 </body>
 </html>

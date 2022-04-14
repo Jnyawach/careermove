@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
+use App\Models\Job;
 use Illuminate\Http\Request;
 
 class ListingsController extends Controller
@@ -48,6 +49,9 @@ class ListingsController extends Controller
     public function show($id)
     {
         //
+        $job=Job::findBySlugOrFail($id);
+        $jobs=Job::active()->limit(10)->get();
+        return view('listings.show', compact('job','jobs'));
     }
 
     /**
