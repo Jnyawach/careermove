@@ -30,8 +30,7 @@ class Messages extends Component
     public function readMessage($id){
         $message=Contact::findOrFail($id);
         $message->update(['status'=>1]);
-
-
     }
+
 
 }

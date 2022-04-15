@@ -42,7 +42,7 @@
                             <a class="nav-link" aria-current="page" href="{{route('listings.index')}}">Discover Jobs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('hiring.index')}}">Companies</a>
+                            <a class="nav-link" href="{{route('hiring.index')}}">Companies Hiring</a>
                         </li>
 
                     </ul>
@@ -224,11 +224,11 @@
             <a class="nav-link" href="{{route('listings.index')}}" title="Find Jobs">Browse Jobs</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('hiring.index')}}" title="Companies Hiring">Find Companies</a>
+            <a class="nav-link" href="{{route('hiring.index')}}" title="Companies Hiring">Companies Hiring</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="{{route('about')}}">About</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('contact.index')}}" title="Contact Us">Contact us</a>
@@ -242,10 +242,10 @@
         </li>
         @endguest
         <li class="nav-item">
-            <a class="nav-link" href="#">Privacy Policy</a>
+            <a class="nav-link" href="{{route('privacy-policy')}}">Privacy Policy</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Terms</a>
+            <a class="nav-link" href="{{route('terms')}}">Terms</a>
         </li>
 
     </ul>

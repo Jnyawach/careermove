@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Job;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdminreportJobcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,8 @@ class AdminController extends Controller
     public function index()
     {
         //
-
-        return  view('admin.index');
-
+        $jobs=Job::active()->whereHas('reports')->get();
+        return view('admin.report.index',compact('jobs'));
     }
 
     /**
@@ -51,6 +50,8 @@ class AdminController extends Controller
     public function show($id)
     {
         //
+        $job=Job::findBySlugOrFail($id);
+        return view('admin.report.show', compact('job'));
     }
 
     /**

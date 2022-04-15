@@ -35,7 +35,7 @@
                                         <td><img src="{{asset($company->getFirstMediaUrl('logo')
                                         ?$company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}"
                                                  alt="{{$company->name}}" style="height: 50px"></td>
-                                        <td>100</td>
+                                        <td>{{$company->jobs->count()}}</td>
                                         <td>{{$company->created_at->diffForHumans()}}</td>
                                         <td>
                                             <div class="dropdown">

@@ -300,6 +300,24 @@
                 </div>
 
             </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFourteen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFourteen" aria-expanded="false"
+                            aria-controls="flush-headingFourteen">
+                        <i class="fa-regular fa-flag me-2"></i>Reported Jobs
+                    </button>
+                </h2>
+                <div id="flush-collapseFourteen" class="accordion-collapse collapse" aria-labelledby="flush-collapseTwelve" data-bs-parent="#flush-collapseThirteen">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('report.index')}}" title="Admins">View Reported Jobs</a> </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 

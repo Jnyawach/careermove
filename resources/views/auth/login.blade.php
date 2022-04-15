@@ -30,7 +30,11 @@
                                         <button type="submit" class="btn btn-primary">login</button>
                                     </div>
                                     <div class="form-group mt-3">
-                                        <p>Don't have an account  <a href="{{route('register')}}">Register</a></p>
+                                        <p class="d-inline-block m-2">Don't have an account
+                                            <a href="{{route('register') }}">Register</a></p>
+
+                                        <p class="d-inline-block m-2">Forgot Password?
+                                            <a href="{{route('password.update')}}">Reset</a></p>
 
                                     </div>
                                 </form>

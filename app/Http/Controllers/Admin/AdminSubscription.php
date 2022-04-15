@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Job;
+use App\Models\Subscriber;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdminSubscription extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,8 @@ class AdminController extends Controller
     public function index()
     {
         //
-
-        return  view('admin.index');
-
+        $subscribers=Subscriber::all();
+        return  view('admin.subscribers.index', compact('subscribers'));
     }
 
     /**
@@ -62,6 +61,8 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
+        $subscriber=Subscriber::findOrFail($id);
+        return  view('admin.subscribers.edit', compact('subscriber'));
     }
 
     /**
@@ -74,6 +75,17 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validated=$request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+        ]);
+        $subscriber=Subscriber::findOrFail($id);
+        $subscriber->update([
+           'name'=>$validated['name'],
+           'email'=>$validated['email']
+        ]);
+        return  redirect('admin/subscribers')
+            ->with('status','Successfully Edited');
     }
 
     /**
@@ -85,5 +97,9 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+        $subscriber=Subscriber::findOrFail($id);
+        $subscriber->delete();
+        return redirect()->back()
+            ->with('status','Subscriber Successfully deleted');
     }
 }

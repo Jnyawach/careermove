@@ -65,6 +65,9 @@ class Job extends Model
     public function type(){
         return $this->belongsTo(Type::class);
     }
+    public function reports(){
+        return $this->hasMany(Report::class);
+    }
     public  function scopeActive($query){
         return $query->where('status_id',2);
     }

@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <title>Careermove:Job Listsings and Career Insights</title>
     <link rel = "icon" href =
-        "images/careermove-icon.png"
+        "{{asset('images/careermove-icon.png')}}"
           type = "image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="css/awesome/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link href="{{asset('css/awesome/css/all.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
     @yield('styles')
 </head>
 <body>
 <header>
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container-fluid mt-2">
-            <a class="navbar-brand me-5" href="index.html">
+            <a class="navbar-brand me-5" href="/">
                 <!--<img src="images/excel-logo.png" class="img-fluid" alt="careermove-logo"
                 style="width: 200px">-->
                 <h2>Careermove</h2>

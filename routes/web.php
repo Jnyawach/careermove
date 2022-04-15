@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\AdminMessageController;
 use App\Http\Controllers\Admin\AdminCompanyController;
 use App\Http\Controllers\Admin\AdminPolicyController;
 use App\Http\Controllers\Admin\AdminJobsController;
+use App\Http\Controllers\Admin\AdminreportJobcontroller;
+use App\Http\Controllers\Admin\AdminSubscription;
 
 /*General*/
 use App\Http\Controllers\General\ContactController;
@@ -21,6 +23,7 @@ use App\Http\Controllers\General\ListingsController;
 use App\Http\Controllers\General\HiringController;
 use App\Http\Controllers\General\NewsLetterController;
 use App\Http\Controllers\General\ReportJob;
+use \App\Http\Controllers\HomeController;
 
 
 /*Employer*/
@@ -38,6 +41,8 @@ use App\Http\Controllers\Dashboard\SavedJobsController;
 
 
 Route::group(['middleware'=>['auth']],function (){
+    Route::resource('admin/subscribers',AdminSubscription::class);
+    Route::resource('admin/report',AdminreportJobcontroller::class);
     Route::get('admin/jobs/pending',  [AdminJobsController::class, 'jobsPending'])->name('jobs-pending');
     Route::get('admin/jobs/active',  [AdminJobsController::class, 'jobsActive'])->name('jobs-active');
     Route::get('admin/jobs/disabled',  [AdminJobsController::class, 'jobsDisabled'])->name('jobs-disabled');
@@ -59,6 +64,9 @@ Route::group(['middleware'=>['auth']],function (){
 });
 
 Route::group([],function (){
+    Route::get('about',  [HomeController::class, 'about'])->name('about');
+    Route::get('terms',  [HomeController::class, 'terms'])->name('terms');
+    Route::get('privacy-policy',  [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
     Route::post('report-job/{id}',['as'=>'report-job','uses'=>ReportJob::class]);
     Route::resource('newsletter',NewsLetterController::class);
     Route::resource('hiring',HiringController::class);
