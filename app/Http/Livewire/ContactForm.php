@@ -19,6 +19,11 @@ class ContactForm extends Component
         'email'=>'required|email|string|max:255',
         'message'=>'required|min:3|max:2000'
     ];
+    protected $messages=[
+        'name.required'=>'Please enter your name',
+        'email.required'=>'Please enter your email',
+        'email.email'=>'Please enter a valid email',
+    ];
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);

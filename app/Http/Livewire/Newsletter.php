@@ -24,7 +24,7 @@ class Newsletter extends Component
     protected $messages=[
         'professionId.max'=>'You can only select upto three categories',
         'email.unique'=>'You have an active subscription to our newsletter',
-        'profession.required'=>'Please choose at least one category'
+        'professionId.required'=>'Please choose at least one category',
 
     ];
     public function updated($propertyName)
