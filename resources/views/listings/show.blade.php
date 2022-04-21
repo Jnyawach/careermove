@@ -7,6 +7,49 @@
     <meta property="og:title"         content="{{$job->title}}" />
     <meta property="og:description"   content="View Job" />
     <meta property="og:image"         content="https://i.roamcdn.net/kazi/ke/hq/9c5ceb354b79b83b80d57be3546e5ab2/-/advertiser-img-ke-jobs-prod/dealer-images/advid10364/adv10364_1472045014.jpg" />
+<script type="application/ld+json">
+    {
+      "@context" : "https://schema.org/",
+      "@type" : "JobPosting",
+      "title" : "{{$job->title}}",
+      "description" : "{!!$job->description!!}",
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "Careermove",
+        "value": "{{$job->id}}"
+      },
+      "datePosted" : "{{$job->created_at->todatestring()}}",
+      "validThrough" : "{{$job->deadline}}T00:00",
+      "employmentType" : "{{$job->type->name}}",
+      "hiringOrganization" : {
+        "@type" : "Organization",
+        "name" : "Careermove",
+        "sameAs" : "https://www.careermove.com",
+        "logo" : "http://www.careermove.com/images/logo.png"
+      },
+      "jobLocation": {
+      "@type": "Place",
+        "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Alego Road",
+        "addressLocality": "Mountain View",
+        "addressRegion": "CA",
+        "postalCode": "00100",
+        "addressCountry": "KE"
+        }
+      },
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "KES",
+        "value": {
+          "@type": "QuantitativeValue",
+          "value": 40.00,
+          "unitText": "MONTH"
+        }
+      }
+    }
+    </script>
+
 @endsection
 @section('content')
     <div id="fb-root"></div>
