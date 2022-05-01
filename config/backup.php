@@ -18,7 +18,7 @@ return [
                  * The list of directories and files that will be included in the backup.
                  */
                 'include' => [
-                    base_path(),
+
                 ],
 
                 /*
@@ -27,9 +27,11 @@ return [
                  * Directories used by the backup process will automatically be excluded.
                  */
                 'exclude' => [
+                    base_path(),
                     base_path('vendor'),
                     base_path('node_modules'),
-                ],
+
+                  ],
 
                 /*
                  * Determines if symlinks should be followed.
@@ -116,7 +118,8 @@ return [
              * The disk names on which the backups will be stored.
              */
             'disks' => [
-                'local',
+
+                'dropbox',
             ],
         ],
 

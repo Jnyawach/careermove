@@ -31,22 +31,14 @@
       "@type": "Place",
         "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Alego Road",
-        "addressLocality": "Mountain View",
-        "addressRegion": "CA",
-        "postalCode": "00100",
+        "streetAddress": "{{$job->location->name}}",
+        "addressLocality": "{{$job->location->name}}",
+        "addressRegion": "null",
+        "postalCode": "null",
         "addressCountry": "KE"
         }
-      },
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "KES",
-        "value": {
-          "@type": "QuantitativeValue",
-          "value": 40.00,
-          "unitText": "MONTH"
-        }
       }
+
     }
     </script>
 
