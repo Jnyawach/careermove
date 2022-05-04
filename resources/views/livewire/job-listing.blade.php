@@ -141,8 +141,14 @@
                                         <small><i class="fa-solid fa-location-crosshairs"></i>
                                             {{$job->location->name}}</small>
                                         <small><i class="fa-solid fa-briefcase"></i> {{$job->type->name}}</small>
-                                        <small><i class="fa-regular fa-clock"></i> {{\Carbon\Carbon::parse
-                                        ($job->deadline)->diffInDays()}}days</small>
+                                        <small @if (\Carbon\Carbon::parse
+                                        ($job->deadline)<\Carbon\Carbon::now())
+                                           class="text-danger"
+                                           @else
+                                           class="text-success"
+                                        @endif><i class="fa-regular fa-clock"></i> {{\Carbon\Carbon::parse
+                                        ($job->deadline)->isoFormat('MMM Do YY')}}</small>
+
 
                                         <p>{!! \Illuminate\Support\Str::limit($job->description, 150, $end='...')
                                         !!}</p>
