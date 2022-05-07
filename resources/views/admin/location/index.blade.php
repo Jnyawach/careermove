@@ -78,7 +78,7 @@
                                     <tr>
                                         <td>{{$location->id}}</td>
                                         <td>{{$location->name}}</td>
-                                        <td>100</td>
+                                        <td>{{$location->jobs->count()}}</td>
                                         <td>{{$location->created_at->diffForHumans()}}</td>
                                         <td>
                                             <div class="dropdown">

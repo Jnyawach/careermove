@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Job;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -13,13 +14,21 @@ class JobCreate extends Component
     $companies,$professions, $experiences,$user_id,$types,$typeId,$ranges,$rangeId;
     public $success=false;
     public $currentStep=1;
+    public $exists=null;
+
     public function lastStep(){
         $this->currentStep = $this->currentStep-1;
     }
     public function render()
-    {
-        return view('livewire.job-create');
+    { $this->exists = Job::where('title', '=', $this->title)
+        ->where('company_id',$this->companyId)
+        ->where('experience_id',$this->experienceId)
+        ->where('created_at','>=', Carbon::now()->subDays(30))->first();
+        return view('livewire.job-create',[
+           'exists'=>$this->exists,
+        ]);
     }
+
     public function firstStepSubmit(){
         $validatedData=$this->validate([
             'title' => 'required|string|max:150',
@@ -32,10 +41,12 @@ class JobCreate extends Component
             'experienceId' => 'required|integer|max:100',
             'locationId' => 'required|integer|max:100',
             'rangeId' => 'required|integer|max:100',
+            
 
         ]);
         $this->currentStep = 2;
     }
+
 
     public function lastStepSubmit(){
 
@@ -76,6 +87,14 @@ class JobCreate extends Component
         $this->deadline=null;
         $this->tags=null;
     }
+
+    public function dismissInfo(){
+        $this->exists=null;
+
+    }
+
+
+
 
 
 }

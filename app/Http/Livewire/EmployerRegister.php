@@ -20,7 +20,7 @@ class EmployerRegister extends Component
         'lastName' => 'required|string|max:100|min:3',
         'cellphone' => 'required|string|max:100|min:3',
         'organization' => 'required|string|max:100|min:3',
-        'email'=>'required|email|string|max:255',
+        'email'=>'required|email|string|max:255|unique:users',
         'password' => 'required|string|min:8|confirmed',
 
     ];

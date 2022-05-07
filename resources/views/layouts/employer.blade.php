@@ -23,11 +23,7 @@
     <div class="row">
         <div class="col-4">
 
-            <button class="btn btn-link fs-5 text-decoration-none ps-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideBar" aria-controls="sideBar">
-                <span><i class="fa-solid fa-bars me-2"></i></span>MENU
-            </button>
-
-            <h3><span class="d-none d-sm-block fw-bold fs-6"> Careermove CMS</span></h3>
+           <h3><span class="d-none d-sm-block fw-bold fs-6"> Careermove CMS</span></h3>
 
 
         </div>

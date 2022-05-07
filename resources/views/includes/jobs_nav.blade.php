@@ -27,4 +27,8 @@
                 :'text-decoration-none' }}" href="{{route('jobs-inactive')}}">Inactive</a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('jobs.create')}}">Create Listing</a>
+    </li>
+
 </ul>

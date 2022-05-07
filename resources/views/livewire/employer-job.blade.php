@@ -1,9 +1,27 @@
 <div>
     <div class="stepwizard">
         <!--step one-->
+        <h6>Create Listing</h6>
+        @if ($exists)
+            <div class="card card-body mt-3 mb-3">
+                <div class="row">
+                    <div class="col-11">
+                        <h6 class="text-warning">Do you mean?: {{$exists->title}}- As listed by
+                            {{$exists->company->name}} on {{$exists->created_at->diffForHumans()}}</h6>
+                            <p>If it is so then the job already exists in the database. Do not list again</p>
+
+
+                    </div>
+                    <div class="col-1">
+                        <button type="button" class="btn btn-link col-2" wire:click="dismissInfo"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+
+            </div>
+            @endif
         <div class="row setup-content {{ $currentStep != 1 ? 'display-none' : '' }}" id="step-1">
             <div class="col-12 mx-auto">
-                <h6>Create Listing</h6>
+
                 <div class="form-group mt-2 row">
                     <div class="col-8">
                         <label for="title" class="control-label">Job Title:</label>
