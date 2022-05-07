@@ -5,9 +5,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('listings.index')}}">Jobs</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Recommended</a>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('saved.index')}}">Saved</a>
                 </li>

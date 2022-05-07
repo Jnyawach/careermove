@@ -34,7 +34,7 @@
                                 <div class="row">
                                     <div class="col-9">
                                         <small class="p-0 m-0 fs-6 fw-bold"><span>{{\Carbon\Carbon::parse
-                                            ($job->deadline)->diffForHumans()
+                                            ($job->deadline)->isoFormat('MMM Do YY')
                                             }}</span></small>
                                     </div>
                                     <div class="col-3 text-end">

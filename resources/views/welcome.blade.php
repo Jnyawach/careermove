@@ -7,7 +7,7 @@
                 <h1 class="">Discover you next Career move</h1>
                 <p class="mt-2 access">Get unlimited access to over a 10000+ jobs</p>
                 <a href="{{route('listings.index')}}" class="btn btn-primary m-2">
-                    Browse All Jobs <i class="fa-solid fa-angle-right ms-3"></i>
+                    Browse jobs <i class="fa-solid fa-angle-right ms-3"></i>
                 </a>
             </div>
         </div>
@@ -32,7 +32,7 @@
                                     <div class="row">
                                         <div class="col-9">
                                             <small class="p-0 m-0 fs-6 fw-bold"><span>{{\Carbon\Carbon::parse
-                                            ($job->deadline)->diffForHumans()
+                                            ($job->deadline)->isoFormat('MMM Do YY')
                                             }}</span></small>
                                         </div>
                                         <div class="col-3 text-end">
@@ -53,7 +53,7 @@
                                     <div class="addition">
                                         <p><i class="fa-solid fa-money-bill me-2"></i>{{$job->range->name}}</p>
                                         <p><i class="fa-solid fa-location-crosshairs
-                                        me-2"></i>{{$job->location->name}},Kenya</p>
+                                        me-2"></i>{{$job->location->name}}, Kenya</p>
                                         <p><i class="fa-solid fa-briefcase me-2"></i>{{$job->type->name}}</p>
                                     </div>
                                 </div>

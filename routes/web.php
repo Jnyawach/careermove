@@ -61,6 +61,7 @@ Route::group(['middleware'=>['auth']],function (){
     Route::resource('admin/profession',AdminProfessionController::class);
     Route::resource('admin/roles',AdminRoleController::class);
     Route::resource('admin',AdminController::class);
+    Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index'])->name('logs');
 });
 
 Route::group([],function (){

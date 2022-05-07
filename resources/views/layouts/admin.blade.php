@@ -319,6 +319,25 @@
 
             </div>
 
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFifteen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFifteen" aria-expanded="false"
+                            aria-controls="flush-headingFifteen">
+                            <i class="fa-solid fa-bug me-2"></i>Error logs
+                    </button>
+                </h2>
+                <div id="flush-collapseFifteen" class="accordion-collapse collapse" aria-labelledby="flush-collapseFifteen" data-bs-parent="#flush-collapseFifteen">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('logs')}}" title="Admins" target="_blank">View logs</a> </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
