@@ -116,9 +116,11 @@
     <section class="small-screen pt-4 ps-2 pb-2">
         <div class="row">
             <div class="col-6">
-                <div class="navbar-brand">
-                    <h2 class="ms-3">Careermove</h2>
-                </div>
+                <a class="navbar-brand me-5" href="/">
+                    <!--<img src="images/excel-logo.png" class="img-fluid" alt="careermove-logo"
+                    style="width: 200px">-->
+                    <h2 class="nav-logo">Careermove</h2>
+                </a>
             </div>
             <div class="col-6 text-end pe-4">
 
