@@ -12,7 +12,7 @@
                 <div class="col-12 mx-auto">
                     <div class="card shadow-sm">
                         <div class="card-header p-3">
-                            <h5 style="font-size: 18px" class="w-100 ">Companies
+                            <h5 style="font-size: 18px" class="w-100 ">Companies-({{$companies->count()}})
                             <a href="{{route('companies.create')}}" class="float-end">Add Company/Organization</a> </h5>
                         </div>
                         <div class="card-body">
@@ -34,7 +34,7 @@
                                         <td>{{$company->name}}</td>
                                         <td><img src="{{asset($company->getFirstMediaUrl('logo')
                                         ?$company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}"
-                                                 alt="{{$company->name}}" style="height: 50px"></td>
+                                                 alt="{{$company->name}}" style="height: 30px"></td>
                                         <td>{{$company->jobs->count()}}</td>
                                         <td>{{$company->created_at->diffForHumans()}}</td>
                                         <td>

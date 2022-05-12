@@ -1,4 +1,5 @@
 <div>
+
     <div class="stepwizard">
         <h6>Create Listing</h6>
         @if ($exists)
@@ -18,10 +19,11 @@
 
             </div>
             @endif
-        <!--step one-->
-        <div class="row setup-content {{ $currentStep != 1 ? 'display-none' : '' }}" id="step-1">
-        <div class="col-12 mx-auto">
 
+        <!--step one-->
+        <div class=" setup-content {{ $currentStep != 1 ? 'display-none' : '' }}" id="step-1">
+        <div class="col-12 mx-auto">
+           
             <div class="form-group mt-2 row">
                 <div class="col-8">
                     <label for="title" class="control-label">Job Title:</label>
@@ -34,17 +36,21 @@
 
             </div>
 
-            <div class="form-group row mt-3">
-                <div class="col-md-4 col-lg-3 p-2">
+            <div  class="form-group row mt-3">
+                <div  class="col-md-4 col-lg-3 p-2">
                     <label for="companyId" class="control-label">Company/Organization:</label>
-                    <select class="form-select mt-2" required name="experienceId"
-                    wire:model.lazy="companyId" id="companyId">
+
+
+                        <select class="form-select mt-2 searchable" required
+                     id="companyId" name="companyId" wire:model.lazy='companyId'>
                         <option selected  value="">Select Organization</option>
                         @foreach($companies  as $company)
                             <option value="{{$company->id}}">{{$company->name}}</option>
                         @endforeach
 
                     </select>
+
+
                     <small>Didn't find your Company?<a href="{{route('companies.create')}}">Add company</a> </small>
                     @error('companyId') <span class="error">{{ $message }}</span> @enderror<br>
 
@@ -63,9 +69,9 @@
 
                 </div>
 
-                <div class="col-md-4 col-lg-3 p-2">
+                <div  class="col-md-4 col-lg-3 p-2">
                     <label for="locationId" class="control-label">Location</label>
-                    <select class="form-select mt-2" required name="locationId"
+                    <select class="form-select  mt-2" required name="locationId"
                             wire:model.lazy="locationId" id="locationId">
                         <option selected  value="">Select Location</option>
                         @foreach($locations as $location)
@@ -79,7 +85,7 @@
             </div>
 
             <div class="form-group row mt-3">
-                <div class="col-md-4 col-lg-3 p-2">
+                <div  class="col-md-4 col-lg-3 p-2 ">
                     <label for="professionId" class="control-label">Profession</label>
                     <select class="form-select mt-2" required name="locationId"
                             wire:model.lazy="professionId" id="professionId">
@@ -93,16 +99,18 @@
 
                 </div>
 
-                <div class="col-md-4 col-lg-3 p-2">
-                    <label for="professionId" class="control-label">Industry</label>
-                    <select class="form-select mt-2" required name="industryId"
-                            wire:model.lazy="industryId" id="industryId">
+                <div  class="col-md-4 col-lg-3 p-2">
+                    <label for="industryId" class="control-label">Industry</label>
+
+                        <select class="form-select mt-2" required name="industryId"
+                             id="industryId" style="height: 45px" wire:model.lazy="industryId">
                         <option selected  value="">Select Industry</option>
                         @foreach($industries as $industry)
                             <option value="{{$industry->id}}">{{$industry->name}}</option>
                         @endforeach
 
                     </select>
+
                     @error('industryId') <span class="error">{{ $message }}</span> @enderror<br>
 
                 </div>
@@ -110,7 +118,7 @@
                 <div class="col-md-4 col-lg-3 p-2">
                     <label for="typeId" class="control-label">Job Type:</label>
                     <select class="form-select mt-2" required name="typeId"
-                            wire:model.lazy="typeId" id="typeId">
+                            wire:model.lazy="typeId" id="typeId" >
                         <option selected  value="">Select Job Type</option>
                         @foreach($types as$type)
                             <option value="{{$type->id}}">{{$type->name}}</option>
@@ -222,5 +230,8 @@
             </div>
         </div>
     </div>
+
     <script src="{{asset('ckeditor5/ckeditor.js')}}"></script>
+
+
 </div>

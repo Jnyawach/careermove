@@ -67,6 +67,7 @@
                 </li>
 
             </ul>
+
         </div>
     </div>
 
@@ -74,6 +75,13 @@
 </header>
 <main>
 @include('includes.employer_nav')
+@if (Auth::user()->companies->count()<1)
+<div class="alert alert-success mb-3 mt-3 p-2 m-3">
+    <h5 class="fs-6 d-inline-block">Please link at least one company to your profile</h5>
+    <a href="{{route('organizations.index')}}" class="d-inline-block">Link</a>
+</div>
+
+@endif
 <section>
    @yield('content')
 </section>

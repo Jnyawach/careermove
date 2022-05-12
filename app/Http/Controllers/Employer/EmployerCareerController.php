@@ -43,7 +43,7 @@ class EmployerCareerController extends Controller
         $industries=Industry::orderBy('name')->get();
         $professions=Profession::orderBy('name')->get();
         $locations=Location::orderBy('name')->get();
-        $companies=Company::orderBy('name')->get();
+        $companies=Auth::user()->companies()->get();
         return  view('employers.careers.create', compact('experiences',
             'professions','locations','companies','industries','types',
         'ranges'));
@@ -88,7 +88,7 @@ class EmployerCareerController extends Controller
         $industries=Industry::orderBy('name')->get();
         $professions=Profession::orderBy('name')->get();
         $locations=Location::orderBy('name')->get();
-        $companies=Company::orderBy('name')->get();
+        $companies=Auth::user()->companies()->get();
         $ranges=Range::all();
         return  view('employers.careers.edit', compact('experiences',
             'professions','locations','companies','industries','job','types',

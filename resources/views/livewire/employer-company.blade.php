@@ -15,8 +15,11 @@
                </div>
                <h5>{{$success}}</h5>
                @if($organization)
+                <img src="{{asset($organization->getFirstMediaUrl('logo')
+                ?$organization->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}"
+                         alt="{{$organization->name}}" style="height: 50px">
 
-                   <p>{{$organization->name}}</p>
+                   <h5 class="text-uppercase">{{$organization->name}}</h5>
                    <form wire:submit.prevent="attachCompany({{$organization->id}})">
 
                        <button type="submit" class="btn btn-view">Attach to your profile</button>

@@ -1,5 +1,6 @@
 <div>
     <div class="stepwizard">
+       
         <!--step one-->
         <h6>Create Listing</h6>
         @if ($exists)
@@ -11,6 +12,8 @@
                             <p>If it is so then the job already exists in the database. Do not list again</p>
 
 
+
+
                     </div>
                     <div class="col-1">
                         <button type="button" class="btn btn-link col-2" wire:click="dismissInfo"><i class="fa-solid fa-xmark"></i></button>
@@ -19,6 +22,7 @@
 
             </div>
             @endif
+
         <div class="row setup-content {{ $currentStep != 1 ? 'display-none' : '' }}" id="step-1">
             <div class="col-12 mx-auto">
 

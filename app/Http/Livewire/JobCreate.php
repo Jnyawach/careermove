@@ -9,12 +9,15 @@ use Livewire\Component;
 
 class JobCreate extends Component
 {
-    public $title, $industryId,$professionId,$companyId,$deadline,
+    public $title, $industryId,$professionId,$deadline,
     $locationId, $experienceId,$tags,$link,$content,$industries,$locations,
     $companies,$professions, $experiences,$user_id,$types,$typeId,$ranges,$rangeId;
     public $success=false;
     public $currentStep=1;
     public $exists=null;
+    public $companyId;
+    public $search;
+    protected $queryString = ['search' => ['except' => '']];
 
     public function lastStep(){
         $this->currentStep = $this->currentStep-1;
@@ -41,7 +44,7 @@ class JobCreate extends Component
             'experienceId' => 'required|integer|max:100',
             'locationId' => 'required|integer|max:100',
             'rangeId' => 'required|integer|max:100',
-            
+
 
         ]);
         $this->currentStep = 2;

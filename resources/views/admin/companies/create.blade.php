@@ -23,10 +23,10 @@
                    @error('name') <span class="error">{{ $message }}</span> @enderror
                </div>
                 <div class="col-md-6">
-                    <label class="control-label" for="status">
-                        Status</label>
+                    <label class="control-label" for="location">
+                        Select Location</label>
                     <select class="form-select" name="location_id"
-                            id="status" required>
+                            id="location" required>
                         <option selected value="">Select Location</option>
                        @foreach($locations as $id=>$location)
                             <option value="{{$id}}">{{$location}}</option>
