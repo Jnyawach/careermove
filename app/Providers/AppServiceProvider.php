@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
             return new FilesystemAdapter(
                 new Filesystem($adapter, $config),
                 $adapter,
-                $config
+                $config,['case_sensitive' => false]
             );
         });
     }
