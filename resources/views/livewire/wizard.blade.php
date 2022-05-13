@@ -15,10 +15,10 @@
             </div>
             <!--step two-->
             <div class="row setup-content {{ $currentStep != 2 ? 'display-none' : '' }}" id="step-2">
-                <div class="col-md-8 mx-auto">
+                <div class="col-12 col-md-8 mx-auto">
                     <h6 class="text-center fw-bold">Step 1 of 3</h6>
                     <div class="card mt-5 p-lg-5">
-                        <div class="card-body p-5">
+                        <div class="card-body p-3 p-lg-5">
                             <div class="form-group mt-2">
                                 <label for="name" class="control-label">First Name:</label>
                                 <input type="text" name="name" wire:model.lazy="name" id="name" required

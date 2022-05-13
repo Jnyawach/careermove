@@ -113,7 +113,7 @@
 
     </section>
     <!--End of big menu-->
-    <section class="small-screen pt-4 ps-2 pb-2">
+    <section class="small-screen ps-2 pb-2 pt-2">
         <div class="row">
             <div class="col-6">
                 <a class="navbar-brand me-5" href="/">

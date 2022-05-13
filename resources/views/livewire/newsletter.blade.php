@@ -1,5 +1,5 @@
 <div>
-  <section class="p-5">
+  <section class="p-3 p-md-5">
       <h6 class="mt-5 fw-bold fs-4">Subscribe our mailing list to get:</h6>
       <ul class="fs-4">
           <li>Latest job listings</li>

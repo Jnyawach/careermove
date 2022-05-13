@@ -9,16 +9,16 @@
                         <img src="{{asset('images/user-icon.png')}}" class="img-fluid rounded-circle"
                              style="width: 60px">
                     </div>
-                    <div class="col-8 align-self-center">
+                    <div class="col-11 col-lg-8 align-self-center">
                         <h2 class="fs-2">Welcome back, {{Auth::user()->name}}</h2>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-3 align-self-center p-2 text-md-end">
+            <div class=" col-sm-4 col-md-3 align-self-center p-2 text-md-end">
                 <a href="{{route('saved.index')}}" class="btn btn-secondary"><i class="fa-regular fa-heart
                 me-3"></i>Saved Jobs</a>
             </div>
-            <div class="col-sm-4 col-md-3 align-self-center p-2 text-md-start">
+            <div class=" col-sm-4 col-md-3 align-self-center p-2 text-md-start">
                 <a href="{{route('accounts.index')}}" class="btn btn-view"><i class="fa-regular fa-user me-3"></i>View
                     Profile</a>
             </div>
@@ -146,7 +146,7 @@
                             <p class="fs-4 mt-3">We are here to help you land your next job</p>
 
                         </div>
-                        <div class="col-md-3 mx-auto align-self-center text-end">
+                        <div class="col-md-4 mx-auto align-self-center text-lg-end">
                             <a href="{{route('listings.index')}}" title="Sign Up" class="btn btn-primary m-2">
                                 View all Jobs<i class="fa-solid fa-angle-right ms-3"></i></a>
                         </div>
@@ -162,7 +162,7 @@
         <section class="mt-5">
             <div class="row">
                 <div class="col-11 mx-auto">
-                    <h2 class="fs-5 text-uppercase">Companies Hiring Today
+                    <h2 class="fs-5 text-uppercase">Companies Hiring
                         <a href="{{route('hiring.index')}}" class="float-end text-decoration-none fs-6"><i
                                 class="fa-solid fa-list
                    me-3"></i>View

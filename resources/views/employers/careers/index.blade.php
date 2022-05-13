@@ -38,10 +38,11 @@
                                     <small><i class="fa-regular fa-clock"></i> {{\Carbon\Carbon::parse
                                     ($job->deadline)->diffForHumans()
                                     }}</small>
-                                    <p>{!! \Illuminate\Support\Str::limit($job->description, 180, $end='...')  !!}</p>
-                                    <p>Status: <span>{{$job->status->name}}</span></p>
+
                                 </div>
                             </div>
+                            <p>{!! \Illuminate\Support\Str::limit($job->description, 180, $end='...')  !!}</p>
+                                    <p>Status: <span>{{$job->status->name}}</span></p>
 
                         </div>
                     </div>

@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('title','Discover your Next Career')
 @section('content')
-<section class="p-5 intro">
+<section class="p-lg-5 p-2 intro">
         <div class="row pt-2 pb-2">
-            <div class="col-11 mx-auto">
+            <div class="col-12 col-md-11 mx-auto">
                 <h1 class="">Discover you next Career move</h1>
                 <p class="mt-2 access">Get unlimited access to over a 10000+ jobs</p>
-                <a href="{{route('listings.index')}}" class="btn btn-primary m-2">
+                <a href="{{route('listings.index')}}" class="btn btn-primary m-2 fs-5">
                     Browse jobs <i class="fa-solid fa-angle-right ms-3"></i>
                 </a>
             </div>
@@ -71,7 +71,7 @@
     <section class="mt-5">
         <div class="row">
             <div class="col-11 mx-auto">
-                <h2 class="fs-5 text-uppercase">Companies Hiring Today
+                <h2 class="fs-5 text-uppercase">Companies Hiring
                     <a href="{{route('hiring.index')}}" class="float-end text-decoration-none fs-6"><i
                             class="fa-solid fa-list
                    me-3"></i>View
@@ -103,41 +103,7 @@
         </div>
     </section>
     @endif
-    <section class="mt-5 sign p-4">
-        <div class="row">
-            <div class="col-11 mx-auto">
-                <div class="subscribe">
-                    @guest()
-                    <div class="row">
-                        <div class="col-md-8 mx-auto">
-                            <h1 class="fs-1">Never miss a Chance...</h1>
-                            <p class="fs-4 mt-3"><mark>Sign up for free.</mark> Never miss out a thing. Latest job
-                                listings, career insights and company reviews</p>
-                        </div>
-                        <div class="col-md-3 mx-auto align-self-center text-end">
-                            <a href="{{route('register')}}" title="Sign Up" class="btn btn-primary m-2">
-                                Sign up<i class="fa-solid fa-angle-right ms-3"></i></a>
-                        </div>
-                    </div>
-                    @endguest
-                    @auth()
-                            <div class="row">
-                                <div class="col-md-8 mx-auto">
-                                    <h1 class="fs-1">Never miss this Opportunity...</h1>
-                                    <p class="fs-4 mt-3"><mark>Subscribe.</mark> Never miss out a thing. Latest job
-                                        listings, career insights and company reviews</p>
-                                </div>
-                                <div class="col-md-3 mx-auto align-self-center text-end">
-                                    <a href="{{route('newsletter.index')}}" title="Subscribe to our Newsletter"
-                                       class="btn btn-primary m-2">
-                                        Subscribe<i class="fa-solid fa-angle-right ms-3"></i></a>
-                                </div>
-                            </div>
-                        @endauth
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('includes.subscribe')
 @endsection
 
 

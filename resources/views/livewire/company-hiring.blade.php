@@ -11,11 +11,11 @@
         </div>
 
     </section>
-    <section class="p-5">
+    <section class="p-2 p-lg-5">
         <div class="form-group row">
             <div class="col-sm-6 col-md-4">
                 <input type="search"  wire:model.debounce.500ms="search" required class="form-control mt-3"
-                       placeholder="Search Company by Name">
+                       placeholder="Search  by Name">
 
             </div>
             <div class="col-sm-6 col-md-4">

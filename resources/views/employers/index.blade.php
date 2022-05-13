@@ -3,7 +3,7 @@
 @section('content')
     <section class="p-5">
         <div class="row">
-            <div class="col-12 col-sm-6 col-md-3 col-lg-3 p-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <div class="card-title">
@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 col-md-3 col-lg-3 p-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
                 <a href="{{route('careers-pending')}}" title="See all" class="text-decoration-none">
                     <div class="card shadow-sm">
                         <div class="card-body">
@@ -29,7 +29,7 @@
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-md-3 col-lg-3 p-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
                 <a href="{{route('careers-active')}}" title="See all" class="text-decoration-none">
                     <div class="card shadow-sm">
                         <div class="card-body">
@@ -45,7 +45,7 @@
 
 
 
-            <div class="col-12 col-sm-6 col-md-3 col-lg-3 p-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
                 <a href="{{route('careers-blocked')}}" title="See all" class="text-decoration-none">
                     <div class="card shadow-sm">
                         <div class="card-body">
@@ -59,7 +59,7 @@
                 </a>
             </div>
 
-            <div class="col-12 col-sm-6 col-md-3 col-lg-3 p-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2">
                 <a href="{{route('careers-inactive')}}" title="See all" class="text-decoration-none">
                     <div class="card shadow-sm">
                         <div class="card-body">

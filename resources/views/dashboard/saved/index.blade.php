@@ -1,8 +1,21 @@
 @extends('layouts.main')
 @section('title','Saved Jobs')
 @section('content')
-    <section class="p-5">
-        <h5>Saved Jobs</h5>
+<section class="hunt p-2">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('listings.index')}}">All Jobs</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('saved.index')}}">Saved</a>
+        </li>
+
+    </ul>
+</section>
+    <section class="p-3">
+
+
         @if($saves->count()>0)
             <div class="row mt-5">
                 @foreach($saves as $save)

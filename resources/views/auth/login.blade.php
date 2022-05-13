@@ -12,7 +12,7 @@
                                 <h6 class="mt-3 text-center">Please Login</h6>
                                 <form class="m-sm-5" action="{{route('login')}}" method="POST">
                                     @csrf
-                                    @honeypot
+                                    
                                     <div class="form-group mt-4">
                                         <label class="control-label" for="email">Email:</label>
                                         <input type="email" id="email" class="form-control" name="email"

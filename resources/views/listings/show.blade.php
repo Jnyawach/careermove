@@ -2,11 +2,7 @@
 @section('title',$job->title)
 @section('styles')
 
-    <meta property="og:url"           content="http://127.0.0.1:8000/listings/technical-specialist-enterprise-development-kenya" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="{{$job->title}}" />
-    <meta property="og:description"   content="View Job" />
-    <meta property="og:image"         content="https://i.roamcdn.net/kazi/ke/hq/9c5ceb354b79b83b80d57be3546e5ab2/-/advertiser-img-ke-jobs-prod/dealer-images/advid10364/adv10364_1472045014.jpg" />
+
 <script type="application/ld+json">
     {
       "@context" : "https://schema.org/",
@@ -44,14 +40,7 @@
 
 @endsection
 @section('content')
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
+
     <section class="p-2 p-md-5">
         @include('includes.status')
         <a href="{{url()->previous()}}" class="btn btn-link mb-4 text-decoration-none fs-5 fw-bold">
@@ -59,10 +48,10 @@
         <div class="row">
             <div class="col-12 col-md-9">
 
-                <div class="card p-3">
+                <div class="card p-0 p-lg-3">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col text-end">
+                            <div class="col text-end pb-2">
 
                                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                                         data-bs-target="#reportJobModal">
@@ -143,14 +132,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-3 col-lg-2">
+                        <div class="row mt-3">
+                            <div class="col-3 col-md-3 col-lg-2">
                                 <img src="{{asset($job->company->getFirstMediaUrl('logo')
                                         ?$job->company->getFirstMediaUrl('logo'):'company-icon.jpg')}}"
                                      class="img-fluid img-thumbnail"
                                      style="width: 120px">
                             </div>
-                            <div class="col-md-9 col-lg-10 align-self-center">
+                            <div class="col-12 col-md-9 col-lg-10 align-self-center">
                                 <h6>{{$job->title}}</h6>
                                 <h5>{{$job->company->name}}</h5>
                                 <div class="small-desc">
@@ -165,13 +154,13 @@
                             </div>
                         </div>
                         <div class="mt-3">
-                            <h5 class="fs-6 d-inline-block m-2">Posted On: <span>{{$job->created_at->isoFormat('MMM Do
+                            <h5 class="fs-6 d-inline-block m-1">Posted On: <span>{{$job->created_at->isoFormat('MMM Do
                             YY')}}</span></h5>
-                            <h5 class="fs-6 d-inline-block m-2">Deadline: <span>{{\Carbon\Carbon::parse
+                            <h5 class="fs-6 d-inline-block m-1">Deadline: <span>{{\Carbon\Carbon::parse
                             ($job->deadline_at)->isoFormat
                             ('MMM Do YY')
                             }}</span></h5>
-                            <h5 class="fs-6 d-inline-block m-2">Experience: <span>{{$job->experience->name}}</span></h5>
+                            <h5 class="fs-6 d-inline-block m-1">Experience: <span>{{$job->experience->name}}</span></h5>
 
 
                         </div>
@@ -186,25 +175,24 @@
                                          <mark>{{$tag}}</mark>
                                 @endforeach
                             </p>
+                            <div>
+                                <script src="https://platform.linkedin.com/in.js" type="text/javascript">
+                                    lang: en_US
+                                </script>
+                                <script type="IN/Share" data-url="{{url()->current()}}"></script>
+                            </div>
                             <a href="{{url()->previous()}}" class="btn btn-link mt-4 text-decoration-none fs-5 fw-bold">
                                 <i class="fa-solid fa-arrow-left-long me-2"></i>Return to Jobs</a>
-                            <div>
-                                <div class="fb-share-button d-inline-block p-2"
-                                     data-href="http://127.0.0.1:8000/listings/technical-specialist-enterprise-development-kenya"
-                                     data-layout="button_count">
-                                </div>
-                                <div class="d-inline-block p-2">
-                                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                                </div>
-                            </div>
+
                         </div>
+
 
 
 
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-3 p-2">
                 <h6 class="fs-5 fw-bold">Trending Jobs</h6>
                 <div class="trend-jobs">
                     @foreach($jobs as $trending)
@@ -220,41 +208,7 @@
         </div>
 
     </section>
-    <section class="mt-5 sign p-4">
-    <div class="row">
-        <div class="col-11 mx-auto">
-            <div class="subscribe">
-                @guest()
-                    <div class="row">
-                        <div class="col-md-8 mx-auto">
-                            <h1 class="fs-1">Never miss a Chance...</h1>
-                            <p class="fs-4 mt-3"><mark>Sign up for free.</mark> Never miss out a thing. Latest job
-                                listings, career insights and company reviews</p>
-                        </div>
-                        <div class="col-md-3 mx-auto align-self-center text-end">
-                            <a href="{{route('register')}}" title="Sign Up" class="btn btn-primary m-2">
-                                Sign up<i class="fa-solid fa-angle-right ms-3"></i></a>
-                        </div>
-                    </div>
-                @endguest
-                @auth()
-                    <div class="row">
-                        <div class="col-md-8 mx-auto">
-                            <h1 class="fs-1">Never miss this Opportunity...</h1>
-                            <p class="fs-4 mt-3"><mark>Subscribe.</mark> Never miss out a thing. Latest job
-                                listings, career insights and company reviews</p>
-                        </div>
-                        <div class="col-md-3 mx-auto align-self-center text-end">
-                            <a href="{{route('newsletter.index')}}" title="Subscribe to our Newsletter"
-                               class="btn btn-primary m-2">
-                                Subscribe<i class="fa-solid fa-angle-right ms-3"></i></a>
-                        </div>
-                    </div>
-                @endauth
-            </div>
-        </div>
-    </div>
-    </section>
+    @include('includes.subscribe')
 
 @endsection
 

@@ -26,20 +26,16 @@
 
 
         </div>
-        <div class="col-8">
-            <ul class="nav justify-content-end admin-nav">
+        <div class="col-12 col-lg-8">
+            <ul class="nav justify-content-lg-end admin-nav">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{route('employers.index')}}">Dashboard</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#"><i class="far fa-envelope"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
-                </li>
+
+
                 <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn btn-link dropdown-toggle text-uppercase text-decoration-none" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

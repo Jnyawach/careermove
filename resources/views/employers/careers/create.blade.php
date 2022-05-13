@@ -4,7 +4,7 @@
     @livewireStyles
 @endsection
 @section('content')
-    <section class="p-5">
+    <section class="p-3 p-lg-5">
         <div class="row">
             <div class="col-12">
                 @livewire('employer-job',

@@ -70,6 +70,7 @@ class JobListing extends Component
         $this->resetPage();
         $this->visible=true;
     }
+    
     public function render()
     {
         $jobs=Job::active()
@@ -80,7 +81,7 @@ class JobListing extends Component
                return $query->where('location_id',$this->location);
             })
             ->when($this->publish, function ($query){
-                return $query->where('created_at','>=',Carbon::today()->subDays($this->publish));
+                return $query->where('created_at','>',Carbon::now()->subDays($this->publish)->endOfDay());
             })
             ->when($this->experience, function ($query){
                 return $query->where('experience_id',$this->experience);

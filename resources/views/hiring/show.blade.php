@@ -22,7 +22,7 @@
             Positions</p>
 
     </section>
-    <section class="p-5">
+    <section class="p-2 p-lg-5">
         <h6 class="fs-5">Open Jobs at {{$company->name}}</h6>
         <div class="row">
             @foreach($company->jobs->where('status_id',2) as $job)

@@ -169,7 +169,7 @@ input[type=radio]:checked{
     border: 2px solid transparent;
     padding: 8px 15px 8px 15px;
     border-radius: 4px;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 100;
     line-height: 1.5;
 
@@ -248,6 +248,7 @@ input[type=radio]:checked{
 .trending .title{
     color: var(--dark);
     font-size: 22px;
+    font-weight: 600;
 }
 .trending:hover .title{
     text-decoration: underline;
@@ -300,7 +301,7 @@ input[type=radio]:checked{
     text-transform: uppercase;
     color: black;
     margin-left: 0px !important;
-    width:130px;
+    width:auto;
 
 
 }

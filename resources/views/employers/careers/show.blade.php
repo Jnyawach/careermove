@@ -1,7 +1,7 @@
 @extends('layouts.employer')
 @section('title',$job->title)
 @section('content')
-    <section class="p-5 job-show">
+    <section class="p-3 p-lg-5 job-show">
         @if($job->blocks()->count()>0)
             <div class="tags p-2 mb-3">
 
@@ -39,7 +39,7 @@
         </div>
         <div class="desc">
             <p>{!! $job->description !!}</p>
-            <h6>Application Link: <mark>{{$job->link}}</mark> </h6>
+            <h6>Application Link: {{$job->link}} </h6>
             <div class="tags mt-4 p-3">
                 <small>Tags:</small>
                 @foreach(explode(",",$job->tags) as $tag)

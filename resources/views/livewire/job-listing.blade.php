@@ -5,7 +5,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('listings.index')}}">Jobs</a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('saved.index')}}">Saved</a>
                 </li>
@@ -26,26 +26,21 @@
                     @endforeach
                 </select>
             </div>
-            @if($visible)
-            <div class="col-sm-6 col-md-4 align-self-center">
-                <button type="button" class="btn btn-view mt-3" wire:click="clearFilter">
-                    <i class="fa-solid fa-square-xmark me-3"></i>Clear filter
-                </button>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <select class="form-select mt-3" wire:model="publish">
+                    <option selected  value="" >Published</option>
+                    <option value="7">Last 1 Week</option>
+                    <option value="30">Last 30 days</option>
+                    <option value="1">Today</option>
+                </select>
             </div>
-            @endif
+
         </div>
 
             <div class="filter mt-2">
                 <form>
                     <div class="form-group row">
-                        <div class="col-sm-6 col-md-4 col-lg-3">
-                            <select class="form-select mb-3" wire:model="publish">
-                                <option selected  value="" >Published</option>
-                                <option value="7">Last 1 Week</option>
-                                <option value="30">Last 30 days</option>
-                                <option value="1">Today</option>
-                            </select>
-                        </div>
+
                         <div class="col-sm-6 col-md-4 col-lg-3">
                             <select class="form-select mb-3" wire:model="experience">
                                 <option selected  value="">Seniority</option>
@@ -72,8 +67,16 @@
                             </select>
 
                         </div>
+                  @if($visible)
+                        <div class="col-sm-6 col-md-4 col-lg-3 align-self-center">
+                            <button type="button" class="btn btn-view mb-3" wire:click="clearFilter">
+                                <i class="fa-solid fa-square-xmark me-3"></i>Clear filter
+                            </button>
+                        </div>
+                        @endif
 
                     </div>
+
                 </form>
             </div>
         </section>
@@ -83,9 +86,9 @@
                     <form class="">
                         <div class="form-group row ">
                             <label for="sort-select"
-                                   class="col-5 col-sm-6 col-md-4 col-lg-2 col-form-label fw-bold text-end ">SORT
+                                   class="col-6 col-sm-6 col-md-4 col-lg-2 col-form-label fw-bold text-end ">SORT
                                 BY:</label>
-                            <div class="col-7 col-sm-6 col-md-8 col-lg-10 text-start">
+                            <div class="col-6 col-sm-6 col-md-8 col-lg-10 text-start">
                                 <select class="form-select m-0" wire:model="order" id="sort-select">
                                     <option selected value="">RECOMMENDED</option>
                                     <option value="ASC">CLOSING SOON</option>
@@ -99,7 +102,7 @@
                     </form>
 
                 </div>
-                <div class="col-6 text-end align-self-center">
+                <div class="col-6 text-end align-self-center d-none d-md-block">
                     <h6 class="m-0 me-3"><span>{{$jobs->count()}}</span> JOBS FOUND</h6>
                 </div>
 
@@ -109,7 +112,7 @@
         @if($jobs->count()>0)
             <div class="row">
                 @foreach($jobs as $job)
-                <div class="col-md-6 p-2">
+                <div class="col-md-6 p-2 mx-auto">
                     <a href="{{route('listings.show',$job->slug)}}" class="text-decoration-none" title="{{$job->title}}">
                         <div class="card job-card">
                             <div class="card-body">
@@ -126,13 +129,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-3 col-sm-2">
+                                    <div class="col-3 col-sm-3 col-lg-2">
                                         <img src="{{asset($job->company->getFirstMediaUrl('logo')
                                         ?$job->company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}"
                                              class="img-fluid rounded-circle img-thumbnail"
                                              style="width: 100px">
                                     </div>
-                                    <div class="col-9 col-sm-10">
+                                    <div class="col-9 col-sm-9 col-lg-10">
 
                                         <h2>{{$job->title}}</h2>
                                         <small><i class="fa-regular fa-building"></i> {{$job->company->name}}</small>
@@ -148,10 +151,11 @@
                                         ($job->deadline)->isoFormat('MMM Do YY')}}</small>
 
 
-                                        <p>{!! \Illuminate\Support\Str::limit($job->description, 150, $end='...')
-                                        !!}</p>
+
                                     </div>
                                 </div>
+                                <p>{!! \Illuminate\Support\Str::limit($job->description, 150, $end='...')
+                                    !!}</p>
 
                             </div>
                         </div>
