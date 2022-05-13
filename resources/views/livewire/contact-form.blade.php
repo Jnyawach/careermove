@@ -1,7 +1,7 @@
 <div>
     <section class="pt-5">
         <div class="row">
-            <div class="col-12 col-md-8 p-5 mx-auto">
+            <div class="col-12 col-md-8 p-3 p-lg-5 mx-auto">
 
                 <h6>Send Us a Message</h6>
                 <form class="mt-5" wire:submit.prevent="createMessage">
