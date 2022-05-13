@@ -19,17 +19,17 @@
       "employmentType" : "{{$job->type->name}}",
       "hiringOrganization" : {
         "@type" : "Organization",
-        "name" : "Careermove",
-        "sameAs" : "https://www.careermove.com",
-        "logo" : "http://www.careermove.com/images/logo.png"
+        "name" : "{{$job->company->name}}",
+        "sameAs" : "https://www.careermove.co.ke",
+        "logo" : "http://www.careermove.co.ke/images/logo.png"
       },
       "jobLocation": {
       "@type": "Place",
         "address": {
         "@type": "PostalAddress",
-        "streetAddress": "{{$job->location->name}}",
+        "streetAddress": "null",
         "addressLocality": "{{$job->location->name}}",
-        "addressRegion": "null",
+        "addressRegion": "kenya",
         "postalCode": "null",
         "addressCountry": "KE"
         }
