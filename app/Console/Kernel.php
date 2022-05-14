@@ -16,10 +16,10 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('sitemap:generate')->daily();
-        $schedule->command('backup:clean')->daily()->at('01:00');
-        $schedule->command('backup:run')->daily()->at('01:30');
-        $schedule->command('job:deactivate')->daily();
+        $schedule->command('sitemap:generate')->daily()->withoutOverlapping()->onOneServer();
+        $schedule->command('backup:clean')->daily()->at('01:00')->withoutOverlapping()->onOneServer();
+        $schedule->command('backup:run')->daily()->at('01:30')->withoutOverlapping()->onOneServer();
+        $schedule->command('job:deactivate')->daily()->withoutOverlapping()->onOneServer();
     }
 
     /**
