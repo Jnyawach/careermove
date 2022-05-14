@@ -112,7 +112,7 @@
         @if($jobs->count()>0)
             <div class="row">
                 @foreach($jobs as $job)
-                <div class="col-md-6 p-2 mx-auto">
+                <div class="col-md-6 p-2">
                     <a href="{{route('listings.show',$job->slug)}}" class="text-decoration-none" title="{{$job->title}}">
                         <div class="card job-card">
                             <div class="card-body">
