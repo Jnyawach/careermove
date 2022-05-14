@@ -306,11 +306,13 @@ input[type=radio]:checked{
 
 }
 
+
 #sort-select:focus,  #sort-select:hover{
     box-shadow: none;
 }
 .job-card{
     border-radius: 10px;
+    height: 150px;
 }
 .job-card:hover{
     border: 1px solid var(--primary);

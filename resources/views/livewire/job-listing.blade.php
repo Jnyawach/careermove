@@ -116,8 +116,37 @@
                     <a href="{{route('listings.show',$job->slug)}}" class="text-decoration-none" title="{{$job->title}}">
                         <div class="card job-card">
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-12 text-end">
+                                <div class="row ">
+                                    <div class="col-11">
+                                        <div class="row">
+                                            <div class="col-3 col-sm-3 col-lg-2">
+                                                <img src="{{asset($job->company->getFirstMediaUrl('logo')
+                                                ?$job->company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}"
+                                                     class="img-fluid rounded-circle img-thumbnail"
+                                                     style="width: 100px">
+                                            </div>
+                                            <div class="col-9 col-sm-9 col-lg-9">
+
+                                                <h2>{{$job->title}}</h2>
+                                                <small><i class="fa-regular fa-building"></i> {{$job->company->name}}</small>
+                                                <small><i class="fa-solid fa-location-crosshairs"></i>
+                                                    {{$job->location->name}}</small>
+                                                <small><i class="fa-solid fa-briefcase"></i> {{$job->type->name}}</small>
+                                                <small @if (\Carbon\Carbon::parse
+                                                ($job->deadline)<\Carbon\Carbon::now())
+                                                   class="text-danger"
+                                                   @else
+                                                   class="text-success"
+                                                @endif><i class="fa-regular fa-clock"></i> {{\Carbon\Carbon::parse
+                                                ($job->deadline)->isoFormat('MMM Do YY')}}</small>
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-1">
                                         <form method="POST" action="{{route('saved.store')}}">
                                             @csrf
                                             <input type="hidden" value="{{$job->id}}" name="job_id">
@@ -128,34 +157,8 @@
 
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-3 col-sm-3 col-lg-2">
-                                        <img src="{{asset($job->company->getFirstMediaUrl('logo')
-                                        ?$job->company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}"
-                                             class="img-fluid rounded-circle img-thumbnail"
-                                             style="width: 100px">
-                                    </div>
-                                    <div class="col-9 col-sm-9 col-lg-10">
-
-                                        <h2>{{$job->title}}</h2>
-                                        <small><i class="fa-regular fa-building"></i> {{$job->company->name}}</small>
-                                        <small><i class="fa-solid fa-location-crosshairs"></i>
-                                            {{$job->location->name}}</small>
-                                        <small><i class="fa-solid fa-briefcase"></i> {{$job->type->name}}</small>
-                                        <small @if (\Carbon\Carbon::parse
-                                        ($job->deadline)<\Carbon\Carbon::now())
-                                           class="text-danger"
-                                           @else
-                                           class="text-success"
-                                        @endif><i class="fa-regular fa-clock"></i> {{\Carbon\Carbon::parse
-                                        ($job->deadline)->isoFormat('MMM Do YY')}}</small>
 
 
-
-                                    </div>
-                                </div>
-                                <p>{!! \Illuminate\Support\Str::limit($job->description, 150, $end='...')
-                                    !!}</p>
 
                             </div>
                         </div>

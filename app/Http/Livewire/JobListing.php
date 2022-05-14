@@ -70,7 +70,7 @@ class JobListing extends Component
         $this->resetPage();
         $this->visible=true;
     }
-    
+
     public function render()
     {
         $jobs=Job::active()
