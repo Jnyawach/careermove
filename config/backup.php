@@ -120,7 +120,7 @@ return [
             'disks' => [
 
                 'local',
-                'google'
+                'dropbox'
             ],
         ],
 
