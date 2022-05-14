@@ -146,7 +146,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-1">
+                                    <div class="col-1 p-1">
                                         <form method="POST" action="{{route('saved.store')}}">
                                             @csrf
                                             <input type="hidden" value="{{$job->id}}" name="job_id">
