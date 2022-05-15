@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
+
 class JobCreate extends Component
 {
     public $title, $industryId,$professionId,$deadline,

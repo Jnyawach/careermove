@@ -157,7 +157,7 @@
                             <h5 class="fs-6 d-inline-block m-1">Posted On: <span>{{$job->created_at->isoFormat('MMM Do
                             YY')}}</span></h5>
                             <h5 class="fs-6 d-inline-block m-1">Deadline: <span>{{\Carbon\Carbon::parse
-                            ($job->deadline_at)->isoFormat
+                            ($job->deadline)->isoFormat
                             ('MMM Do YY')
                             }}</span></h5>
                             <h5 class="fs-6 d-inline-block m-1">Experience: <span>{{$job->experience->name}}</span></h5>
