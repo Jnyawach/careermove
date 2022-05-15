@@ -41,7 +41,7 @@ class JobCreate extends Component
             'industryId' => 'required|integer|max:100',
             'typeId' => 'required|integer|max:100',
             'professionId' => 'required|integer|max:100',
-            'companyId' => 'required|integer|max:100',
+            'companyId' => 'required|integer',
             'experienceId' => 'required|integer|max:100',
             'locationId' => 'required|integer|max:100',
             'rangeId' => 'required|integer|max:100',
