@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Company;
 use App\Models\Job;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -17,21 +18,47 @@ class JobCreate extends Component
     public $currentStep=1;
     public $exists=null;
     public $companyId;
+    public $selected=false;
     public $search;
+
     protected $queryString = ['search' => ['except' => '']];
 
     public function lastStep(){
         $this->currentStep = $this->currentStep-1;
     }
+
     public function render()
-    { $this->exists = Job::where('title', '=', $this->title)
+
+    {
+        $company=Company::when($this->search, function ($query){
+            return $query->where('name', 'like', '%'.$this->search.'%')->first();
+        });
+
+        $this->exists = Job::where('title', '=', $this->title)
         ->where('company_id',$this->companyId)
         ->where('experience_id',$this->experienceId)
         ->where('created_at','>=', Carbon::now()->subDays(30))->first();
         return view('livewire.job-create',[
            'exists'=>$this->exists,
+           'company'=>$company,
+
         ]);
     }
+
+    public function clearCompany(){
+        $this->selected=false;
+        $this->search=null;
+
+        $this->companyId=null;
+
+
+    }
+    public function createCompany($id){
+        $this->companyId=$id;
+        $this->selected=Company::findOrFail($id);
+    }
+
+
 
     public function firstStepSubmit(){
         $validatedData=$this->validate([
@@ -47,7 +74,20 @@ class JobCreate extends Component
             'rangeId' => 'required|integer|max:100',
 
 
-        ]);
+
+        ],
+        [
+            'companyId.required'=>'Please select listing Company/Organization',
+            'title.required'=>'Please provide a valid title',
+            'deadline.required'=>'Please provide deadline for listing',
+            'industryId.required'=>'Please select the listing industry',
+            'typeId.required'=>'Please select Job type',
+            'professionId.required'=>'Please select profession category',
+            'experienceId.required'=>'Please select experience level',
+            'locationId.required'=>'Please select Job Location',
+            'rangeId.required'=>'Please select salary range'
+        ]
+);
         $this->currentStep = 2;
     }
 
@@ -57,6 +97,9 @@ class JobCreate extends Component
         $validatedData=$this->validate([
             'content'=>'required',
             'tags'=>'required',
+        ],[
+            'content.required'=>'Please provide job description',
+            'tags.required'=>'Please provide tags associated with the job'
         ]);
 
         $job=Job::create([
@@ -77,7 +120,8 @@ class JobCreate extends Component
         ]);
 
         $this->clearForm();
-        $this->success="Job Listing Created Successfully";
+        return redirect('admin/jobs')
+        ->with('status','Job Created Successfully');
     }
     public  function clearForm(){
         $this->title=null;

@@ -4,7 +4,62 @@
         <div class="row setup-content {{ $currentStep != 1 ? 'display-none' : '' }}" id="step-1">
             <div class="col-12 mx-auto">
                 <h6>Create Listing</h6>
-                <div class="form-group mt-2 row">
+                <div class="form-group mt-5">
+                    @if ($change==true)
+                    <img src="{{asset($job->company->getFirstMediaUrl('logo')
+                    ?$job->company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}"
+                             alt="{{$job->company->name}}" style="height: 50px">
+
+                       <h5 class="text-uppercase">{{$job->company->name}}</h5>
+                       <button type="button" wire:click="clearChange" class="btn btn-view">Change</button>
+                    @else
+                    @if($selected)
+                    <h5>Listing Company</h5>
+                    <img src="{{asset($selected->getFirstMediaUrl('logo')
+                            ?$selected->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}"
+                                     alt="{{$selected->name}}" style="height: 50px">
+
+                               <h5 class="text-uppercase">{{$selected->name}}</h5>
+                               <button type="button" wire:click="clearCompany" class="btn btn-view">Change</button>
+
+                    @else
+                        <div class="mt-5">
+                            <div class="row mt-2">
+                                <h5>Search & select Listing Company/Organization</h5>
+                                <div class="col-md-6 p-2">
+                                    <input wire:model="search" type="search" placeholder="Search Companies by name..."
+                                           class="form-control" style="height: 45px">
+                                </div>
+                            </div>
+                            @if ($search)
+                            @if($company->count()>0)
+                            <img src="{{asset($company->getFirstMediaUrl('logo')
+                            ?$company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}"
+                                     alt="{{$company->name}}" style="height: 50px">
+
+                               <h5 class="text-uppercase">{{$company->name}}</h5>
+
+                                <button type="button" wire:click="createCompany({{$company->id}})" class="btn btn-view">Select</button><br>
+
+
+                           @endif
+
+
+                            @endif
+
+
+                        </div>
+                        @endif
+
+                    @endif
+
+                        <div>
+
+                            @error('companyId') <span class="error">{{ $message }}</span> @enderror<br>
+                        </div>
+
+                    </div>
+                <div class="form-group mt-5 row">
                     <div class="col-8">
                         <label for="title" class="control-label">Job Title:</label>
                         <input type="text" name="title" wire:model.lazy="title" id="title" required
@@ -16,20 +71,7 @@
 
                 </div>
                 <div class="form-group row mt-3">
-                    <div class="col-md-4 col-lg-3 p-2">
-                        <label for="companyId" class="control-label">Company/Organization:</label>
-                        <select class="form-select mt-2" required name="experienceId"
-                                wire:model.lazy="companyId" id="companyId">
-                            <option selected  value="">Select Organization</option>
-                            @foreach($companies  as $company)
-                                <option value="{{$company->id}}">{{$company->name}}</option>
-                            @endforeach
 
-                        </select>
-                        <small>Didn't find your Company?<a href="#">Add company</a> </small>
-                        @error('companyId') <span class="error">{{ $message }}</span> @enderror<br>
-
-                    </div>
                     <div class="col-md-4 col-lg-3 p-2">
                         <label for="experienceId" class="control-label">Experience Level</label>
                         <select class="form-select mt-2" required name="experienceId"

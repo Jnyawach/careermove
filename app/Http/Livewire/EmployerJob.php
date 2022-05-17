@@ -42,6 +42,17 @@ class EmployerJob extends Component
             'locationId' => 'required|integer|max:100',
             'rangeId' => 'required|integer|max:100',
 
+        ],
+        [
+            'companyId.required'=>'Please select listing Company/Organization',
+            'title.required'=>'Please provide a valid title',
+            'deadline.required'=>'Please provide deadline for listing',
+            'industryId.required'=>'Please select the listing industry',
+            'typeId.required'=>'Please select Job type',
+            'professionId.required'=>'Please select profession category',
+            'experienceId.required'=>'Please select experience level',
+            'locationId.required'=>'Please select Job Location',
+            'rangeId.required'=>'Please select salary range'
         ]);
         $this->currentStep = 2;
     }
