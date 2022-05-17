@@ -317,6 +317,9 @@ input[type=radio]:checked{
 .job-card:hover{
     border: 1px solid var(--primary);
 }
+.profile-company .card{
+    min-height: 150px;
+}
 .job-card h2{
 
     font-size: 18px;
