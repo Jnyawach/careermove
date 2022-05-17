@@ -2,41 +2,48 @@
 @section('title',$job->title)
 @section('styles')
 
-
-<script type="application/ld+json">
-    {
-      "@context" : "https://schema.org/",
-      "@type" : "JobPosting",
-      "title" : "{{$job->title}}",
-      "description" : "{!!$job->description!!}",
-      "identifier": {
-        "@type": "PropertyValue",
-        "name": "Careermove",
-        "value": "{{$job->id}}"
-      },
-      "datePosted" : "{{$job->created_at->todatestring()}}",
-      "validThrough" : "{{$job->deadline}}T00:00",
-      "employmentType" : "{{$job->type->name}}",
-      "hiringOrganization" : {
-        "@type" : "Organization",
-        "name" : "{{$job->company->name}}",
-        "sameAs" : "https://www.careermove.co.ke",
-        "logo" : "http://www.careermove.co.ke/images/logo.png"
-      },
-      "jobLocation": {
-      "@type": "Place",
-        "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "null",
-        "addressLocality": "{{$job->location->name}}",
-        "addressRegion": "kenya",
-        "postalCode": "null",
-        "addressCountry": "KE"
+    <script type="application/ld+json">
+        {
+          "@context" : "https://schema.org/",
+          "@type" : "JobPosting",
+          "title" : "{{$job->title}}",
+          "description" : "{!!$job->description!!}",
+          "identifier": {
+            "@type": "PropertyValue",
+            "name": "Careermove",
+            "value": "{{$job->id}}"
+          },
+          "datePosted" : "{{$job->created_at->todatestring()}}",
+          "validThrough" : "{{$job->deadline}}T00:00",
+          "employmentType" : "{{$job->type->name}}",
+          "hiringOrganization" : {
+            "@type" : "Organization",
+            "name" : "Careermove",
+            "sameAs" : "https://www.careermove.co.ke",
+            "logo" : "https://www.careermove.co.ke/careermove-logo.png"
+          },
+          "jobLocation": {
+          "@type": "Place",
+            "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "null",
+            "addressLocality": "{{$job->location}}",
+            "addressRegion": "Kenya",
+            "postalCode": "null",
+            "addressCountry": "KE"
+            }
+          },
+          "baseSalary": {
+            "@type": "MonetaryAmount",
+            "currency": "KES",
+            "value": {
+              "@type": "QuantitativeValue",
+              "value": "null",
+              "unitText": "MONTH"
+            }
+          }
         }
-      }
-
-    }
-    </script>
+        </script>
 
 @endsection
 @section('content')
