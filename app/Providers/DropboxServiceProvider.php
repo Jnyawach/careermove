@@ -19,10 +19,12 @@ class DropboxServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Storage::extend('dropbox', function ($app, $config, $secret) {
+
+        Storage::extend('dropbox', function ($app, $config) {
+            $tokenProvider = new AutoRefreshingDropBoxTokenService($config);
             $adapter = new DropboxAdapter(new DropboxClient(
-                $config['key'],
-                $secret['secret']
+                $tokenProvider['authorization_token']
+
             ));
 
             return new FilesystemAdapter(
