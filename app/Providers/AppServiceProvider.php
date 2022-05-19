@@ -9,8 +9,6 @@ use League\Flysystem\Filesystem;
 use Spatie\Dropbox\Client as DropboxClient;
 use Spatie\FlysystemDropbox\DropboxAdapter;
 
-
-
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -31,7 +29,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+
         Storage::extend('dropbox', function ($app, $config) {
+
+
             $adapter = new DropboxAdapter(new DropboxClient(
                 $config['authorization_token']
             ));
