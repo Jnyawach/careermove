@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cerve-limited",
+  "private_key_id": "dd28e6ea10bf12532a683ed98f0ad41981a4698b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDHZLfsUW9is6HY\ngKZil8VSk7iF45TKq5DiFB+aGJcLfynu++ec61TrgdvX7APh79xziCZBZ6mQR1hM\n2FVm45dg1GcAkqTbvw112wZK0zzMmlOggNID3acLYtpet4hPJG3BQBM2kNR7x8Jz\nzA15FJ+4tDkvQMMhOPnvg0VbRsyvLhr3l98xC7KxudlWo/djFnPtlFiRx2Ij1nZM\n3gQFo6C6bgpDDgJTjXNh4fwpnLuRWsQVxu2NiwsOq5nzw4/RMQGqT2d4aXlIJn2m\naikzd6TXawfL8ru5h6sSqGAE7gYfN1TR83Ky4s0bOr0aclSg+beiLXAOPZb1dkb0\nU+CTeJHJAgMBAAECggEANPT9HFismqxW6eeRSVJB6CKvuW+uTv2uJz1s/0JUq4sE\nmiJxa23dSgddWkWm6lUIWe7pKincESPBwfcbB46e3+rJyI8qFeryKkEXtLvRxA2g\n9FoCbWBrQ0zn7owUOeDU/aSE9dMVfCKb9KFXWrctjKLhJTmwGZzGVOSqgQmWx1eh\ncdlA24tS4ZGIgmHnJlqvCBsni6YhvHXwscRI8ViImwA3xbUzu2coOw6JOoM2nwKS\n6b4REWLcECarYGZ6XjVVUVoD8lTyDU8vsAxxeM5gltL4jmibJ0FZnui4G6zsqLLh\ni/5znHwc2k7tPxQ65uLtpvaJ97Qf77nM5Lknwkrj2QKBgQDjx62+ebFkZgKQDQ8s\nqkh0hdM8BxEqX6oK7YjnpmijHroDpNbXw91xAuB/GoTshWY9XiRYc9HH0P7UMo9A\nwBnjzeF5+MpJE1DZ+WZEfjhczYd7+GaKBjzha2Jw+KuhbeTnanYyWNdnCsts2Krv\nBoHhku7QuIi44yKEBegWwwmxrwKBgQDgGLmkKShDsXT0OFZ/W0RYBYFJJx3qTrk9\n/TfzMjujdShDXIRjpa1O9wqaXtS5vzGIzRf+6jCbpeHJF6DPXZL2HHJSJuwLX/fk\nsc7V5NBOlJ39Detq2yRq377JID8YCtbKucNxFDAHwMgnXqwZlAdYQKjEmad1nuBq\nYlDlU1IqBwKBgQDU1NrvQ14RZY+3cbxgC6wv1GuPhzru0PxdwZ1OdhsHb8p3ZSqp\n6QWcdwe1O94/8lWZucFUNMQrZIj3VVatNdH7HYA1K9Y3eajuQy7fiOC5NgIGQA/v\nn+x65I/S50fXSou7/6n5WTHLwjZZugnd1cK+N0CWHhcCSpkRq0M1IYCJWQKBgFNT\nvku1ZhxtsvBQtpEarboRKfa6jdwfM7BCJPjQN+7a1ILftvaal2viXlXyZyU+W7vj\nj0WhbTujHea5W3lf8RKEl1nG0USVhcbK+v772x0tE+YRs/UC0XLQCdAdpnhZJ28w\nTeURPZ7UZ1iEUngcW/LL8DVScTtCPW4xaqUrK0UnAoGBAM+godI07MIlpeMlt4eU\noZxZ5LiU3w1WbGDFOTXhYPYz3bzxL8pu89aYMKlJw+6tHihD6qsfGGAAs0TDtuJx\nB7fvCzhD9tPYHJy0xnhM88DK1KgCfMMvFvtms+Fr6/mM73t5NqQq4pjQ2jpqe6Xf\nOZxXBLlUZukTRe2bvuOTJbHT\n-----END PRIVATE KEY-----\n",
+  "client_email": "career-indexing@cerve-limited.iam.gserviceaccount.com",
+  "client_id": "115359073414626723687",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/career-indexing%40cerve-limited.iam.gserviceaccount.com"
+}

@@ -119,12 +119,11 @@ class JobCreate extends Component
             'tags'=>$this->tags,
             'range_id'=>$this->rangeId,
         ]);
-        LaravelGoogleIndexing::create()->update('https://www.careermove.co.ke/listings/'.$job->slug);
-        $info=LaravelGoogleIndexing::create()->status('https://www.careermove.co.ke/listings/'.$job->slug);
+        //LaravelGoogleIndexing::create()->update('https://www.careermove.co.ke/listings/'.$job->slug);
+        //$info=LaravelGoogleIndexing::create()->status('https://www.careermove.co.ke/listings/'.$job->slug);
         $this->clearForm();
         return redirect('admin/jobs')
-        ->with('status','Job Created Successfully')
-        ->with('info', $info);
+        ->with('status','Job Created Successfully');
     }
     public  function clearForm(){
         $this->title=null;
