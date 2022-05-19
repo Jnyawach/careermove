@@ -91,6 +91,11 @@
         <hr>
         @include('includes.jobs_nav')
         @include('includes.status')
+       @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif
         <div class="card mt-5 shadow-sm">
             <div class="card-header">
                 <h5>All Jobs</h5>

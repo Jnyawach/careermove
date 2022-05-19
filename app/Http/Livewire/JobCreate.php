@@ -7,6 +7,7 @@ use App\Models\Job;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Famdirksen\LaravelGoogleIndexing\LaravelGoogleIndexing;
 
 
 class JobCreate extends Component
@@ -118,10 +119,12 @@ class JobCreate extends Component
             'tags'=>$this->tags,
             'range_id'=>$this->rangeId,
         ]);
-
+        LaravelGoogleIndexing::create()->update('https://www.careermove.co.ke/listings/'.$job->slug);
+        $info=LaravelGoogleIndexing::create()->status('https://www.careermove.co.ke/listings/'.$job->slug);
         $this->clearForm();
         return redirect('admin/jobs')
-        ->with('status','Job Created Successfully');
+        ->with('status','Job Created Successfully')
+        ->with('info', $info);
     }
     public  function clearForm(){
         $this->title=null;
