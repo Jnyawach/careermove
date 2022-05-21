@@ -46,8 +46,14 @@ class SiteIndex extends Command
             $batch = $service->createBatch();
 
            foreach($jobs as $job){
-               $url="https://careermove.co.ke/listings/$job->slug";
-               $batch->add( $service->urlNotifications->getMetadata( $url ) );
+               $urlUpdated=[
+                   'url'=>"https://careermove.co.ke/listings/$job->slug",
+                   'type' => 'URL_UPDATED'
+                ];
+                dd($url);
+
+
+               $batch->add( $service->urlNotifications->getMetadata( $urlUpdated ) );
                $job->update(['index_status'=>1]);
            }
            $results = $batch->execute();
