@@ -9,7 +9,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
             <div class="col-12 col-md-11 mx-auto">
                 <h1 class="">Discover you next Career move</h1>
                 <p class="mt-2 access">Get unlimited access to over a 10000+ jobs</p>
-                <a href="{{route('listings.index')}}" class="btn btn-primary m-2 fs-5">
+                <a href="{{route('listings.index')}}" class="btn btn-primary m-2 fs-6">
                     Browse jobs <i class="fa-solid fa-angle-right ms-3"></i>
                 </a>
             </div>
