@@ -61,6 +61,7 @@ return [
             'client_id' => env('DROPBOX_APP_KEY'),
             'client_secret' => env('DROPBOX_APP_SECRET'),
             'authorization_token' => env('DROPBOX_ACCESS_TOKEN'),
+            'refresh_token'=>env('DROPBOX_REFRESH_TOKEN'),
         ],
 
 

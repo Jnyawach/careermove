@@ -30,11 +30,26 @@ class AppServiceProvider extends ServiceProvider
     {
         //
 
-        Storage::extend('dropbox', function ($app, $config) {
+
+
+
+        Storage::extend('dropbox',  function ($app, $config) {
+
+             $key=$config['client_id'];
+             $secret=$config['client_secret'];
+            $client = new \GuzzleHttp\Client();
+            $res = $client->request("POST", "https://{$key}:{$secret}@api.dropbox.com/oauth2/token", [
+                'form_params' => [
+                    'grant_type' => 'refresh_token',
+                    'refresh_token' =>$config['refresh_token'],
+                ]
+            ]);
+
+         $data=json_decode($res->getBody(), TRUE);
 
 
             $adapter = new DropboxAdapter(new DropboxClient(
-                $config['authorization_token']
+                $data['access_token']
             ));
 
             return new FilesystemAdapter(
