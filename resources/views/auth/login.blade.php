@@ -1,5 +1,7 @@
 @extends('layouts.auth')
-
+@section('description','Login to explore and discover your next career move')
+@section('keywords','near me job, jobs in Kenya,work form home jobs,
+hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, jobs in Kisumu, jobs in Nakuru,internship parmanent jobs,job application,find a job')
 @section('content')
     <section class="mt-5 pt-5 vh-100">
         <div class=" mt-5">
@@ -12,7 +14,7 @@
                                 <h6 class="mt-3 text-center">Please Login</h6>
                                 <form class="m-sm-5" action="{{route('login')}}" method="POST">
                                     @csrf
-                                    
+
                                     <div class="form-group mt-4">
                                         <label class="control-label" for="email">Email:</label>
                                         <input type="email" id="email" class="form-control" name="email"
