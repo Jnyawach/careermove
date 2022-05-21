@@ -4,9 +4,11 @@ namespace App\Console\Commands;
 
 use App\Models\Job;
 use Illuminate\Console\Command;
-use Google;
+use Google_Client;
 use Google_Service_Indexing;
-use Google_Service_Indexing_UrlNotification;
+use Google_Http_Batch;
+use GuzzleHttp\Psr7\Request as CreateRequest;
+
 
 class SiteIndex extends Command
 {
@@ -33,30 +35,39 @@ class SiteIndex extends Command
     {
         $jobs=Job::where('index_status',0)->where('status_id',2)->limit(100)->get();
         if($jobs->count()>0){
+            $url=$jobs->pluck('slug');
+
 
 
         require_once 'public/google-api-php-client/vendor/autoload.php';
+
+
         try {
-            $googleClient = new Google\Client();
+            $client = new \Google_Client();
 
-            // Add here location to the JSON key file that you created and downloaded earlier.
-            $googleClient->setAuthConfig( 'storage/app/google_auth_config.json' );
-            $googleClient->setScopes( Google_Service_Indexing::INDEXING );
-            $service = new Google_Service_Indexing( $googleClient );
-            $batch = $service->createBatch();
+                $client->setAuthConfig('storage/app/google_auth_config.json');
+                $client->addScope('https://www.googleapis.com/auth/indexing');
+                $client->setUseBatch(true);
 
-           foreach($jobs as $job){
-               $urlUpdated=[
-                   'url'=>"https://careermove.co.ke/listings/$job->slug",
-                   'type' => 'URL_UPDATED'
-                ];
-                dd($url);
+                $service = new \Google_Service_Indexing($client);
+                $batch = $service->createBatch();
 
+                // add request
+                $postBody = new \Google_Service_Indexing_UrlNotification();
+                $postBody->setType('URL_UPDATED');
+                $postBody->setUrl('https://careermove.co.ke/listings/' . $url);
+                $batch->add($service->urlNotifications->publish($postBody));
+                // ---- add request
 
-               $batch->add( $service->urlNotifications->getMetadata( $urlUpdated ) );
-               $job->update(['index_status'=>1]);
-           }
-           $results = $batch->execute();
+                $results = $batch->execute(); // it does authorize in execute()
+
+                foreach ($jobs as $job){
+                    $job->update([
+                        'index_status'=>1,
+
+                    ]);
+                }
+
 
 
           }
