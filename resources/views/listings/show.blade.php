@@ -149,8 +149,8 @@
                                      style="width: 120px">
                             </div>
                             <div class="col-12 col-md-9 col-lg-10 align-self-center">
-                                <h6>{{$job->title}}</h6>
-                                <h5>{{$job->company->name}}</h5>
+                                <h1 class="fs-5">{{$job->title}}</h1>
+                                <h6>{{$job->company->name}}</h6>
                                 <div class="small-desc">
                                     <small><i class="fa-solid fa-location-crosshairs"></i>{{$job->location->name}}
                                     </small>
