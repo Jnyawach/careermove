@@ -31,7 +31,10 @@ class SiteIndex extends Command
      */
     public function handle()
     {
-        $jobs=Job::where('index_status',0)->where('status_id',2)->get();
+        $jobs=Job::where('index_status',0)->where('status_id',2)->limit(100)->get();
+        if($jobs->count()>0){
+
+
         require_once 'public/google-api-php-client/vendor/autoload.php';
         try {
             $googleClient = new Google\Client();
@@ -42,7 +45,7 @@ class SiteIndex extends Command
             $service = new Google_Service_Indexing( $googleClient );
             $batch = $service->createBatch();
 
-           foreach($jobs->chunk(100) as $job){
+           foreach($jobs as $job){
                $url="https://careermove.co.ke/listings/$job->slug";
                $batch->add( $service->urlNotifications->getMetadata( $url ) );
                $job->update(['index_status'=>1]);
@@ -54,6 +57,7 @@ class SiteIndex extends Command
           catch (\Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
           }
+        }
 
     }
 }
