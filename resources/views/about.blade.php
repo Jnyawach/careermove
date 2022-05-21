@@ -1,5 +1,8 @@
 @extends('layouts.main')
 @section('title', 'About us')
+@section('title','Explore and discover your next career move')
+@section('keywords','near me job, jobs in Kenya,work form home jobs,
+hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, jobs in Kisumu, jobs in Nakuru,internship parmanent jobs,job application,find a job')
 @section('content')
     <section class=" p-3 p-md-5">
         <div class="row">

@@ -1,5 +1,7 @@
 @extends('layouts.main')
 @section('title',$job->title)
+@section('description', $job->title)
+@section('keywords', $job->tags)
 @section('styles')
 
     <script type="application/ld+json">

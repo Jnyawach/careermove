@@ -1,5 +1,11 @@
 @extends('layouts.main')
 @section('title',$company->name)
+@section('description'){{$company->name}} is hiring today @endsection
+
+
+@section('keywords')
+Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hiring today
+@endsection
 @section('content')
     <section class="hiring p-5">
         <div class="row">

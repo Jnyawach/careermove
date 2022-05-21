@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82ee4022ca8ac3e78af3d5cd507e8fc3",
+    "content-hash": "97bb6c2dc603d943dfbc0c880465ede8",
     "packages": [
         {
             "name": "brick/math",
@@ -583,75 +583,6 @@
                 }
             ],
             "time": "2021-10-11T09:18:27+00:00"
-        },
-        {
-            "name": "famdirksen/laravel-google-indexing",
-            "version": "v0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Famdirksen/laravel-google-indexing.git",
-                "reference": "f7745b9537f97a7e1e2e833b1502b481f331f685"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Famdirksen/laravel-google-indexing/zipball/f7745b9537f97a7e1e2e833b1502b481f331f685",
-                "reference": "f7745b9537f97a7e1e2e833b1502b481f331f685",
-                "shasum": ""
-            },
-            "require": {
-                "google/apiclient": "^2.0",
-                "php": "^7.2|^8.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^6.23|^7.0",
-                "phpunit/phpunit": "^9.4"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Famdirksen\\LaravelGoogleIndexing\\ServiceProvider\\LaravelGoogleIndexingServiceProvider"
-                    ],
-                    "aliases": {
-                        "LaravelGoogleIndexing": "Famdirksen\\LaravelGoogleIndexing\\Facade\\LaravelGoogleIndexingFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Famdirksen\\LaravelGoogleIndexing\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Famdirksen",
-                    "email": "info@famdirksen.nl",
-                    "homepage": "https://famdirksen.nl",
-                    "role": "Company"
-                },
-                {
-                    "name": "Robin Dirksen",
-                    "email": "robin@famdirksen.nl",
-                    "homepage": "https://robindirksen.nl",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Index Laravel website in Google via Indexing API",
-            "homepage": "https://github.com/famdirksen/laravel-google-indexing",
-            "keywords": [
-                "famdirksen",
-                "laravel",
-                "laravel-google-indexing"
-            ],
-            "support": {
-                "issues": "https://github.com/Famdirksen/laravel-google-indexing/issues",
-                "source": "https://github.com/Famdirksen/laravel-google-indexing/tree/v0.4"
-            },
-            "time": "2022-03-14T08:19:52+00:00"
         },
         {
             "name": "firebase/php-jwt",

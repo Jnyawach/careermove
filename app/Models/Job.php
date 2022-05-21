@@ -12,7 +12,7 @@ class Job extends Model
     use HasFactory, Sluggable, SluggableScopeHelpers;
     protected $fillable=['status_id','title','industry_id',
         'profession_id','description','link','deadline','company_id',
-        'location_id','experience_id','user_id','tags', 'type_id','range_id'];
+        'location_id','experience_id','user_id','tags', 'type_id','range_id','index_status'];
     /* Return the sluggable configuration array for this model.
     *
     * @return array
