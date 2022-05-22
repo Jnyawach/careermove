@@ -199,9 +199,9 @@
             <div class="form-group">
                 <label for="tags" class="control-label">Tags:</label>
                 <textarea name="tags" class="form-control mt-2" id="tags" required
-                wire:model.lazy="tags">
-                    {{$tags}}
-                </textarea>
+                wire:model.lazy="tags">{{$tags}}</textarea>
+
+
                 <small>List comma separated tags. For example:
                 mechanical engineering jobs,jobs in Nakuru,Jobs in Kenya</small>
                 @error('tags') <span class="error">{{ $message }}</span> @enderror<br>
