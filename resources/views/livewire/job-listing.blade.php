@@ -178,7 +178,7 @@
       <section class="text-center p-5">
           <div class="row">
               <div class="col-12 mx-auto text-center">
-                  {{$jobs->links('vendor.pagination.bootstrap-5')}}
+                  {{$jobs->links('vendor.pagination.live')}}
               </div>
           </div>
 
