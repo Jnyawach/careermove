@@ -63,13 +63,14 @@ class SiteIndex extends Command
                 // ---- add request
 
                 //$results = $batch->execute(); // it does authorize in execute()
-                $apiKey='09acb169e75e409f9618f09ade50c4e9';
+                $apiKey='2026dea745db4043a7749d299cc07e23';
                 $body='https://careermove.co.ke/listings/' . $url;
                 $http = \Http::post(
                     "https://www.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=" . $apiKey,
                     [
                         "siteUrl" => 'https://careermove.co.ke',
-                        "urlList" =>$body
+                        "urlList" =>$body,
+
                     ]
                 );
                 dd($http->body());
