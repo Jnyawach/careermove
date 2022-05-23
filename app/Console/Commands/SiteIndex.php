@@ -7,6 +7,7 @@ use Illuminate\Console\Command;
 use Google_Client;
 use Google_Service_Indexing;
 use Google_Service_Indexing_UrlNotification;
+use Illuminate\Support\Collection;
 
 
 class SiteIndex extends Command
@@ -32,7 +33,7 @@ class SiteIndex extends Command
      */
     public function handle()
     {
-        $jobs=Job::where('status_id',2)->limit(100)->get();
+        $jobs=Job::where('status_id',2)->where('status_id',2)->limit(100)->get();
         if($jobs->count()>0){
             $urls=$jobs->pluck('slug');
 
@@ -51,8 +52,8 @@ class SiteIndex extends Command
 
         $postBody = new Google_Service_Indexing_UrlNotification();
 
-        // Use URL_UPDATED for new or updated pages.
-        // Use URL_DELETED for deleted pages.
+            // Use URL_UPDATED for new or updated pages.
+            // Use URL_DELETED for deleted pages.
 
 
         foreach($urls as $url)
@@ -64,8 +65,26 @@ class SiteIndex extends Command
           $batch->add( $service->urlNotifications->publish( $postBody ) );
         }
 
-        $results = $batch->execute();
-        dd($results);
+             $results = $batch->execute();
+            $collection = new Collection($urls);
+
+            $names = $collection->map(function($item, $key) {
+                return 'https://careermove.co.ke/'. $item;
+             });
+
+
+
+
+
+            $http = \Http::post(
+                "https://www.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=81de891fa9714b34a5da47c303650e1a",
+                [
+                    "siteUrl" => 'https://careermove.co.ke',
+                    "urlList" => $names
+                ]
+            );
+
+
 
 
 
