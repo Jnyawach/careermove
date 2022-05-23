@@ -190,6 +190,7 @@
                                 </script>
                                 <script type="IN/Share" data-url="{{url()->current()}}"></script>
                             </div>
+                            
                             <a href="{{url()->previous()}}" class="btn btn-link mt-4 text-decoration-none fs-5 fw-bold">
                                 <i class="fa-solid fa-arrow-left-long me-2"></i>Return to Jobs</a>
 

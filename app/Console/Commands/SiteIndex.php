@@ -33,9 +33,10 @@ class SiteIndex extends Command
      */
     public function handle()
     {
-        $jobs=Job::where('index_status',0)->where('status_id',2)->limit(100)->get();
+        $jobs=Job::where('status_id',2)->limit(100)->get();
         if($jobs->count()>0){
             $url=$jobs->pluck('slug');
+
 
 
 
@@ -56,10 +57,22 @@ class SiteIndex extends Command
                 $postBody = new \Google_Service_Indexing_UrlNotification();
                 $postBody->setType('URL_UPDATED');
                 $postBody->setUrl('https://careermove.co.ke/listings/' . $url);
-                $batch->add($service->urlNotifications->publish($postBody));
+
+
+                //$batch->add($service->urlNotifications->publish($postBody));
                 // ---- add request
 
-                $results = $batch->execute(); // it does authorize in execute()
+                //$results = $batch->execute(); // it does authorize in execute()
+                $apiKey='09acb169e75e409f9618f09ade50c4e9';
+                $body='https://careermove.co.ke/listings/' . $url;
+                $http = \Http::post(
+                    "https://www.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=" . $apiKey,
+                    [
+                        "siteUrl" => 'https://careermove.co.ke',
+                        "urlList" =>$body
+                    ]
+                );
+                dd($http->body());
 
                 foreach ($jobs as $job){
                     $job->update([
