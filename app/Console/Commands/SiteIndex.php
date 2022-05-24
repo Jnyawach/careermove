@@ -56,7 +56,7 @@ class SiteIndex extends Command
             // Use URL_DELETED for deleted pages.
 
 
-        foreach($urls as $url)
+        /*foreach($urls as $url)
         {
             $url='https://careermove.co.ke/listings/'.$url;
 
@@ -65,7 +65,7 @@ class SiteIndex extends Command
           $batch->add( $service->urlNotifications->publish( $postBody ) );
         }
 
-             $results = $batch->execute();
+             $results = $batch->execute();*/
             $collection = new Collection($urls);
 
             $names = $collection->map(function($item, $key) {
@@ -83,6 +83,9 @@ class SiteIndex extends Command
                     "urlList" => $names
                 ]
             );
+
+            dd($http);
+
 
 
 
