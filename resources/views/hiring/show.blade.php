@@ -67,6 +67,16 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
                 </div>
             @endforeach
         </div>
+        <div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                crossorigin="anonymous"></script>
+            <!-- horizontal-add -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855" data-ad-slot="4790585617"
+                data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
     </section>
     @if($companies->count()>0)
         <section class="mt-5">

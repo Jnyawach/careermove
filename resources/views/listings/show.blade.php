@@ -54,7 +54,17 @@
         @include('includes.status')
         <a href="{{url()->previous()}}" class="btn btn-link mb-4 text-decoration-none fs-5 fw-bold">
             <i class="fa-solid fa-arrow-left-long me-2"></i>Return to Jobs</a>
-        <div class="row">
+       <div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                crossorigin="anonymous"></script>
+            <!-- horizontal-add -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855" data-ad-slot="4790585617"
+                data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+            <div class="row">
             <div class="col-12 col-md-9">
 
                 <div class="card p-0 p-lg-3">
@@ -190,7 +200,7 @@
                                 </script>
                                 <script type="IN/Share" data-url="{{url()->current()}}"></script>
                             </div>
-                            
+
                             <a href="{{url()->previous()}}" class="btn btn-link mt-4 text-decoration-none fs-5 fw-bold">
                                 <i class="fa-solid fa-arrow-left-long me-2"></i>Return to Jobs</a>
 
@@ -203,6 +213,16 @@
                 </div>
             </div>
             <div class="col-12 col-md-3 p-2">
+               <div>
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                        crossorigin="anonymous"></script>
+                    <!-- horizontal-add -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855" data-ad-slot="4790585617"
+                        data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
                 <h6 class="fs-5 fw-bold">Trending Jobs</h6>
                 <div class="trend-jobs">
                     @foreach($jobs as $trending)
