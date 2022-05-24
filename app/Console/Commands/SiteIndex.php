@@ -33,7 +33,7 @@ class SiteIndex extends Command
      */
     public function handle()
     {
-        $jobs=Job::where('status_id',2)->where('status_id',2)->limit(100)->get();
+        $jobs=Job::where('index_status',0)->where('status_id',2)->limit(100)->get();
         if($jobs->count()>0){
             $urls=$jobs->pluck('slug');
 
@@ -76,16 +76,17 @@ class SiteIndex extends Command
 
 
 
-          /*  $http = \Http::post(
+            $http = \Http::post(
                 "https://www.bing.com/webmaster/api.svc/json/SubmitUrlbatch?apikey=81de891fa9714b34a5da47c303650e1a",
                 [
                     "siteUrl" => 'https://careermove.co.ke',
                     "urlList" => $names
                 ]
-            );*/
+            );
 
-            dd($results);
-
+            foreach($jobs as $job){
+                $job->update(['index_status'=>1]);
+            }
 
 
 
