@@ -69,7 +69,7 @@ class SiteIndex extends Command
             $collection = new Collection($urls);
 
             $names = $collection->map(function($item, $key) {
-                return 'https://careermove.co.ke/listings'. $item;
+                return 'https://careermove.co.ke/listings/'. $item;
              });
 
 
