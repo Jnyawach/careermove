@@ -72,7 +72,7 @@ class Wizard extends Component
     ];
     public function stepFourSubmit(){
         $validatedData=$this->validate([
-            'professionId' => 'required|array|max:3',
+            'professionId' => 'required|array|max:5',
         ]);
 
         $user=User::create([
