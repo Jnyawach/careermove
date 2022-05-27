@@ -78,7 +78,7 @@ Route::group([],function (){
     Route::get('employer_registration',EmployerRegister::class);
 
 });
-Route::group(['middleware'=>['auth']],function (){
+Route::group(['middleware'=>['auth','role:super-admin|Employer']],function (){
     Route::get('employers/profile',['as'=>'profile.index', 'uses'=>EmployerProfileController::class]);
     Route::get('employers/careers/blocked',  [EmployerCareerController::class, 'careersBlocked'])->name('careers-blocked');
     Route::get('employers/careers/inactive',  [EmployerCareerController::class, 'careersInactive'])->name('careers-inactive');
@@ -89,7 +89,7 @@ Route::group(['middleware'=>['auth']],function (){
     Route::resource('employers',EmployerController::class);
 
 });
-Route::group(['middleware'=>['auth']],function (){
+Route::group(['middleware'=>['auth','role:super-admin|User']],function (){
     Route::resource('dashboard/saved',SavedJobsController::class);
     Route::resource('dashboard/accounts',UserAccountController::class);
     Route::resource('dashboard',UserController::class);
