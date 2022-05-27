@@ -27,7 +27,7 @@ class HomeController extends Controller
         $jobs=Job::active()->latest()->take(4)->get();
         $companies=Company::whereHas('jobs', function (Builder $query){
             $query->active();
-        })->limit(9)->get();
+        })->inRandomOrder()->limit(9)->get();
         return view('welcome', compact('jobs','companies'));
     }
 

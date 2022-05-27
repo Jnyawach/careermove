@@ -463,3 +463,77 @@ input[type=radio]:checked{
     border-radius: 0px;
     width: 150px;
 }
+/*-------------Blog----------*/
+.curved{
+    border-radius: 15px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.curved:hover{
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+}
+
+.intro h1{
+    color: black;
+    font-size: 34px;
+    font-weight:800;
+    font-family: 'Assistant';
+}
+
+.intro h6{
+    color:  var(--junior);
+    font-size: 14px;
+}
+ .intro h2{
+    font-weight:600;
+    font-family: 'Assistant';
+    color:  black;
+    font-size: 28px;
+ }
+
+ .post-card h2{
+    font-weight:600;
+    font-family: 'Assistant';
+    color:  black;
+    font-size: 28px;
+ }
+
+ .post-card h6{
+    color:  var(--junior);
+    font-size: 14px;
+ }
+ .post-card:hover h2{
+     color:  var(--primary);
+ }
+ .find-jobs{
+     background-color: var(--teal);
+ }
+.find-jobs .btn-outline-primary{
+    border-radius: 0px;
+    border: 2px solid;
+}
+ .find-jobs h6{
+    font-weight: bolder;
+    font-size: 100px;
+    font-family: 'Assistant' !important;
+    color: black;
+}
+
+.posts h2{
+    font-weight:600;
+    font-family: 'Assistant';
+    color:  black;
+    font-size: 24px;
+}
+
+.posts h6{
+
+    font-family: 'Assistant';
+
+    font-size: 14px;
+}
+
+

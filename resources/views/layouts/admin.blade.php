@@ -337,6 +337,60 @@
 
             </div>
 
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSixteen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSixteen" aria-expanded="false"
+                            aria-controls="flush-headingSixteen">
+                            <i class="fa-solid fa-square-pen me-2"></i>Authors
+                    </button>
+                </h2>
+                <div id="flush-collapseSixteen" class="accordion-collapse collapse" aria-labelledby="flush-collapseSixteen" data-bs-parent="#flush-collapseSixteen">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled folders">
+                            <li><a href="{{route('authors.index')}}" title="Authors" >View Authors</a> </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingSeventeen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseSeventeen" aria-expanded="false" aria-controls="flush-headingSixteen">
+                        <i class="fa-solid fa-file-pen me-2"></i>Blog Posts
+                    </button>
+                </h2>
+                <div id="flush-collapseSeventeen" class="accordion-collapse collapse" aria-labelledby="flush-collapseSixteen"
+                    data-bs-parent="#flush-collapseSeventeen">
+                    <div class="accordion-body">
+                        <div class="accordion-item">
+
+                            <div id="flush-collapseSeventeen" class="accordion-collapse collapse"
+                                aria-labelledby="flush-collapseSeventeen" data-bs-parent="#flush-collapseSeventeen">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled folders">
+                                        <li><a href="{{route('posts.index')}}" title="Posts">View Posts</a> </li>
+
+                                    </ul>
+
+                                    <ul class="list-unstyled folders">
+                                        <li><a href="{{route('posts.create')}}" title="Posts">Create Posts</a> </li>
+
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
     </div>

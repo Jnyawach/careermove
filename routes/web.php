@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\AdminJobsController;
 use App\Http\Controllers\Admin\AdminreportJobcontroller;
 use App\Http\Controllers\Admin\AdminSubscription;
 use App\Http\Controllers\Admin\AdminAuthorController;
+use App\Http\Controllers\Admin\AdminPostController;
 
 /*General*/
 use App\Http\Controllers\General\ContactController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\General\ListingsController;
 use App\Http\Controllers\General\HiringController;
 use App\Http\Controllers\General\NewsLetterController;
 use App\Http\Controllers\General\ReportJob;
+use App\Http\Controllers\General\BlogController;
 use \App\Http\Controllers\HomeController;
 
 
@@ -42,7 +44,8 @@ use App\Http\Controllers\Dashboard\SavedJobsController;
 
 
 Route::group(['middleware'=>['auth','role:super-admin|Manager']],function (){
-    Route::resource('admin/subscribers',AdminAuthorController::class);
+    Route::resource('admin/posts',AdminPostController::class);
+    Route::resource('admin/authors',AdminAuthorController::class);
     Route::resource('admin/subscribers',AdminSubscription::class);
     Route::resource('admin/report',AdminreportJobcontroller::class);
     Route::get('admin/jobs/pending',  [AdminJobsController::class, 'jobsPending'])->name('jobs-pending');
@@ -72,6 +75,7 @@ Route::group([],function (){
     Route::get('privacy-policy',  [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
     Route::post('report-job/{id}',['as'=>'report-job','uses'=>ReportJob::class]);
     Route::resource('newsletter',NewsLetterController::class);
+    Route::resource('blog',BlogController::class);
     Route::resource('hiring',HiringController::class);
     Route::resource('listings',ListingsController::class);
     Route::resource('contact',ContactController::class);

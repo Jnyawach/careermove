@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Contact;
 use App\Models\Job;
+use App\Models\Post;
 use App\Models\Report;
 use App\Models\Subscriber;
 use App\Models\User;
@@ -25,6 +26,8 @@ class AdminInterface extends Component
         $employers=User::role('Employer')->count();
         $jobseekers=User::role('User')->count();
         $subscribers=Subscriber::count();
+        $posts=Post::count();
+        $posts_active=Post::where('status',0)->count();
         return view('livewire.admin-interface',[
             'jobs'=>$jobs,
             'active'=>$active,
@@ -37,7 +40,9 @@ class AdminInterface extends Component
             'users'=>$users,
             'employers'=>$employers,
             'jobseekers'=>$jobseekers,
-            'subscribers'=>$subscribers
+            'subscribers'=>$subscribers,
+            'posts'=>$posts,
+            'posts_active'=>$posts_active
         ]);
     }
 }
