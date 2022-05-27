@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\AdminPolicyController;
 use App\Http\Controllers\Admin\AdminJobsController;
 use App\Http\Controllers\Admin\AdminreportJobcontroller;
 use App\Http\Controllers\Admin\AdminSubscription;
+use App\Http\Controllers\Admin\AdminAuthorController;
 
 /*General*/
 use App\Http\Controllers\General\ContactController;
@@ -40,7 +41,8 @@ use App\Http\Controllers\Dashboard\SavedJobsController;
 
 
 
-Route::group(['middleware'=>['auth']],function (){
+Route::group(['middleware'=>['auth','role:super-admin|Manager']],function (){
+    Route::resource('admin/subscribers',AdminAuthorController::class);
     Route::resource('admin/subscribers',AdminSubscription::class);
     Route::resource('admin/report',AdminreportJobcontroller::class);
     Route::get('admin/jobs/pending',  [AdminJobsController::class, 'jobsPending'])->name('jobs-pending');
