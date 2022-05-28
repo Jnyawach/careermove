@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Laravel\Scout\Searchable;
 
 class Post extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia, Sluggable, SluggableScopeHelpers;
+    use HasFactory, InteractsWithMedia, Sluggable, SluggableScopeHelpers,
+    Searchable;
 
     public function sluggable(): array
     {
@@ -21,6 +23,10 @@ class Post extends Model implements HasMedia
                 'source' => 'title'
             ]
         ];
+    }
+    public function searchableAs()
+    {
+        return 'title';
     }
 
     protected $fillable=[

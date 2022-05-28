@@ -4,6 +4,7 @@ namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Job;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -17,12 +18,9 @@ class BlogController extends Controller
     {
         //
 
-        $intro=Post::latest()->first();
-        $header=Post::latest()->limit(3)->get();
-        $you=Post::latest()->limit(4)->get();
-        $trending=Post::all();
 
-        return view('blog.index', compact('intro','header', 'you','trending'));
+
+        return view('blog.index');
     }
 
     /**
@@ -55,6 +53,10 @@ class BlogController extends Controller
     public function show($id)
     {
         //
+        $post=Post::findBySlugOrFail($id);
+        $jobs=Job::active()->latest()->take(4)->get();
+        $blogs=Post::where('status',1)->where('author_id',$post->author_id)->inRandomOrder()->limit(5)->get();
+        return view('blog.show', compact('post','blogs', 'jobs'));
     }
 
     /**

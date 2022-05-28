@@ -55,10 +55,13 @@
                 <div class="navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{route('listings.index')}}">Discover Jobs</a>
+                            <a class="nav-link"  href="{{route('listings.index')}}">Discover Jobs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('hiring.index')}}">Companies Hiring</a>
+                        </li>
+                        <li class="nav-item">
+                            <div id="autocomplete"></div>
                         </li>
 
                     </ul>
@@ -67,10 +70,10 @@
                     @auth()
                         <li class="nav-item pe-5">
                             <div class="dropdown">
-                                <button class="btn btn-link dropdown-toggle fw-bold text-uppercase  text-decoration-none"
+                                <button class="btn btn-link   fw-bold  text-decoration-none"
                                         type="button"
                                         id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-regular fa-user"></i> {{Auth::user()->name}}
+                                     {{Auth::user()->name}}<i class="fa-solid fa-angle-down ms-2"></i>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li>
@@ -270,7 +273,12 @@
     <p class="p-3">&copy; 2022 Careermove is a Cerve Ltd Company</p>
 
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+<script src="{{asset('js/app.js')}}"></script>
+
+
+
 @yield('scripts')
 
 

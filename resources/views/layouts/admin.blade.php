@@ -360,7 +360,7 @@
                 <h2 class="accordion-header" id="flush-headingSeventeen">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#flush-collapseSeventeen" aria-expanded="false" aria-controls="flush-headingSixteen">
-                        <i class="fa-solid fa-file-pen me-2"></i>Blog Posts
+                        <i class="fa-brands fa-blogger me-2"></i>Blog Posts
                     </button>
                 </h2>
                 <div id="flush-collapseSeventeen" class="accordion-collapse collapse" aria-labelledby="flush-collapseSixteen"

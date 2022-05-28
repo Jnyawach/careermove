@@ -4,13 +4,13 @@
             <div class="col-12 col-md-6">
                 <label for="author" class="control-label">Select Author:</label>
                 <select class="form-select" name="select" wire:model="author" required>
-                    <option selected value="">Select Category</option>
+                    <option selected value="">Select Author</option>
                     @foreach($authors as $author)
                         <option value="{{$author->id}}">{{$author->first_name}} {{$author->last_name}}</option>
                     @endforeach
                 </select>
                 @error('author') <span class="error">{{ $message }}</span> @enderror<br>
-                <small>Select the category which the post belongs</small>
+                <small>Select the author of the post</small>
             </div>
 
         </div>

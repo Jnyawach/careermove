@@ -34,7 +34,7 @@
                           <div class="col-12 col-sm-6 col-lg-4 p-2">
                               <div class="form-check">
                                   <input class="form-check-input" type="checkbox" value="{{$profession->id}}"
-                                         id="profession{{$profession->id}}" name="professionId" wire:model.lazy="professionId">
+                                         id="profession{{$profession->id}}"  wire:model="professionId">
                                   <label class="form-check-label" for="profession{{$profession->id}}">
                                       {{$profession->name}}
                                   </label>

@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Laravel\Scout\Searchable;
 
 class Company extends Model implements HasMedia
 {
-    use HasFactory,Sluggable,SluggableScopeHelpers, InteractsWithMedia;
+    use HasFactory,Sluggable,SluggableScopeHelpers, InteractsWithMedia, Searchable;
     public $fillable=['name','location_id','slug'];
     /* Return the sluggable configuration array for this model.
 *
@@ -26,6 +27,11 @@ class Company extends Model implements HasMedia
             ]
         ];
     }
+    public function searchableAs()
+    {
+        return 'name';
+    }
+
     public function location(){
         return $this->belongsTo(Location::class);
     }

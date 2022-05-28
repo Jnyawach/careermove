@@ -488,14 +488,14 @@ input[type=radio]:checked{
     font-size: 14px;
 }
  .intro h2{
-    font-weight:600;
+    font-weight:bold;
     font-family: 'Assistant';
     color:  black;
     font-size: 28px;
  }
 
  .post-card h2{
-    font-weight:600;
+    font-weight:bold;
     font-family: 'Assistant';
     color:  black;
     font-size: 28px;
@@ -523,7 +523,7 @@ input[type=radio]:checked{
 }
 
 .posts h2{
-    font-weight:600;
+    font-weight:bold;
     font-family: 'Assistant';
     color:  black;
     font-size: 24px;
@@ -535,5 +535,23 @@ input[type=radio]:checked{
 
     font-size: 14px;
 }
+.post h1{
+    font-family: 'Assistant';
+}
+.post-content{
+    font-size: 20px;
+    line-height: 35px;
+}
+.writer-detail{
+    background-color: var(--teal);
+}
+.review a h5{
+    color: black;
+    font-size: 20px;
+    font-family: 'Assistant';
+    font-weight: 400;
 
-
+}
+.review a:hover h5{
+    color: var(--senior);
+}

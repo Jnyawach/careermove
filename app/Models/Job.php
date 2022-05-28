@@ -6,10 +6,11 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Job extends Model
 {
-    use HasFactory, Sluggable, SluggableScopeHelpers;
+    use HasFactory, Sluggable, SluggableScopeHelpers, Searchable;
     protected $fillable=['status_id','title','industry_id',
         'profession_id','description','link','deadline','company_id',
         'location_id','experience_id','user_id','tags', 'type_id','range_id','index_status'];
@@ -24,6 +25,10 @@ class Job extends Model
                 'source' => 'title'
             ]
         ];
+    }
+    public function searchableAs()
+    {
+        return 'title';
     }
     public function profession(){
         return $this->belongsTo(Profession::class);

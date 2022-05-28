@@ -19,5 +19,9 @@
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1"
+    },
+    "dependencies": {
+        "@algolia/autocomplete-js": "^1.6.3",
+        "@algolia/autocomplete-theme-classic": "^1.6.3"
     }
 }

@@ -19,7 +19,7 @@ class Newsletter extends Component
     protected $rules=[
         'name' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:subscribers',
-        'professionId' => 'required|array|max:3',
+        'professionId' => 'required|max:3|min:1',
     ];
     protected $messages=[
         'professionId.max'=>'You can only select upto three categories',
@@ -33,14 +33,18 @@ class Newsletter extends Component
     }
 
     public function subscribeUser(){
-        $subscriber=Subscriber::create([
-           'name'=>$this->name,
-            'email'=>$this->email,
-        ]);
+        $this->validate();
 
-        $subscriber->profession()->sync($this->professionId);
-        $this->success="Thank you for subscribing to our Newsletter";
-        $this->clearForm();
+            $subscriber=Subscriber::create([
+                'name'=>$this->name,
+                 'email'=>$this->email,
+             ]);
+
+             $subscriber->profession()->sync($this->professionId);
+             $this->success="Thank you for subscribing to our Newsletter";
+             $this->clearForm();
+
+
     }
 
     public function clearForm(){
