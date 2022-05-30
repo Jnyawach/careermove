@@ -33,6 +33,7 @@ body{
 
 h1, h2,h3,h4,h5,h6{
     font-weight: 500;
+    font-family: 'Lato';
 
 }
 h1{
@@ -45,6 +46,10 @@ h6{
 p{
     color: #3F3F3F;
     font-weight: 500;
+}
+hr{
+    background-color: var(--dark);
+    opacity: 0.1 !important;
 }
 span{
     color: var(--junior);
@@ -294,15 +299,6 @@ input[type=radio]:checked{
 }
 .counter{
     background-color: rgba(2,144,161,0.1);
-}
-#sort-select{
-    border: 0px;
-    text-transform: uppercase;
-    color: black;
-    margin-left: 0px !important;
-    width:auto;
-
-
 }
 
 
@@ -554,4 +550,72 @@ input[type=radio]:checked{
 }
 .review a:hover h5{
     color: var(--senior);
+}
+
+/*******job card*****/
+.job-location{
+    background-color: rgba(25, 114,120, 0.2);
+    font-weight: bold;
+    color: var(--dark);
+    font-family: 'Lato';
+    border-radius: 2px;
+    font-size: 14px;
+}
+.job-title a h2{
+    color: var(--junior);
+    font-weight: 900;
+    font-family: 'Lato';
+    font-size: 17px;
+}
+.job-link{
+    text-decoration: underline !important;
+}
+.filter-bar{
+    background-color: var(--teal);
+    padding: 20px;
+}
+
+.filter-bar h2{
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.filter-input{
+    border: 0px;
+    font-weight: 600;
+    font-size: 16px;
+    color: black;
+    margin-left: 0px !important;
+
+}
+
+.search-input input[type=search]{
+    border: 2px solid rgba(17, 17, 17, 0.3) !important;
+    height: 50px !important;
+    border-radius: 0px !important;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+
+}
+.search-input input[type=search]::placeholder{
+    font-size: 16px;
+    color: black;
+    font-weight: 600 !important;
+}
+
+.search-input .btn-primary{
+    border-radius: 0px;
+    height: 50px;
+    width: 60px;
+    border: 2px solid var(--junior) !important;
+    background-color: var(--junior);
+}
+.result-para{
+    color: black !important;
+}
+
+.save-job{
+    color:  var(--bright);
+    cursor: pointer;
 }

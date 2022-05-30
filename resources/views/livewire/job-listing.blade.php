@@ -1,9 +1,9 @@
 <div>
-    <section class="hunt pt-3 p-3">
+    <section class="hunt pt-2 p-2">
 
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('listings.index')}}">Jobs</a>
+                    <a class="nav-link" href="{{route('listings.index')}}"> All Jobs</a>
                 </li>
 
                 <li class="nav-item">
@@ -12,175 +12,270 @@
 
             </ul>
 
+
+    </section>
+    <section  class="mt-5">
         <div class="form-group row">
-            <div class="col-sm-6 col-md-4">
-                <input type="search"  wire:model.debounce.500ms="search" required class="form-control mt-3"
-                       placeholder="Search job by title">
+            <div class="col-11 mx-auto">
 
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <select class="form-select mt-3" wire:model="location">
-                    <option selected value="">Sort by Location</option>
-                    @foreach($locations as $location)
-                    <option value="{{$location->id}}">{{$location->name}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <select class="form-select mt-3" wire:model="publish">
-                    <option selected  value="" >Published</option>
-                    <option value="7">Last 1 Week</option>
-                    <option value="30">Last 30 days</option>
-                    <option value="1">Today</option>
-                </select>
+
+                       <div class="input-group search-input">
+                        <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input" wire:model.debounce.500ms="search"
+                        placeholder="Start typing to search jobs">
+                        <span class="input-group-append">
+                            <button class="btn btn-primary border-start-0 border  ms-n3" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                 </div>
+
+                <div class="mt-3">
+                    @include('includes.status')
+                </div>
             </div>
 
-        </div>
 
-            <div class="filter mt-2">
-                <form>
-                    <div class="form-group row">
+           </div>
 
-                        <div class="col-sm-6 col-md-4 col-lg-3">
-                            <select class="form-select mb-3" wire:model="experience">
-                                <option selected  value="">Seniority</option>
-                                @foreach($experiences as $experience)
-                                <option value="{{$experience->id}}">{{$experience->name}}</option>
-                                @endforeach
+    </section>
 
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3">
-                            <select class="form-select mb-3" wire:model="profession">
-                                <option selected  value="">Profession</option>
-                                @foreach($professions as $profession)
-                                <option value="{{$profession->id}}">{{$profession->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-3">
-                            <select class="form-select mb-3" wire:model="industry">
-                                <option selected  value="">Industry</option>
-                                @foreach($industries as $industry)
-                                <option value="{{$industry->id}}">{{$industry->name}}</option>
-                                @endforeach
-                            </select>
 
-                        </div>
-                  @if($visible)
-                        <div class="col-sm-6 col-md-4 col-lg-3 align-self-center">
-                            <button type="button" class="btn btn-view mb-3" wire:click="clearFilter">
+
+
+        <section class="p-5">
+            <div class="row ">
+                <div class="col-12 col-md-4 col-lg-3 p-2">
+                   <div class="filter-bar">
+                    <h2>Filter Jobs >></h2>
+
+
+                    <div class="filter-form">
+                        <select class="form-select mt-4 filter-input" wire:model="order">
+                            <option selected value="">Recommended</option>
+                            <option value="ASC">Closing Soon</option>
+                            <option value="DESC">Latest</option>
+
+                        </select>
+
+                        <select class="form-select mt-4 filter-input" wire:model="location">
+                            <option selected value="">Sort by Location</option>
+                            @foreach($locations as $location)
+                            <option value="{{$location->id}}">{{$location->name}}</option>
+                            @endforeach
+                        </select>
+
+                        <select class="form-select mt-4 filter-input" wire:model="publish">
+                            <option selected  value="" >Published</option>
+                            <option value="7">Last 1 Week</option>
+                            <option value="30">Last 30 days</option>
+                            <option value="1">Today</option>
+                        </select>
+
+
+
+                        <select class="form-select mt-4 filter-input" wire:model="experience">
+                            <option selected  value="">Seniority</option>
+                            @foreach($experiences as $experience)
+                            <option value="{{$experience->id}}">{{$experience->name}}</option>
+                            @endforeach
+
+                        </select>
+
+                        <select class="form-select mt-4 filter-input" wire:model="profession">
+                            <option selected  value="">Profession</option>
+                            @foreach($professions as $profession)
+                            <option value="{{$profession->id}}">{{$profession->name}}</option>
+                            @endforeach
+                        </select>
+
+                        <select class="form-select mt-4 filter-input" wire:model="industry">
+                            <option selected  value="">Industry</option>
+                            @foreach($industries as $industry)
+                            <option value="{{$industry->id}}">{{$industry->name}}</option>
+                            @endforeach
+                        </select>
+
+
+                        <div class="reset-form text-center mt-4 mb-3">
+                            @if($visible)
+                            <button type="button" class="btn btn-view" wire:click="clearFilter">
                                 <i class="fa-solid fa-square-xmark me-3"></i>Clear filter
                             </button>
+                            @endif
                         </div>
-                        @endif
+
+
 
                     </div>
 
-                </form>
-            </div>
-        </section>
-    <section class="counter p-2">
-            <div class="row">
-                <div class="col-6">
-                    <form class="">
-                        <div class="form-group row ">
-                            <label for="sort-select"
-                                   class="col-6 col-sm-6 col-md-4 col-lg-2 col-form-label fw-bold text-end ">SORT
-                                BY:</label>
-                            <div class="col-6 col-sm-6 col-md-8 col-lg-10 text-start">
-                                <select class="form-select m-0" wire:model="order" id="sort-select">
-                                    <option selected value="">RECOMMENDED</option>
-                                    <option value="ASC">CLOSING SOON</option>
-                                    <option value="DESC">LATEST</option>
-
-                                </select>
-                            </div>
-                        </div>
-
-
-                    </form>
-
+                   </div>
                 </div>
-                <div class="col-6 text-end align-self-center d-none d-md-block">
-                    <h6 class="m-0 me-3"><span>{{$jobs->count()}}</span> JOBS FOUND</h6>
-                </div>
+                <div class="col-12 col-md-8 col-lg-9 p-2">
+                    <p class="fw-bold fs-6 text-muted result-para">
+                        {!! __('Showing') !!}
+                        <span class="font-medium">{{ $jobs->firstItem() }}</span>
+                        {!! __('-') !!}
+                        <span class="font-medium">{{ $jobs->lastItem() }}</span>
+                        {!! __('of') !!}
+                        <span class="font-medium">{{ $jobs->total() }}</span>
+                        {!! __('results') !!}
+                    </p>
+                    <hr>
 
-            </div>
-        </section>
-    <section class="jobs p-3">
-        @if($jobs->count()>0)
-            <div class="row">
-                @foreach($jobs as $job)
-                <div class="col-md-6 p-2">
-                    <a href="{{route('listings.show',$job->slug)}}" class="text-decoration-none" title="{{$job->title}}">
-                        <div class="card job-card">
-                            <div class="card-body">
-                                <div class="row ">
-                                    <div class="col-11">
-                                        <div class="row">
-                                            <div class="col-3 col-sm-3 col-lg-2">
-                                                <img src="{{asset($job->company->getFirstMediaUrl('logo')
-                                                ?$job->company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}"
-                                                     class="img-fluid rounded-circle img-thumbnail"
-                                                     style="width: 100px">
+                    @if($jobs->count()>0)
+                    @foreach ($jobs as $job )
+                    <div class="vacancy-card">
+                        <div class="job-title">
+                            <h6 class="job-location d-inline-block text-center fw-bold p-1 "><i class="fa-solid fa-location-crosshairs"></i> {{$job->location->name}}</h6>
+                            <a href="{{route('listings.show',$job->slug)}}" title="{{$job->title}}" class="job-link">
+                                <h2 class="d-inline-block fw-bold" style="text-decoration: underline">{{$job->title}}</h2></a>
+
+
+                                <div class="job-detail">
+                                    <p class="d-inline-block m-1"><span><i class="fa-regular fa-building"></i></span> {{$job->company->name}}</p>
+                                    <p class="d-inline-block m-1"><span><i class="fa-regular fa-clock"></i></span> {{\Carbon\Carbon::parse
+                                        ($job->deadline)->isoFormat('MMM Do YY')}}</p>
+                                        <p class="d-inline-block m-1"><span><i class="fa-solid fa-briefcase"></i></span> {{$job->type->name}}</p>
+                                        <p class="d-inline-block m-1"><span><i class="fa-solid fa-code-branch"></i></span> {{$job->industry->name}}</p>
+
+
+                                </div>
+                                <div class="actions">
+                                    <form method="POST" action="{{route('saved.store')}}" class="d-inline-block">
+                                        @csrf
+                                        <input type="hidden" value="{{$job->id}}" name="job_id">
+                                        <button type="submit" title="save job" class="btn btn-link  text-decoration-none fw-bold">
+                                            <i class="fa-regular fa-heart"></i> Save Job
+                                        </button>
+                                    </form>
+                                    <button type="button" class="btn btn-link d-inline-block text-decoration-none fw-bold" data-bs-toggle="modal"
+                                        data-bs-target="#shareJobModal{{$job->id}}">
+                                        <i class="fa-solid fa-share-nodes me-2"></i>Share Job
+                                    </button>
+                                    <button type="button" class="btn btn-link d-inline-block text-decoration-none fw-bold" data-bs-toggle="modal"
+                                        data-bs-target="#reportJobModal{{$job->id}}">
+                                        <i class="fa-solid fa-flag me-2"></i>Report Job
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="shareJobModal{{$job->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Share Job</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h6>Copy the Job link and share</h6>
+                                                    <input type="text" value="{{url()->current()}}/{{$job->slug}}" class="form-control">
+
+
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                                </div>
                                             </div>
-                                            <div class="col-9 col-sm-9 col-lg-9">
-
-                                                <h2>{{$job->title}}</h2>
-                                                <small><i class="fa-regular fa-building"></i> {{$job->company->name}}</small>
-                                                <small><i class="fa-solid fa-location-crosshairs"></i>
-                                                    {{$job->location->name}}</small>
-                                                <small><i class="fa-solid fa-briefcase"></i> {{$job->type->name}}</small>
-                                                <small @if (\Carbon\Carbon::parse
-                                                ($job->deadline)<\Carbon\Carbon::now())
-                                                   class="text-danger"
-                                                   @else
-                                                   class="text-success"
-                                                @endif><i class="fa-regular fa-clock"></i> {{\Carbon\Carbon::parse
-                                                ($job->deadline)->isoFormat('MMM Do YY')}}</small>
-
-
-
-                                            </div>
-
                                         </div>
                                     </div>
-                                    <div class="col-1 p-1">
-                                        <form method="POST" action="{{route('saved.store')}}">
-                                            @csrf
-                                            <input type="hidden" value="{{$job->id}}" name="job_id">
-                                            <button type="submit" title="save job" class="btn btn-link m-0 p-0">
-                                                <i class="fa-regular fa-heart"></i>
-                                            </button>
-                                        </form>
+                                    <!-- End of Modal-->
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="reportJobModal{{$job->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Report Job</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" action="{{route('report-job',$job->id)}}" id="reportJob{{$job->id}}">
+                                                        @csrf
+                                                        @honeypot
+                                                        <div class="form-group">
+                                                            <div class="form-check mt-3">
+                                                                <input class="form-check-input" type="radio" name="reason" id="flexRadioDefault1"
+                                                                    value="It is offensive,discriminatory" required>
 
+                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                    It is offensive, discriminatory
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check mt-3">
+                                                                <input class="form-check-input" type="radio" name="reason" id="flexRadioDefault2" value="It seems like a fake
+                                                                                               job" required>
+                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                    It seems like a fake job
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check mt-3">
+                                                                <input class="form-check-input" type="radio" name="reason" id="flexRadioDefault3"
+                                                                    value="It is inaccurate" required>
+                                                                <label class="form-check-label" for="flexRadioDefault3">
+                                                                    It is inaccurate
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check mt-3">
+                                                                <input class="form-check-input" type="radio" name="reason" id="flexRadioDefault4"
+                                                                    value="It is an advertisement" required>
+                                                                <label class="form-check-label" for="flexRadioDefault4">
+                                                                    It is an advertisement
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check mt-3">
+                                                                <input class="form-check-input" type="radio" name="reason" id="flexRadioDefault5"
+                                                                    value="Other" required>
+                                                                <label class="form-check-label" for="flexRadioDefault5">
+                                                                    Other
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group mt-3">
+                                                            <label class="form-check-label" for="additional">
+                                                                Additional information
+                                                            </label>
+                                                            <textarea class="form-control mt-2" placeholder="Leave a comment here" id="additional"
+                                                                style="height: 100px" name="additional" required></textarea>
+
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="submit" class="btn btn-primary" form="reportJob{{$job->id}}">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <!-- End of Modal-->
                                 </div>
 
-
-
-                            </div>
                         </div>
-                    </a>
+                        <hr>
+
+                    </div>
+
+                    @endforeach
+                    @else
+                    <div class="text-center p-5">
+                        <img src="images/sad-face.png" class="img-fluid mt-5" style="width:80px">
+                        <h6 class="mt-5 ">Sorry We could not find what you are looking for</h6>
+                    </div>
+                   @endif
 
                 </div>
-                @endforeach
-
             </div>
-        @else
-            <div class="text-center p-5">
-                <img src="images/sad-face.png" class="img-fluid mt-5" style="width:80px">
-                <h6 class="mt-5 ">Sorry We could not find what you are looking for</h6>
-            </div>
-        @endif
         </section>
+
       <section class="text-center p-5">
           <div class="row">
               <div class="col-12 mx-auto text-center">
-                  {{$jobs->onEachSide(0)->links('vendor.pagination.live')}}
+
+                  {{$jobs->links('vendor.pagination.live')}}
               </div>
           </div>
 
         </section>
+
 </div>

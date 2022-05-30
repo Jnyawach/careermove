@@ -1,8 +1,2 @@
-<div>
-    <form  wire:submit.prevent="saveJob({{$job->id}})">
-        <button type="submit" title="save job" class="btn btn-link m-0 p-0">
-            <i class="fa-regular fa-heart"></i>
-        </button>
-    </form>
 
-</div>
+<p class="d-inline-block m-1 fw-bold save-job" wire:click="saveJob({{$job}})"><i class="fa-regular fa-heart"></i> Save Job</p>

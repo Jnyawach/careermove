@@ -23,7 +23,7 @@
     <link href="{{asset('css/awesome/css/all.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
     @yield('styles')
-
+    
 </head>
 <body class="d-flex flex-column min-vh-100">
     <!-- Google Tag Manager (noscript) -->
@@ -49,7 +49,7 @@
                 <a class="navbar-brand me-5" href="/">
                     <!--<img src="images/excel-logo.png" class="img-fluid" alt="careermove-logo"
                     style="width: 200px">-->
-                    <h2 class="nav-logo">Careermove</h2>
+                    <h2 class="nav-logo ms-3">Careermove</h2>
                 </a>
 
                 <div class="navbar-collapse">

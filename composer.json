@@ -29,7 +29,8 @@
         "symfony/http-client": "^6.0",
         "symfony/mailer": "^6.0",
         "symfony/mailgun-mailer": "^6.0",
-        "vildanbina/livewire-wizard": "^1.2"
+        "vildanbina/livewire-wizard": "^1.2",
+        "wire-elements/modal": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

@@ -68,18 +68,48 @@
 
                 <div class="card p-0 p-lg-3">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col text-end pb-2">
-
-                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#reportJobModal">
-                                    <i class="fa-solid fa-flag me-2"></i>Report Job
+                        <div class="actions">
+                            <form method="POST" action="{{route('saved.store')}}" class="d-inline-block">
+                                @csrf
+                                <input type="hidden" value="{{$job->id}}" name="job_id">
+                                <button type="submit" title="save job" class="btn btn-link  text-decoration-none fw-bold">
+                                    <i class="fa-regular fa-heart"></i> Save Job
                                 </button>
-
-
-                            </div>
+                            </form>
+                            <button type="button" class="btn btn-link d-inline-block text-decoration-none fw-bold" data-bs-toggle="modal"
+                                data-bs-target="#shareJobModal{{$job->id}}">
+                                <i class="fa-solid fa-share-nodes me-2"></i>Share Job
+                            </button>
+                            <button type="button" class="btn btn-link d-inline-block text-decoration-none fw-bold" data-bs-toggle="modal"
+                                data-bs-target="#reportJobModal{{$job->id}}">
+                                <i class="fa-solid fa-flag me-2"></i>Report Job
+                            </button>
                             <!-- Modal -->
-                            <div class="modal fade" id="reportJobModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="shareJobModal{{$job->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Share Job</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h6>Copy the Job link and share</h6>
+                                            <input type="text" value="{{url()->current()}}" class="form-control">
+
+
+                                        </div>
+                                        <div class="modal-footer">
+
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Modal-->
+                            <!-- Modal -->
+                            <div class="modal fade" id="reportJobModal{{$job->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -87,44 +117,42 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="POST" action="{{route('report-job',$job->id)}}"
-                                                  id="reportJob">
+                                            <form method="POST" action="{{route('report-job',$job->id)}}" id="reportJob{{$job->id}}">
                                                 @csrf
                                                 @honeypot
                                                 <div class="form-group">
                                                     <div class="form-check mt-3">
-                                                        <input class="form-check-input" type="radio" name="reason"
-                                                               id="flexRadioDefault1" value="It is offensive,discriminatory" required>
+                                                        <input class="form-check-input" type="radio" name="reason" id="flexRadioDefault1"
+                                                            value="It is offensive,discriminatory" required>
 
                                                         <label class="form-check-label" for="flexRadioDefault1">
                                                             It is offensive, discriminatory
                                                         </label>
                                                     </div>
                                                     <div class="form-check mt-3">
-                                                        <input class="form-check-input" type="radio" name="reason"
-                                                               id="flexRadioDefault2" value="It seems like a fake
-                                                               job" required>
+                                                        <input class="form-check-input" type="radio" name="reason" id="flexRadioDefault2" value="It seems like a fake
+                                                                                       job" required>
                                                         <label class="form-check-label" for="flexRadioDefault2">
                                                             It seems like a fake job
                                                         </label>
                                                     </div>
                                                     <div class="form-check mt-3">
-                                                        <input class="form-check-input" type="radio" name="reason"
-                                                               id="flexRadioDefault3" value="It is inaccurate" required>
+                                                        <input class="form-check-input" type="radio" name="reason" id="flexRadioDefault3"
+                                                            value="It is inaccurate" required>
                                                         <label class="form-check-label" for="flexRadioDefault3">
                                                             It is inaccurate
                                                         </label>
                                                     </div>
                                                     <div class="form-check mt-3">
-                                                        <input class="form-check-input" type="radio" name="reason"
-                                                               id="flexRadioDefault4" value="It is an advertisement" required>
+                                                        <input class="form-check-input" type="radio" name="reason" id="flexRadioDefault4"
+                                                            value="It is an advertisement" required>
                                                         <label class="form-check-label" for="flexRadioDefault4">
                                                             It is an advertisement
                                                         </label>
                                                     </div>
                                                     <div class="form-check mt-3">
-                                                        <input class="form-check-input" type="radio" name="reason"
-                                                               id="flexRadioDefault5" value="Other" required>
+                                                        <input class="form-check-input" type="radio" name="reason" id="flexRadioDefault5"
+                                                            value="Other" required>
                                                         <label class="form-check-label" for="flexRadioDefault5">
                                                             Other
                                                         </label>
@@ -135,7 +163,7 @@
                                                         Additional information
                                                     </label>
                                                     <textarea class="form-control mt-2" placeholder="Leave a comment here" id="additional"
-                                                              style="height: 100px" name="additional" required></textarea>
+                                                        style="height: 100px" name="additional" required></textarea>
 
                                                 </div>
 
@@ -143,12 +171,12 @@
                                         </div>
                                         <div class="modal-footer">
 
-                                            <button type="submit" class="btn btn-primary"
-                                                    form="reportJob">Submit</button>
+                                            <button type="submit" class="btn btn-primary" form="reportJob{{$job->id}}">Submit</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- End of Modal-->
                         </div>
                         <div class="row mt-3">
                             <div class="col-3 col-md-3 col-lg-2">
@@ -186,7 +214,7 @@
                         <div>
                             @if($job->link)
                             <a href="{{$job->link}}" class="btn btn-view" title="{{$job->title}}" target="_blank">
-                                Follow the link to apply</a>
+                                Apply</a>
                             @endif
                             <p class="mt-3">
                                 Tags:@foreach(explode(',',$job->tags) as $tag)

@@ -49,7 +49,8 @@ class SavedJobsController extends Controller
            'user_id'=>$user->id,
            'job_id'=>$validated['job_id']
        ]);
-        return redirect()->back();
+        return redirect()->back()
+        ->with('status','The job has been successfully saved');
     }
 
     /**

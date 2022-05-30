@@ -10,5 +10,8 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
 @livewire('job-listing')
 @endsection
 @section('scripts')
+
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+@livewire('livewire-ui-modal')
 @livewireScripts
 @endsection

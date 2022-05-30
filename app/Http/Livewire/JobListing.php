@@ -5,11 +5,13 @@ namespace App\Http\Livewire;
 use App\Models\Experience;
 use App\Models\Industry;
 use App\Models\Job;
+use App\Models\Wishlist;
 use App\Models\Location;
 use App\Models\Profession;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
+
 
 class JobListing extends Component
 {
@@ -52,6 +54,8 @@ class JobListing extends Component
     public function updatingOrder()
     {
         $this->resetPage();
+        $this->visible=true;
+
 
     }
     public function updatingLocation(){
@@ -70,7 +74,6 @@ class JobListing extends Component
         $this->resetPage();
         $this->visible=true;
     }
-
     public function render()
     {
         $jobs=Job::active()
@@ -95,7 +98,7 @@ class JobListing extends Component
             ->when($this->order, function ($query){
                 return $query->orderBy('deadline',$this->order);
             })
-            ->paginate(10);
+            ->paginate(10)->onEachSide(2);
         $locations=Location::orderBy('name')->get();
         $professions=Profession::orderBy('name')->get();
         $industries=Industry::orderBy('name')->get();
@@ -113,4 +116,6 @@ class JobListing extends Component
         $this->reset();
         $this->visible=false;
     }
+
+
 }

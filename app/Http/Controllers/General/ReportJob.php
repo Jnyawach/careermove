@@ -27,6 +27,6 @@ class ReportJob extends Controller
             'additional'=>$validated['additional']
         ]);
         return redirect()->back()
-            ->with('status','Successfully Submitted');
+            ->with('status','We have recieved your report. Please be asured that we are working on it');
     }
 }
