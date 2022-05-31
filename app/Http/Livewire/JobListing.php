@@ -98,7 +98,7 @@ class JobListing extends Component
             ->when($this->order, function ($query){
                 return $query->orderBy('deadline',$this->order);
             })
-            ->paginate(10)->onEachSide(2);
+            ->paginate(10);
         $locations=Location::orderBy('name')->get();
         $professions=Profession::orderBy('name')->get();
         $industries=Industry::orderBy('name')->get();
