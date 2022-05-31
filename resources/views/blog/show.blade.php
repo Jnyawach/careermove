@@ -48,7 +48,7 @@
             <div class="col-11 col-md-8 mx-auto">
 
                 <h1 class="fs-1 fw-bolder">{{$post->title}}</h1>
-                <h6 class="mb-4">{{$post->summary}}</h6>
+                <p class="mb-4 summary">{{$post->summary}}</p>
                 <div>
                     <img src="{{asset($post->getFirstMediaUrl('imageCard')? $post->getFirstMediaUrl('imageCard'):'/images/no-image.png' )}}"
                          alt="{{$post->title}}" class="img-fluid rounded" title="{{$post->title}}">
@@ -87,7 +87,7 @@
                         <li class="mt-4">
                         <a href="{{route('blog.show',$post->slug)}}" class="text-decoration-none">
 
-                        <h5>{{$post->title}}[..]</h5>
+                        <h5>{{$post->title}}</h5>
 
                         </a>
                         </li>

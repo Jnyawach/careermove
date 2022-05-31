@@ -2,11 +2,14 @@
     <section class="intro p-2">
         <div class="row mt-5">
 
-            <div class="col-11 col-md-5 mx-auto p-2">
+            <div class="col-11 col-lg-5 mx-auto p-2">
 
                 <a href="{{route('blog.show',$intro->slug)}}" title="{{$intro->title}}" class="text-decoration-none">
-                    <img src="{{asset($intro->getFirstMediaUrl('imageCard')? $intro->getFirstMediaUrl('imageCard','blog-thumb'):'/images/no-image.png' )}}" class="img-fluid curved mb-3"
+                    <div>
+                    <img src="{{asset($intro->getFirstMediaUrl('imageCard')? $intro->getFirstMediaUrl('imageCard','blog-thumb'):'/images/no-image.png' )}}" class="img-fluid curved"
                     alt="{{$intro->title}}" title="{{$intro->title}}">
+                    </div>
+                    <small>{{$intro->image_credit}}</small>
                     <h1>{{$intro->title}}</h1>
                     <h6 class="ms-2 fw-bold">{{$intro->author->first_name}} {{$intro->author->last_name}}: {{$intro->created_at->diffForHumans()}}</h6>
                 </a>
@@ -14,17 +17,17 @@
 
             </div>
 
-            <div class="col-11 col-md-6 mx-auto">
+            <div class="col-11  col-lg-6 mx-auto">
                 @foreach($header as $head)
                 <a href="{{route('blog.show',$head->slug)}}" class="text-decoration-none" title="{{$head->title}}">
                     <div class="row p-3">
-                        <div class="col-4 col-md-5 col-lg-3">
+                        <div class="col-12 col-md-5 col-lg-3 p-1">
                             <img src="{{asset($head->getFirstMediaUrl('imageCard')? $head->getFirstMediaUrl('imageCard','imageCard-icon'):'/images/no-image.png' )}}" class="img-fluid curved"
                             title="{{$head->title}}" alt="{{$head->title}}">
                         </div>
-                        <div class="col-8 col-md-7 col-lg-9">
+                        <div class="col-12 col-md-7 col-lg-9 p-1">
                             <h2 class="fs-4">{{$head->title}}</h2>
-
+                            <p class="fs-5">{{Str::of($head->summary)->words(10,'')}} <span>[...]</span></p>
                             <h6 class="ms-2">{{$head->author->first_name}} {{$head->author->last_name}}: {{$head->created_at->diffForHumans()}}</h6>
                         </div>
                     </div>
@@ -40,15 +43,16 @@
         <hr>
         <div class="row">
             @foreach($you as $post)
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-lg-6">
                 <a href="{{route('blog.show',$post->slug)}}" class="text-decoration-none m-1 post-card" title="{{$post->title}}">
                     <div class="row">
-                        <div class="col-4 col-md-5 col-lg-5">
+                        <div class="col-12 col-md-5 col-lg-5 p-1">
                             <img src="{{asset($post->getFirstMediaUrl('imageCard')? $post->getFirstMediaUrl('imageCard','imageCard-icon'):'/images/no-image.png' )}}" class="img-fluid curved"
                             title="{{$post->title}}" alt="{{$post->title}}">
                         </div>
-                        <div class="col-8 col-md-7 col-lg-7">
+                        <div class="col-12 col-md-7 col-lg-7 p-1">
                             <h2 class="fs-4">{{$post->title}}</h2>
+                            <p class="fs-5">{{Str::of($post->summary)->words(10,'')}} <span>[...]</span></p>
                             <h6 class="ms-2 fw-bold">{{$post->author->first_name}} {{$post->author->last_name}}: {{$head->created_at->diffForHumans()}}</h6>
                         </div>
                     </div>

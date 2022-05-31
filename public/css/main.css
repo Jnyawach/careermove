@@ -33,7 +33,7 @@ body{
 
 h1, h2,h3,h4,h5,h6{
     font-weight: 500;
-    
+
 
 }
 h1{
@@ -461,7 +461,7 @@ input[type=radio]:checked{
 }
 /*-------------Blog----------*/
 .curved{
-    border-radius: 15px;
+    border-radius: 5px;
     -webkit-transform: scale(1);
     transform: scale(1);
     -webkit-transition: .3s ease-in-out;
@@ -476,7 +476,7 @@ input[type=radio]:checked{
     color: black;
     font-size: 34px;
     font-weight:800;
-    font-family: 'Assistant';
+    font-family: 'Lato';
 }
 
 .intro h6{
@@ -484,17 +484,17 @@ input[type=radio]:checked{
     font-size: 14px;
 }
  .intro h2{
-    font-weight:bold;
-    font-family: 'Assistant';
+    font-weight:800;
+    font-family: 'Lato';
     color:  black;
     font-size: 28px;
  }
 
  .post-card h2{
-    font-weight:bold;
-    font-family: 'Assistant';
+    font-weight:800;
+    font-family: 'Lato';
     color:  black;
-    font-size: 28px;
+    font-size: 20px !important;
  }
 
  .post-card h6{
@@ -502,7 +502,10 @@ input[type=radio]:checked{
     font-size: 14px;
  }
  .post-card:hover h2{
-     color:  var(--primary);
+     text-decoration: underline;
+ }
+ .post-card p{
+     color: black;
  }
  .find-jobs{
      background-color: var(--teal);
@@ -512,17 +515,20 @@ input[type=radio]:checked{
     border: 2px solid;
 }
  .find-jobs h6{
-    font-weight: bolder;
+    font-weight: 800;
     font-size: 100px;
-    font-family: 'Assistant' !important;
+    font-family: 'Lato' !important;
     color: black;
 }
 
 .posts h2{
-    font-weight:bold;
-    font-family: 'Assistant';
+    font-weight:800;
+    font-family: 'Lato';
     color:  black;
     font-size: 24px;
+}
+.posts h2:hover{
+    text-decoration: underline;
 }
 
 .posts h6{
@@ -532,7 +538,8 @@ input[type=radio]:checked{
     font-size: 14px;
 }
 .post h1{
-    font-family: 'Assistant';
+    font-family: 'Lato';
+    font-weight: 800 !important;
 }
 .post-content{
     font-size: 20px;
@@ -543,10 +550,16 @@ input[type=radio]:checked{
 }
 .review a h5{
     color: black;
-    font-size: 20px;
-    font-family: 'Assistant';
-    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Lato';
+    font-weight: 800;
+    text-decoration: underline;
 
+}
+.summary{
+    background-color: var(--slate);
+    padding: 20px;
+    border-left: 2px solid var(--junior);
 }
 .review a:hover h5{
     color: var(--senior);
