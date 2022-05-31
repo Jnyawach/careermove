@@ -23,7 +23,7 @@
     <link href="{{asset('css/awesome/css/all.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
     @yield('styles')
-    
+
 </head>
 <body class="d-flex flex-column min-vh-100">
     <!-- Google Tag Manager (noscript) -->
@@ -44,6 +44,7 @@
 <header>
     <!--Big menu-->
     <section class="big-menu">
+
         <nav class="navbar navbar-expand-sm navbar-light">
             <div class="container-fluid mt-2">
                 <a class="navbar-brand me-5" href="/">
@@ -276,8 +277,7 @@
 
 
 <script src="{{asset('js/app.js')}}"></script>
-
-
+<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js" type="module"></script>
 
 @yield('scripts')
 

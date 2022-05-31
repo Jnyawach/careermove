@@ -45,7 +45,7 @@
     </section>
     <section class="post p-3">
         <div class="row mt-2">
-            <div class="col-11 col-md-8 mx-auto">
+            <div class="col-11 col-md-11 col-lg-9 ">
 
                 <h1 class="fs-1 fw-bolder">{{$post->title}}</h1>
                 <p class="mb-4 summary">{{$post->summary}}</p>
@@ -63,7 +63,7 @@
                 <h6>Posted: {{$post->created_at->diffForHUmans()}}</h6>
 
             </div>
-            <div class="col-11 col-md-3 mx-auto writer position-relative">
+            <div class="col-11 col-md-6 col-lg-3  writer position-relative">
                 <div class="writer-detail p-1 pt-2 pb-2">
 
                     <div class="row">

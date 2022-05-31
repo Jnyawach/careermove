@@ -547,6 +547,11 @@ input[type=radio]:checked{
 }
 .writer-detail{
     background-color: var(--teal);
+    border-left:2px solid var(--junior)
+
+
+
+
 }
 .review a h5{
     color: black;

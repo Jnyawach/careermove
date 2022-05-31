@@ -1,5 +1,6 @@
 
-import algoliasearch from './node_modules/algoliasearch/lite';
+
+import algoliasearch from 'algoliasearch/lite';
 import { autocomplete, getAlgoliaResults } from '@algolia/autocomplete-js';
 
 import '@algolia/autocomplete-theme-classic';
