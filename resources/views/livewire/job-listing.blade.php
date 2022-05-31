@@ -110,8 +110,9 @@
 
                    </div>
                 </div>
+
                 <div class="col-12 col-md-8 col-lg-9 p-2">
-                    <p class="fw-bold fs-6 text-muted result-para">
+                    <p class="fw-bold fs-6 text-muted result-para mb-0 d-inline-block">
                         {!! __('Showing') !!}
                         <span class="font-medium">{{ $jobs->firstItem() }}</span>
                         {!! __('-') !!}
@@ -120,7 +121,26 @@
                         <span class="font-medium">{{ $jobs->total() }}</span>
                         {!! __('results') !!}
                     </p>
+                    <div class="d-inline-block ms-3">
+                        <div wire:loading.delay>
+                            <div class="spinner-grow spinner-grow-sm spin" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-grow spinner-grow-sm spin " role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-grow spinner-grow-sm spin" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+
+
+                    </div>
                     <hr>
+
+
+
+                    <div wire:loading.remove>
 
                     @if($jobs->count()>0)
                     @foreach ($jobs as $job )
@@ -263,12 +283,13 @@
                         <h6 class="mt-5 ">Sorry We could not find what you are looking for</h6>
                     </div>
                    @endif
+                    </div>
 
                 </div>
             </div>
         </section>
 
-      <section class="text-center p-5">
+      <section class="text-center p-5" wire:loading.class="invisible">
           <div class="row">
               <div class="col-12 mx-auto text-center">
 

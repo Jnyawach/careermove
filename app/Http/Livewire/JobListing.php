@@ -25,6 +25,8 @@ class JobListing extends Component
     public $foo;
     public $order;
     public $visible=false;
+
+
     protected $queryString = [
         'foo',
         'search' => ['except' => ''],
@@ -76,6 +78,7 @@ class JobListing extends Component
     }
     public function render()
     {
+        sleep(seconds:2);
         $jobs=Job::active()
         ->when($this->search,function ($query){
             return $query->where('title', 'like', '%'.$this->search.'%');
