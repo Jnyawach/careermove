@@ -167,7 +167,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <h6>Copy the Job link and share</h6>
-                                                    <input type="text" value="{{url()->current()}}/{{$job->slug}}" class="form-control">
+                                                    <input type="text" value="https://careermove.co.ke/listings/{{$job->slug}}" class="form-control">
 
 
                                                 </div>
