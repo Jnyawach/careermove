@@ -14,9 +14,9 @@
           },
           "headline": "{{$post->title}}",
           "image": [
-            "https://example.com/photos/1x1/photo.jpg",
-            "https://example.com/photos/4x3/photo.jpg",
-            "https://example.com/photos/16x9/photo.jpg"
+
+            "{{$post->getFirstMediaUrl('imageCard')}}",
+
            ],
           "datePublished": "{{$post->created_at->todatestring()}}",
           "dateModified": "{{$post->updated_at->todatestring()}}",
