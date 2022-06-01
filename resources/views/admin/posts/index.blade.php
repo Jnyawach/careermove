@@ -69,6 +69,13 @@
                                                     @can('Edit-model')
                                                         <li><a class="dropdown-item" href="{{route('posts.edit', $blog->id)}}">
                                                                 Edit <i class="fas fa-bookmark ms-2"></i></a></li>
+                                                        <li>
+                                                            <form method="POST" action="{{route('posts.update',$blog->id)}}">
+                                                                @method('PATCH')
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-link text-danger">delete</button>
+                                                            </form>
+                                                        </li>
 
                                                     @endcan
                                                 </ul>
