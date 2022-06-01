@@ -15,14 +15,15 @@ class PostCreate extends Component
     public $title, $content,$summary,$author,$image_credit,$image_card,$tags;
     protected $messages=[
         'image_card.dimensions'=>'The image dimensions should be strictly 960px by 540px',
-        'author.required'=>'Please select at least one author'
+        'author.required'=>'Please select at least one author',
+        'summary.max'=>'the summary cannot exceed 850 characters'
     ];
     protected $rules=[
 
         'title'=>'required|min:10|string|max:120',
         'image_credit'=>'required|min:10|string|max:120',
         'author'=>'required|integer|max:250',
-        'summary'=>'required|min:10|string|max:500',
+        'summary'=>'required|min:10|string|max:850',
         'tags'=>'required|string',
         'content'=>'required',
         'image_card'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:width=960,height=540',
