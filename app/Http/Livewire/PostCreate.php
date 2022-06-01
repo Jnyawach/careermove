@@ -14,7 +14,7 @@ class PostCreate extends Component
 
     public $title, $content,$summary,$author,$image_credit,$image_card,$tags;
     protected $messages=[
-        'image_card.dimensions'=>'The image dimensions should be strictly 800px by 550px',
+        'image_card.dimensions'=>'The image dimensions should be strictly 960px by 540px',
         'author.required'=>'Please select at least one author'
     ];
     protected $rules=[
@@ -25,7 +25,7 @@ class PostCreate extends Component
         'summary'=>'required|min:10|string|max:500',
         'tags'=>'required|string',
         'content'=>'required',
-        'image_card'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:width=800,height=550',
+        'image_card'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:width=960,height=540',
 
 
     ];
@@ -56,7 +56,8 @@ class PostCreate extends Component
             'content'=>$this->content,
             'image_credit'=>$this->image_credit,
             'author_id'=>$this->author,
-            'tags'=>$this->tags
+            'tags'=>$this->tags,
+            'readers'=>2,
          ]);
 
          if($files=$this->image_card){

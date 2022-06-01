@@ -1,5 +1,8 @@
 @extends('layouts.admin')
-@section('title',$post->title);
+@section('title',$post->title)
+@section('styles')
+@livewireStyles()
+@endsection
 @section('content')
     <section>
         <div class="row">
@@ -34,10 +37,17 @@
                         <p class="p-0 m-0 fst-italic">{{$post->summary}}</p>
                     </div>
                     <p>{!! $post->content !!}</p>
+                    <hr>
+                    <h5>Comments</h5>
+                    <p> <span>Likes:</span>{{$post->like}} <span>Likes:</span>{{$post->dislike}}</p>
+                    @livewire('admin-comment',['post'=>$post])
 
                 </div>
             </div>
         </div>
     </section>
 
+@endsection
+@section('scripts')
+@livewireScripts()
 @endsection

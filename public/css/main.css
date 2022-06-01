@@ -212,7 +212,7 @@ input[type=radio]:checked{
     color: white;
     border: 1px solid var(--primary);
 }
-.btn-secondary{
+.btn-secondary, .btn-secondary::after{
     background: rgba(25, 114,120, 0.2);
     color: var(--junior);
     border: none !important;
@@ -641,4 +641,6 @@ input[type=radio]:checked{
     color: var(--junior);
     font-size: 14px !important;
 }
-
+.about-post{
+    color: var(--junior) !important;
+}

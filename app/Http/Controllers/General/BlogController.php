@@ -54,6 +54,7 @@ class BlogController extends Controller
     {
         //
         $post=Post::findBySlugOrFail($id);
+        $post->update(['readers'=>$post->readers+1]);
         $jobs=Job::active()->latest()->take(4)->get();
         $blogs=Post::where('status',1)->where('author_id',$post->author_id)->inRandomOrder()->limit(5)->get();
         return view('blog.show', compact('post','blogs', 'jobs'));

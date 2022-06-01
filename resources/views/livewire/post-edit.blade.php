@@ -79,7 +79,7 @@
 
                 <input class="form-control" type="file" id="imageCard" name="image_card" wire:model="image_card">
                 @error('image_card') <span class="error">{{ $message }}</span> @enderror<br>
-                <small>Should be a banner image Size 800px by 550px </small>
+                <small>Should be a banner image Size 960px by 540px </small>
             </div>
         </div>
 

@@ -31,7 +31,8 @@ class Post extends Model implements HasMedia
 
     protected $fillable=[
         'title','summary','user_id','author_id',
-        'content','status','index_status','tags','image_credit'
+        'content','status','index_status','tags','image_credit','readers',
+        'like','dislike'
     ];
 
     public function registerMediaCollections(): void
@@ -41,7 +42,8 @@ class Post extends Model implements HasMedia
             ->registerMediaConversions(function (Media $media) {
                 $this
                     ->addMediaConversion('imageCard-icon')
-                    ->width(380);
+                    ->width(240)
+                    ->height(90);
                 $this->addMediaConversion('blog-thumb')
                     ->width(650);
             });
@@ -54,6 +56,10 @@ class Post extends Model implements HasMedia
 
     public function author(){
         return $this->belongsTo(Author::class);
+    }
+
+    public function comments(){
+        return $this->belongsTo(Comment::class);
     }
 
 
