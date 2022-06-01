@@ -15,7 +15,7 @@
           "headline": "{{$post->title}}",
           "image": [
 
-            "{{$post->getFirstMediaUrl(\'imageCard\')}}",
+            "\{{$post->getFirstMediaUrl('imageCard')}}\",
 
            ],
           "datePublished": "{{$post->created_at->todatestring()}}",
