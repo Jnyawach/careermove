@@ -5,6 +5,10 @@
 @endsection
 @section('content')
 <section class="p-5">
+    <div class="imgCard">
+        <img src="{{asset($post->getFirstMediaUrl('imageCard')? $post->getFirstMediaUrl('imageCard','imageCard-icon'):'/images/no-image.png' )}}">
+
+    </div>
     @livewire('post-edit',['post'=>$post])
 </section>
 @endsection

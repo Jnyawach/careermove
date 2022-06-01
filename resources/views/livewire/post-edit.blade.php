@@ -1,8 +1,5 @@
 <div>
-    <div class="imgCard">
-        <img src="{{asset($post->getFirstMediaUrl('imageCard')? $post->getFirstMediaUrl('imageCard','imageCard-icon'):'/images/no-image.png' )}}">
-
-    </div>
+    
     <form wire:submit.prevent="updatePost">
         <div class="form-group row mt-3">
             <div class="col-12 col-md-6">
