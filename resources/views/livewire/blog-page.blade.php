@@ -10,8 +10,9 @@
                     alt="{{$intro->title}}" title="{{$intro->title}}">
                     </div>
                     <small>{{$intro->image_credit}}</small>
-                    <h1 class="mb-0">{{$intro->title}}</h1>
                     <p class="fw-bold fs-6 m-0 p-0 about-post">@if($intro->readers>0){{$intro->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$intro->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$intro->dislike}} | <i class="fa-solid fa-message"></i> {{$intro->comments()->count()}}</p>
+                    <h1 class="mb-0">{{$intro->title}}</h1>
+
                     <h6 class="fw-bold">{{$intro->author->first_name}} {{$intro->author->last_name}}: {{$intro->created_at->diffForHumans()}}</h6>
                 </a>
 
