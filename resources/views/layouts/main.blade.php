@@ -176,6 +176,10 @@
                                     <i class="fa-solid fa-chevron-right float-end"></i></a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{route('blog.index')}}">Blog
+                                    <i class="fa-solid fa-chevron-right float-end"></i></a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{route('careers.create')}}">Post
                                     a Job   <i class="fa-solid fa-chevron-right float-end"></i></a>
                             </li>

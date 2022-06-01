@@ -13,7 +13,7 @@
             "@id": "https://www.careermove.co.ke/blog/{{$post->slug}}"
           },
           "headline": "{{$post->title}}",
-          
+
           "datePublished": "{{$post->created_at->todatestring()}}",
           "dateModified": "{{$post->updated_at->todatestring()}}",
           "author":{
@@ -50,7 +50,7 @@
                          alt="{{$post->title}}" class="img-fluid rounded" title="{{$post->title}}">
                 </div>
                 <small class="fst-italic mb-4">Image Credit:{{$post->image_credit}}</small>
-                <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}} | <i class="fa-solid fa-message"></i> 5</p>
+                <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}} | <i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</p>
                 <div class="post-content">{!! $post->content !!}</div>
                 <p class="mt-3">
                     Tags:@foreach(explode(',',$post->tags) as $tag)

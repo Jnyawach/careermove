@@ -42,8 +42,8 @@ class Post extends Model implements HasMedia
             ->registerMediaConversions(function (Media $media) {
                 $this
                     ->addMediaConversion('imageCard-icon')
-                    ->width(240)
-                    ->height(90);
+                    ->width(480)
+                    ->height(270);
                 $this->addMediaConversion('blog-thumb')
                     ->width(650);
             });
