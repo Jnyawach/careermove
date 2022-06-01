@@ -62,7 +62,7 @@
                             <a class="nav-link" href="{{route('hiring.index')}}">Companies Hiring</a>
                         </li>
                         <li class="nav-item">
-                            <div id="autocomplete"></div>
+                            <a class="nav-link" href="{{route('blog.index')}}">Blog</a>
                         </li>
 
                     </ul>
@@ -251,6 +251,9 @@
 
         <li class="nav-item">
             <a class="nav-link" href="{{route('about')}}">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('blog.index')}}">Blog</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('contact.index')}}" title="Contact Us">Contact us</a>
