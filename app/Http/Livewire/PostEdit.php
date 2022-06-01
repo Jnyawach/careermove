@@ -71,8 +71,8 @@ class PostEdit extends Component
 
         ]);
         if($files=$this->image_card){
-            $this->post->clearMediaCollection('imageCard');
-            $this->post->addMedia($files)->toMediaCollection('imageCard');
+            $post->clearMediaCollection('imageCard');
+            $post->addMedia($files)->toMediaCollection('imageCard');
         }
 
         $this->reset();
