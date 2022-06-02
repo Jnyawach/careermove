@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 /*Admin Routes*/
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminRoleController;
@@ -17,6 +19,7 @@ use App\Http\Controllers\Admin\AdminreportJobcontroller;
 use App\Http\Controllers\Admin\AdminSubscription;
 use App\Http\Controllers\Admin\AdminAuthorController;
 use App\Http\Controllers\Admin\AdminPostController;
+
 
 /*General*/
 use App\Http\Controllers\General\ContactController;
@@ -43,7 +46,7 @@ use App\Http\Controllers\Dashboard\SavedJobsController;
 
 
 
-Route::group(['middleware'=>['auth','role:super-admin|Manager']],function (){
+Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],function (){
     Route::resource('admin/posts',AdminPostController::class);
     Route::resource('admin/authors',AdminAuthorController::class);
     Route::resource('admin/subscribers',AdminSubscription::class);
@@ -82,7 +85,7 @@ Route::group([],function (){
     Route::get('employer_registration',EmployerRegister::class);
 
 });
-Route::group(['middleware'=>['auth','role:super-admin|Employer']],function (){
+Route::group(['middleware'=>['auth','role:super-admin|Employer','verified']],function (){
     Route::get('employers/profile',['as'=>'profile.index', 'uses'=>EmployerProfileController::class]);
     Route::get('employers/careers/blocked',  [EmployerCareerController::class, 'careersBlocked'])->name('careers-blocked');
     Route::get('employers/careers/inactive',  [EmployerCareerController::class, 'careersInactive'])->name('careers-inactive');
@@ -93,7 +96,7 @@ Route::group(['middleware'=>['auth','role:super-admin|Employer']],function (){
     Route::resource('employers',EmployerController::class);
 
 });
-Route::group(['middleware'=>['auth','role:super-admin|User']],function (){
+Route::group(['middleware'=>['auth','role:super-admin|User','verified']],function (){
     Route::resource('dashboard/saved',SavedJobsController::class);
     Route::resource('dashboard/accounts',UserAccountController::class);
     Route::resource('dashboard',UserController::class);
@@ -102,3 +105,16 @@ Route::group(['middleware'=>['auth','role:super-admin|User']],function (){
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
