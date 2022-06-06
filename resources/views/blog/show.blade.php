@@ -71,7 +71,7 @@
                 </div>
                 <div class="post-content">{!! $post->content !!}</div>
                 <p class="mt-3">
-                    Tags:@foreach(explode(',',$post->tags) as $tag)
+                    Keywords:@foreach(explode(',',$post->tags) as $tag)
                              <mark>{{$tag}}</mark>
                     @endforeach
                 </p>

@@ -64,11 +64,11 @@
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
-    <div class="row">
+    <div class="row ">
         <div class="col-12 col-md-9">
 
             <div class="card p-0 p-lg-3">
-                <div class="card-body">
+                <div class="card-body mt-2">
                     <div class="actions">
                         <form method="POST" action="{{route('saved.store')}}" class="d-inline-block">
                             @csrf
@@ -225,7 +225,7 @@
                             Apply</a>
                         @endif
                         <p class="mt-3">
-                            Tags:@foreach(explode(',',$job->tags) as $tag)
+                            Keywords:@foreach(explode(',',$job->tags) as $tag)
                             <mark>{{$tag}}</mark>
                             @endforeach
                         </p>
@@ -259,7 +259,7 @@
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
             </div>
-            <h6 class="fs-5 fw-bold">Trending Jobs</h6>
+            <h6 class="fs-5 fw-bold mt-2">Trending Jobs</h6>
             <div class="trend-jobs">
                 @foreach($jobs as $trending)
                 <p>
