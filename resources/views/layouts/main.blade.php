@@ -31,7 +31,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-   
+
 <header>
     <!--Big menu-->
     <section class="big-menu">
@@ -275,8 +275,6 @@
 
 
 <script src="{{asset('js/app.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js" type="module"></script>
-
 @yield('scripts')
 
 

@@ -3,6 +3,14 @@
 @section('description', $post->title)
 @section('keywords', $post->tags)
 @section('styles')
+<meta property="og:title" content="{{$post->title}}">
+<meta property="og:description" content="{{$post->summary}}">
+<meta property="og:image" content="asset($post->getFirstMediaUrl('imageCard')">
+<meta property="og:url" content="{{url()->current()}}">
+<meta name="twitter:title" content="{{$post->title}}">
+<meta name="twitter:description" content="{{$post->summary}}">
+<meta name="twitter:url" content="{{url()->current()}}">
+<meta name="twitter:card" content="{{$post->summary}}">
     @livewireStyles
     <script type="application/ld+json">
         {
@@ -51,6 +59,16 @@
                 </div>
                 <small class="fst-italic mb-4">Image Credit:{{$post->image_credit}}</small>
                 <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}} | <i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</p>
+                <div>
+                    <script async
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                        crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+                        data-ad-format="fluid" data-ad-client="ca-pub-1649231050054855" data-ad-slot="7245907301"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
                 <div class="post-content">{!! $post->content !!}</div>
                 <p class="mt-3">
                     Tags:@foreach(explode(',',$post->tags) as $tag)
@@ -69,7 +87,7 @@
                     <div class="row">
                         <div class="col-3 col-md-3">
                             <img src="{{asset($post->author->getFirstMediaUrl('profile')?$post->author->getFirstMediaUrl('profile','profile-card'):'images/user.png')}}"
-                                 class="img-fluid rounded-circle" alt="{{$post->author->firt_name}}">
+                                 class="img-fluid rounded-circle" alt="{{$post->author->firt_name}}" alt="{{$post->author->firt_name}}">
                         </div>
                         <div class="col-9 col-md-9">
 
@@ -95,7 +113,17 @@
                         @endforeach
                     </ol>
 
-
+                    <div>
+                        <script async
+                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                            crossorigin="anonymous"></script>
+                        <!-- horizontal-add -->
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855"
+                            data-ad-slot="4790585617" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
 
                 </div>
             </div>
