@@ -21,6 +21,11 @@
             "@id": "https://www.careermove.co.ke/blog/{{$post->slug}}"
           },
           "headline": "{{$post->title}}",
+        "image": [
+        "{!!$post->getFirstMediaUrl('imageCard')!!}",
+
+       
+        ],
 
           "datePublished": "{{$post->created_at->todatestring()}}",
           "dateModified": "{{$post->updated_at->todatestring()}}",
