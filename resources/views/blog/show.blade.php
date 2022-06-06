@@ -59,7 +59,7 @@
                 </div>
                 <small class="fst-italic mb-4">Image Credit:{{$post->image_credit}}</small>
                 <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}} | <i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</p>
-                <div class="m-3">
+                <div class="mt-3 mb-3">
                     <script async
                         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
                         crossorigin="anonymous"></script>
@@ -113,7 +113,7 @@
                         @endforeach
                     </ol>
 
-                    <div class="m-3">
+                    <div class="mt-3 mb-3">
                         <script async
                             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
                             crossorigin="anonymous"></script>
