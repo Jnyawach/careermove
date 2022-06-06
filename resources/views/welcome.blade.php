@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title','Explore and discover your next career move')
-@section('description','Explore and discover your next career move')
+@section('description','Discover current jobs in Kenya 2022. Search and apply for verified job vacancies in top companies hiring across Kenya. Signup free today and start growing your career')
 @section('keywords','near me job, jobs in Kenya,work form home jobs,
 hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, jobs in Kisumu, jobs in Nakuru,internship parmanent jobs,job application,find a job')
 @section('content')
