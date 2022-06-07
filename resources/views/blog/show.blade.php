@@ -45,28 +45,26 @@
 
 @section('content')
 
-    <section>
-        <!--Ads Space-->
-       <div class="row">
-            <div class="col-11 col-lg-8">
-                <div class="mt-3 mb-3">
-                    <script async
-                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
-                        crossorigin="anonymous"></script>
-                    <!-- horizontal-add -->
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855"
-                        data-ad-slot="4790585617" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-            </div>
 
-        </div>
-    </section>
     <section class="post p-3">
         <div class="row mt-2">
             <div class="col-11 col-md-11 col-lg-9 ">
+                <section>
+                    <!--Ads Space-->
+
+                    <div class="mt-3 mb-3">
+                        <script async
+                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                            crossorigin="anonymous"></script>
+                        <!-- horizontal-add -->
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855"
+                            data-ad-slot="4790585617" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+
+                </section>
 
 
                 <h1 class="fs-1 fw-bolder">{{$post->title}}</h1>
