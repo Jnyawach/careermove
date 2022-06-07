@@ -77,7 +77,7 @@
             </div>
 
               <!--small screen-->
-              <div class="advert d-block d-md-none">
+             <div class="advert d-block d-md-none">
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
                     crossorigin="anonymous"></script>
                 <!-- mobile -->
@@ -87,7 +87,16 @@
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
             </div>
-
+           <div class="advert">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                    crossorigin="anonymous"></script>
+                <!-- general-responsive -->
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855" data-ad-slot="4592953100"
+                    data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
         </div>
     </div>
 
@@ -99,7 +108,7 @@
         <i class="fa-solid fa-arrow-left-long me-2"></i>Return to Jobs</a>
 
     <div class="row ">
-        <div class="col-12 col-md-9">
+        <div class="col-12 col-md-9 p-1">
 
             <div class="card p-0 p-lg-3">
                 <div class="card-body mt-2">
@@ -281,7 +290,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-3 p-2">
+        <div class="col-12 col-md-3 p-1">
             <section>
                 <!--Ads Space-->
                <div class="row">
