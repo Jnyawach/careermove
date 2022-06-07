@@ -2,7 +2,7 @@
     <section class="intro p-2">
         <div class="row mt-5">
 
-            <div class="col-11 col-lg-5 mx-auto p-2">
+            <div class="col-12 col-lg-5 mx-auto p-2">
 
                 <a href="{{route('blog.show',$intro->slug)}}" title="{{$intro->title}}" class="text-decoration-none">
                     <div>
@@ -19,10 +19,10 @@
 
             </div>
 
-            <div class="col-11  col-lg-6 mx-auto">
+            <div class="col-11  col-lg-6 mx-auto ">
                 @foreach($header as $head)
                 <a href="{{route('blog.show',$head->slug)}}" class="text-decoration-none" title="{{$head->title}}">
-                    <div class="row p-3">
+                    <div class="row">
                         <div class="col-12 col-md-5 col-lg-3 p-1">
                             <img src="{{asset($head->getFirstMediaUrl('imageCard')? $head->getFirstMediaUrl('imageCard','imageCard-icon'):'/images/no-image.png' )}}" class="img-fluid curved"
                             title="{{$head->title}}" alt="{{$head->title}}">
@@ -41,7 +41,7 @@
 
     </section>
 
-    <section class=" m-5 pt-3">
+    <section class="m-3 m-md-5 pt-3">
         <h1 class="text-uppercase fs-4">Top Picks</h1>
         <hr>
         <div class="row">
@@ -67,8 +67,8 @@
         </div>
 
     </section>
-    <section class="find-jobs p-5">
-        <div class="row p-5">
+    <section class="find-jobs p-3 p-lg-5">
+        <div class="row p-lg-5">
             <div class="col-11 col-md-8 text-center mx-auto">
 
 
@@ -87,12 +87,12 @@
         </div>
 
     </section>
-    <section class=" m-5 pt-3">
+    <section class="m-3 m-md-5 pt-3">
         <h1 class="text-uppercase fs-4">Most Trending</h1>
         <hr>
         <div class="row mt-5">
             @foreach($trending as $post)
-            <div class="col-11 col-sm-6 col-md-4 col-lg-4 p-3" @if ($loop->last) id="last_record" @endif>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 p-3" @if ($loop->last) id="last_record" @endif>
                 <a href="{{route('blog.show',$post->slug)}}" title="{{$post->title}}" class="text-decoration-none posts ">
                     <img src="{{asset($post->getFirstMediaUrl('imageCard')? $post->getFirstMediaUrl('imageCard','imageCard-icon'):'/images/no-image.png' )}}" class="img-fluid curved mb-2"
                          alt="{{$post->title}}" title="{{$post->title}}">

@@ -48,7 +48,7 @@
 
     <section class="post p-3">
         <div class="row mt-2">
-            <div class="col-11 col-md-11 col-lg-9 ">
+            <div class="col-12 col-md-11 col-lg-9 ">
                 <section>
                     <!--Ads Space-->
 
@@ -97,7 +97,7 @@
 
 
             </div>
-            <div class="col-11 col-md-6 col-lg-3  writer position-relative">
+            <div class="col-12 col-md-6 col-lg-3  writer position-relative">
                 <div class="writer-detail p-1 pt-2 pb-2">
 
                     <div class="row">
