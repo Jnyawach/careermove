@@ -31,7 +31,7 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
     <section>
         <!--Ads Space-->
        <div class="row">
-            <div class="col-11 col-lg-8">
+            <div class="col-12">
                 <div class="mt-3 mb-3">
                     <script async
                         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
@@ -86,7 +86,7 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
                 </div>
             @endforeach
         </div>
-       
+
     </section>
     @if($companies->count()>0)
         <section class="mt-5">
