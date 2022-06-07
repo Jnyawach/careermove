@@ -49,6 +49,49 @@
 
 @endsection
 @section('content')
+<section>
+    <div class="row">
+        <div class="col-12 mx-auto text-center">
+            <!--Large scren-->
+            <div class="advert d-none d-lg-block">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                    crossorigin="anonymous"></script>
+                <!-- long-banner-desktop -->
+                <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px"
+                    data-ad-client="ca-pub-1649231050054855" data-ad-slot="3954373446"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!--medium screen-->
+            <div class="advert d-none d-md-block d-lg-none">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                    crossorigin="anonymous"></script>
+                <!-- medium-screen -->
+                <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px"
+                    data-ad-client="ca-pub-1649231050054855" data-ad-slot="6213156538"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+
+            </div>
+
+              <!--small screen-->
+              <div class="advert d-block d-md-none">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                    crossorigin="anonymous"></script>
+                <!-- mobile -->
+                <ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px"
+                    data-ad-client="ca-pub-1649231050054855" data-ad-slot="5035235410"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+        </div>
+    </div>
+
+</section>
 
 <section class="p-2 p-md-5">
     @include('includes.status')
@@ -57,22 +100,6 @@
 
     <div class="row ">
         <div class="col-12 col-md-9">
-            <section class="ads">
-                <!--Ads Space-->
-
-                <div class="mt-3 mb-3">
-                    <script async
-                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
-                        crossorigin="anonymous"></script>
-                    <!-- horizontal-add -->
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855"
-                        data-ad-slot="4790585617" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-
-            </section>
 
             <div class="card p-0 p-lg-3">
                 <div class="card-body mt-2">
