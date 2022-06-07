@@ -107,8 +107,8 @@
                         </div>
                         <div class="col-9 col-md-9">
 
-                            <h5 class="fs-6">Written by {{$post->author->first_name}} {{$post->author->last_name}} on {{$post->created_at->format('d-m-Y')}}. {{$post->author->title}}
-                                {{$post->author->profession}}</h5>
+                            <h5 class="fs-6">Written by {{$post->author->first_name}} {{$post->author->last_name}} on {{$post->created_at->format('d-m-Y')}}
+                                </h5>
                         </div>
 
                     </div>
