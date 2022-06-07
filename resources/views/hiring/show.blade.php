@@ -28,6 +28,25 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
             Positions</p>
 
     </section>
+    <section>
+        <!--Ads Space-->
+       <div class="row">
+            <div class="col-11 col-lg-8">
+                <div class="mt-3 mb-3">
+                    <script async
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                        crossorigin="anonymous"></script>
+                    <!-- horizontal-add -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855"
+                        data-ad-slot="4790585617" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
+        </div>
+    </section>
     <section class="p-2 p-lg-5">
         <h6 class="fs-5">Open Jobs at {{$company->name}}</h6>
         <div class="row">
@@ -67,15 +86,7 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
                 </div>
             @endforeach
         </div>
-        <div>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
-                crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
-                data-ad-format="fluid" data-ad-client="ca-pub-1649231050054855" data-ad-slot="7245907301"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
+       
     </section>
     @if($companies->count()>0)
         <section class="mt-5">

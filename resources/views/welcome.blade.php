@@ -91,7 +91,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
                                         ?$company->getFirstMediaUrl('logo'):'company-icon.jpg')}}" class="img-fluid mx-auto"
                                              alt="{{$company->name}}" style="width: 60px">
                                         <h4 class="fs-6">{{$company->name}}</h4>
-                                        <small class="fs-6 text-dark fw-bold">Open Positions {{$company->jobs->count()
+                                        <small class="fs-6 text-dark fw-bold">Open Positions {{$company->jobs->where('status_id',2)->count()
                                         }}</small>
                                     </div>
 
