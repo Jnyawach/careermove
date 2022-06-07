@@ -60,7 +60,7 @@
             <section>
                 <!--Ads Space-->
 
-                <div class="mt-3 mb-3" style="height: 120px">
+                <div class="mt-3 mb-3" style="height: 50px">
                     <script async
                         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
                         crossorigin="anonymous"></script>
