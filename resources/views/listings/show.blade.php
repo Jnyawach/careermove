@@ -54,18 +54,25 @@
     @include('includes.status')
     <a href="{{url()->previous()}}" class="btn btn-link mb-4 text-decoration-none fs-5 fw-bold">
         <i class="fa-solid fa-arrow-left-long me-2"></i>Return to Jobs</a>
-    <div class="mt-3 mb-3">
-        <script async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
-            crossorigin="anonymous"></script>
-        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
-            data-ad-format="fluid" data-ad-client="ca-pub-1649231050054855" data-ad-slot="7245907301"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+
     <div class="row ">
         <div class="col-12 col-md-9">
+            <section>
+                <!--Ads Space-->
+
+                <div class="mt-3 mb-3">
+                    <script async
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                        crossorigin="anonymous"></script>
+                    <!-- horizontal-add -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855"
+                        data-ad-slot="4790585617" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+            </section>
 
             <div class="card p-0 p-lg-3">
                 <div class="card-body mt-2">
