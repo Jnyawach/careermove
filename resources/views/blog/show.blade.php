@@ -59,7 +59,7 @@
                 </script>
             </div>
             <!--medium screen-->
-            <div class="advert d-block d-md-none">
+            <div class="advert d-none d-md-block d-lg-none">
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
                     crossorigin="anonymous"></script>
                 <!-- medium-screen -->
@@ -72,7 +72,7 @@
             </div>
 
               <!--small screen-->
-              <div class="advert d-none d-md-block d-lg-none">
+              <div class="advert d-block d-md-none">
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
                     crossorigin="anonymous"></script>
                 <!-- mobile -->
