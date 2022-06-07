@@ -45,16 +45,35 @@
 
 @section('content')
 <section>
-    <div class="advert">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
-            crossorigin="anonymous"></script>
-        <!-- long-banner-desktop -->
-        <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px"
-            data-ad-client="ca-pub-1649231050054855" data-ad-slot="3954373446"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+    <div class="row">
+        <div class="col-12 mx-auto text-center">
+            <!--Large scren-->
+            <div class="advert d-none d-lg-block">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                    crossorigin="anonymous"></script>
+                <!-- long-banner-desktop -->
+                <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px"
+                    data-ad-client="ca-pub-1649231050054855" data-ad-slot="3954373446"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!--medium scren-->
+            <div class="advert d-none d-md-block d-lg-none">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                    crossorigin="anonymous"></script>
+                <!-- medium-screen -->
+                <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px"
+                    data-ad-client="ca-pub-1649231050054855" data-ad-slot="6213156538"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+
+            </div>
+
+        </div>
     </div>
+
 </section>
 
     <section class="post p-3">
