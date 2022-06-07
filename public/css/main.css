@@ -644,3 +644,6 @@ input[type=radio]:checked{
 .about-post{
     color: var(--junior) !important;
 }
+.ads{
+    height: 120px !important;
+}
