@@ -122,9 +122,9 @@
                     <ol>
                         @foreach ($blogs  as$blog )
                         <li class="mt-4">
-                        <a href="{{route('blog.show',$post->slug)}}" class="text-decoration-none">
+                        <a href="{{route('blog.show',$blog->slug)}}" class="text-decoration-none">
 
-                        <h5>{{$post->title}}</h5>
+                        <h5>{{$blog->title}}</h5>
 
                         </a>
                         </li>
