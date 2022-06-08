@@ -18,12 +18,13 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
     <section class="mt-5">
         <div class="row">
             <div class="col-11 mx-auto">
-                <h2 class="fs-5 text-uppercase">Trending jobs
+                <h1 class="fs-5 text-uppercase">Trending jobs
                     <a href="{{route('listings.index')}}" class="float-end text-decoration-none fs-6"><i
                             class="fa-solid fa-list
                    me-3"></i>View
                         all</a>
-                </h2>
+                </h1>
+                <hr>
 
                 <div class="row mt-5">
                     @foreach($jobs as $job)
@@ -74,12 +75,13 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
     <section class="mt-5">
         <div class="row">
             <div class="col-11 mx-auto">
-                <h2 class="fs-5 text-uppercase">Companies Hiring
+                <h1 class="fs-5 text-uppercase">Companies Hiring
                     <a href="{{route('hiring.index')}}" class="float-end text-decoration-none fs-6"><i
                             class="fa-solid fa-list
                    me-3"></i>View
                         all</a>
-                </h2>
+                </h1>
+                <hr>
                 <div class="row mt-5">
                    @foreach($companies as $company)
                         <div class="col-sm-6 col-md-4 col-lg-3 p-1">
@@ -107,6 +109,27 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
     </section>
     @endif
     @include('includes.subscribe')
+    <section class="m-3 m-md-5 pt-3">
+        <h1 class="text-uppercase fs-4">Trending Insights</h1>
+        <hr>
+        <div class="row mt-5">
+            @foreach($trending as $post)
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 p-3" @if ($loop->last) id="last_record" @endif>
+                <a href="{{route('blog.show',$post->slug)}}" title="{{$post->title}}" class="text-decoration-none posts ">
+                    <img src="{{asset($post->getFirstMediaUrl('imageCard')? $post->getFirstMediaUrl('imageCard','imageCard-icon'):'/images/no-image.png' )}}" class="img-fluid curved mb-2"
+                         alt="{{$post->title}}" title="{{$post->title}}">
+                         <h6 class="text-uppercase mt-2">{{$post->author->first_name}} {{$post->author->last_name}}: {{$post->created_at->diffForHumans()}}</h6>
+                         <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}} | <i class="fa-solid fa-message"></i>{{$post->comments()->count()}}</p>
+                    <h2 class="fs-5">{{$post->title}}</h2>
+
+                </a>
+
+            </div>
+            @endforeach
+        </div>
+
+
+    </section>
 @endsection
 
 

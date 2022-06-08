@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\Job;
 use App\Models\Policy;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -27,8 +28,9 @@ class HomeController extends Controller
         $jobs=Job::active()->latest()->take(4)->get();
         $companies=Company::whereHas('jobs', function (Builder $query){
             $query->active();
-        })->inRandomOrder()->limit(9)->get();
-        return view('welcome', compact('jobs','companies'));
+        })->inRandomOrder()->limit(8)->get();
+        $trending=Post::where('status',1)->latest()->limit(3)->get();
+        return view('welcome', compact('jobs','companies','trending'));
     }
 
     public function terms(){
