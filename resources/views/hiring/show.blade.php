@@ -28,25 +28,7 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
             Positions</p>
 
     </section>
-    <section>
-        <div class="row">
-            <div class="col-12 mx-auto text-center">
-
-                <div class="advert">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
-                        crossorigin="anonymous"></script>
-                    <!-- general-responsive -->
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855" data-ad-slot="4592953100"
-                        data-ad-format="auto" data-full-width-responsive="true"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
+    @include('includes.advertisement')
     <section class="p-2 p-lg-5">
         <h6 class="fs-5">Open Jobs at {{$company->name}}</h6>
         <div class="row">

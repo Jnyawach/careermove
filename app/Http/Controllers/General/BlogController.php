@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
+use App\Models\Advert;
 use App\Models\Post;
 use App\Models\Job;
 use Illuminate\Http\Request;
@@ -54,10 +55,11 @@ class BlogController extends Controller
     {
         //
         $post=Post::findBySlugOrFail($id);
+        $adverts=Advert::where('status',1)->limit(5)->get();
         $post->update(['readers'=>$post->readers+1]);
         $jobs=Job::active()->latest()->take(4)->get();
         $blogs=Post::where('status',1)->where('author_id',$post->author_id)->inRandomOrder()->limit(5)->get();
-        return view('blog.show', compact('post','blogs', 'jobs'));
+        return view('blog.show', compact('post','blogs', 'jobs','adverts'));
     }
 
     /**

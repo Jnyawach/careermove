@@ -4,6 +4,7 @@ namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company;
+use App\Models\Advert;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -54,8 +55,9 @@ class HiringController extends Controller
         $companies=Company::whereHas('jobs', function (Builder $query){
             $query->where('status_id',2);
         })->limit(4)->get();
+        $adverts=Advert::where('status',1)->limit(5)->get();
         $company=Company::findBySlugOrFail($id);
-        return  view('hiring.show', compact('company','companies'));
+        return  view('hiring.show', compact('company','companies','adverts'));
     }
 
     /**

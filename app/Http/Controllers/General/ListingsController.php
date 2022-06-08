@@ -4,6 +4,7 @@ namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
 use App\Models\Job;
+use App\Models\Advert;
 use Illuminate\Http\Request;
 
 class ListingsController extends Controller
@@ -51,7 +52,8 @@ class ListingsController extends Controller
         //
         $job=Job::findBySlugOrFail($id);
         $jobs=Job::active()->limit(10)->get();
-        return view('listings.show', compact('job','jobs'));
+        $adverts=Advert::where('status',1)->limit(5)->get();
+        return view('listings.show', compact('job','jobs','adverts'));
     }
 
     /**

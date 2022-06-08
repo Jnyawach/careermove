@@ -391,6 +391,41 @@
 
             </div>
 
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingEighteen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseEighteen" aria-expanded="false" aria-controls="flush-headingEighteen">
+                        <i class="fa-solid fa-rectangle-ad me-2"></i>Advertisement
+                    </button>
+                </h2>
+                <div id="flush-collapseEighteen" class="accordion-collapse collapse" aria-labelledby="flush-collapseEighteen"
+                    data-bs-parent="#flush-collapseEighteen">
+                    <div class="accordion-body">
+                        <div class="accordion-item">
+
+                            <div id="flush-collapseEighteen" class="accordion-collapse collapse"
+                                aria-labelledby="flush-collapseEighteen" data-bs-parent="#flush-collapseEighteen">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled folders">
+                                        <li><a href="{{route('adverts.index')}}" title="Adverts">View Adverts</a> </li>
+
+                                    </ul>
+
+                                    <ul class="list-unstyled folders">
+                                        <li><a href="{{route('adverts.create')}}" title="Adverts">Create Adverts</a> </li>
+
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
     </div>

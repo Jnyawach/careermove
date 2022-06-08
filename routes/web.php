@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\AdminreportJobcontroller;
 use App\Http\Controllers\Admin\AdminSubscription;
 use App\Http\Controllers\Admin\AdminAuthorController;
 use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\Admin\AdminAdsController;
+use App\Http\Controllers\Admin\DisableAds;
 
 
 /*General*/
@@ -47,6 +49,8 @@ use App\Http\Controllers\Dashboard\SavedJobsController;
 
 
 Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],function (){
+    Route::patch('ads-disable/{id}',  ['as'=>'ads-disable', 'uses'=>DisableAds::class]);
+    Route::resource('admin/adverts',AdminAdsController::class);
     Route::resource('admin/posts',AdminPostController::class);
     Route::resource('admin/authors',AdminAuthorController::class);
     Route::resource('admin/subscribers',AdminSubscription::class);
