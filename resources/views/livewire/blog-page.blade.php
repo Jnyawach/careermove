@@ -42,7 +42,7 @@
     </section>
 
     <section class="m-3 m-md-5 pt-3">
-        <h1 class="text-uppercase fs-4">Top Picks</h1>
+        <h2 class="text-uppercase fs-4 fw-bold">Top Picks</h2>
         <hr>
         <div class="row">
             @foreach($you as $post)
@@ -88,7 +88,7 @@
 
     </section>
     <section class="m-3 m-md-5 pt-3">
-        <h1 class="text-uppercase fs-4">Most Trending</h1>
+        <h2 class="text-uppercase fs-4 fw-bold">Most Trending</h2>
         <hr>
         <div class="row mt-5">
             @foreach($trending as $post)

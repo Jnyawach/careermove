@@ -1,7 +1,9 @@
 @extends('layouts.main')
 @section('title',$job->title)
 @section('description', $job->title)
-@section('keywords', $job->tags)
+@section('keywords')
+Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for jobs today,{{$job->tags}}
+@endsection
 @section('styles')
 
 <script type="application/ld+json">

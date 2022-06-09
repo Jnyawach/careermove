@@ -4,8 +4,9 @@
 
 
 @section('keywords')
-Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hiring today
+Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hiring today, Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for jobs today
 @endsection
+
 @section('content')
     <section class="hiring p-5">
         <div class="row">
@@ -22,7 +23,7 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
     </section>
 
     <section class="p-5">
-        <h4 class="">{{$company->name}}</h4>
+        <h1 class="fs-4">{{$company->name}}</h1>
         <p class="fs-5"><i class="fa-solid fa-location-crosshairs me-2"></i>{{$company->location->name}},Kenya<br>
             <i class="fa-solid fa-folder me-2"></i>{{$company->jobs->where('status_id',2)->count()}}
             Positions</p>

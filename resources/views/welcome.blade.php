@@ -7,7 +7,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
 <section class="p-lg-5 p-2 intro">
         <div class="row pt-2 pb-2">
             <div class="col-12 col-md-11 mx-auto">
-                <h1 class="">Discover you next Career move</h1>
+                <h1 class="">Latest Job Vacancies & Career insights</h1>
                 <p class="mt-2 access">Get unlimited access to over a 10000+ jobs</p>
                 <a href="{{route('listings.index')}}" class="btn btn-primary m-2 fs-6">
                     Browse jobs <i class="fa-solid fa-angle-right ms-3"></i>
@@ -18,12 +18,12 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
     <section class="mt-5">
         <div class="row">
             <div class="col-11 mx-auto">
-                <h1 class="fs-5 text-uppercase">Trending jobs
+                <h2 class="fs-5 text-uppercase">Trending jobs
                     <a href="{{route('listings.index')}}" class="float-end text-decoration-none fs-6"><i
                             class="fa-solid fa-list
                    me-3"></i>View
                         all</a>
-                </h1>
+                </h2>
                 <hr>
 
                 <div class="row mt-5">
@@ -75,12 +75,12 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
     <section class="mt-5">
         <div class="row">
             <div class="col-11 mx-auto">
-                <h1 class="fs-5 text-uppercase">Companies Hiring
+                <h2 class="fs-5 text-uppercase">Companies Hiring
                     <a href="{{route('hiring.index')}}" class="float-end text-decoration-none fs-6"><i
                             class="fa-solid fa-list
                    me-3"></i>View
                         all</a>
-                </h1>
+                </h2>
                 <hr>
                 <div class="row mt-5">
                    @foreach($companies as $company)
@@ -110,7 +110,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
     @endif
     @include('includes.subscribe')
     <section class="m-3 m-md-5 pt-3">
-        <h1 class="text-uppercase fs-4">Trending Insights</h1>
+        <h2 class="text-uppercase fs-4">Trending Insights</h2>
         <hr>
         <div class="row mt-5">
             @foreach($trending as $post)

@@ -5,7 +5,7 @@
                 @guest()
                 <div class="row">
                     <div class="col-12 col-md-8 mx-auto">
-                        <h1 class="fs-1">Never miss a Chance...</h1>
+                        <h2 class="fs-1 fw-bold">Never miss a Chance...</h2>
                         <p class="fs-4 mt-3"><mark>Sign up for free.</mark> Never miss out a thing. Latest job
                             listings, career insights and company reviews</p>
                     </div>
@@ -18,7 +18,7 @@
                 @auth()
                         <div class="row">
                             <div class="col-md-8 mx-auto">
-                                <h1 class="fs-1">Never miss this Opportunity...</h1>
+                                <h2 class="fs-1 fw-bold">Never miss this Opportunity...</h2>
                                 <p class="fs-4 mt-3"><mark>Subscribe.</mark> Never miss out a thing. Latest job
                                     listings, career insights and company reviews</p>
                             </div>
