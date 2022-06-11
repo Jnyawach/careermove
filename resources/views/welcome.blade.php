@@ -15,6 +15,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
             </div>
         </div>
     </section>
+    
     <section class="mt-5">
         <div class="row">
             <div class="col-11 mx-auto">
@@ -130,6 +131,9 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
 
 
     </section>
+@endsection
+@section('scripts')
+
 @endsection
 
 

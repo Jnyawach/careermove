@@ -223,6 +223,19 @@ input[type=radio]:checked{
     color: var(--secondary);
     border: none!important;
 }
+.btn-outline-secondary{
+    background: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 0px !important;
+    font-size: 18px;
+}
+.btn-outline-secondary:hover{
+    background: white;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 0px !important;
+}
 .btn-view{
     background:rgba(224, 138,30, 0.2);
     color: var(--secondary);
@@ -647,3 +660,28 @@ input[type=radio]:checked{
 .ads{
     height: 120px !important;
 }
+.subscribe-user{
+    background-color: var(--primary);
+}
+.subscribe-user .btn-dismiss{
+    color: white !important;
+
+    font-size: 24px;
+
+}
+.subscribe-user h2{
+    color: white;
+    letter-spacing: 1px;
+    font-family: 'Lato';
+}
+.subscribe-user hr{
+   opacity: 1 !important;
+   height: 5px;
+   width: 18%;
+   background-color: white;
+}
+.subscribe-user p{
+    color: white;
+    font-size: 18px;
+}
+

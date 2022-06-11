@@ -72,6 +72,16 @@
                     </script>
                 </div>
                 <div class="post-content">{!! $post->content !!}</div>
+                <div class="mt-3 mb-3">
+                    <script async
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                        crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+                        data-ad-format="fluid" data-ad-client="ca-pub-1649231050054855" data-ad-slot="7245907301"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
                 <p class="mt-3">
                     Keywords:@foreach(explode(',',$post->tags) as $tag)
                              <mark>{{$tag}}</mark>

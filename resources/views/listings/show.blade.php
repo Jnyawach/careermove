@@ -223,11 +223,15 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
                             <mark>{{$tag}}</mark>
                             @endforeach
                         </p>
-                        <div>
-                            <script src="https://platform.linkedin.com/in.js" type="text/javascript">
-                                lang: en_US
+                        <div class="mt-3 mb-3">
+                            <script async
+                                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                                crossorigin="anonymous"></script>
+                            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+                                data-ad-format="fluid" data-ad-client="ca-pub-1649231050054855" data-ad-slot="7245907301"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
                             </script>
-                            <script type="IN/Share" data-url="{{url()->current()}}"></script>
                         </div>
 
                         <a href="{{url()->previous()}}" class="btn btn-link mt-4 text-decoration-none fs-5 fw-bold">

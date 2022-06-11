@@ -231,7 +231,14 @@
 
 
 
-<main class="d-flex flex-column min-vh-100">@yield('content')</main>
+<main class="d-flex flex-column min-vh-100">
+    @if (Cookie::get('careermove_session'))
+    @else
+    @include('includes.subscriber-banner')
+    @endif
+
+    @yield('content')
+</main>
 
 <footer class="pt-5">
     <ul class="nav">
@@ -276,6 +283,15 @@
 
 
 <script src="{{asset('js/app.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        setTimeout(function(){
+       $('#subscriberModal').modal('show');
+   }, 3000);
+    });
+</script>
+
 @yield('scripts')
 
 
