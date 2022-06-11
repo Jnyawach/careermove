@@ -265,7 +265,8 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
 
                 </div>
             </section>
-            <h6 class="fs-5 fw-bold mt-2">Trending Jobs</h6>
+            @if ($jobs->count()>0)
+            <h6 class="fs-5 fw-bold mt-2">Similar Jobs</h6>
             <div class="trend-jobs">
                 @foreach($jobs as $trending)
                 <p>
@@ -276,6 +277,9 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
 
                 @endforeach
             </div>
+
+            @endif
+
             <div class="mt-3 mb-3">
                 <script async
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
