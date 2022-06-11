@@ -1,4 +1,5 @@
 @extends('layouts.auth')
+@section('title','Signup and Post latest job vacancies')
 @section('styles')
     @livewireStyles
 @endsection

@@ -44,8 +44,8 @@ class Company extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('logo-icon')
-            ->width(100)
-            ->height(100);
+            ->width(60)
+            ->height(60);
 
     }
 }

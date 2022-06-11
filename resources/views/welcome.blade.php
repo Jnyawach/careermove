@@ -1,13 +1,15 @@
 @extends('layouts.main')
-@section('title','Explore and discover latest job Vacancies in Kenya')
-@section('description','Discover current jobs in Kenya 2022. Search and apply for verified job vacancies in top companies hiring across Kenya. Signup free today and start growing your career')
+@section('title')
+Discover the latest job alerts in Kenya ({{date('Y')}})
+@endsection
+@section('description','Latest job vacancies in Kenya. Search and apply for verified job vacancies in top companies hiring across Kenya. Signup  today and  to kickstart your career')
 @section('keywords','near me job, jobs in Kenya,work form home jobs,
 hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, jobs in Kisumu, jobs in Nakuru,internship parmanent jobs,job application,find a job')
 @section('content')
 <section class="p-lg-5 p-2 intro">
         <div class="row pt-2 pb-2">
             <div class="col-12 col-md-11 mx-auto">
-                <h1 class="">Latest Job Vacancies & Career insights</h1>
+                <h1 class="">Latest Job alerts & Career insights</h1>
                 <p class="mt-2 access">Get unlimited access to over a 10000+ jobs</p>
                 <a href="{{route('listings.index')}}" class="btn btn-primary m-2 fs-6">
                     Browse jobs <i class="fa-solid fa-angle-right ms-3"></i>
@@ -15,11 +17,11 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
             </div>
         </div>
     </section>
-    
+
     <section class="mt-5">
         <div class="row">
             <div class="col-11 mx-auto">
-                <h2 class="fs-5 text-uppercase">Trending jobs
+                <h2 class="fs-5 text-uppercase">Latest jobs
                     <a href="{{route('listings.index')}}" class="float-end text-decoration-none fs-6"><i
                             class="fa-solid fa-list
                    me-3"></i>View
@@ -91,7 +93,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
                                 <div class="profile-company">
                                     <div class="card p-2 text-center">
                                         <img src="{{asset($company->getFirstMediaUrl('logo')
-                                        ?$company->getFirstMediaUrl('logo'):'company-icon.jpg')}}" class="img-fluid mx-auto"
+                                        ?$company->getFirstMediaUrl('logo', 'logo-icon'):'company-icon.jpg')}}" class="img-fluid mx-auto"
                                              alt="{{$company->name}}" style="width: 60px">
                                         <h4 class="fs-6">{{$company->name}}</h4>
                                         <small class="fs-6 text-dark fw-bold">Open Positions {{$company->jobs->where('status_id',2)->count()

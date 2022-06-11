@@ -1,4 +1,5 @@
 @extends('layouts.auth')
+@section('title','Login to apply for the latest job vacancies in Kenya')
 @section('description','Login to explore and discover your next career move')
 @section('keywords','near me job, jobs in Kenya,work form home jobs,
 hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, jobs in Kisumu, jobs in Nakuru,internship parmanent jobs,job application,find a job')
