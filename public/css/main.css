@@ -684,4 +684,15 @@ input[type=radio]:checked{
     color: white;
     font-size: 18px;
 }
+.post-content a{
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--junior);
+}
+
+.post-content p{
+
+    font-size: 18px;
+
+}
 
