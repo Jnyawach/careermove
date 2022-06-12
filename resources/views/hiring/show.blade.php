@@ -29,7 +29,7 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
             Positions</p>
 
     </section>
-    @include('includes.advertisement')
+   
     <section class="p-2 p-lg-5">
         <h6 class="fs-5">Open Jobs at {{$company->name}}</h6>
         <div class="row">

@@ -51,7 +51,7 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
 
 @endsection
 @section('content')
-@include('includes.advertisement')
+
 
 <section class="p-2 p-md-5">
     @include('includes.status')

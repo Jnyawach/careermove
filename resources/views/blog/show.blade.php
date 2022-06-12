@@ -44,7 +44,7 @@
 @endsection
 
 @section('content')
-@include('includes.advertisement')
+
 
 
     <section class="post p-3">
@@ -61,7 +61,7 @@
                 </div>
                 <small class="fst-italic mb-4">Image Credit:{{$post->image_credit}}</small>
                 <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}} | <i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</p>
-                
+
                 <div class="post-content">{!! $post->content !!}</div>
                 <div class="mt-3 mb-3">
                     <script async
