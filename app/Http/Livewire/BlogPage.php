@@ -19,10 +19,10 @@ class BlogPage extends Component
     public function render()
     {
         $posts=Post::where('status',1)->get();
-        $intro=$posts[0];
-        $header=$posts->slice(1,3);
+        $intro=Post::latest()->first();
+        $header=$posts->slice(0,3);
 
-        $you=$posts->slice(4,4);
+        $you=$posts->slice(3,4);
         $trending=Post::where('status',1)->limit($this->loadAmount)->get();
         return view('livewire.blog-page',[
             'intro'=>$intro,
