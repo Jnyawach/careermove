@@ -61,7 +61,7 @@
                 </div>
                 <ul class="nav justify-content-end me-4">
                     @auth()
-                        <li class="nav-item pe-5">
+                        <li class="nav-item">
                             <div class="dropdown">
                                 <button class="btn btn-link   fw-bold  text-decoration-none"
                                         type="button"
@@ -112,12 +112,15 @@
                     @endauth
                     @guest()
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}">Login</a>
+                        <a class="nav-link" href="{{route('login')}}" title="Login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('careers.create')}}">Post a Job</a>
+                        <a class="nav-link" href="{{route('careers.create')}}" title="Post a Job">Post a Job</a>
                     </li>
                         @endguest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('search.index')}}" title="Search for Jobs and Insights"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        </li>
                 </ul>
             </div>
         </nav>
@@ -136,6 +139,9 @@
             <div class="col-6 text-end pe-4">
 
                 <ul class="nav justify-content-end">
+                    <li class="nav-item fs-4">
+                        <a class="nav-link" href="{{route('search.index')}}" title="Search for Jobs and Insights"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </li>
 
                     <li class="nav-item">
                         <button class="btn btn-link fs-4" type="button" data-bs-toggle="modal"

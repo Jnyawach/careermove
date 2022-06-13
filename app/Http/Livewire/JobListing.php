@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Experience;
 use App\Models\Industry;
 use App\Models\Job;
-use App\Models\Wishlist;
+
 use App\Models\Location;
 use App\Models\Profession;
 use Carbon\Carbon;
@@ -25,6 +25,7 @@ class JobListing extends Component
     public $foo;
     public $order;
     public $visible=false;
+    public $filter=false;
 
 
     protected $queryString = [
@@ -38,6 +39,17 @@ class JobListing extends Component
         'industry' => ['except' => ''],
         'page' => ['except' => 1],
     ];
+
+    public function Filtering(){
+
+        $this->filter=true;
+
+    }
+    public function CloseFiltering(){
+
+        $this->filter=false;
+
+    }
 
     public function paginationView()
     {
@@ -78,7 +90,7 @@ class JobListing extends Component
     }
     public function render()
     {
-        sleep(seconds:2);
+
         $jobs=Job::active()
         ->when($this->search,function ($query){
             return $query->where('title', 'like', '%'.$this->search.'%');

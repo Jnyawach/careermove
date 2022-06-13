@@ -32,6 +32,7 @@ use App\Http\Controllers\General\NewsLetterController;
 use App\Http\Controllers\General\ReportJob;
 use App\Http\Controllers\General\BlogController;
 use \App\Http\Controllers\HomeController;
+use \App\Http\Controllers\General\SearchController;
 
 
 /*Employer*/
@@ -82,6 +83,7 @@ Route::group([],function (){
     Route::get('privacy-policy',  [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
     Route::post('report-job/{id}',['as'=>'report-job','uses'=>ReportJob::class]);
     Route::resource('newsletter',NewsLetterController::class);
+    Route::resource('search',SearchController::class);
     Route::resource('blog',BlogController::class);
     Route::resource('hiring',HiringController::class);
     Route::resource('listings',ListingsController::class);

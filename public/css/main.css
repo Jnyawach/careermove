@@ -695,4 +695,16 @@ input[type=radio]:checked{
     font-size: 18px;
 
 }
-
+/*------------Search Page----------------*/
+.search-result h2{
+    color: var(--junior)
+}
+.search-result a{
+    text-decoration: none;
+}
+.search-result a:hover{
+    text-decoration: underline;
+}
+.company-link{
+    color: var(--dark);
+}

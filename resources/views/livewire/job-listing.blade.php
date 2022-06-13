@@ -19,15 +19,27 @@
             <div class="col-11 mx-auto">
 
 
-                       <div class="input-group search-input">
-                        <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input" wire:model.debounce.500ms="search"
-                        placeholder="Start typing to search jobs">
+                      <div class="input-group search-input">
+                        <input class="form-control border-end-0 border" type="search" value="search" id="example-search-input"
+                            wire:model.debounce.500ms="search" placeholder="Start typing to search jobs">
                         <span class="input-group-append">
                             <button class="btn btn-primary border-start-0 border  ms-n3" type="button">
                                 <i class="fa fa-search"></i>
                             </button>
                         </span>
-                 </div>
+                    </div>
+
+                 @if (!$filter)
+                 <div class="d-block d-md-none mt-2">
+                    <button type="button" class="btn btn-view d-inline-block m-1" wire:click="Filtering"><i class="fa-solid fa-plus me-2"></i> Show Filter >></button>
+                    @if($visible)
+                    <button type="button" class="btn btn-view d-inline-block m-1" wire:click="clearFilter">
+                        <i class="fa-solid fa-square-xmark me-2"></i>Clear filter
+                    </button>
+                    @endif
+                   </div>
+                 @endif
+
 
                 <div class="mt-3">
                     @include('includes.status')
@@ -42,9 +54,9 @@
 
 
 
-        <section class="p-5">
+        <section class="p-3 p-lg-5">
             <div class="row ">
-                <div class="col-12 col-md-4 col-lg-3 p-2">
+                <div class="{{$filter?'d-block':'d-none'}} d-md-block col-12 col-md-4 col-lg-3 p-2">
                    <div class="filter-bar">
                     <h2>Filter Jobs >></h2>
 
@@ -96,14 +108,20 @@
                         </select>
 
 
-                        <div class="reset-form text-center mt-4 mb-3">
+                       <div class="reset-form mt-4 mb-3">
+                            @if ($filter)
+                            <div class="d-inline-block d-md-none d-inline-block m-1">
+                                <button type="button" class="btn btn-primary" wire:click="CloseFiltering"><i
+                                        class="fa-solid fa-minus me-2"></i>
+                                    Hide Filter >></button>
+                            </div>
+                            @endif
                             @if($visible)
-                            <button type="button" class="btn btn-view" wire:click="clearFilter">
-                                <i class="fa-solid fa-square-xmark me-3"></i>Clear filter
+                            <button type="button" class="btn btn-view d-inline-block m-1" wire:click="clearFilter">
+                                <i class="fa-solid fa-square-xmark me-2"></i>Clear filter
                             </button>
                             @endif
                         </div>
-
 
 
                     </div>

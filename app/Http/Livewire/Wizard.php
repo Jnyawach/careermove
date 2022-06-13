@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Experience;
 use App\Models\Profession;
+use App\Models\Subscriber;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Hash;
@@ -53,6 +54,8 @@ class Wizard extends Component
             'lastName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+        ],[
+            'email.unique'=>'The user already exist in the database'
         ]);
         $this->currentStep = 3;
     }
@@ -87,6 +90,14 @@ class Wizard extends Component
         ]);
         $user->profession()->sync($this->professionId);
         $user->assignRole('User');
+
+        $subcriber=Subscriber::create([
+            'name'=>$this->name,
+            'email'=>$this->email
+        ]);
+
+        $subcriber-> profession()->sync($this->professionId);
+
         return redirect()->to('login');
     }
 
