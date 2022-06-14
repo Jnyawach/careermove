@@ -57,7 +57,7 @@
                             <h2 class="fs-4">{{$post->title}}</h2>
                             <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}} | <i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</p>
                             <p class="fs-5 mb-0 pb-0">{{Str::of($post->summary)->words(10,'')}} <span>[...]</span></p>
-                            <h6 class="fw-bold">{{$post->author->first_name}} {{$post->author->last_name}}: {{$head->created_at->diffForHumans()}}</h6>
+                            <h6 class="fw-bold">{{$post->author->first_name}} {{$post->author->last_name}}: {{$post->created_at->diffForHumans()}}</h6>
                         </div>
                     </div>
                 </a>
