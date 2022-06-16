@@ -30,7 +30,7 @@ class EmployerRegister extends Component
     }
     public function render()
     {
-        return view('livewire.employers-register');
+        return view('livewire.employer-register');
     }
 
     public function createEmployer(){

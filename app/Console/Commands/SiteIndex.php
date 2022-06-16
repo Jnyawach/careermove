@@ -37,7 +37,7 @@ class SiteIndex extends Command
         if($jobs->count()>0){
             $urls=$jobs->pluck('slug');
 
-        require_once 'public/google-api-php-client/vendor/autoload.php';
+        require_once 'vendor/autoload.php';
 
 
         $googleClient = new Google_Client();
@@ -66,6 +66,7 @@ class SiteIndex extends Command
         }
 
              $results = $batch->execute();
+            
             $collection = new Collection($urls);
 
             $names = $collection->map(function($item, $key) {
