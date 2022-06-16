@@ -42,7 +42,7 @@ class SiteIndex extends Command
 
         $googleClient = new Google_Client();
 
-        // Add here location to the JSON key file that you created.
+        // Add here location to the JSON key file that you created and downloaded earlier.
         $googleClient->setAuthConfig( 'storage/app/google_auth_config.json' );
         $googleClient->setScopes( Google_Service_Indexing::INDEXING );
         $googleClient->setUseBatch( true );
