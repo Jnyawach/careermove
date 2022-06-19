@@ -1,163 +1,149 @@
 <div>
-    <h5>{{$name}} {{$lastName}}</h5>
-    <p>Email: <span>{{$email}}</span></p>
-    <div class="row">
-        <div class="col-md-6 col-lg-4 p-2">
-            <div class="card p-5">
-                <div class="card-body">
+     <!--Dashboard Menu-->
+  @include('includes.dashboard-menu')
+  <section class="dashboard-body p-3 ">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="fs-5 mt-2"><span class="profile-icon"><i class="fa-solid fa-user"></i></span> My Profile</h2>
 
-                    <h6>Update account info</h6>
-                    <form wire:submit.prevent="bioUpdate">
-                        <div class="form-group mt-2">
-                            <label for="name" class="control-label">First Name:</label>
-                            <input type="text" name="name" wire:model.lazy="name" id="name" required
-                                   class="form-control mt-2">
-                            @error('name') <span class="error">{{ $message }}</span> @enderror<br>
 
-                        </div>
-                        <div class="form-group ">
-                            <label for="lastName" class="control-label">Last Name:</label>
-                            <input type="text" name="lastName" wire:model.lazy="lastName" id="lastName" required
-                                   class="form-control mt-2">
-                            @error('lastName') <span class="error">{{ $message }}</span> @enderror<br>
+        </div>
+        <div class="card-body p-3">
+            <div class="row">
+               <div class="col-12 col-md-3">
+                    <div class="mb-3">
+                        @if ($photo)
 
-                        </div>
+                        <img src="{{ $photo->temporaryUrl() }}" class="img-fluid img-thumbnail" style="width:100px">
 
-                        <button type="submit" class="btn btn-secondary ">
-                           Save
-                        </button>
-                        @if($success)
-                            <div class="alert alert-success mt-2 p-1">
-                                <p>{{$success}}</p>
-                            </div>
+                        @else
+                        <img src="{{asset(Auth::user()->getFirstMediaUrl('profile')? Auth::user()->getFirstMediaUrl('profile','profile-thumb'):'/images/user-icon.png' )}}"
+                            style="width:100px" class="img-fluid img-thumbnail">
 
                         @endif
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 p-2">
-            <div class="card p-5">
-                <div class="card-body">
-                    <h6>Update Password</h6>
-                    <form wire:submit.prevent="passwordUpdate">
-                        <div class="form-group mt-2">
-                            <label class="control-label" for="password">New Password:</label>
-                            <input type="password" id="password"  class="form-control mt-2"
-                                   name="password" required autocomplete="new-password" wire:model.lazy="password">
-                            @error('password') <span class="error">{{ $message }}</span> @enderror
+                        <div>
+                            @error('photo') <span class="error">{{ $message }}</span> @enderror
                         </div>
-                        <div class="form-group mt-3">
-                            <label class="control-label" for="confirmPassword">Confirm New Password:</label>
-                            <input type="password" id="confirmPassword"  class="form-control mt-2"
-                                   name="password_confirmation" required wire:model.lazy="password_confirmation">
+                        <form wire:submit.prevent="updatePicture">
 
-                        </div>
 
-                        <button type="submit" class="btn btn-secondary mt-3">
-                            Save
-                        </button>
-                        @if($pass_success)
-                            <div class="alert alert-success mt-2 p-1">
-                                <p>{{$pass_success}}</p>
+
+                            <div class="mt-2">
+                            <label for="formFile" class="btn btn-view m-1">
+                                <i class="fa-solid fa-camera"></i> Change
+                                <input class="form-control d-none" type="file" id="formFile" wire:model="photo">
+                            </label>
+
+                            <button type="submit" class="btn btn-secondary m-1">Save</button>
+
+
                             </div>
-
-                        @endif
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 p-2">
-            <div class="card p-5">
-                <div class="card-body">
-
-                    <h6>Professional title and Experience</h6>
-                    <form wire:submit.prevent="experienceUpdate">
-                        <div class="form-group mt-2">
-                            <label for="title" class="control-label">Title for you Profession:</label>
-                            <input type="text" name="title" wire:model.lazy="title" id="title" required
-                                   class="form-control mt-2">
-                            @error('title') <span class="error">{{ $message }}</span> @enderror<br>
-
-                        </div>
-                        <div class="form-group mt-2">
-                            <h6>Experience Level</h6>
-                            @foreach($experiences as $id=>$experience)
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input" type="radio" name="experienceId" id="experience{{$id}}"
-                                           wire:model.lazy="experienceId" value="{{$id}}">
-                                    <label class="form-check-label " for="experience{{$id}}">
-                                        {{$experience}}
-                                    </label>
-                                </div>
-                            @endforeach
-                            @error('experienceId') <span class="error">{{ $message }}</span> @enderror<br>
-
-                        </div>
-
-                        <button type="submit" class="btn btn-secondary ">
-                            Save
-                        </button>
-                        @if($exp_success)
-                            <div class="alert alert-success mt-2 p-1">
-                                <p>{{$exp_success}}</p>
-                            </div>
-
-                        @endif
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-
-
-
-
-    </div>
-    <div class="row">
-        <div class="col-md-12 p-2">
-            <div class="card p-5">
-                <div class="card-body">
-
-                    <h6>Professional title and Experience</h6>
-                      @if($professionId->count()>0)
-                          <h6>Selected Professions</h6>
-                    <div >
-                          @foreach($professionId as $prof)
-                        <div class="d-inline-block m-2">
-                            <form wire:submit.prevent="professionDelete({{$prof->id}})">
-                                <button type="submit" class="btn btn-view " title="Remove Profession">
-                                    {{$prof->name}}<i class="fa-solid fa-xmark ms-2"></i>
-                                </button>
-                            </form>
-                        </div>
-                        @endforeach
+                        </form>
                     </div>
-                    @endif
-                    <hr>
-
-                        <div >
-                            @foreach($professions as $id=>$profession)
-                                <div class="d-inline-block m-2">
-                                    <form wire:submit.prevent="professionUpdate({{$id}})">
-                                        <button type="submit" class="btn btn-secondary " title="Add Profession">
-                                            {{$profession}}<i class="fa-solid fa-check ms-2"></i>
-                                        </button>
-                                    </form>
-                                </div>
-
-                            @endforeach
-                        </div>
-
                 </div>
 
+                <div class="col-12 col-md-9">
+                    <form wire:submit.prevent="updateUser">
+                    <div class="form-group required row">
+                        <div class="col-12 col-md-6">
+                            <label class="control-label" for="gender">Gender</label>
+                            <select class="form-select mt-3" id="gender" name="gender" required wire:model="gender">
+                                <option selected value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                                <option value="Prefer not to disclose">Prefer not to disclose</option>
+                              </select>
+                              @error('gender') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="control-label" for="birthday">Date of Birth</label>
+                            <input type="date" name="birthday"  id="birthday" required style="height: 45px"
+                           class="form-control mt-3" placeholder="dd-mm-yyyy" wire:model="birthday">
+                           @error('birthday') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group required row mt-2">
+                        <div class="col-12 col-md-6">
+                            <label class="control-label" for="name">First Name</label>
+                            <input type="text" name="name"  id="name" required wire:model="name"
+                           class="form-control mt-3">
+                           @error('name') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="control-label" for="lastName">Last Name</label>
+                            <input type="text" name="lastName"  id="lastName" required wire:model="lastName"
+                           class="form-control mt-3" >
+                           @error('lastName') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+
+
+                    </div>
+                    <hr class="dotted">
+                    <div class="form-group mt-2 required row">
+                        <div class="col-12 col-md-6">
+                            <label class="control-label" for="title">Title</label>
+                            <input type="text" name="title" id="title" required class="form-control mt-3" placeholder="eg. Accountant"
+                            wire:model="title">
+                            @error('title') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <label class="control-label" for="cellphone">Cellphone</label>
+                            <input type="text" name="cellphone" id="cellphone" required class="form-control mt-3" placeholder="eg. +254710101010"
+                            wire:model="cellphone">
+                            @error('cellphone') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <label class="control-label" for="experience">Experience</label>
+                            <select class="form-select mt-3" id="experience" name="experience" required wire:model="experience">
+                                <option selected value="">Experience Level</option>
+                                @foreach ($experiences  as $expert=>$years )
+                                <option value="{{$expert}}">{{$years}}</option>
+                                @endforeach
+
+
+                              </select>
+
+                              @error('experience') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+
+                    <hr class="dotted">
+                    <h6>Social links</h6>
+                    <div class="form-group mt-2 row">
+
+                        <div class="col-12 col-md-6">
+                            <label class="control-label" for="linkedin">LinkedIn (optional)</label>
+                            <input type="text" name="linkedin" id="linkedin"  class="form-control mt-3"
+                            placeholder="https://www.linkedin.com/in/your-profile-a654211a4/" wire:model="linkedin">
+                            @error('linkedin') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="control-label" for="website">Website (optional)</label>
+                            <input type="text" name="website" id="website"  class="form-control mt-3"
+                            placeholder="https://www.yourprofile.com" wire:model="website">
+                            @error('website') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3 text-end">
+                        <a href="{{route('dashboard.index')}}" class="btn btn-view">Cancel</a>
+                        <button type="submit" class="btn btn-secondary">
+                            Save
+                        </button>
+
+                    </div>
+                </div>
+
+                </div>
             </div>
         </div>
+
     </div>
+  </section>
 
 </div>

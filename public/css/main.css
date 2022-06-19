@@ -55,7 +55,7 @@ span{
     color: var(--junior);
 }
 a{
-    color: var(--primary);
+    color: var(--junior);
 }
 a:hover{
     color: var(--bright);
@@ -95,7 +95,7 @@ a:hover{
     font-size: 20px;
 }
 label{
-
+  font-weight:500;
 }
 .error{
     color:red;
@@ -182,7 +182,7 @@ input[type=radio]:checked{
     box-shadow: none;
 }
 .btn-link{
-    color: var(--primary);
+    color: var(--junior);
     border: none;
     background: none;
 
@@ -707,4 +707,49 @@ input[type=radio]:checked{
 }
 .company-link{
     color: var(--dark);
+}
+
+
+
+/*------------------Dasgboard-body----*/
+.dashboard-body{
+    background-color: #ebecf0;
+
+}
+
+.dashboard-body .card{
+    border: 0px;
+}
+.dashboard-body .card .card-header{
+    background-color: white;
+}
+.dashboard-body h2{
+    font-weight: 900;
+    font-family: 'Lato';
+}
+
+.cv-panel{
+    background-color: var(--slate);
+}
+.profile-icon{
+    margin-right: 8px !important;
+
+}
+
+.dotted{
+    background: none;
+    opacity: 1 !important;
+    border-top: 0.1px dashed var(--junior);
+
+}
+.skills-set{
+    background-color: var(--secondary);
+    color: white;
+}
+.pointed{
+    cursor: pointer;
+}
+.form-group.required .control-label:after {
+    content:"*";
+    color:red;
 }

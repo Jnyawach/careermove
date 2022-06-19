@@ -46,6 +46,9 @@ use App\Http\Controllers\Employer\EmployerProfileController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\UserAccountController;
 use App\Http\Controllers\Dashboard\SavedJobsController;
+use App\Http\Controllers\Dashboard\CareerSummary;
+use App\Http\Controllers\Dashboard\EducationController;
+use App\Http\Controllers\Dashboard\WorkController;
 
 
 
@@ -103,8 +106,11 @@ Route::group(['middleware'=>['auth','role:super-admin|Employer','verified']],fun
 
 });
 Route::group(['middleware'=>['auth','role:super-admin|User','verified']],function (){
+    Route::resource('dashboard/summary',CareerSummary::class);
     Route::resource('dashboard/saved',SavedJobsController::class);
+    Route::resource('dashboard/education',EducationController::class);
     Route::resource('dashboard/accounts',UserAccountController::class);
+    Route::resource('dashboard/work',WorkController::class);
     Route::resource('dashboard',UserController::class);
 });
 

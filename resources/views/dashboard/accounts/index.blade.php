@@ -4,7 +4,7 @@
     @livewireStyles
 @endsection
 @section('content')
-    <section  class="p-5">
+    <section>
         @livewire('user-profile',
         ['user'=>$user])
     </section>
