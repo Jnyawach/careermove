@@ -173,34 +173,37 @@
             <div class="card mt-2">
                 <div class="card-header">
                     <h2 class="fs-5 mt-2 d-inline-block"><span class="profile-icon"><i class="fa-solid fa-trophy"></i></span> Skills Set</h2>
-                    <a href="#" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
+                    @if ($skills->count()<1)
+                    <a href="{{route('skills.create')}}" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
+                    @endif
+
 
                 </div>
                 <div class="card-body">
+                    @if ($skills->count()>0)
+                    @foreach ($skills as $skill )
                     <div class="experience">
                         <div class="text-end">
-                            <a href="#" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
+                            <a href="{{route('skills.edit', $skill->id)}}" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
                                 Edit</a>
 
 
                         </div>
                         <div class="work-experience mb-3">
-                            <span class="badge skills-set">Graphic design</span>
-                            <span class="badge skills-set">Creative Thinking</span>
-                            <span class="badge skills-set">Web Design</span>
-                            <span class="badge skills-set">Drawing & Painting</span>
-                            <span class="badge skills-set">Analytics</span>
-                            <span class="badge skills-set">Laravel</span>
-                            <span class="badge skills-set">Graphic design</span>
-                            <span class="badge skills-set">Creative Thinking</span>
-                            <span class="badge skills-set">Web Design</span>
-                            <span class="badge skills-set">Drawing & Painting</span>
-                            <span class="badge skills-set">Analytics</span>
-                            <span class="badge skills-set">Laravel</span>
+                            @foreach (explode(':', $skill->skills) as $pill)
+                            <span class="badge skills-set">{{$pill}}</span>
+                            @endforeach
 
 
                         </div>
                     </div>
+                    @endforeach
+
+                    @else
+                    <h6>You don't have any skills. Please add a few<h6>
+
+                    @endif
+
 
 
 
@@ -215,41 +218,38 @@
             <div class="card mt-2">
                 <div class="card-header">
                     <h2 class="fs-5 mt-2 d-inline-block"><span class="profile-icon"><i class="fa-solid fa-globe"></i></span> Languages</h2>
-                    <a href="#" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
+                    <a href="{{route('languages.create')}}" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
 
                 </div>
                 <div class="card-body">
-                   <div class="experience">
-                        <div class="text-end">
-                            <a href="#" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
-                                Edit</a>
-
-                            <a href="#" title="Delete" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-trash-can"></i>
-                                Delete</a>
-                        </div>
-                        <div class="work-experience">
-                            <h6 class="fw-bold">Swahili</h6>
-                            <p class="fw-bold">Spoken: Fluent. Writen: Fluent</p>
-
-                            <hr class="dotted">
-                        </div>
-                    </div>
-
+                    @if ($languages->count()>0)
+                    @foreach ($languages as $language)
+                    <div wire:loading.remove>
                     <div class="experience">
                         <div class="text-end">
-                            <a href="#" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
+                            <a href="{{route('languages.edit',$language->id)}}" title="Edit" class="fw-bold  text-decoration-none m-1 p-0 btn btn-link"><i class="fa-solid fa-square-pen"></i>
                                 Edit</a>
 
-                            <a href="#" title="Delete" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-trash-can"></i>
-                                Delete</a>
+                                <button type="button" class="fw-bold text-decoration-none m-1 p-0 btn btn-link" wire:click="deleteLanguage({{$language->id}})">
+                                    <i class="fa-solid fa-trash-can"></i> Delete
+                                </button>
+
                         </div>
                         <div class="work-experience">
-                            <h6 class="fw-bold">English</h6>
-                            <p class="fw-bold">Spoken: Fluent. Writen: Fluent</p>
+                            <h6 class="fw-bold">{{$language->name}}</h6>
+                            <p class="fw-bold">Spoken: {{$language->spoken}}. Writen: {{$language->writen}}</p>
 
                             <hr class="dotted">
                         </div>
                     </div>
+                    </div>
+                    @endforeach
+                    @else
+                    <h6>No Language attached to your profile. Please add at least on language</h6>
+                    @endif
+
+
+
 
 
 
@@ -264,41 +264,39 @@
             <div class="card mt-2">
                 <div class="card-header">
                     <h2 class="fs-5 mt-2 d-inline-block"><span class="profile-icon"><i class="fa-solid fa-award"></i></span> Certifications & Awards</h2>
-                    <a href="#" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
+                    <a href="{{route('awards.create')}}" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
 
                 </div>
                 <div class="card-body">
-                   <div class="experience">
-                        <div class="text-end">
-                            <a href="#" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
-                                Edit</a>
+                    @if ($awards->count()>0)
+                    @foreach ($awards as $award)
+                    <div wire:loading.remove>
+                        <div class="experience">
+                            <div class="text-end">
+                                <a href="{{route('awards.edit',$award->id)}}" title="Edit"
+                                    class="fw-bold  text-decoration-none m-1 p-0 btn btn-link"><i class="fa-solid fa-square-pen"></i>
+                                    Edit</a>
 
-                            <a href="#" title="Delete" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-trash-can"></i>
-                                Delete</a>
-                        </div>
-                        <div class="work-experience">
-                            <h6 class="fw-bold">Google Digital Marketer</h6>
-                            <p class="fw-bold">Coursera. <span>2021</span></p>
+                                <button type="button" class="fw-bold text-decoration-none m-1 p-0 btn btn-link"
+                                    wire:click="deleteAward({{$award->id}})">
+                                    <i class="fa-solid fa-trash-can"></i> Delete
+                                </button>
 
-                            <hr class="dotted">
-                        </div>
-                    </div>
+                            </div>
+                            <div class="work-experience">
+                                <h6 class="fw-bold">{{$award->title}}</h6>
+                                <p class="fw-bold">{{$award->organization}}. <span>{{\Carbon\Carbon::parse($award->when)->isoFormat('MMM
+                                        YYYY')}}</span></p>
 
-                    <div class="experience">
-                        <div class="text-end">
-                            <a href="#" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
-                                Edit</a>
-
-                            <a href="#" title="Delete" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-trash-can"></i>
-                                Delete</a>
-                        </div>
-                        <div class="work-experience">
-                            <h6 class="fw-bold">Database Security Analyst</h6>
-                            <p class="fw-bold">Cisco Technologies. <span>2020</span></p>
-
-                            <hr class="dotted">
+                                <hr class="dotted">
+                            </div>
                         </div>
                     </div>
+                    @endforeach
+                    @else
+                    <h6>No Certifications/awards attached to your profile. Please add at least on award/certification</h6>
+                    @endif
+
 
 
 
@@ -313,47 +311,40 @@
             <div class="card mt-2">
                 <div class="card-header">
                     <h2 class="fs-5 mt-2 d-inline-block"><span class="profile-icon"><i class="fa-solid fa-user-group"></i></span> Professional Associations</h2>
-                    <a href="#" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
+                    <a href="{{route('associations.create')}}" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
 
                 </div>
                 <div class="card-body">
-                   <div class="experience">
-                        <div class="text-end">
-                            <a href="#" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
-                                Edit</a>
+                    @if ($associations->count()>0)
+                    @foreach ($associations as $association)
+                    <div wire:loading.remove>
+                        <div class="experience">
+                            <div class="text-end">
+                                <a href="{{route('associations.edit',$association->id)}}" title="Edit"
+                                    class="fw-bold  text-decoration-none m-1 p-0 btn btn-link"><i class="fa-solid fa-square-pen"></i>
+                                    Edit</a>
 
-                            <a href="#" title="Delete" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-trash-can"></i>
-                                Delete</a>
-                        </div>
-                        <div class="work-experience">
-                            <h6 class="fw-bold">Kenya Institute of Planners</h6>
-                            <p class="fw-bold">Member</p>
+                                <button type="button" class="fw-bold text-decoration-none m-1 p-0 btn btn-link"
+                                    wire:click="deleteAssociation({{$association->id}})">
+                                    <i class="fa-solid fa-trash-can"></i> Delete
+                                </button>
 
-                            <hr class="dotted">
-                        </div>
-                    </div>
+                            </div>
+                            <div class="work-experience">
+                                <h6 class="fw-bold">{{$association->organization}}</h6>
+                                <p class="fw-bold">{{$association->role}}. Since <span>{{\Carbon\Carbon::parse($association->when)->isoFormat('MMM
+                                    YYYY')}}</span></p>
 
-                    <div class="experience">
-                        <div class="text-end">
-                            <a href="#" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
-                                Edit</a>
-
-                            <a href="#" title="Delete" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-trash-can"></i>
-                                Delete</a>
-                        </div>
-                        <div class="work-experience">
-                            <h6 class="fw-bold">Architects Association of Kenya</h6>
-                            <p class="fw-bold">Secretary</p>
-
-                            <hr class="dotted">
+                                <hr class="dotted">
+                            </div>
                         </div>
                     </div>
+                @endforeach
+                @else
+                <h6>No Associations attached to your profile. Please add at least on assciations</h6>
+                @endif
 
-
-
-
-
-                </div>
+                     </div>
 
 
             </div>
@@ -362,26 +353,36 @@
             <div class="card mt-2">
                 <div class="card-header">
                     <h2 class="fs-5 mt-2 d-inline-block"><span class="profile-icon"><i class="fa-solid fa-camera"></i></span> Hobbies</h2>
-                    <a href="#" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
+                    @if ($hobbies->count()<1)
+                    <a href="{{route('hobbies.create')}}" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
+                    @endif
 
                 </div>
                 <div class="card-body">
+                    @if ($hobbies->count()>0)
+                    @foreach ($hobbies as $hobby )
                     <div class="experience">
                         <div class="text-end">
-                            <a href="#" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
+                            <a href="{{route('hobbies.edit', $hobby->id)}}" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
                                 Edit</a>
 
 
                         </div>
                         <div class="work-experience mb-3">
-                            <span class="badge skills-set">listening to music</span>
-                            <span class="badge skills-set">writing</span>
-                            <span class="badge skills-set">Singing</span>
-
+                            @foreach (explode(':', $hobby->hobbies) as $pill)
+                            <span class="badge skills-set">{{$pill}}</span>
+                            @endforeach
 
 
                         </div>
                     </div>
+                    @endforeach
+
+                    @else
+                    <h6>You don't have any Hobbies. Please add a few<h6>
+
+                    @endif
+
 
 
 
@@ -396,26 +397,39 @@
             <div class="card mt-2">
                 <div class="card-header">
                     <h2 class="fs-5 mt-2 d-inline-block"><span class="profile-icon"><i class="fa-solid fa-address-card"></i></span> References</h2>
-                    <a href="#" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
+                    <a href="{{route('references.create')}}" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
 
                 </div>
                 <div class="card-body">
-                   <div class="experience">
-                        <div class="text-end">
-                            <a href="#" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
-                                Edit</a>
+                    @if ($references->count()>0)
+                    @foreach ($references as $reference)
+                    <div wire:loading.remove>
+                        <div class="experience">
+                            <div class="text-end">
+                                <a href="{{route('references.edit',$reference->id)}}" title="Edit"
+                                    class="fw-bold  text-decoration-none m-1 p-0 btn btn-link"><i class="fa-solid fa-square-pen"></i>
+                                    Edit</a>
 
-                            <a href="#" title="Delete" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-trash-can"></i>
-                                Delete</a>
-                        </div>
-                        <div class="work-experience">
-                            <h6 class="fw-bold">Bonface Mureithi • Marketing Director Winglobal Ltd</h6>
-                            <p class="fw-bold">Manager</p>
-                            <p>bonifacemureithi@happynation.co.ke, +254 721125156</p>
+                                <button type="button" class="fw-bold text-decoration-none m-1 p-0 btn btn-link"
+                                    wire:click="deleteReference({{$reference->id}})">
+                                    <i class="fa-solid fa-trash-can"></i> Delete
+                                </button>
 
-                            <hr class="dotted">
+                            </div>
+                            <div class="work-experience">
+                                <h6 class="fw-bold">{{$reference->name}} • {{$reference->title}} {{$reference->organization}}</h6>
+                                <p class="fw-bold">{{$reference->relation}}</p>
+                                <p>{{$reference->email}}, {{$reference->cellphone}}</p>
+
+                                <hr class="dotted">
+                            </div>
                         </div>
                     </div>
+                @endforeach
+                @else
+                <h6>No Associations attached to your profile. Please add at least on assciations</h6>
+                @endif
+
 
 
 
@@ -434,14 +448,19 @@
             <div class="card p-3">
                 <h2 class="fs-5">Curriculum Vitae(CV)</h2>
                 <div class="cv-panel p-3">
-                    <a href="#" target="_blank" title="{{Auth::user()->name}} CV" class="fs-6 text-decoration-none fw-bold">
-                        <i class="fa-solid fa-file-lines me-2"></i>nyawach_cv.pdf <i class="fa-solid fa-download float-end"></i>
+                    <a href="{{$cv->getUrl()}}"  title="{{Auth::user()->name}} CV" class="fs-6 text-decoration-none fw-bold">
+                        <i class="fa-solid fa-file-lines me-2"></i>{{$cv->name}} <i class="fa-solid fa-download float-end"></i>
                     </a>
                 </div>
+                <div class="mt-3">
 
-                <button type="button" class=" btn btn-view mt-3">
-                    Upload New
-                </button>
+                        @error('resume') <span class="error">{{ $message }}</span> @enderror
+                    <label for="formFile" class="form-label btn btn-view w-100">Upload New</label>
+                    <input class="form-control d-none" type="file" id="formFile" wire:model="resume">
+
+                  </div>
+
+
             </div>
             <div class="card p-3 mt-2">
                 <h2 class="fs-5">Notifications</h2>

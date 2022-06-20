@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Industry;
 use App\Models\Profession;
 use App\Models\Work;
+use App\Rules\Colon;
 use Livewire\Component;
 
 class WorkEdit extends Component
@@ -62,6 +63,9 @@ class WorkEdit extends Component
 
     ];
 
+
+
+
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
@@ -78,6 +82,8 @@ class WorkEdit extends Component
 
     public function updateWork(){
         $this->validate();
+        $this->validate(['achievement'=>new Colon]);
+        $this->validate(['responsibility'=>new Colon]);
         $work=Work::findOrFail($this->work->id);
 
         $work->update([

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Education;
+use App\Rules\Colon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -54,6 +55,8 @@ class EducationCreate extends Component
 
     public function createEducation(){
         $this->validate();
+        $this->validate(['education_summary'=>new Colon]);
+       
 
         $education=Education::create([
             'institution'=>$this->institution,

@@ -54,8 +54,16 @@
                             <a class="nav-link" href="{{route('hiring.index')}}">Companies Hiring</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('professional-resume')}}">Professional CV</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Templates</a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="{{route('blog.index')}}">Blog</a>
                         </li>
+
 
                     </ul>
                 </div>

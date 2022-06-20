@@ -33,6 +33,7 @@ use App\Http\Controllers\General\ReportJob;
 use App\Http\Controllers\General\BlogController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\General\SearchController;
+use \App\Http\Controllers\General\CartController;
 
 
 /*Employer*/
@@ -49,6 +50,12 @@ use App\Http\Controllers\Dashboard\SavedJobsController;
 use App\Http\Controllers\Dashboard\CareerSummary;
 use App\Http\Controllers\Dashboard\EducationController;
 use App\Http\Controllers\Dashboard\WorkController;
+use App\Http\Controllers\Dashboard\SkillsController;
+use App\Http\Controllers\Dashboard\HobbyController;
+use App\Http\Controllers\Dashboard\LanguageController;
+use App\Http\Controllers\Dashboard\AwardsController;
+use App\Http\Controllers\Dashboard\AssociationController;
+use App\Http\Controllers\Dashboard\ReferenceController;
 
 
 
@@ -84,8 +91,10 @@ Route::group([],function (){
     Route::get('about',  [HomeController::class, 'about'])->name('about');
     Route::get('terms',  [HomeController::class, 'terms'])->name('terms');
     Route::get('privacy-policy',  [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
+    Route::get('professional-resume',  [HomeController::class, 'professionaResume'])->name('professional-resume');
     Route::post('report-job/{id}',['as'=>'report-job','uses'=>ReportJob::class]);
     Route::resource('newsletter',NewsLetterController::class);
+    Route::resource('cart',CartController::class);
     Route::resource('search',SearchController::class);
     Route::resource('blog',BlogController::class);
     Route::resource('hiring',HiringController::class);
@@ -106,6 +115,12 @@ Route::group(['middleware'=>['auth','role:super-admin|Employer','verified']],fun
 
 });
 Route::group(['middleware'=>['auth','role:super-admin|User','verified']],function (){
+    Route::resource('dashboard/associations',AssociationController::class);
+    Route::resource('dashboard/awards',AwardsController::class);
+    Route::resource('dashboard/references',ReferenceController::class);
+    Route::resource('dashboard/skills',SkillsController::class);
+    Route::resource('dashboard/languages',LanguageController::class);
+    Route::resource('dashboard/hobbies',HobbyController::class);
     Route::resource('dashboard/summary',CareerSummary::class);
     Route::resource('dashboard/saved',SavedJobsController::class);
     Route::resource('dashboard/education',EducationController::class);

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Industry;
 use App\Models\Profession;
 use App\Models\Work;
+use App\Rules\Colon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -69,7 +70,8 @@ class WorkExperience extends Component
 
     public function createWork(){
         $this->validate();
-
+        $this->validate(['achievement'=>new Colon]);
+        $this->validate(['responsibility'=>new Colon]);
         $work=Work::create([
             'organization'=>$this->organization,
             'title'=>$this->title,

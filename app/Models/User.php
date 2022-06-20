@@ -66,6 +66,29 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         return $this->hasOne(Summary::class);
     }
 
+    public  function skill(){
+        return $this->hasOne(Skill::class);
+    }
+
+    public  function hobby(){
+        return $this->hasOne(Hobby::class);
+    }
+
+    public  function languages(){
+        return $this->hasMany(Language::class);
+    }
+    public  function awards(){
+        return $this->hasMany(Award::class);
+    }
+
+    public  function associations(){
+        return $this->hasMany(Association::class);
+    }
+    public  function references(){
+        return $this->hasMany(Reference::class);
+    }
+
+
     public function registerMediaCollections(): void
     {
         $this

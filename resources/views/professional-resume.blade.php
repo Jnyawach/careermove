@@ -1,0 +1,148 @@
+@extends('layouts.main')
+@section('title','Professional cv writing service in Kenya')
+@section('description','Best CV writing service in Kenya')
+@section('keywords','cv writing in Kenya, Best CV Writing in Kenya, CV Writing service in Kenya,
+Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
+@section('content')
+<section class="resume-header">
+    <div class="row">
+        <div class="col-12 col-md-6 align-self-center p-3 p-lg-5 mx-auto">
+            <h1>Are you tired of always missing out!</h1>
+            <h5>#Let us write your curriculum vitae</h5>
+            <div class="mx-auto">
+            <div class="resume-request p-3 mt-5 shadow">
+                <form>
+                    <div class="form-group mt-3">
+                        <label class="control-label" for="name">Your Name:</label>
+                        <input type="text"  class="form-control mt-2" id="name"name="name"
+                        placeholder="eg. Jane Doe">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="control-label" for="email">Your Email:</label>
+                        <input type="email" class="form-control mt-2" id="email" name="email"
+                        placeholder="eg. janedoe@gmail.com">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="control-label" for="cellphone">Your Cellphone:</label>
+                        <input type="text"  class="form-control mt-2" name="ceelphone" id="cellphone" placeholder="eg.+254 722 002100">
+                    </div>
+                    <div class="form-group mt-4">
+                        <label class="control-label">Current CV:</label>
+                        <input type="file"  class="form-control mt-3">
+                    </div>
+                    <div class="form-group mt-3">
+                        <button type="submit" class="btn btn-primary">WRITE MY CV <i class="fa-solid fa-chevron-right ms-3"></i></button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        </div>
+        <div class="col-12 col-md-6 align-self-end">
+           <img src="{{asset('images/frustrated-person.png')}}" class="img-fluid" alt="Frustrated Person"
+           title="Professional CV Writing Service in Kenya">
+
+
+        </div>
+    </div>
+</section>
+<section class="mt-5 testimony p-3">
+    <h2 class="text-center mt-3">What they are <u>saying</u> about us</h2>
+<div class="row mt-5">
+    <div class="col-12 col-md-4  mx-auto p-2">
+        <div class="test-card p-3">
+            <h5>Maria</h5>
+            <p><span>"</span> individuals in the current society are suffering
+                from medical issues, and they believe that such issues are
+                mostly attributed to poor dietary habits as well as the
+                consumption of a multitude of unhealthy food and ready-to-eat meals.
+                <span>"</span>
+            </p>
+            <div class="mt-5">
+                <img src="{{asset('images/photo.jpg')}}" class="img-fluid rounded-circle float-start me-1" style="width: 60px">
+
+                <h4 class="fs-5">Maria Wanderi</h4>
+                <h5 class="fs-5">Marketing Director</h5>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-4  mx-auto p-2">
+        <div class="test-card p-3">
+            <h5>Maria</h5>
+            <p><span>"</span> individuals in the current society are suffering
+                from medical issues, and they believe that such issues are
+                mostly attributed to poor dietary habits as well as the
+                consumption of a multitude of unhealthy food and ready-to-eat meals.
+                <span>"</span>
+            </p>
+            <div class="mt-5">
+                <img src="{{asset('images/photo.jpg')}}" class="img-fluid rounded-circle float-start me-1" style="width: 60px">
+
+                <h4 class="fs-5">Maria Wanderi</h4>
+                <h5 class="fs-5">Marketing Director</h5>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-4 mx-auto p-2">
+        <div class="test-card p-3">
+            <h5>Maria</h5>
+            <p><span>"</span> individuals in the current society are suffering
+                from medical issues, and they believe that such issues are
+                mostly attributed to poor dietary habits as well as the
+                consumption of a multitude of unhealthy food and ready-to-eat meals.
+                <span>"</span>
+            </p>
+            <div class="mt-5">
+                <img src="{{asset('images/photo.jpg')}}" class="img-fluid rounded-circle float-start me-1" style="width: 60px">
+
+                <h4 class="fs-5">Maria Wanderi</h4>
+                <h5 class="fs-5">Marketing Director</h5>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+<section class="rating p-3 p-lg-5 mt-5">
+    <div class="row">
+        <div class="col-12 col-lg-8 mx-auto p-3 pt-5">
+            <h2 class="text-center numbers">How we are doing</h2>
+            <div class="row mt-5">
+                <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
+                    <div class="written text-center">
+                        <img src="{{asset('images/resume.png')}}" class="img-fluid" style="height: 60px">
+                        <h2 class="mt-3">568</h2>
+                        <p>CVs we have reviewed</p>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
+                    <div class="written text-center">
+                        <img src="{{asset('images/written-resume.png')}}" class="img-fluid" style="height: 60px">
+                        <h2 class="mt-3">230</h2>
+                        <p>CVs we have written</p>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
+                    <div class="written text-center">
+                        <img src="{{asset('images/rating.png')}}" class="img-fluid" style="height: 60px">
+                        <h2 class="mt-3">4/5- 680</h2>
+                        <p>Based on your rating</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+@endsection

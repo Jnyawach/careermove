@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Education;
+use App\Rules\Colon;
 use Livewire\Component;
 
 class EducationEdit extends Component
@@ -65,6 +66,7 @@ class EducationEdit extends Component
 
     public function collegeUpdate(){
         $this->validate();
+        $this->validate(['education_summary'=>new Colon]);
 
         $education=Education::findOrFail($this->education->id);
         $education->update([
