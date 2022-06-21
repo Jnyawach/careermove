@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\AdminAuthorController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminAdsController;
 use App\Http\Controllers\Admin\DisableAds;
+use App\Http\Controllers\Admin\AdminProductController;
 
 
 /*General*/
@@ -61,6 +62,7 @@ use App\Http\Controllers\Dashboard\ReferenceController;
 
 Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],function (){
     Route::patch('ads-disable/{id}',  ['as'=>'ads-disable', 'uses'=>DisableAds::class]);
+    Route::resource('admin/products',AdminProductController::class);
     Route::resource('admin/adverts',AdminAdsController::class);
     Route::resource('admin/posts',AdminPostController::class);
     Route::resource('admin/authors',AdminAuthorController::class);

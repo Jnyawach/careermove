@@ -26,7 +26,7 @@
 
                         </div>
                         <div class="col-12 col-md-6 col-lg-4">
-                            <label class="control-label" for="gender">Education Level:</label>
+                            <label class="control-label" for="education_level">Education Level:</label>
                             <select class="form-select mt-3" id="education_level" name="education_level" required wire:model.lazy="education_level">
                                 <option selected value="">Select Education level</option>
                                 <option value="Primary School">Primary School</option>
