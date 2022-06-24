@@ -430,7 +430,7 @@
                 <h2 class="accordion-header" id="flush-headingNineteen">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#flush-collapseNineteen" aria-expanded="false" aria-controls="flush-headingNineteen">
-                        <i class="fa-solid fa-shop me-2"></i>Products
+                        <i class="fa-solid fa-shop me-2"></i>Shop
                     </button>
                 </h2>
                 <div id="flush-collapseNineteen" class="accordion-collapse collapse" aria-labelledby="flush-collapseNineteen"
@@ -450,6 +450,11 @@
                                         <li><a href="{{route('products.create')}}" title="Products">Create Products</a> </li>
 
                                     </ul>
+                                    <ul class="list-unstyled folders">
+                                        <li><a href="{{route('orders.index')}}" title="Products">Orders</a> </li>
+
+                                    </ul>
+
 
                                 </div>
                             </div>
@@ -460,6 +465,8 @@
                 </div>
 
             </div>
+
+
 
         </div>
 

@@ -11,24 +11,31 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
             <h5>#Let us write your curriculum vitae</h5>
             <div class="mx-auto">
             <div class="resume-request p-3 mt-5 shadow">
-                <form>
+                <form action="{{route('cart.store')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @honeypot
                     <div class="form-group mt-3">
                         <label class="control-label" for="name">Your Name:</label>
                         <input type="text"  class="form-control mt-2" id="name"name="name"
-                        placeholder="eg. Jane Doe">
+                        placeholder="eg. Jane Doe" required value="{{old('name')}}">
+                        @error('name') <span class="error">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group mt-3">
                         <label class="control-label" for="email">Your Email:</label>
                         <input type="email" class="form-control mt-2" id="email" name="email"
-                        placeholder="eg. janedoe@gmail.com">
+                        placeholder="eg. janedoe@gmail.com" required value="{{old('email')}}">
+                        @error('email') <span class="error">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group mt-3">
                         <label class="control-label" for="cellphone">Your Cellphone:</label>
-                        <input type="text"  class="form-control mt-2" name="ceelphone" id="cellphone" placeholder="eg.+254 722 002100">
+                        <input type="text"  class="form-control mt-2" required name="cellphone" id="cellphone" placeholder="eg.+254 722 002100"
+                        value="{{old('cellphone')}}">
+                        @error('cellphone') <span class="error">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group mt-4">
                         <label class="control-label">Current CV:</label>
-                        <input type="file"  class="form-control mt-3">
+                        <input type="file"  class="form-control mt-3" required name="old_cv">
+                        @error('old_cv') <span class="error">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group mt-3">
                         <button type="submit" class="btn btn-primary">WRITE MY CV <i class="fa-solid fa-chevron-right ms-3"></i></button>

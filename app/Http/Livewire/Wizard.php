@@ -91,14 +91,20 @@ class Wizard extends Component
         $user->profession()->sync($this->professionId);
         $user->assignRole('User');
 
-        $subcriber=Subscriber::create([
-            'name'=>$this->name,
-            'email'=>$this->email
-        ]);
+        if ( $subcriber=Subscriber::where('email',$user->email)->get()){
+            return redirect()->to('login');
+        }else{
+            $subcriber=Subscriber::create([
+                'name'=>$this->name,
+                'email'=>$this->email
+            ]);
 
-        $subcriber-> profession()->sync($this->professionId);
+            $subcriber-> profession()->sync($this->professionId);
 
-        return redirect()->to('login');
+            return redirect()->to('login');
+        }
+
+
     }
 
 

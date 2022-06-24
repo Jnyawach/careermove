@@ -16,7 +16,7 @@
 
                      <p>Before proceeding, please check your email for a verification link. If you did not receive the email</p>
 
-                   
+
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
                         <button type="submit" class="btn btn-view mt-3">{{ __('click here to request another') }}</button>.

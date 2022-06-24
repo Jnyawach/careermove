@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminAdsController;
 use App\Http\Controllers\Admin\DisableAds;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminOrderController;
 
 
 /*General*/
@@ -35,6 +36,7 @@ use App\Http\Controllers\General\BlogController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\General\SearchController;
 use \App\Http\Controllers\General\CartController;
+use \App\Http\Controllers\General\OrderTracker;
 
 
 /*Employer*/
@@ -62,6 +64,8 @@ use App\Http\Controllers\Dashboard\ReferenceController;
 
 Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],function (){
     Route::patch('ads-disable/{id}',  ['as'=>'ads-disable', 'uses'=>DisableAds::class]);
+    Route::get('admin/orders/order-status/{id}',  [AdminOrderController::class, 'orderStatus'])->name('order-status');
+    Route::resource('admin/orders',AdminOrderController::class);
     Route::resource('admin/products',AdminProductController::class);
     Route::resource('admin/adverts',AdminAdsController::class);
     Route::resource('admin/posts',AdminPostController::class);
@@ -97,6 +101,7 @@ Route::group([],function (){
     Route::post('report-job/{id}',['as'=>'report-job','uses'=>ReportJob::class]);
     Route::resource('newsletter',NewsLetterController::class);
     Route::resource('cart',CartController::class);
+    Route::resource('tracker',OrderTracker::class);
     Route::resource('search',SearchController::class);
     Route::resource('blog',BlogController::class);
     Route::resource('hiring',HiringController::class);

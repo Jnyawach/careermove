@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\Product;
+use Google\Service\ShoppingContent\Weight;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -26,6 +29,7 @@ class CartController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -37,6 +41,51 @@ class CartController extends Controller
     public function store(Request $request)
     {
         //
+        $validated=$request->validate([
+            'name'=>'string|required|max:255',
+            'email'=>'string|email|required|max:255',
+            'cellphone'=>'required|max:13|min:10',
+            'old_cv'=>'required|mimes:pdf,docx,doc|max:2048',
+
+        ],[
+            'required'=>'Please provide :attribute',
+            'email.email'=>'Please provide a valid email',
+            'max'=>':attribute is too long',
+            'old_cv.max'=>'Maximum file size is 2MB',
+            'min'=>':attribute it too short',
+            'string'=>':attribute should be a string',
+            'old_cv.mimes'=>'Only accepts pdf,doc or docx file types'
+        ]);
+        $product=Product::where('sku','1655820467CER')->latest()->first();
+
+
+        $order=Order::create([
+            'name'=>$validated['name'],
+            'email'=>$validated['email'],
+            'cellphone'=>$validated['cellphone'],
+            'paid'=>0,
+            'progress_id'=>1,
+            'product_id'=>$product->id,
+        ]);
+
+        if($files=$request['old_cv']){
+            $order->addMedia($files)->toMediaCollection('old_cv');
+        }
+
+        \Cart::clear();
+
+        \Cart::add([
+            'id'=>$order->id,
+            'name'=>$product->name,
+            'quantity'=>1,
+            'price'=>$product->price,
+            'weight'=>0,
+
+
+        ])->associate($order);
+
+
+        return redirect('cart');
     }
 
     /**
@@ -71,6 +120,53 @@ class CartController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $validated=$request->validate([
+            'name'=>'string|required|max:255',
+            'email'=>'string|email|required|max:255',
+            'cellphone'=>'required|max:13|min:10',
+            'old_cv'=>'nullable|mimes:pdf,docx,doc|max:2048',
+
+        ],[
+            'required'=>'Please provide :attribute',
+            'email.email'=>'Please provide a valid email',
+            'max'=>':attribute is too long',
+            'old_cv.max'=>'Maximum file size is 2MB',
+            'min'=>':attribute it too short',
+            'string'=>':attribute should be a string',
+            'old_cv.mimes'=>'Only accepts pdf,doc or docx file types'
+        ]);
+        $order=Order::findOrFail($id);
+        $order->update([
+            'name'=>$validated['name'],
+            'email'=>$validated['email'],
+            'cellphone'=>$validated['cellphone'],
+            'paid'=>0,
+            'progress_id'=>1,
+
+        ]);
+        if($files=$request['old_cv']){
+            $order->cleaMediaCollection($files);
+            $order->addMedia($files)->toMediaCollection('old_cv');
+        }
+
+        $product=Product::findOrFail($order->product_id);
+
+
+        \Cart::clear();
+
+        \Cart::add([
+            'id'=>$order->id,
+            'name'=>$product->name,
+            'quantity'=>1,
+            'price'=>$product->price,
+            'weight'=>0,
+
+
+        ])->associate($order);
+
+        return redirect()->back()
+        ->with('status','Order Successfully Updated');
+
     }
 
     /**

@@ -54,11 +54,9 @@
                             <a class="nav-link" href="{{route('hiring.index')}}">Companies Hiring</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('professional-resume')}}">Professional CV</a>
+                            <a class="nav-link" href="{{route('professional-resume')}}">CV Writing</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Templates</a>
-                        </li>
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('blog.index')}}">Blog</a>
@@ -129,6 +127,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('search.index')}}" title="Search for Jobs and Insights"><i class="fa-solid fa-magnifying-glass"></i></a>
                         </li>
+                        @if (\Cart::getContent()->count()>0)
+                        <li class="nav-item">
+                            <a class="nav-link position-relative" href="{{route('cart.index')}}" title="Cart">
+                                <i class="fas fa-shopping-basket"></i>
+                                <span class="position-absolute top-50 start-80 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                    <span class="visually-hidden">New alerts</span>
+                                  </span>
+                            </a>
+                        </li>
+                        @endif
+
                 </ul>
             </div>
         </nav>
@@ -150,6 +159,16 @@
                     <li class="nav-item fs-4">
                         <a class="nav-link" href="{{route('search.index')}}" title="Search for Jobs and Insights"><i class="fa-solid fa-magnifying-glass"></i></a>
                     </li>
+                    @if (\Cart::getContent()->count()>0)
+                        <li class="nav-item fs-4">
+                            <a class="nav-link position-relative" href="{{route('cart.index')}}" title="Cart">
+                                <i class="fas fa-shopping-basket"></i>
+                                <span class="position-absolute top-50 start-80 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                    <span class="visually-hidden">New alerts</span>
+                                  </span>
+                            </a>
+                        </li>
+                        @endif
 
                     <li class="nav-item">
                         <button class="btn btn-link fs-4" type="button" data-bs-toggle="modal"
@@ -188,6 +207,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('careers.create')}}">Post
                                     a Job   <i class="fa-solid fa-chevron-right float-end"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('professional-resume')}}">CV Writing
+                                    <i class="fa-solid fa-chevron-right float-end"></i></a>
                             </li>
 
                             <li class="dropdown-divider"><hr></li>
