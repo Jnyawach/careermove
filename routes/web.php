@@ -93,7 +93,7 @@ Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],func
     Route::resource('admin/experience',AdminExperienceController::class);
     Route::resource('admin/industry',AdminIndustryController::class);
     Route::resource('admin/profession',AdminProfessionController::class);
-    Route::resource('admin/roles',AdminRoleController::class);
+    Route::resource('admin/roles',AdminRoleController::class,['middleware' => 'role:super-admin']);
     Route::resource('admin',AdminController::class);
     Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index'])->name('logs');
 });
