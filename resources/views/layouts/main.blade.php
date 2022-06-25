@@ -93,11 +93,11 @@
                                         @role('User')
                                         <a class="dropdown-item" href="{{route('accounts.index')}}">My Profile</a>
                                         @endrole
-                                        @role('Manager')
+                                        @role('Employer')
                                         <a class="dropdown-item" href="{{route('profile.index')}}">My Profile</a>
                                         @endrole
                                         @role('Manager|super-admin')
-                                        <a class="dropdown-item" href="{{route('users.index')}}">My Profile</a>
+                                        <a class="dropdown-item" href="{{route('admin.index')}}">My Profile</a>
                                         @endrole
 
                                     </li>
