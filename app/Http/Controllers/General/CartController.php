@@ -5,6 +5,7 @@ namespace App\Http\Controllers\General;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Product;
+use Carbon\Carbon;
 use Google\Service\ShoppingContent\Weight;
 use Illuminate\Http\Request;
 
@@ -58,7 +59,7 @@ class CartController extends Controller
         ]);
         $product=Product::where('sku','1655820467CER')->latest()->first();
 
-
+       $order_number=Carbon::now()->timestamp."CER";
         $order=Order::create([
             'name'=>$validated['name'],
             'email'=>$validated['email'],
@@ -66,6 +67,7 @@ class CartController extends Controller
             'paid'=>0,
             'progress_id'=>1,
             'product_id'=>$product->id,
+            'order_number'=>$order_number,
         ]);
 
         if($files=$request['old_cv']){
@@ -136,6 +138,7 @@ class CartController extends Controller
             'old_cv.mimes'=>'Only accepts pdf,doc or docx file types'
         ]);
         $order=Order::findOrFail($id);
+
         $order->update([
             'name'=>$validated['name'],
             'email'=>$validated['email'],

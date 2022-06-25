@@ -53,66 +53,36 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
         </div>
     </div>
 </section>
+@if ($testimonies->count()>0)
 <section class="mt-5 testimony p-3">
     <h2 class="text-center mt-3">What they are <u>saying</u> about us</h2>
-<div class="row mt-5">
-    <div class="col-12 col-md-4  mx-auto p-2">
-        <div class="test-card p-3">
-            <h5>Maria</h5>
-            <p><span>"</span> individuals in the current society are suffering
-                from medical issues, and they believe that such issues are
-                mostly attributed to poor dietary habits as well as the
-                consumption of a multitude of unhealthy food and ready-to-eat meals.
-                <span>"</span>
-            </p>
-            <div class="mt-5">
-                <img src="{{asset('images/photo.jpg')}}" class="img-fluid rounded-circle float-start me-1" style="width: 60px">
+    <div class="row mt-5">
+        @foreach ($testimonies as $testimony)
+        <div class="col-12 col-md-4  mx-auto p-2">
+            <div class="test-card p-3">
+                <h5>{{$testimony->first_name}}</h5>
+                <p><span>"</span> {{$testimony->content}}
+                    <span>"</span>
+                </p>
+                <div class="mt-5">
+                    <img src="{{asset($testimony->getFirstMediaUrl('profile')
+                    ?$testimony->getFirstMediaUrl('profile','profile-icon'):'images/user-icon.png')}}" class="img-fluid rounded-circle float-start me-1"
+                        style="width: 60px">
 
-                <h4 class="fs-5">Maria Wanderi</h4>
-                <h5 class="fs-5">Marketing Director</h5>
+                    <h4 class="fs-5">{{$testimony->first_name}} {{$testimony->last_name}}</h4>
+                    <h5 class="fs-5">{{$testimony->title}}</h5>
+                </div>
             </div>
+
         </div>
 
-    </div>
-    <div class="col-12 col-md-4  mx-auto p-2">
-        <div class="test-card p-3">
-            <h5>Maria</h5>
-            <p><span>"</span> individuals in the current society are suffering
-                from medical issues, and they believe that such issues are
-                mostly attributed to poor dietary habits as well as the
-                consumption of a multitude of unhealthy food and ready-to-eat meals.
-                <span>"</span>
-            </p>
-            <div class="mt-5">
-                <img src="{{asset('images/photo.jpg')}}" class="img-fluid rounded-circle float-start me-1" style="width: 60px">
-
-                <h4 class="fs-5">Maria Wanderi</h4>
-                <h5 class="fs-5">Marketing Director</h5>
-            </div>
-        </div>
+        @endforeach
 
     </div>
-    <div class="col-12 col-md-4 mx-auto p-2">
-        <div class="test-card p-3">
-            <h5>Maria</h5>
-            <p><span>"</span> individuals in the current society are suffering
-                from medical issues, and they believe that such issues are
-                mostly attributed to poor dietary habits as well as the
-                consumption of a multitude of unhealthy food and ready-to-eat meals.
-                <span>"</span>
-            </p>
-            <div class="mt-5">
-                <img src="{{asset('images/photo.jpg')}}" class="img-fluid rounded-circle float-start me-1" style="width: 60px">
-
-                <h4 class="fs-5">Maria Wanderi</h4>
-                <h5 class="fs-5">Marketing Director</h5>
-            </div>
-        </div>
-
-    </div>
-
-</div>
 </section>
+
+@endif
+
 <section class="rating p-3 p-lg-5 mt-5">
     <div class="row">
         <div class="col-12 col-lg-8 mx-auto p-3 pt-5">
@@ -121,16 +91,7 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
                 <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
                     <div class="written text-center">
                         <img src="{{asset('images/resume.png')}}" class="img-fluid" style="height: 60px">
-                        <h2 class="mt-3">568</h2>
-                        <p>CVs we have reviewed</p>
-                    </div>
-
-                </div>
-
-                <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
-                    <div class="written text-center">
-                        <img src="{{asset('images/written-resume.png')}}" class="img-fluid" style="height: 60px">
-                        <h2 class="mt-3">230</h2>
+                        <h2 class="mt-3">{{$orders}}</h2>
                         <p>CVs we have written</p>
                     </div>
 
@@ -138,8 +99,17 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
 
                 <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
                     <div class="written text-center">
+                        <img src="{{asset('images/jobs-posted.png')}}" class="img-fluid" style="height: 60px">
+                        <h2 class="mt-3">{{$jobs}}</h2>
+                        <p>Jobs we have Posted</p>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
+                    <div class="written text-center">
                         <img src="{{asset('images/rating.png')}}" class="img-fluid" style="height: 60px">
-                        <h2 class="mt-3">4/5- 680</h2>
+                        <h2 class="mt-3">{{number_format($testimonies->sum('rating')/$testimonies->count(),1)}}/5 ({{$testimonies->count()}})</h2>
                         <p>Based on your rating</p>
                     </div>
 

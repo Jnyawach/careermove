@@ -123,11 +123,14 @@
                     <hr>
                     <table class="table table-borderless">
                        <tbody class="fw-bold">
+                        @if (\Cart::getCondition('Discount Sale'))
                         <tr>
 
                             <td>{{\Cart::getCondition('Discount Sale')->getName()}}</td>
                             <td><span><strike>{{\Cart::getSubTotalWithoutConditions()}}</strike></span></td>
                         </tr>
+                        @endif
+
 
                         <tr>
 
@@ -137,7 +140,7 @@
                         <tr>
 
                             <td>PROMO CODE (KES)</td>
-                            <td><span>{{\Cart::getCondition('Discount Sale')->getValue()}}</span></td>
+                            <td><span>{{\Cart::getCondition('Discount Sale')?\Cart::getCondition('Discount Sale')->getValue():'0.00'}}</span></td>
                         </tr>
                        </tbody>
 

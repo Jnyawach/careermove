@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\AdminAdsController;
 use App\Http\Controllers\Admin\DisableAds;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\AdminTestimonyController;
 
 
 /*General*/
@@ -37,6 +38,8 @@ use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\General\SearchController;
 use \App\Http\Controllers\General\CartController;
 use \App\Http\Controllers\General\OrderTracker;
+use \App\Http\Controllers\General\RatingController;
+
 
 
 /*Employer*/
@@ -64,7 +67,9 @@ use App\Http\Controllers\Dashboard\ReferenceController;
 
 Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],function (){
     Route::patch('ads-disable/{id}',  ['as'=>'ads-disable', 'uses'=>DisableAds::class]);
+    Route::patch('testimony-status/{id}',  [AdminTestimonyController::class, 'testimony'])->name('testimony-status');
     Route::get('admin/orders/order-status/{id}',  [AdminOrderController::class, 'orderStatus'])->name('order-status');
+    Route::resource('admin/testimony',AdminTestimonyController::class);
     Route::resource('admin/orders',AdminOrderController::class);
     Route::resource('admin/products',AdminProductController::class);
     Route::resource('admin/adverts',AdminAdsController::class);
@@ -94,6 +99,7 @@ Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],func
 });
 
 Route::group([],function (){
+    Route::get('thank-you',  [HomeController::class, 'thank'])->name('thank-you');
     Route::get('about',  [HomeController::class, 'about'])->name('about');
     Route::get('terms',  [HomeController::class, 'terms'])->name('terms');
     Route::get('privacy-policy',  [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
@@ -101,6 +107,7 @@ Route::group([],function (){
     Route::post('report-job/{id}',['as'=>'report-job','uses'=>ReportJob::class]);
     Route::resource('newsletter',NewsLetterController::class);
     Route::resource('cart',CartController::class);
+    Route::resource('rating',RatingController::class);
     Route::resource('tracker',OrderTracker::class);
     Route::resource('search',SearchController::class);
     Route::resource('blog',BlogController::class);

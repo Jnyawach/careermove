@@ -97,8 +97,13 @@
                         @can('Edit-model')
                         <ul class="list-unstyled folders">
 
+                            <li><a href="{{route('users.create')}}" title="Admins">Add user</a> </li>
+                        </ul>
+                        <ul class="list-unstyled folders">
+
                             <li><a href="{{route('users.index')}}" title="Admins">Managers</a> </li>
                         </ul>
+
                         @endcan
                         <ul class="list-unstyled folders">
 
@@ -108,6 +113,7 @@
 
                             <li><a href="{{route('admin-jobseeker')}}" title="Admins">Jobseekers</a> </li>
                         </ul>
+
                     </div>
                 </div>
             </div>
@@ -464,7 +470,44 @@
                     </div>
                 </div>
 
-            </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwenty">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwenty" aria-expanded="false" aria-controls="flush-headingTwenty">
+                            <i class="fa-solid fa-message me-2"></i>Testimony
+                        </button>
+                    </h2>
+
+                    <div id="flush-collapseTwenty" class="accordion-collapse collapse" aria-labelledby="flush-collapseTwenty"
+                        data-bs-parent="#flush-collapseTwenty">
+                        <div class="accordion-body">
+                            <div class="accordion-item">
+
+                                <div id="flush-collapseTwenty" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-collapseTwenty" data-bs-parent="#flush-collapseTwenty">
+                                    <div class="accordion-body">
+                                        <ul class="list-unstyled folders">
+                                            <li><a href="{{route('testimony.index')}}" title="Testimony">View Testimony</a> </li>
+
+                                        </ul>
+
+                                        <ul class="list-unstyled folders">
+                                            <li><a href="{{route('testimony.create')}}" title="Testimony">Create Testimony</a> </li>
+
+                                        </ul>
+
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                </div>
 
 
 

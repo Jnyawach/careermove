@@ -107,13 +107,13 @@ class AdminUserController extends Controller
         $validated=$request->validate([
             'name' => ['required', 'string', 'max:255'],
             'role' => ['nullable', 'integer', 'max:10'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+
         ]);
         $user->update([
             'name'=>$validated['name'],
             'email'=>$validated['email'],
-            'password'=>Hash::make($validated['password']),
+
         ]);
         if (!empty($request->role)){
             $role=Role::findOrFail($request->role);

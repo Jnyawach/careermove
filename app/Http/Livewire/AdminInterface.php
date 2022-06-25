@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Contact;
 use App\Models\Job;
+use App\Models\Order;
 use App\Models\Post;
 use App\Models\Report;
 use App\Models\Subscriber;
@@ -28,6 +29,9 @@ class AdminInterface extends Component
         $subscribers=Subscriber::count();
         $posts=Post::count();
         $posts_active=Post::where('status',0)->count();
+        $order=Order::count();
+        $order_pending=Order::where('progress_id',2)->count();
+        $order_abandoned=Order::where('progress_id',1)->count();
         return view('livewire.admin-interface',[
             'jobs'=>$jobs,
             'active'=>$active,
@@ -42,7 +46,10 @@ class AdminInterface extends Component
             'jobseekers'=>$jobseekers,
             'subscribers'=>$subscribers,
             'posts'=>$posts,
-            'posts_active'=>$posts_active
+            'posts_active'=>$posts_active,
+            'order'=>$order,
+            'order_pending'=>$order_pending,
+            'order_abandoned'=>$order_abandoned,
         ]);
     }
 }

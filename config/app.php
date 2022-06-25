@@ -176,7 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-       
+
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
 
     ],
@@ -195,5 +195,21 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
+
+    'debug_blacklist'=>[
+        'ENV' => [
+            'MPESA_CONSUMER_KEY',
+            'MPESA_CONSUMER_SECRET',
+            'MPESA_SHORTCODE',
+            'MPESA_STK_SHORTCODE',
+            'MPESA_ENV',
+            'MPESA_TEST_MSSDN',
+            'MPESA_TEST_URL',
+            'MPESA_PASSKEY',
+            'MPESA_B2C_PASSWORD',
+            'MPESA_AUTHORIZATION',
+        ]
+
+    ]
 
 ];

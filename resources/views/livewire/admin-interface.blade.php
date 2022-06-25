@@ -143,5 +143,33 @@
             </a>
         </div>
 
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 p-2">
+            <a href="{{route('orders.index')}}" class="text-decoration-none">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h1>{{$order}}</h1>
+                        </div>
+                        <h5 class="text-success">Total Orders</h5>
+                        <div class="row">
+                            <div class="col-6">
+                                <h6 class="fw-bold">Pending: <span>{{$order_pending}}</span></h6>
+
+                            </div>
+                            <div class="col-6">
+                                <h6 class="fw-bold">Abandoned: <span>{{$order_abandoned}}</span></h6>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </a>
+        </div>
+
     </div>
 </div>

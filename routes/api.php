@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\General\RestoreCart;
+use App\Http\Controllers\Payment\MpesaValidation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::patch('/restore/{id}', ['as'=>'restorCart','uses'=>RestoreCart::class]);
+
+Route::post('validation',[MpesaValidation::class,'validation']);
+Route::post('confirmation',[MpesaValidation::class,'confirmation']);
+

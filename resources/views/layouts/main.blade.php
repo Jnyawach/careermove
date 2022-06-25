@@ -53,9 +53,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('hiring.index')}}">Companies Hiring</a>
                         </li>
+                        <!--
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('professional-resume')}}">CV Writing</a>
-                        </li>
+                            <a class="nav-link" href="#">CV Writing</a>
+                        </li> -->
 
 
                         <li class="nav-item">
@@ -208,10 +209,11 @@
                                 <a class="nav-link" href="{{route('careers.create')}}">Post
                                     a Job   <i class="fa-solid fa-chevron-right float-end"></i></a>
                             </li>
+                            <!--
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('professional-resume')}}">CV Writing
+                                <a class="nav-link" href="#">CV Writing
                                     <i class="fa-solid fa-chevron-right float-end"></i></a>
-                            </li>
+                            </li> -->
 
                             <li class="dropdown-divider"><hr></li>
                             <li class="nav-item">
@@ -300,6 +302,12 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('newsletter.index')}}" title="Subscribe to our Newsletter">Subscribe</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('tracker.index')}}" title="Track your Order">Order Tracker</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('rating.index')}}" title="Rate our Service">Rate us</a>
         </li>
         @guest()
         <li class="nav-item">

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\Job;
+use App\Models\Order;
 use App\Models\Policy;
 use App\Models\Post;
+use App\Models\Testimony;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -47,7 +49,16 @@ class HomeController extends Controller
         return view('about');
     }
 
+    public function thank(){
+        $trending=Post::where('status',1)->latest()->limit(3)->get();
+        return view('thank-you', compact('trending'));
+    }
+
     public function professionaResume(){
-        return view('professional-resume');
+        $jobs=Job::count();
+        $orders=Order::count();
+        $testimonies=Testimony::inRandomOrder()->take(3)->get();
+
+        return view('professional-resume', compact('jobs','orders','testimonies'));
     }
 }
