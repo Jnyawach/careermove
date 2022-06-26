@@ -60,7 +60,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
                     <div class="col-12 col-md-6 align-self-center p-3 mx-auto">
                         <h1>Looking to hire? Post your vacany today. It is free!</h1>
                         <h2 class="ms-2 mt-3 fs-3">Reach thousands of talent with your job listing</h2>
-                        <a href="{{route('professional-resume')}}" title="Professonal CV Writing Service"
+                        <a href="{{route('careers.create')}}" title="Professonal CV Writing Service"
                             class="btn btn-primary m-3 fs-5">
                             See Details <i class="fa-solid fa-angle-right ms-3"></i>
                         </a>

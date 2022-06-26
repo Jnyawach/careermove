@@ -43,7 +43,7 @@ class AdminAdsController extends Controller
         $validated=$request->validate([
             'name'=>'required|string',
             'link'=>'required|string',
-            'banner'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:width=width=728,height=90'
+            'banner'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:width=728,height=90'
 
         ]);
 

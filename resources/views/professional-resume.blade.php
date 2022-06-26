@@ -7,6 +7,7 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
 <section class="resume-header">
     <div class="row">
         <div class="col-12 col-md-6 align-self-center p-3 p-lg-5 mx-auto">
+            <p class="text-danger">*This page is still under development*</p>
             <h1>Are you tired of always missing out!</h1>
             <h5>#Let us write your curriculum vitae</h5>
             <div class="mx-auto">
