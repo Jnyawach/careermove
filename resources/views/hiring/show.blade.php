@@ -10,27 +10,39 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
 @section('content')
     <section class="hiring p-5">
         <div class="row">
-            <div class="col-md-4 text-start align-self-end pt-4">
-                <img src="{{asset($company->getFirstMediaUrl('logo')
-                 ?$company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}" class="img-fluid img-thumbnail" alt="{{$company->name}}">
+           <div class=" col-12 col-md-8 col-lg-6">
+                <div class="float-start me-3">
+                    <img src="{{asset($company->getFirstMediaUrl('logo')
+                             ?$company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}" class="img-fluid img-thumbnail"
+                    alt="{{$company->name}}">
+                </div>
+                <div class="d-inline-block">
+                    <h1 class="fs-4">{{$company->name}}</h1>
+                    <p class="fs-5"><i class="fa-solid fa-location-crosshairs me-2"></i>{{$company->location->name}},Kenya<br>
+                        <i class="fa-solid fa-folder me-2"></i>{{$company->jobs->where('status_id',2)->count()}}
+                        Positions
+                    </p>
 
+                </div>
             </div>
-            <div class="col-md-8 text-center d-none d-md-block">
+            <div class="col-md-4 col-lg-6 text-center d-none d-md-block">
                 <img src="{{asset('images/find-jobs.png')}}" class="img-fluid" style="height: 100px">
+
+
             </div>
         </div>
 
     </section>
+    <section>
+        <div class="row resume-writing p-2">
 
-    <section class="p-5">
-        <h1 class="fs-4">{{$company->name}}</h1>
-        <p class="fs-5"><i class="fa-solid fa-location-crosshairs me-2"></i>{{$company->location->name}},Kenya<br>
-            <i class="fa-solid fa-folder me-2"></i>{{$company->jobs->where('status_id',2)->count()}}
-            Positions</p>
 
+        </div>
     </section>
-   
-    <section class="p-2 p-lg-5">
+
+
+
+    <section class="p-3">
         <h6 class="fs-5">Open Jobs at {{$company->name}}</h6>
         <div class="row">
             @foreach($company->jobs->where('status_id',2) as $job)

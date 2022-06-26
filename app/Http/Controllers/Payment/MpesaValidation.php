@@ -3,30 +3,25 @@
 namespace App\Http\Controllers\Payment;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-
+use Config;
 class MpesaValidation extends Controller
 {
     //
-    public function validation(Request $request){
-        Log::info('Validation endpoint hit');
-        Log::info($request->all());
-
-        return [
-            'ResultCode' => 0,
-            'ResultDesc' => 'Accept Service',
-            'ThirdPartyTransID' => rand(3000, 10000)
-        ];
+    public function generateAccessToken()
+    {
+        $consumer_key=Config::get('cervempesa.CONSUMER_KEY');
+        $consumer_secret=Config::get('cervempesa.CONSUMER_SECRET');
+        $credentials = base64_encode($consumer_key.":".$consumer_secret);
+        $url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Basic ".$credentials));
+        curl_setopt($curl, CURLOPT_HEADER,false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $curl_response = curl_exec($curl);
+        $access_token=json_decode($curl_response);
+        return $access_token->access_token;
     }
-    public function confirmation(Request $request){
-        Log::info('Confirmation endpoint hit');
-        Log::info($request->all());
 
-        return [
-            'ResultCode' => 0,
-            'ResultDesc' => 'Accept Service',
-            'ThirdPartyTransID' => rand(3000, 10000)
-        ];
-    }
 }

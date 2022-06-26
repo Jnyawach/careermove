@@ -1,5 +1,5 @@
 <div>
-    <section class="intro p-2">
+    <section class="blog-intro p-2">
         <div class="row mt-5">
 
             <div class="col-12 col-lg-5 mx-auto p-2">

@@ -28,8 +28,8 @@
 
             @endif
             <form wire:submit.prevent='searchOrder'>
-                <div class="form-group mt-5">
-                   <div class="col-8 col-md-6 mx-auto">
+                <div class="form-group row mt-5">
+                   <div class="col-12 col-md-8 col-lg-6 mx-auto">
 
                         <input type="text" name="code" id="code" required wire:model.lazy="code" class="form-control m-2"
                             placeholder="Order Number">

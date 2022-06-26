@@ -23,7 +23,7 @@
             <div class="form-group mt-3">
                 <label class="control-label" for="banner">Ads Banner/Image</label>
                 <input class="form-control mt-2" type="file" id="banner" name="banner">
-                <small>Banner size should be size id 820 px by 180px</small>
+                <small>Banner size should be size id 728 px by 90px</small>
             </div>
 
             <div class="form-group mt-3">

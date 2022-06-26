@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
+use App\Models\Testimony;
 use Illuminate\Http\Request;
 
 class RatingController extends Controller
@@ -37,6 +38,34 @@ class RatingController extends Controller
     public function store(Request $request)
     {
         //
+        $validated=$request->validate([
+            'first_name'=>'required|string|max:50',
+            'last_name'=>'required|string|max:50',
+            'title'=>'required|string|max:50',
+            'content'=>'required',
+            'rating'=>'integer|required|max:5|min:1',
+            'profile'=>'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+
+        ],[
+            'required'=>':attribute cannot be empty',
+
+        ]);
+
+        $testimony=Testimony::create([
+            'first_name'=>$validated['first_name'],
+            'last_name'=>$validated['last_name'],
+            'title'=>$validated['title'],
+            'content'=>$validated['content'],
+            'rating'=>$validated['rating'],
+            'status'=>0
+
+        ]);
+
+        if($files=$request->file('profile')){
+            $testimony->addMedia($files)->toMediaCollection('profile');
+        }
+
+        return redirect('/');
     }
 
     /**

@@ -3,9 +3,11 @@
 namespace App\Http\Livewire;
 
 use App\Models\Discount;
+use App\Models\Mpesa;
 use App\Models\Order;
 use Carbon\Carbon;
 use Config;
+use Illuminate\Support\Arr;
 use Livewire\Component;
 
 class CartPage extends Component
@@ -69,80 +71,148 @@ class CartPage extends Component
 
     }
 
-    protected function getAccessToken(){
-
-        $credentials = base64_encode(Config::get('mpesa.CONSUMER_KEY').':'.Config::get('mpesa.CONSUMER_SECRET'));
-
-        $ch = curl_init('https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Basic '.$credentials]);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $response = json_decode(curl_exec($ch));
-        curl_close($ch);
-        return  $response->access_token;
-    }
-
-
-
-    protected function makeHTTP($body){
-
-        $ch = curl_init('https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Authorization: Bearer '.$this->getAccessToken(),
-            'Content-Type: application/json'
-        ]);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $response     = curl_exec($ch);
-        curl_close($ch);
-        return $response;
-
-    }
-
-    public function simulateTransaction()
+    public function generateAccessToken()
     {
-        $body = array(
-            'ShortCode' => Config::get('mpesa.SHORTCODE'),
-            'Msisdn' => Config::get('mpesa.MPESA_MSSDN'),
+        $consumer_key=Config::get('cervempesa.CONSUMER_KEY');
+        $consumer_secret=Config::get('cervempesa.CONSUMER_SECRET');
+        $credentials = base64_encode($consumer_key.":".$consumer_secret);
+        $url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Basic ".$credentials));
+        curl_setopt($curl, CURLOPT_HEADER,false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $curl_response = curl_exec($curl);
+        $access_token=json_decode($curl_response);
+        return $access_token->access_token;
+    }
+
+    public function lipaNaMpesaPassword()
+    {
+        $lipa_time = Carbon::rawParse('now')->format('YmdHms');
+        $passkey =Config::get('cervempesa.MPESA_PASSKEY');
+        $BusinessShortCode = Config::get('cervempesa.SHORTCODE');
+        $timestamp =$lipa_time;
+        $lipa_na_mpesa_password = base64_encode($BusinessShortCode.$passkey.$timestamp);
+        return $lipa_na_mpesa_password;
+    }
+
+    public function makeHttp($url,$body){
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer '.$this->generateAccessToken()));
+
+
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($body));
+        $curl_response = curl_exec($curl);
+        return $curl_response;
+
+    }
+
+
+    public function customerMpesaSTKPush()
+    {
+        $url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+
+
+        $body = array (
+            //Fill in the request parameters with valid values
+            'BusinessShortCode' => Config::get('cervempesa.SHORTCODE'),
+            'Password' => $this->lipaNaMpesaPassword(),
+            'Timestamp' => Carbon::rawParse('now')->format('YmdHms'),
+            'TransactionType' => 'CustomerPayBillOnline',
             'Amount' => 1,
-            'BillRefNumber' => 11224455,
-            'CommandID' => 'CustomerPayBillOnline'
+            'PartyA' => 254705813739, // replace this with your phone number
+            'PartyB' => Config::get('cervempesa.SHORTCODE'),
+            'PhoneNumber' => 254705813739, // replace this with your phone number
+            'CallBackURL' => 'https://careermove.co.ke/',
+            'AccountReference' => "Careermove",
+            'TransactionDesc' => "Careermove payment"
         );
 
-        $url =  '/c2b/v1/simulate';
-        $response = $this->makeHttp($url, $body);
+        $response=$this->makeHttp($url,$body);
+        return $response;
 
+    }
+
+     /**
+     * J-son Response to M-pesa API feedback - Success or Failure
+     */
+    public function createValidationResponse($result_code, $result_description){
+        $result=json_encode(["ResultCode"=>$result_code, "ResultDesc"=>$result_description]);
+        $response = new Response();
+        $response->headers->set("Content-Type","application/json; charset=utf-8");
+        $response->setContent($result);
         return $response;
     }
-    /*Register */
-    public function registerURLS()
+
+    /**
+     *  M-pesa Validation Method
+     * Safaricom will only call your validation if you have requested by writing an official letter to them
+     */
+    public function mpesaValidation()
     {
-        $body = array(
-            'ShortCode' => Config::get('mpesa.SHORTCODE'),
-            'ResponseType' => 'Completed',
-            'ConfirmationURL' => Config::get('mpesa.MPESA_URL') . '/api/confirmation/'.Config::get('mpesa.MPESA_CONFIRM_KEY'),
-            'ValidationURL' => Config::get('mpesa.MPESA_URL') . '/api/validation/'.Config::get('mpesa.MPESA_VALIDATE_KEY'),
-        );
+        $result_code = "0";
+        $result_description = "Accepted validation request.";
+        return $this->createValidationResponse($result_code, $result_description);
+    }
 
-
-
-        $url = '/c2b/v1/registerurl';
-
-        $response = $this->makeHttp($body);
-
+    public function mpesaConfirmation(Request $request)
+    {
+        $content=json_decode($request->getContent());
+        $mpesa_transaction = new Mpesa();
+        $mpesa_transaction->TransactionType = $content->TransactionType;
+        $mpesa_transaction->TransID = $content->TransID;
+        $mpesa_transaction->TransTime = $content->TransTime;
+        $mpesa_transaction->TransAmount = $content->TransAmount;
+        $mpesa_transaction->BusinessShortCode = $content->BusinessShortCode;
+        $mpesa_transaction->BillRefNumber = $content->BillRefNumber;
+        $mpesa_transaction->InvoiceNumber = $content->InvoiceNumber;
+        $mpesa_transaction->OrgAccountBalance = $content->OrgAccountBalance;
+        $mpesa_transaction->ThirdPartyTransID = $content->ThirdPartyTransID;
+        $mpesa_transaction->MSISDN = $content->MSISDN;
+        $mpesa_transaction->FirstName = $content->FirstName;
+        $mpesa_transaction->MiddleName = $content->MiddleName;
+        $mpesa_transaction->LastName = $content->LastName;
+        $mpesa_transaction->save();
+        // Responding to the confirmation request
+        $response = new Response();
+        $response->headers->set("Content-Type","text/xml; charset=utf-8");
+        $response->setContent(json_encode(["C2BPaymentConfirmationResult"=>"Success"]));
         return $response;
     }
+
+    /**
+     * M-pesa Register Validation and Confirmation method
+     */
+    public function mpesaRegisterUrls()
+    {
+
+        $url='https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl';
+        $body=json_encode(array(
+            'ShortCode' => Config::get('cervempesa.SHORTCODE'),
+            'ResponseType' => 'Completed',
+            'ConfirmationURL' => 'https://careermove.co.ke/api/v1/cerve/transaction/confirmation/'.Config::get('cervempesa.MPESA_CONFIRM_KEY'),
+            'ValidationURL' => 'https://careermove.co.ke/api/v1/cerve/validation/'.Config::get('cervempesa.MPESA_VALIDATE_KEY')
+        ));
+        $response=$this->makeHttp($url,$body);
+
+    }
+
+
 
     public function payPhone(){
-        $this->getAccessToken();
+
 
     }
     public function clickPay(){
        //$cart= \Cart::getContent()->first()->model;
 
-       $response=$this->simulateTransaction();
+       $response=$this->generateAccessToken();
 
        dd($response);
 

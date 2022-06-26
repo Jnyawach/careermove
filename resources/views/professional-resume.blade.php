@@ -83,11 +83,12 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
 
 @endif
 
-<section class="rating p-3 p-lg-5 mt-5">
+<section class="rating-resume p-3 p-lg-5 mt-5">
     <div class="row">
         <div class="col-12 col-lg-8 mx-auto p-3 pt-5">
             <h2 class="text-center numbers">How we are doing</h2>
             <div class="row mt-5">
+                @if ($orders)
                 <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
                     <div class="written text-center">
                         <img src="{{asset('images/resume.png')}}" class="img-fluid" style="height: 60px">
@@ -96,7 +97,8 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
                     </div>
 
                 </div>
-
+                @endif
+                @if ($jobs)
                 <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
                     <div class="written text-center">
                         <img src="{{asset('images/jobs-posted.png')}}" class="img-fluid" style="height: 60px">
@@ -105,7 +107,11 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
                     </div>
 
                 </div>
+                @endif
 
+
+
+                @if ($testimonies->count()>0)
                 <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
                     <div class="written text-center">
                         <img src="{{asset('images/rating.png')}}" class="img-fluid" style="height: 60px">
@@ -114,6 +120,9 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
                     </div>
 
                 </div>
+                @endif
+
+
             </div>
 
         </div>

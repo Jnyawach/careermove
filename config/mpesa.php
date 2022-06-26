@@ -1,19 +1,72 @@
 <?php
-/* Mpesa variable*/
-return[
 
- 'SHORTCODE'=>env('MPESA_SHORTCODE'),
- 'CONSUMER_KEY'=>env('MPESA_CONSUMER_KEY'),
- 'CONSUMER_SECRET'=>env('MPESA_CONSUMER_SECRET'),
- 'AUTHORIZATION_KEY'=>env('MPESA_AUTHORIZATION'),
- 'STK_SHORTCODE'=>env('MPESA_STK_SHORTCODE'),
- 'MPESA_ENV'=>env('MPESA_ENV'),
- 'MPESA_MSSDN'=>env('MPESA_MSSDN'),
- 'MPESA_URL'=>env('MPESA_URL'),
- 'MPESA_PASSKEY'=>env('MPESA_PASSKEY'),
- 'MPESA_B2C_PASSWORD'=>env('MPESA_B2C_PASSWORD'),
- 'MPESA_CONFIRM_KEY'=>env('MPESA_CONFIRM_KEY'),
- 'MPESA_VALIDATE_KEY'=>env('MPESA_VALIDATE_KEY'),
+return [
+    /*
+    |--------------------------------------------------------------------------
+    | Default Account
+    |--------------------------------------------------------------------------
+    |
+    | This is the default account to be used when none is specified.
+    */
 
+    'default' => 'staging',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Native File Cache Location
+    |--------------------------------------------------------------------------
+    |
+    | When using the Native Cache driver, this will be the relative directory
+    | where the cache information will be stored.
+    */
+
+    'cache_location' => '../cache',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Accounts
+    |--------------------------------------------------------------------------
+    |
+    | These are the accounts that can be used with the package. You can configure
+    | as many as needed. Two have been setup for you.
+    |
+    | Sandbox: Determines whether to use the sandbox, Possible values: sandbox | production
+    | Initiator: This is the username used to authenticate the transaction request
+    | LNMO:
+    |    paybill: Your paybill number
+    |    shortcode: Your business shortcode
+    |    passkey: The passkey for the paybill number
+    |    callback: Endpoint that will be be queried on completion or failure of the transaction.
+    |
+    */
+
+    'accounts' => [
+        'staging' => [
+            'sandbox' => true,
+            'key' => env('MPESA_CONSUMER_KEY'),
+            'secret' => env('MPESA_CONSUMER_SECRET'),
+            'initiator' => env('MPESA_INITIATOR'),
+            'id_validation_callback' => 'https://fa06-105-163-0-105.in.ngrok.io/callback?secret='.env('MPESA_CONFIRM_KEY'),
+            'lnmo' => [
+                'paybill' => env('MPESA_SHORTCODE'),
+                'shortcode' => env('MPESA_SHORTCODE'),
+                'passkey' => env('MPESA_PASSKEY'),
+                'callback' => 'https://fa06-105-163-0-105.in.ngrok.io/callback?secret='.env('MPESA_VALIDATE_KEY'),
+            ]
+        ],
+
+        'production' => [
+            'sandbox' => false,
+            'key' => '',
+            'secret' => '',
+            'initiator' => 'apitest363',
+            'id_validation_callback' => 'http://example.com/callback?secret=some_secret_hash_key',
+            'lnmo' => [
+                'paybill' => 174379,
+                'shortcode' => 174379,
+                'passkey' => 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919',
+                'callback' => 'http://example.com/callback?secret=some_secret_hash_key',
+            ]
+        ],
+    ],
 ];
