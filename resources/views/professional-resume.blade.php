@@ -39,7 +39,7 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
                         @error('old_cv') <span class="error">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group mt-3">
-                        <button type="submit" class="btn btn-primary">WRITE MY CV <i class="fa-solid fa-chevron-right ms-3"></i></button>
+                        <button type="submit" class="btn btn-primary" disabled>WRITE MY CV <i class="fa-solid fa-chevron-right ms-3"></i></button>
                     </div>
                 </form>
 
