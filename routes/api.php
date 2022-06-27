@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\General\RestoreCart;
 
-use App\Http\Livewire\CartPage;
+use App\Http\Controllers\Payment\MpesaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,11 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::patch('/restore/{id}', ['as'=>'restorCart','uses'=>RestoreCart::class]);
 
 
-Route::post('v2/access/token', [CartPage::class,'generateAccessToken']);
-Route::post('v2/cerve/stk/push', [CartPage::class,'customerMpesaSTKPush']);
-Route::post('v1/cerve/validation/{id}', [CartPage::class,'mpesaValidation']);
-Route::post('v1/cerve/transaction/confirmation/{id}', [CartPage::class,'mpesaConfirmation']);
-Route::post('v1/cerve/register/url', [CartPage::class,'mpesaRegisterUrls']);
+Route::post('/callback', [MpesaController::class,'mpesaConfirmation']);
+Route::post('v2/access/token', [MpesaController::class,'generateAccessToken']);
+Route::post('v2/cerve/stk/push', [MpesaController::class,'customerMpesaSTKPush'])->name('lipa');
+
+
+Route::post('cerve/puodhi/{id}', [MpesaController::class,'mpesaValidation']);
+Route::post('cerve/yiego/{id}', [MpesaController::class,'mpesaConfirmation']);
+Route::post('cerve/register/url', [MpesaController::class,'mpesaRegisterUrls']);

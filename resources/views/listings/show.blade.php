@@ -212,6 +212,8 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
 
 
                     </div>
+                     <!----Professonal CV Adver-->
+                     @include('includes.pro-cv')
                     <div>{!! $job->description !!}</div>
                     <div>
                         @if($job->link)

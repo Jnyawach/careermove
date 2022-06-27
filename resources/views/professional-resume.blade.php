@@ -29,7 +29,7 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
                     </div>
                     <div class="form-group mt-3">
                         <label class="control-label" for="cellphone">Your Cellphone:</label>
-                        <input type="text"  class="form-control mt-2" required name="cellphone" id="cellphone" placeholder="eg.+254 722 002100"
+                        <input type="text"  class="form-control mt-2" required name="cellphone" id="cellphone" placeholder="Use Format +254722002100"
                         value="{{old('cellphone')}}">
                         @error('cellphone') <span class="error">{{ $message }}</span> @enderror
                     </div>
@@ -39,7 +39,7 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
                         @error('old_cv') <span class="error">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group mt-3">
-                        <button type="submit" class="btn btn-primary" disabled>WRITE MY CV <i class="fa-solid fa-chevron-right ms-3"></i></button>
+                        <button type="submit" class="btn btn-primary">WRITE MY CV <i class="fa-solid fa-chevron-right ms-3"></i></button>
                     </div>
                 </form>
 

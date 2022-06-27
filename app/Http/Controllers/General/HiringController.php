@@ -55,9 +55,9 @@ class HiringController extends Controller
         $companies=Company::whereHas('jobs', function (Builder $query){
             $query->where('status_id',2);
         })->limit(4)->get();
-        $adverts=Advert::where('status',1)->limit(5)->get();
+        $advert=Advert::where('status',1)->first();
         $company=Company::findBySlugOrFail($id);
-        return  view('hiring.show', compact('company','companies','adverts'));
+        return  view('hiring.show', compact('company','companies','advert'));
     }
 
     /**

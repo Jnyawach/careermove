@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Advert;
 use App\Models\Experience;
 use App\Models\Industry;
 use App\Models\Job;
@@ -118,6 +119,7 @@ class JobListing extends Component
         $professions=Profession::orderBy('name')->get();
         $industries=Industry::orderBy('name')->get();
         $experiences=Experience::all();
+        $advert=Advert::where('status',1)->latest()->first();
 
         return view('livewire.job-listing',[
             'jobs'=>$jobs,
@@ -125,6 +127,7 @@ class JobListing extends Component
             'experiences'=>$experiences,
             'professions'=>$professions,
             'industries'=>$industries,
+            'advert'=>$advert,
         ]);
     }
     public function clearFilter(){

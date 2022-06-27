@@ -57,11 +57,15 @@
                 <p class="mb-4 summary mt-3">{{$post->summary}}</p>
                 <div>
                     <img src="{{asset($post->getFirstMediaUrl('imageCard')? $post->getFirstMediaUrl('imageCard'):'/images/no-image.png' )}}"
-                         alt="{{$post->title}}" class="img-fluid rounded" title="{{$post->title}}">
+                        alt="{{$post->title}}" class="img-fluid rounded" title="{{$post->title}}">
                 </div>
                 <small class="fst-italic mb-4">Image Credit:{{$post->image_credit}}</small>
-                <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}} | <i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</p>
+                <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif
+                    <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i>
+                    {{$post->dislike}} | <i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</p>
 
+                    <!----Professonal CV Adver-->
+                @include('includes.pro-cv')
                 <div class="post-content">{!! $post->content !!}</div>
                 <div class="mt-3 mb-3">
                     <script async
@@ -75,7 +79,7 @@
                 </div>
                 <p class="mt-3">
                     Keywords:@foreach(explode(',',$post->tags) as $tag)
-                             <mark>{{$tag}}</mark>
+                    <mark>{{$tag}}</mark>
                     @endforeach
                 </p>
                 <h6>Posted: {{$post->created_at->diffForHUmans()}}</h6>

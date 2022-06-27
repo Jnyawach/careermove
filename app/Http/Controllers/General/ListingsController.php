@@ -52,8 +52,8 @@ class ListingsController extends Controller
         //
         $job=Job::findBySlugOrFail($id);
         $jobs=Job::active()->where('profession_id',$job->profession_id)->limit(10)->get();
-        $adverts=Advert::where('status',1)->limit(5)->get();
-        return view('listings.show', compact('job','jobs','adverts'));
+        $advert=Advert::where('status',1)->latest()->first();
+        return view('listings.show', compact('job','jobs','advert'));
     }
 
     /**

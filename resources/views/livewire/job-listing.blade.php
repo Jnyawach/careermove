@@ -155,8 +155,8 @@
 
                     </div>
                     <hr>
-
-
+                        <!----Professonal CV Adver-->
+                        @include('includes.pro-cv')
 
                     <div wire:loading.remove>
 

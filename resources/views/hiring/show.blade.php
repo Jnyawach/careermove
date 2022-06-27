@@ -33,13 +33,9 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
         </div>
 
     </section>
-    <section>
-        <div class="row resume-writing p-2">
 
-
-        </div>
-    </section>
-
+    <!----Professonal CV Adver-->
+    @include('includes.pro-cv')
 
 
     <section class="p-3">
