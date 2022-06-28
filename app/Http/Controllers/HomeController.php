@@ -61,4 +61,8 @@ class HomeController extends Controller
 
         return view('professional-resume', compact('jobs','orders','testimonies'));
     }
+
+    public function confirmation(){
+        return view('confirmation');
+    }
 }

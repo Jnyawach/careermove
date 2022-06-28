@@ -2,87 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Mpesa;
-use App\MpesaC2B;
+use App\Models\MpesaStkPush;
+use Config;
+use SmoDav\Mpesa\Laravel\Facades\Registrar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class MpesaC2BController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-        $payments=MpesaC2B::all();
-        return  view('admin.mpesa.index', compact('payments'));
+    //
+
+
+
+    public function validateTrx(Request $request){
+        Log::info($request->all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function confirmTrx(Request $request){
+        Log::info($request->all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function callbackTrx(){
+        $callback=file_get_contents('php://input');
+        $content=json_decode($callback);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        if ($content->Body->stkCallback->ResultCode==0){
+            $mpesa_confirm=new MpesaStkPush();
+            $mpesa_confirm->result_desc=$content->Body->stkCallback->ResultDesc;
+            $mpesa_confirm->result_code=$content->Body->stkCallback->ResultCode;
+            $mpesa_confirm->merchant_request_id=$content->Body->stkCallback->MerchantRequestID;
+            $mpesa_confirm->checkout_request_id=$content->Body->stkCallback->CheckoutRequestID;
+            $mpesa_confirm->amount= $content->Body->stkCallback->CallbackMetadata->Item[0]->Value;
+            $mpesa_confirm->mpesa_receipt_number= $content->Body->stkCallback->CallbackMetadata->Item[1]->Value;
+            $mpesa_confirm->transaction_date= $content->Body->stkCallback->CallbackMetadata->Item[3]->Value;
+            $mpesa_confirm->phone_number= $content->Body->stkCallback->CallbackMetadata->Item[4]->Value;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+            $mpesa_confirm->save();
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+
     }
 }

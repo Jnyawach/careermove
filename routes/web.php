@@ -98,6 +98,7 @@ Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],func
 });
 
 Route::group([],function (){
+    Route::get('confirmation',  [HomeController::class, 'confirmation'])->name('confirmation');
     Route::get('thank-you',  [HomeController::class, 'thank'])->name('thank-you');
     Route::get('about',  [HomeController::class, 'about'])->name('about');
     Route::get('terms',  [HomeController::class, 'terms'])->name('terms');
@@ -143,7 +144,7 @@ Route::group(['middleware'=>['auth','role:super-admin|User','verified']],functio
 });
 
 Auth::routes();
-Route::get('mpesa',  ['as'=>'mpesa', 'uses'=>RestoreCart::class]);
+
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/email/verify', function () {

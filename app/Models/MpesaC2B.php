@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use \App\Misc\Payment\Mpesa\Transaction\Contracts\Mpesa;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -44,15 +44,6 @@ class MpesaC2B extends Model
         'transaction_type'
     ];
 
-   
 
-    public function getTransactionAmount()
-    {
-        return $this->trans_amount;
-    }
 
-    public function getTransactionReference()
-    {
-        return $this->trans_id;
-    }
 }

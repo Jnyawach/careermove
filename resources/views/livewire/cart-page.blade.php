@@ -1,6 +1,12 @@
 <div>
    <section class="p-3 p-lg-5 cart">
     @include('includes.status')
+    @if ($payment)
+    <div class="alert alert-danger">
+        {{ $payment }}
+    </div>
+
+    @endif
 
     <h1 class="fs-3 text-center"><i class="fas fa-shopping-bag"></i> My Cart</h1>
     <hr>
@@ -158,20 +164,23 @@
 
 
                      @if ($phone)
-                     <form wire:submit.prevent='payPhone'>
+                     <form wire:submit.prevent='clickPay'>
                         <div class="form-group row">
                             <div class="col-8">
-                                <input type="text" name="mssd" class="form-control" wire:model.lazy='mssd' required
-                                placeholder="Enter Mpesa number">
-                                @error('mssd') <span class="error">{{ $message }}</span> @enderror
+                                <label class="control-label" for="mssd">Enter Mpesa Phone Number</label>
+
+                                <input type="text" name="mssd" class="form-control mt-2" wire:model.lazy='mssd' required
+                                placeholder="eg. 0722002100">
+
                                 @if ($success)
                                 <small class="text-danger">{{$success}}</small>
 
                                 @endif
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 align-self-end">
                                 <button type="submit" class="btn btn-primary">PAY</button>
                             </div>
+                            @error('mssd') <span class="error">{{ $message }}</span> @enderror
 
                         </div>
 

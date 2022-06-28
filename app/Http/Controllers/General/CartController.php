@@ -45,15 +45,15 @@ class CartController extends Controller
         $validated=$request->validate([
             'name'=>'string|required|max:255',
             'email'=>'string|email|required|max:255',
-            'cellphone'=>'required|max:13|min:13',
+            'cellphone'=>'required|max:10|min:10',
             'old_cv'=>'required|mimes:pdf,docx,doc|max:2048',
 
         ],[
             'required'=>'Please provide :attribute',
             'email.email'=>'Please provide a valid email',
-            'cellphone.max'=>'Invalid! Check length or format: Use this format +254722002100',
+            'cellphone.max'=>'Invalid! Check length or format: Use this format 0722002100',
             'old_cv.max'=>'Maximum file size is 2MB',
-            'cellphone.min'=>'Invalid! Check length or format: Use this format +254722002100',
+            'cellphone.min'=>'Invalid! Check length or format: Use this format 0722002100',
             'string'=>':attribute should be a string',
             'old_cv.mimes'=>'Only accepts pdf,doc or docx file types'
         ]);

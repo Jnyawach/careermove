@@ -13,7 +13,7 @@ class Order extends Model implements HasMedia
 
     protected $fillable=[
         'name','email','cellphone','user_id','product_id','progress_id',
-        'comment','paid', 'order_number'
+        'comment','paid', 'order_number','trans_id'
     ];
 
     public function progress(){
@@ -29,5 +29,9 @@ class Order extends Model implements HasMedia
 
     public function discount(){
         return $this->hasMany(Discount::class);
+    }
+
+    public function payment(){
+        return $this->hasOne(MpesaStkPush::class,'trans_id');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use \App\Misc\Payment\Mpesa\Transaction\Contracts\Mpesa;
+
 
 /**
  * Class STKPush
@@ -34,13 +34,4 @@ class MpesaStkPush extends Model
 
 
 
-    public function getTransactionAmount()
-    {
-        return $this->amount;
-    }
-
-    public function getTransactionReference()
-    {
-        return $this->mpesa_receipt_number;
-    }
 }
