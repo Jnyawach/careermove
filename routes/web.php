@@ -62,8 +62,7 @@ use App\Http\Controllers\Dashboard\LanguageController;
 use App\Http\Controllers\Dashboard\AwardsController;
 use App\Http\Controllers\Dashboard\AssociationController;
 use App\Http\Controllers\Dashboard\ReferenceController;
-
-
+use App\Http\Controllers\General\RestoreCart;
 
 Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],function (){
     Route::patch('ads-disable/{id}',  ['as'=>'ads-disable', 'uses'=>DisableAds::class]);
@@ -144,6 +143,7 @@ Route::group(['middleware'=>['auth','role:super-admin|User','verified']],functio
 });
 
 Auth::routes();
+Route::get('mpesa',  ['as'=>'mpesa', 'uses'=>RestoreCart::class]);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/email/verify', function () {

@@ -22,11 +22,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::post('/callback', [MpesaController::class,'mpesaConfirmation']);
-Route::post('v2/access/token', [MpesaController::class,'generateAccessToken']);
-Route::post('v2/cerve/stk/push', [MpesaController::class,'customerMpesaSTKPush'])->name('lipa');
 
 
-Route::post('cerve/puodhi/{id}', [MpesaController::class,'mpesaValidation']);
-Route::post('cerve/yiego/{id}', [MpesaController::class,'mpesaConfirmation']);
-Route::post('cerve/register/url', [MpesaController::class,'mpesaRegisterUrls']);
+
+
+
+
+
+Route::group(['prefix' => 'v1/m-ke', 'as' => 'api.mpesa.', 'namespace' => 'Api\V1\Payment\Mpesa'], function () {
+
+    Route::group(['prefix' => 'c2b', 'as' => 'c2b.'], function () {
+        Route::post('register', 'C2BController@register')->name('register');
+        Route::post('simulate', 'C2BController@simulate')->name('simulate');
+        Route::post('confirm/{confirmation_key}', 'C2BController@confirmTrx')->name('confirm');
+        Route::post('validate/{validation_key}', 'C2BController@validateTrx')->name('validate');
+    });
+
+    Route::group(['prefix' => 'stk-push', 'as' => 'stk-push.'], function () {
+        Route::post('simulate', 'STKPushController@simulate')->name('simulate');
+        Route::post('confirm/{confirmation_key}', 'STKPushController@confirm')->name('confirm');
+    });
+});
