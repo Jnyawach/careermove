@@ -46,7 +46,14 @@
 
                     </div>
                     <div class="col-4 align-self-end">
-                        <button type="submit" class="btn btn-primary" style="height: 45px">CONFIRM</button>
+                        <button class="btn btn-primary" type="submit">
+                            <div wire:loading.delay>
+                            <span  class="spinner-border spinner-border-sm text-light" role="status" aria-hidden="true"></span>
+                            </div>
+                            CONFIRM
+                          </button>
+
+
                     </div>
 
                 </div>

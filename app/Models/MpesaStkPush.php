@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $mpesa_receipt_number
  * @property string $transaction_date
  * @property string $phone_number
+ * @property string $order_id
  */
 class MpesaStkPush extends Model
 {
@@ -30,6 +31,7 @@ class MpesaStkPush extends Model
         'mpesa_receipt_number',
         'transaction_date',
         'phone_number',
+        'order_id'
     ];
 
 

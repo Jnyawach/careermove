@@ -2,16 +2,20 @@
 <section class="p-5">
     <h1 class="fs-5">Order details*</h1>
     <div class="card">
+
         <div class="card-body">
-            <button type="button" class="btn btn-primary float-end">{{$order->progress->name}}
+            <button type="button" class="btn btn-primary float-end m-2">{{$order->progress->name}}
                 @if ($order->user_id)
                     : {{$order->user->name}}
-                @endif</button>
+                @endif
+            </button>
+
             <p class="p-0 m-0"><span>Product:</span> {{$order->product->name}}</p>
             <p class="p-0 m-0"><span>Name:</span> {{$order->name}}</p>
             <p class="p-0 m-0"><span>Name:</span> {{$order->email}}</p>
             <p class="p-0 m-0"><span>Email:</span> {{$order->cellphone}}</p>
-            <p class="p-0 m-0"><span>Payment:</span> N/A</p>
+            <p class="p-0 m-0"><span>Payment:</span> {{$order->payment?$order->payment->mpesa_receipt_number:'N/A'}}</p>
+            <p class="p-0 m-0"><span>Status:</span> {{$order->progress->name}}</p>
         </div>
     </div>
 
@@ -85,6 +89,8 @@
                         </div>
                         <div class="form-group mt-3">
                             <button type="submit" class="btn btn-primary">
+
+
                                 Send
                             </button>
                         </div>
@@ -134,4 +140,75 @@
     </div>
 
 </section>
+
+<section class="p-5">
+    <h2 class="fw-bold fs-4">Order Fulfillment</h2>
+    <hr>
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+               <div class="card-body">
+                <h6>Old CV: Uploaded by Client</h6>
+                <a href="{{$order->getFirstMediaUrl('old_cv')}}" class="text-decoration-none fw-bold">
+                    <i class="fa-solid fa-file-lines"></i> {{$order->getFirstMedia('old_cv')->name}}
+                </a>
+               <div>
+                <small class="fw-bold">Uploaded: {{$order->created_at->diffForHumans()}}</small>
+               </div>
+               </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+               <div class="card-body">
+                <h6>New and Updated CV</h6>
+                @if ($order->getFirstMedia('curriculum'))
+                <a href="{{$order->getFirstMediaUrl('curriculum')}}" class="text-decoration-none fw-bold">
+                    <i class="fa-solid fa-file-lines"></i> {{$order->getFirstMedia('curriculum')->name}}
+                </a>
+                @else
+                <small>Unavailable</small>
+                @endif
+
+                <div>
+                    <small class="fw-bold">Uploaded: {{$order->created_at->diffForHumans()}}</small>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    <hr class="dotted">
+    <div class="row">
+        @if ($order->progress->name=="Processing")
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h6>Upload Updated CV</h6>
+                    <form wire:submit.prevent='uploadNew'>
+                        <div class="form-group">
+                            <label for="comment" class="control-label">Add comments if you have any(optional):</label>
+                            <textarea class="form-control mt-2" id="comment" wire:model.lazy="comment"
+                            name="comment"></textarea>
+                            @error('comment') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="curriculum" class="form-label">New & Updated CV</label>
+                            <input class="form-control" type="file" id="curriculum" wire:model.lazy="curriculum" required>
+                          </div>
+
+                          <button type="submit" class="btn btn-primary mt-3">
+
+
+                           Save
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endif
+    </div>
+</section>
+
 </div>

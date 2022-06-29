@@ -32,6 +32,6 @@ class Order extends Model implements HasMedia
     }
 
     public function payment(){
-        return $this->hasOne(MpesaStkPush::class,'trans_id');
+        return $this->hasOne(MpesaStkPush::class);
     }
 }

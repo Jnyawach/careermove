@@ -107,18 +107,20 @@ class CartPage extends Component
        $this->order=$cart->order_number;
        $this->amount=\Cart::getTotal();
 
-       $url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+
+
+       $url = 'https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 
         $body = array(
             'BusinessShortCode' =>Config::get('cervempesa.SHORTCODE'),
             'Password' => $this->lipaNaMpesaPassword(),
             'Timestamp' => Carbon::rawParse('now')->format('YmdHms'),
             'TransactionType' => 'CustomerPayBillOnline',
-            'Amount' =>$this->amount,
+            'Amount' =>1,
             'PartyA' =>$this->cellphone,
             'PartyB' => Config::get('cervempesa.SHORTCODE'),
             'PhoneNumber' =>$this->cellphone,
-            'CallBackURL' =>'https://b371-41-90-56-153.in.ngrok.io/api/v1/cerve/callback/'.Config::get('cervempesa.CONFIRMATION_KEY'),
+            'CallBackURL' =>'https://careermove.co.ke/api/v1/cerve/callback/'.Config::get('cervempesa.CONFIRMATION_KEY'),
             'AccountReference' =>$this->order,
             'TransactionDesc' => 'Professional CV'
           );
@@ -152,7 +154,7 @@ class CartPage extends Component
         $consumer_secret=Config::get('cervempesa.CONSUMER_SECRET');
         $credentials = base64_encode($consumer_key.":".$consumer_secret);
 
-        $url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
+        $url = "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Basic ".$credentials));
@@ -194,7 +196,7 @@ class CartPage extends Component
     public function customerMpesaSTKPush()
     {
 
-        $url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+        $url = 'https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 
         $body = array(
             'BusinessShortCode' =>Config::get('cervempesa.SHORTCODE'),
@@ -205,7 +207,7 @@ class CartPage extends Component
             'PartyA' => +254705813739,
             'PartyB' => Config::get('cervempesa.SHORTCODE'),
             'PhoneNumber' => +254705813739,
-            'CallBackURL' =>'https://b371-41-90-56-153.in.ngrok.io/api/v1/cerve/callback/'.Config::get('cervempesa.CONFIRMATION_KEY'),
+            'CallBackURL' =>'https://careermove.co.ke/api/v1/cerve/callback/'.Config::get('cervempesa.CONFIRMATION_KEY'),
             'AccountReference' =>'Careermove',
             'TransactionDesc' => 'Professional CV'
           );
@@ -220,7 +222,7 @@ class CartPage extends Component
 
     public function mpesaRegisterUrls()
     {
-      $url='https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl';
+      $url='https://api.safaricom.co.ke/mpesa/c2b/v1/registerurl';
       $body=array(
             'ShortCode' =>Config::get('cervempesa.SHORTCODE'),
             'ResponseType' => 'Completed',

@@ -8,15 +8,19 @@ use App\Models\Progress;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+
 
 class OrderShow extends Component
-{
+{   use WithFileUploads;
     public $order;
     public $status;
     public $success=false;
     public $discount=false;
     public $amount;
     public $expiry;
+    public $curriculum;
+    public $comment;
 
 
     public function render()
@@ -64,5 +68,42 @@ class OrderShow extends Component
         $discount=Discount::findOrFail($id);
         $discount->delete();
         return redirect(request()->header('Referer'));
+    }
+
+
+    public function uploadNew(){
+        $this->validate([
+            'curriculum'=>'required|mimes:pdf,docx,doc|max:2048',
+            'comment'=>'nullable',
+        ]);
+
+        $order=Order::findOrFail($this->order->id);
+
+            if ( $order->getMedia('curriculum')->count()>0){
+                 $order->clearMediaCollection('curriculum');
+                 $order->addMedia($this->curriculum)->toMediaCollection('curriculum');
+            }else{
+                 $order->addMedia($this->curriculum)->toMediaCollection('curriculum');
+            }
+
+
+            Mail::send('mailing.complete', ['order'=>$order], function ($message) use($order){
+                $message->to($order->email);
+                $message->subject('Your CV is ready');
+               
+
+            });
+
+            $order->update([
+                'progress_id'=>4,
+                'comment'=>$this->comment,
+
+            ]);
+
+            $this->order=$order;
+
+
+
+
     }
 }

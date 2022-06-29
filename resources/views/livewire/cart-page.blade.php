@@ -178,7 +178,12 @@
                                 @endif
                             </div>
                             <div class="col-4 align-self-end">
-                                <button type="submit" class="btn btn-primary">PAY</button>
+                                <button type="submit" class="btn btn-primary">
+                                    <div wire:loading.delay>
+                                        <span  class="spinner-border spinner-border-sm text-light" role="status" aria-hidden="true"></span>
+                                        </div>
+                                    PAY
+                                </button>
                             </div>
                             @error('mssd') <span class="error">{{ $message }}</span> @enderror
 
@@ -190,7 +195,12 @@
                      @else
                      <div>
                         <p>Pay via Mpesa Using Phone number <strong>{{\Cart::getContent()->first()->model->cellphone}}</strong></p>
-                        <button class="btn btn-primary mt-4 text-center" wire:click="clickPay">PROCEED TO PAY</button>
+                        <button class="btn btn-primary mt-4 text-center" wire:click="clickPay">
+                            <div wire:loading.delay>
+                                <span  class="spinner-border spinner-border-sm text-light" role="status" aria-hidden="true"></span>
+                                </div>
+                            PROCEED TO PAY
+                        </button>
                         <button class="btn btn-view text-center mt-4" wire:click="editPhone">Edit Phone Number</button>
                        </div>
                      @endif
