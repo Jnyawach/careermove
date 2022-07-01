@@ -194,6 +194,28 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
 
 
     </section>
+    <section class="conversion p-lg-5 p-3">
+        <div class="row">
+            <div class="col-md-7 col-lg-6 align-self-center">
+                <h2>Are you Struggling to Write a Professional CV?</h2>
+                <h5 class="mt-3"><mark>Don't worry we are here to help you achieve</mark></h5>
+
+                <ul class="list-unstyled mt-3">
+                    <li><i class="fa-solid fa-star me-2"></i>Credibility</li>
+                    <li><i class="fa-solid fa-star me-2"></i>Grab attention</li>
+                    <li><i class="fa-solid fa-star me-2"></i>Customize for the job</li>
+                </ul>
+                <a href="{{route('professional-resume')}}" title="Professonal CV Writing Service"
+                            class="btn btn-outline-primary m-3 fs-5">
+                            Order Today <i class="fa-solid fa-angle-right ms-3"></i>
+                        </a>
+            </div>
+            <div class="col-md-5">
+                <img src="{{asset('images/professiona-cv-writing.png')}}"
+                class="img-fluid" alt="Professional CV">
+            </div>
+        </div>
+    </section>
 @endsection
 @section('scripts')
 

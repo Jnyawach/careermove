@@ -447,11 +447,14 @@
         <div class="col-12 col-md-4 p-1">
             <div class="card p-3">
                 <h2 class="fs-5">Curriculum Vitae(CV)</h2>
+                @if ($cv)
                 <div class="cv-panel p-3">
                     <a href="{{$cv->getUrl()}}"  title="{{Auth::user()->name}} CV" class="fs-6 text-decoration-none fw-bold">
                         <i class="fa-solid fa-file-lines me-2"></i>{{$cv->name}} <i class="fa-solid fa-download float-end"></i>
                     </a>
                 </div>
+                @endif
+
                 <div class="mt-3">
 
                         @error('resume') <span class="error">{{ $message }}</span> @enderror

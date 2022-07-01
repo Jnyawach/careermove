@@ -950,5 +950,27 @@ input[type=radio]:checked{
   [dir="rtl"] .rating--nojs::-webkit-slider-thumb {
     box-shadow: var(--w) 0 0 var(--w) var(--fill);
   }
+.conversion{
+    background-color: var(--teal);
+}
 
+.conversion h2{
+    font-weight: 900;
+    font-family: 'Assistant';
+    font-size: 40px;
+}
+
+.conversion h5{
+    font-size: 24px;
+    font-weight: 600;
+    color:var(--junior);
+    font-family: 'Assistant';
+}
+.conversion ul li{
+    color:var(--junior);
+    font-weight: 600;
+    margin-left: 15px;
+    font-size: 22px;
+    margin-top: 5px;
+}
 
