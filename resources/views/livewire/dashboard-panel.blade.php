@@ -465,11 +465,7 @@
 
 
             </div>
-            <div class="card p-3 mt-2">
-                <h2 class="fs-5">Notifications</h2>
-                <p>You have <span>4</span> pending notifications</p>
-                <a href="#" class="text-decoration-none fw-bold">See all <i class="fa-solid fa-right-long ms-2"></i></a>
-            </div>
+            
 
         </div>
     </div>
