@@ -25,21 +25,27 @@ class ConfirmPayment extends Component
 
         if($payment=MpesaStkPush::where('mpesa_receipt_number',$this->code)->first()){
            if(is_null($payment->order_id)){
-               $payment->update(['order_id'=>$cart->id]);
-               $order=Order::findOrFail($cart->id);
-               $order->update([
-                'trans_id'=> $payment->id,
-                'progress_id'=>2,
-                'paid'=>1
-               ]);
+             if($payment->amount==\Cart::getTotal()){
+                $payment->update(['order_id'=>$cart->id]);
+                $order=Order::findOrFail($cart->id);
+                $order->update([
+                 'trans_id'=> $payment->id,
+                 'progress_id'=>2,
+                 'paid'=>1
+                ]);
 
-               Mail::send('mailing.order', ['payment'=>$payment, 'order'=>$order], function ($message) use($payment,$order){
-                $message->to($order->email);
-                $message->subject('Order Confirmation');
+                Mail::send('mailing.order', ['payment'=>$payment, 'order'=>$order], function ($message) use($payment,$order){
+                 $message->to($order->email);
+                 $message->subject('Order Confirmation');
 
-            });
+             });
 
-            \Cart::clear();
+             \Cart::clear();
+
+             }else{
+                $this->information="The amount amount paid does not match the total amount . Contact 0705813739 for assistance";
+             }
+
 
 
                return redirect('thank-you');

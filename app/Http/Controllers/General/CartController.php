@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Product;
 use Carbon\Carbon;
-use Google\Service\ShoppingContent\Weight;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -59,7 +59,7 @@ class CartController extends Controller
         ]);
         $product=Product::where('sku','1655820467CER')->latest()->first();
 
-       $order_number=Carbon::now()->timestamp."CER";
+       $order_number= Str::random(8)."CER";
         $order=Order::create([
             'name'=>$validated['name'],
             'email'=>$validated['email'],

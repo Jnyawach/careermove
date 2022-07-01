@@ -19,6 +19,10 @@
          <button type="button" class="btn btn-danger mt-3" wire:click="restoreOrder({{$order->id}})">Restore Order</button>
 
          @endif
+         @if ($order->getFirstMedia('curriculum'))
+         <a href="{{$order->getFirstMediaUrl('curriculum')}}" class="btn btn-primary" target="_blank">Download Updated CV</a>
+
+         @endif
 
         </div>
         @else
