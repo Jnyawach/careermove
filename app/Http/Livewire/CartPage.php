@@ -117,9 +117,9 @@ class CartPage extends Component
             'Timestamp' => Carbon::rawParse('now')->format('YmdHms'),
             'TransactionType' => 'CustomerPayBillOnline',
             'Amount' =>1,
-            'PartyA' =>254705813739,
+            'PartyA' =>$this->cellphone,
             'PartyB' => Config::get('cervempesa.SHORTCODE'),
-            'PhoneNumber' =>254705813739,
+            'PhoneNumber' =>$this->cellphone,
             'CallBackURL' =>'https://careermove.co.ke/api/v1/cerve/callback/'.Config::get('cervempesa.CONFIRMATION_KEY'),
             'AccountReference' =>$this->order,
             'TransactionDesc' => 'Professional CV'
