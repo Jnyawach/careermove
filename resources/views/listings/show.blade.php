@@ -225,16 +225,7 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
                             <mark>{{$tag}}</mark>
                             @endforeach
                         </p>
-                        <div class="mt-3 mb-3">
-                            <script async
-                                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
-                                crossorigin="anonymous"></script>
-                            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
-                                data-ad-format="fluid" data-ad-client="ca-pub-1649231050054855" data-ad-slot="7245907301"></ins>
-                            <script>
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                        </div>
+
 
                         <a href="{{url()->previous()}}" class="btn btn-link mt-4 text-decoration-none fs-5 fw-bold">
                             <i class="fa-solid fa-arrow-left-long me-2"></i>Return to Jobs</a>
@@ -248,25 +239,7 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
             </div>
         </div>
         <div class="col-12 col-md-3 p-1">
-            <section>
-                <!--Ads Space-->
-               <div class="row">
-                    <div class="col-12">
-                        <div class="mb-3">
-                            <script async
-                                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
-                                crossorigin="anonymous"></script>
-                            <!-- horizontal-add -->
-                            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855"
-                                data-ad-slot="4790585617" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                            <script>
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                        </div>
-                    </div>
 
-                </div>
-            </section>
             @if ($jobs->count()>0)
             <h6 class="fs-5 fw-bold mt-2">Similar Jobs</h6>
             <div class="trend-jobs">
@@ -282,17 +255,7 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
 
             @endif
 
-            <div class="mt-3 mb-3">
-                <script async
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
-                    crossorigin="anonymous"></script>
-                <!-- horizontal-add -->
-                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1649231050054855"
-                    data-ad-slot="4790585617" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
+            
         </div>
     </div>
 
