@@ -60,9 +60,7 @@
                         alt="{{$post->title}}" class="img-fluid rounded" title="{{$post->title}}">
                 </div>
                 <small class="fst-italic mb-4">Image Credit:{{$post->image_credit}}</small>
-                <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif
-                    <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i>
-                    {{$post->dislike}} | <i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</p>
+                <p class="fw-bold fs-6 mt-3 p-0 about-post">@if($post->readers>0)<mark class="p-1"><i class="fa-solid fa-eye"></i> {{$post->readers}}</mark>@endif <mark class="p-1"><i class="fa-solid fa-thumbs-up"></i> {{$post->like}}</mark> <mark class="p-1"> <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}}</mark> <mark class="p-1"><i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</mark></p>
 
                     <!----Professonal CV Adver-->
                 @include('includes.pro-cv')

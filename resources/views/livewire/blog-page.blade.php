@@ -10,7 +10,7 @@
                     alt="{{$intro->title}}" title="{{$intro->title}}">
                     </div>
                     <small>{{$intro->image_credit}}</small>
-                    <p class="fw-bold fs-6 m-0 p-0 about-post">@if($intro->readers>0){{$intro->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$intro->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$intro->dislike}} | <i class="fa-solid fa-message"></i> {{$intro->comments()->count()}}</p>
+                    <p class="fw-bold fs-6 m-0 p-0 about-post">@if($intro->readers>0)<mark class="p-1"><i class="fa-solid fa-eye"></i> {{$intro->readers}}</mark>@endif <mark class="p-1"><i class="fa-solid fa-thumbs-up"></i> {{$intro->like}}</mark> <mark class="p-1"> <i class="fa-solid fa-thumbs-down"></i> {{$intro->dislike}}</mark> <mark class="p-1"><i class="fa-solid fa-message"></i> {{$intro->comments()->count()}}</mark></p>
                     <h1 class="mb-0">{{$intro->title}}</h1>
 
                     <h6 class="fw-bold">{{$intro->author->first_name}} {{$intro->author->last_name}}: {{$intro->created_at->diffForHumans()}}</h6>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="col-12 col-md-7 col-lg-9 p-1">
                             <h2 class="fs-4">{{$head->title}}</h2>
-                            <p class="fw-bold fs-6 m-0 p-0 about-post">@if($head->readers>0){{$head->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$head->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$head->dislike}} | <i class="fa-solid fa-message"></i> {{$head->comments()->count()}}</p>
+                            <p class="fw-bold fs-6 m-0 p-0 about-post">@if($head->readers>0)<mark class="p-1"><i class="fa-solid fa-eye"></i> {{$head->readers}}</mark>@endif <mark class="p-1"><i class="fa-solid fa-thumbs-up"></i> {{$head->like}}</mark> <mark class="p-1"> <i class="fa-solid fa-thumbs-down"></i> {{$head->dislike}}</mark> <mark class="p-1"><i class="fa-solid fa-message"></i> {{$head->comments()->count()}}</mark></p>
                             <p class="fs-5 mb-0 pb-0">{{Str::of($head->summary)->words(10,'')}} <span>[...]</span></p>
                             <h6 class="">{{$head->author->first_name}} {{$head->author->last_name}}: {{$head->created_at->diffForHumans()}}</h6>
                         </div>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-12 col-md-7 col-lg-7 p-1">
                             <h2 class="fs-4">{{$post->title}}</h2>
-                            <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}} | <i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</p>
+                            <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0)<mark class="p-1"><i class="fa-solid fa-eye"></i> {{$post->readers}}</mark>@endif <mark class="p-1"><i class="fa-solid fa-thumbs-up"></i> {{$post->like}}</mark> <mark class="p-1"> <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}}</mark> <mark class="p-1"><i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</mark></p>
                             <p class="fs-5 mb-0 pb-0">{{Str::of($post->summary)->words(10,'')}} <span>[...]</span></p>
                             <h6 class="fw-bold">{{$post->author->first_name}} {{$post->author->last_name}}: {{$post->created_at->diffForHumans()}}</h6>
                         </div>
@@ -97,7 +97,7 @@
                     <img src="{{asset($post->getFirstMediaUrl('imageCard')? $post->getFirstMediaUrl('imageCard','imageCard-icon'):'/images/no-image.png' )}}" class="img-fluid curved mb-2"
                          alt="{{$post->title}}" title="{{$post->title}}">
                          <h6 class="text-uppercase mt-2">{{$post->author->first_name}} {{$post->author->last_name}}: {{$post->created_at->diffForHumans()}}</h6>
-                         <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}} | <i class="fa-solid fa-message"></i>{{$post->comments()->count()}}</p>
+                         <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0)<mark class="p-1"><i class="fa-solid fa-eye"></i> {{$post->readers}}</mark>@endif <mark class="p-1"><i class="fa-solid fa-thumbs-up"></i> {{$post->like}}</mark> <mark class="p-1"> <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}}</mark> <mark class="p-1"><i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</mark></p>
                     <h2 class="fs-5">{{$post->title}}</h2>
 
                 </a>

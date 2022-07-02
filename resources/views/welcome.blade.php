@@ -183,8 +183,8 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
                     <img src="{{asset($post->getFirstMediaUrl('imageCard')? $post->getFirstMediaUrl('imageCard','imageCard-icon'):'/images/no-image.png' )}}" class="img-fluid curved mb-2"
                          alt="{{$post->title}}" title="{{$post->title}}">
                          <h6 class="text-uppercase mt-2">{{$post->author->first_name}} {{$post->author->last_name}}: {{$post->created_at->diffForHumans()}}</h6>
-                         <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0){{$post->readers}} people are reading this |@endif <i class="fa-solid fa-thumbs-up"></i> {{$post->like}} | <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}} | <i class="fa-solid fa-message"></i>{{$post->comments()->count()}}</p>
-                    <h2 class="fs-5">{{$post->title}}</h2>
+                         <p class="fw-bold fs-6 m-0 p-0 about-post">@if($post->readers>0)<mark class="p-1"><i class="fa-solid fa-eye"></i> {{$post->readers}}</mark>@endif <mark class="p-1"><i class="fa-solid fa-thumbs-up"></i> {{$post->like}}</mark> <mark class="p-1"> <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}}</mark> <mark class="p-1"><i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</mark></p>
+                    <h2 class="fs-5 mt-3">{{$post->title}}</h2>
 
                 </a>
 
@@ -206,8 +206,8 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
                     <li><i class="fa-solid fa-star me-2"></i>Customize for the job</li>
                 </ul>
                 <a href="{{route('professional-resume')}}" title="Professonal CV Writing Service"
-                            class="btn btn-outline-primary m-3 fs-5">
-                            Order Today <i class="fa-solid fa-angle-right ms-3"></i>
+                            class="btn btn-primary m-3 fs-5">
+                            Order today <i class="fa-solid fa-angle-right ms-3"></i>
                         </a>
             </div>
             <div class="col-md-5">
