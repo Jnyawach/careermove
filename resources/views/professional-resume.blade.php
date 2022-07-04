@@ -7,7 +7,7 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
 <section class="resume-header">
     <div class="row">
         <div class="col-12 col-md-6 align-self-center p-3 p-lg-5 mx-auto">
-            
+
             <h1>Are you tired of always missing out!</h1>
             <h5>#Let us write your curriculum vitae</h5>
             <div class="mx-auto">
@@ -116,7 +116,7 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
                 <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
                     <div class="written text-center">
                         <img src="{{asset('images/rating.png')}}" class="img-fluid" style="height: 60px">
-                        <h2 class="mt-3">{{number_format($testimonies->sum('rating')/$testimonies->count(),1)}}/5 ({{$testimonies->count()}})</h2>
+                        <h2 class="mt-3">{{number_format($rating,1)}}/5 ({{$review->count()}})</h2>
                         <p>Based on your rating</p>
                     </div>
 

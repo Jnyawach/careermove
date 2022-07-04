@@ -59,9 +59,11 @@ class HomeController extends Controller
     public function professionaResume(){
         $jobs=Job::count();
         $orders=Order::count();
+        $rating=Testimony::avg('rating');
+        $review=Testimony::pluck('rating');
         $testimonies=Testimony::inRandomOrder()->take(3)->get();
 
-        return view('professional-resume', compact('jobs','orders','testimonies'));
+        return view('professional-resume', compact('jobs','orders','testimonies', 'rating','review'));
     }
 
     public function confirmation(){
