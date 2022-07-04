@@ -40,7 +40,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
 
 
         </div>
-        <div class="col-md-6 col-lg-5 d-sm-none d-md-block align-self-end">
+        <div class="col-md-6 col-lg-5 d-none d-md-block align-self-end">
             <img src="{{asset('images/frustrated-person-2.png')}}" class="img-fluid ">
         </div>
     </div>
