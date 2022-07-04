@@ -225,7 +225,8 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
                             <mark>{{$tag}}</mark>
                             @endforeach
                         </p>
-
+                        <!----Professonal CV Adver-->
+                        @include('includes.pro-cv')
 
                         <a href="{{url()->previous()}}" class="btn btn-link mt-4 text-decoration-none fs-5 fw-bold">
                             <i class="fa-solid fa-arrow-left-long me-2"></i>Return to Jobs</a>
@@ -255,7 +256,7 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
 
             @endif
 
-            
+
         </div>
     </div>
 

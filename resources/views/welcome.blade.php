@@ -6,80 +6,48 @@ Discover the latest job alerts in Kenya ({{date('Y')}})
 @section('keywords','near me job, jobs in Kenya,work form home jobs,
 hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, jobs in Kisumu, jobs in Nakuru,internship parmanent jobs,job application,find a job')
 @section('content')
-<section class="intro">
-
-    <div id="carouselCareermove" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselCareermove" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselCareermove" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselCareermove" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="row">
-                    <div class="col-12 col-md-6 align-self-center p-3 mx-auto">
-                        <h1>Are you tired of always missing out!</h1>
-                        <h2 class="ms-2 mt-3 fs-3">#Let us write your curriculum vitae</h2>
-                        <a href="{{route('professional-resume')}}" title="Professonal CV Writing Service"
-                            class="btn btn-primary m-3 fs-5">
-                            See Details <i class="fa-solid fa-angle-right ms-3"></i>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-5 align-self-end">
-                        <img src="{{asset('images/frustrated-person-2.png')}}" class="img-fluid" alt="Frustrated Person"
-                            title="Professional CV Writing Service in Kenya">
-
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="carousel-item ">
-
-                <div class="row">
-                    <div class="col-12 col-md-6 align-self-center p-3 mx-auto">
-                        <h1>Latest Job alerts & Career insights</h1>
-                        <h2 class="mt-3 fs-3">Get unlimited access to over a 10000+ jobs</h2>
-                        <a href="{{route('listings.index')}}" class="btn btn-primary m-3 fs-5" title="Latest Jobs in Kenya">
-                            Browse Jobs <i class="fa-solid fa-angle-right ms-3"></i>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-5 align-self-end mx-auto">
-                        <img src="{{asset('images/jobs-in-kenya.png')}}" class="img-fluid" alt="Frustrated Person"
-                            title="Professional CV Writing Service in Kenya">
-
-
-                    </div>
-                </div>
+<section class="cv-conversion">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-7 p-3 p-lg-5">
+            <h1 class="mt-5">Let a Professional review and write your CV</h1>
+            <p class="mt-3">Enhance your <mark>credibility</mark>, Grab <mark>attention</mark> & Paint your <mark>Career Journey</mark></p>
+            <div class="con-btn mt-3">
+                <a href="{{route('professional-resume')}}" class="btn btn-primary">Get a Professional CV for KES 999</a>
 
             </div>
 
-            <div class="carousel-item">
-                <div class="row">
-                    <div class="col-12 col-md-6 align-self-center p-3 mx-auto">
-                        <h1>Looking to hire? Post your vacany today. It is free!</h1>
-                        <h2 class="ms-2 mt-3 fs-3">Reach thousands of talent with your job listing</h2>
-                        <a href="{{route('careers.create')}}" title="Professonal CV Writing Service"
-                            class="btn btn-primary m-3 fs-5">
-                            See Details <i class="fa-solid fa-angle-right ms-3"></i>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-5 align-self-end">
-                        <img src="{{asset('images/post-jobs.png')}}" class="img-fluid" alt="Post Jobs for free"
-                            title="Professional CV Writing Service in Kenya">
+            <div class="social mt-3 ">
+                 @foreach(range(1,5) as $i)
+                <p class="fa-stack d-inline-block " style="width:1em">
+                    <span>
+                    <i class="far fa-star fa-stack-1x"></i>
 
+                    @if($rating >0)
+                        @if($rating >0.5)
+                            <i class="fas fa-star fa-stack-1x"></i>
+                        @else
+                            <i class="fas fa-star-half fa-stack-1x"></i>
+                        @endif
+                    @endif
+                    @php $rating--; @endphp
+                    <span>
+                </p>
+              @endforeach
 
-                    </div>
-                </div>
+              <p class="fs-5 fw-bold d-inline-block ms-2"><span>{{$review->sum()/$review->count()}}</span> based on <span>{{$review->count()}}</span> Reviews</p>
+
             </div>
 
 
         </div>
+        <div class="col-md-6 col-lg-5 d-sm-none d-md-block align-self-end">
+            <img src="{{asset('images/frustrated-person-2.png')}}" class="img-fluid ">
+        </div>
+    </div>
 
 </section>
 
-    <section class="mt-5">
+<section class="mt-5">
         <div class="row">
             <div class="col-11 mx-auto">
                 <h2 class="section-header">Latest jobs
@@ -206,8 +174,8 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
                     <li><i class="fa-solid fa-star me-2"></i>Customize for the job</li>
                 </ul>
                 <a href="{{route('professional-resume')}}" title="Professonal CV Writing Service"
-                            class="btn btn-primary m-3 fs-5">
-                            Order today <i class="fa-solid fa-angle-right ms-3"></i>
+                            class="btn btn-primary m-3">
+                           Get a Professional CV <i class="fa-solid fa-angle-right ms-3"></i>
                         </a>
             </div>
             <div class="col-md-5">

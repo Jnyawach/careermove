@@ -72,6 +72,8 @@
                     @endforeach
                 </p>
                 <h6>Posted: {{$post->created_at->diffForHUmans()}}</h6>
+                <!----Professonal CV Adver-->
+                @include('includes.pro-cv')
                 <hr>
                 @livewire('comment-page',['post'=>$post])
 
@@ -110,7 +112,7 @@
                     </ol>
 
 
-    
+
 
                 </div>
             </div>

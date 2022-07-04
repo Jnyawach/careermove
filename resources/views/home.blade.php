@@ -1,4 +1,79 @@
 @extends('layouts.main')
+<!--Carousel dashboard-->
+<section class="intro">
+
+    <div id="carouselCareermove" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselCareermove" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselCareermove" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselCareermove" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-12 col-md-6 align-self-center p-3 mx-auto">
+                        <h1>Are you tired of always missing out!</h1>
+                        <h2 class="ms-2 mt-3 fs-3">#Let us write your curriculum vitae</h2>
+                        <a href="{{route('professional-resume')}}" title="Professonal CV Writing Service"
+                            class="btn btn-primary m-3 fs-5">
+                            See Details <i class="fa-solid fa-angle-right ms-3"></i>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-5 align-self-end">
+                        <img src="{{asset('images/frustrated-person-2.png')}}" class="img-fluid" alt="Frustrated Person"
+                            title="Professional CV Writing Service in Kenya">
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item ">
+
+                <div class="row">
+                    <div class="col-12 col-md-6 align-self-center p-3 mx-auto">
+                        <h1>Latest Job alerts & Career insights</h1>
+                        <h2 class="mt-3 fs-3">Get unlimited access to over a 10000+ jobs</h2>
+                        <a href="{{route('listings.index')}}" class="btn btn-primary m-3 fs-5" title="Latest Jobs in Kenya">
+                            Browse Jobs <i class="fa-solid fa-angle-right ms-3"></i>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-5 align-self-end mx-auto">
+                        <img src="{{asset('images/jobs-in-kenya.png')}}" class="img-fluid" alt="Frustrated Person"
+                            title="Professional CV Writing Service in Kenya">
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-12 col-md-6 align-self-center p-3 mx-auto">
+                        <h1>Looking to hire? Post your vacany today. It is free!</h1>
+                        <h2 class="ms-2 mt-3 fs-3">Reach thousands of talent with your job listing</h2>
+                        <a href="{{route('careers.create')}}" title="Professonal CV Writing Service"
+                            class="btn btn-primary m-3 fs-5">
+                            See Details <i class="fa-solid fa-angle-right ms-3"></i>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-5 align-self-end">
+                        <img src="{{asset('images/post-jobs.png')}}" class="img-fluid" alt="Post Jobs for free"
+                            title="Professional CV Writing Service in Kenya">
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+</section>
+
+
 
 @section('content')
         <section class="home p-4">

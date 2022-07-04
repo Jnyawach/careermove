@@ -28,11 +28,13 @@ class HomeController extends Controller
     public function index()
     {
         $jobs=Job::active()->latest()->take(4)->get();
+        $rating=Testimony::avg('rating');
+        $review=Testimony::pluck('rating');
         $companies=Company::whereHas('jobs', function (Builder $query){
             $query->active();
         })->inRandomOrder()->limit(8)->get();
         $trending=Post::where('status',1)->latest()->limit(3)->get();
-        return view('welcome', compact('jobs','companies','trending'));
+        return view('welcome', compact('jobs','companies','trending','rating','review'));
     }
 
     public function terms(){

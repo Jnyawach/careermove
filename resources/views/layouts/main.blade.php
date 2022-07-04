@@ -264,6 +264,14 @@
 
 
     </section>
+    <section id="convert" class="shadow-sm">
+        <ul class="nav justify-content-end">
+
+            <li class="nav-item m-2">
+              <a href="{{route('professional-resume')}}" class="nav-link btn btn-primary me-3" title="Get a Professional CV">Get a professional CV for KES 999</a>
+            </li>
+          </ul>
+    </section>
 
 
 </header>
@@ -336,6 +344,18 @@
    }, 3000);
     });
 </script>
+<script>
+    // When the user scrolls down 20px from the top of the document, slide down the navbar
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("convert").style.top = "0";
+      } else {
+        document.getElementById("convert").style.top = "-60px";
+      }
+    }
+    </script>
 
 @yield('scripts')
 

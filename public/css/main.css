@@ -60,6 +60,50 @@ a{
 a:hover{
     color: var(--bright);
 }
+#convert{
+  position: fixed;
+  top: -60px;
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+  z-index: 999;
+  background-color:var(--teal);
+
+
+}
+.cv-conversion{
+
+    background-color: var(--teal);
+}
+.cv-conversion h1{
+    font-family: 'Assistant';
+    font-size: 45px;
+}
+.cv-conversion p{
+    color: black;
+    font-size: 20px;
+    line-height: 48px;
+
+
+
+}
+.pro-cv{
+    background-color: rgba(25, 114,120, 0.1);
+
+
+}
+.pro-cv h2{
+    color: var(--primary);
+    font-family: 'Assistant';
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.cv-conversion .btn-link{
+    color: var(--primary);
+}
+
 /*Navbar*/
 .navbar-brand h2{
     color: var(--primary);
@@ -175,8 +219,9 @@ input[type=radio]:checked{
     padding: 8px 15px 8px 15px;
     border-radius: 2px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: bold;
     line-height: 1.5;
+
 
 }
 .btn:focus{
@@ -212,6 +257,17 @@ input[type=radio]:checked{
     background-color: var(--primary);
     color: white;
     border: 1px solid var(--primary);
+}
+.btn-junior{
+    background: var(--junior);
+    color: white;
+    border: 1px solid var(--junior);
+}
+.btn-junior:hover{
+
+    background-color:rgba(25, 114,120, 0.8);;
+    color: white;
+    border: 1px solid var(--junior);
 }
 .btn-secondary, .btn-secondary::after{
     background: rgba(25, 114,120, 0.2);
