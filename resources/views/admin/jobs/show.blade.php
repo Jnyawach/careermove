@@ -55,10 +55,7 @@
                     <p>{!! $job->description !!}</p>
                     <h6>Application Link: <mark>{{$job->link}}</mark> </h6>
                     <div class="tags mt-4 p-3">
-                        <small>Tags:</small>
-                        @foreach(explode(",",$job->tags) as $tag)
-                            <small><span>{{$tag}}</span></small>
-                        @endforeach
+                        <p><span>Meta Description:</span>{{$job->meta_description}}</p>
                     </div>
                 </div>
             </div>

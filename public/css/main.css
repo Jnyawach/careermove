@@ -836,34 +836,34 @@ input[type=radio]:checked{
 .resume-header{
     background-color:var(--slate);
 }
-.resume-header h1{
-    font-weight: 900;
-    font-family: 'Assistant';
-    font-size:42px;
-    color: var(--primary);
-}
-.resume-header h5{
-
-    font-size: 28px;
-    font-family: 'Assistant';
-    font-weight: 600;
-}
-
-.resume-request{
-
-    background: white;
-
-    width: 320px;
+.resume-header .card{
+ border: 0px;
     border-radius: 10px;
 }
-
-.resume-request input::placeholder{
-    color: var(--junior);
-    font-weight: bold !important;
+.resume-header .card .card-header{
+    border-bottom: 0px;
+    padding-top: 20px;
+    background-color: var(--secondary);
 }
-.resume-request input[type=text],.resume-request input[type=email]{
-    color: var(--bright) !important;
-    font-weight: bold !important;
+.resume-header .card .card-header h6{
+    color: white;
+    font-size: 23px;
+    font-family: 'Assistant';
+    font-weight: bold;
+}
+.resume-header .card .card-body h5{
+    font-weight: bold;
+    font-size: 36px;
+    font-family: 'Assistant';
+    color: var(--junior);
+}
+.resume-header .card .card-body ul li{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.scale{
+    background-color: var(--teal);
 }
 
 .testimony h2{

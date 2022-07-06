@@ -70,8 +70,8 @@
                                                         <li><a class="dropdown-item" href="{{route('products.edit', $product->id)}}">
                                                                 Edit <i class="fas fa-bookmark ms-2"></i></a></li>
                                                         <li>
-                                                            <form method="POST" action="{{route('products.update',$product->id)}}">
-                                                                @method('PATCH')
+                                                            <form method="POST" action="{{route('products.destroy',$product->id)}}">
+                                                                @method('DELETE')
                                                                 @csrf
                                                                 <button type="submit" class="btn btn-link text-danger">delete</button>
                                                             </form>

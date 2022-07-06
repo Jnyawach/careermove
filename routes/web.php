@@ -39,6 +39,7 @@ use \App\Http\Controllers\General\SearchController;
 use \App\Http\Controllers\General\CartController;
 use \App\Http\Controllers\General\OrderTracker;
 use \App\Http\Controllers\General\RatingController;
+use \App\Http\Controllers\General\ServiceController;
 
 
 
@@ -114,6 +115,7 @@ Route::group([],function (){
     Route::resource('hiring',HiringController::class);
     Route::resource('listings',ListingsController::class);
     Route::resource('contact',ContactController::class);
+    Route::resource('services',ServiceController::class);
     Route::get('employer_registration',EmployerRegister::class);
 
 });

@@ -26,7 +26,7 @@ class EmployerEdit extends Component
         $this->link=$this->job->link;
         $this->deadline=$this->job->deadline;
         $this->content=$this->job->description;
-        $this->tags=$this->job->tags;
+        $this->tags=$this->job->meta_description;
         $this->rangeId=$this->job->range_id;
         $this->typeId=$this->job->type_id;
     }
@@ -82,7 +82,7 @@ class EmployerEdit extends Component
             'company_id'=>$this->companyId,
             'description'=>$this->content,
             'deadline'=>$this->deadline,
-            'tags'=>$this->tags,
+            'meta_description'=>$this->tags,
             'status_id'=>1,
             'range_id'=>$this->rangeId,
 

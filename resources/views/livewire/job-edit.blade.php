@@ -191,13 +191,12 @@
         <div class="row setup-content {{ $currentStep != 2 ? 'display-none' : '' }}" id="step-2">
             <div class="col-12 mx-auto">
                 <div class="form-group">
-                    <label for="tags" class="control-label">Tags:</label>
+                    <label for="tags" class="control-label">Meta Description:</label>
                     <textarea name="tags" class="form-control mt-2" id="tags" required
                               wire:model.lazy="tags">{{$tags}}</textarea>
 
 
-                    <small>List comma separated tags. For example:
-                        mechanical engineering jobs,jobs in Nakuru,Jobs in Kenya</small>
+                    <small>Provide Meta description for the Jobs (About 100 words and must contain keywords)</small>
                     @error('tags') <span class="error">{{ $message }}</span> @enderror<br>
                 </div>
 

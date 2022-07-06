@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title',$job->title)
-@section('description', $job->title)
+@section('description', $job->meta_description)
 @section('keywords')
 Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for jobs today,{{$job->tags}}
 @endsection
@@ -220,11 +220,7 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
                         <a href="{{$job->link}}" class="btn btn-view" title="{{$job->title}}" target="_blank">
                             Apply</a>
                         @endif
-                        <p class="mt-3">
-                            Keywords:@foreach(explode(',',$job->tags) as $tag)
-                            <mark>{{$tag}}</mark>
-                            @endforeach
-                        </p>
+
                         <!----Professonal CV Adver-->
                         @include('includes.pro-cv')
 

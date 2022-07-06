@@ -100,7 +100,7 @@ class JobCreate extends Component
             'tags'=>'required',
         ],[
             'content.required'=>'Please provide job description',
-            'tags.required'=>'Please provide tags associated with the job'
+            'tags.required'=>'Please provide meta description'
         ]);
 
         $job=Job::create([
@@ -116,7 +116,7 @@ class JobCreate extends Component
             'description'=>$this->content,
             'deadline'=>$this->deadline,
             'status_id'=>2,
-            'tags'=>$this->tags,
+            'meta_description'=>$this->tags,
             'range_id'=>$this->rangeId,
         ]);
 

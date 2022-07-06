@@ -55,7 +55,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('professional-resume')}}">CV Writing</a>
+                            <a class="nav-link" href="{{route('services.index')}}">Professional CV</a>
                         </li>
 
 
@@ -211,7 +211,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('professional-resume')}}">CV Writing
+                                <a class="nav-link" href="{{route('services.index')}}">Professional CV
                                     <i class="fa-solid fa-chevron-right float-end"></i></a>
                             </li>
 
@@ -268,7 +268,7 @@
         <ul class="nav justify-content-end">
 
             <li class="nav-item m-2">
-              <a href="{{route('professional-resume')}}" class="nav-link btn btn-primary me-3" title="Get a Professional CV">Get a professional CV for KES 999</a>
+              <a href="{{route('services.index')}}" class="nav-link btn btn-primary me-3" title="Get a Professional CV">Get a professional CV today</a>
             </li>
           </ul>
     </section>

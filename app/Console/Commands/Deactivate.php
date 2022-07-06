@@ -29,13 +29,15 @@ class Deactivate extends Command
      */
     public function handle()
     {
-        
+
        $jobs=Job::where('deadline','<',Carbon::today())->get();
        foreach($jobs as $job){
            $job->update([
                'status_id'=>5,
            ]);
        }
+
+
 
 
     }

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title', $post->title)
-@section('description', $post->title)
+@section('description', $post->summary)
 @section('keywords', $post->tags)
 @section('styles')
 <meta property="og:title" content="{{$post->title}}">

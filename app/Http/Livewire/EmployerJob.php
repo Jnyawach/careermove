@@ -77,7 +77,7 @@ class EmployerJob extends Component
             'description'=>$this->content,
             'deadline'=>$this->deadline,
             'status_id'=>1,
-            'tags'=>$this->tags,
+            'meta_description'=>$this->tags,
             'range_id'=>$this->rangeId,
         ]);
 

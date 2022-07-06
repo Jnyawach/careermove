@@ -28,7 +28,7 @@ class EditProducts extends Component
     }
     protected $rules=[
         'description'=>'required',
-        'name'=>'required|string|max:150|min:20',
+        'name'=>'required|string|max:150|min:10',
         'price'=>'required|integer',
         'sale_price'=>'required|integer',
         'category'=>'integer|required',

@@ -32,7 +32,7 @@ class JobEdit extends Component
         $this->link=$this->job->link;
         $this->deadline=$this->job->deadline;
         $this->content=$this->job->description;
-        $this->tags=$this->job->tags;
+        $this->tags=$this->job->meta_decription;
         $this->typeId=$this->job->type_id;
         $this->rangeId=$this->job->range_id;
 
@@ -97,7 +97,7 @@ class JobEdit extends Component
         ],
         [
             'content.required'=>'Please provide job description',
-            'tags.required'=>'Please provide tags associated with the job'
+            'tags.required'=>'Please provide a meta description'
         ]);
         $job=Job::findOrFail($this->job->id);
 
@@ -114,7 +114,7 @@ class JobEdit extends Component
 
             'description'=>$this->content,
             'deadline'=>$this->deadline,
-            'tags'=>$this->tags,
+            'meta_description'=>$this->tags,
             'range_id'=>$this->rangeId,
 
         ]);

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('jobs', function (Blueprint $table) {
             //
-            $table->text('tags');
+            $table->mediumText('meta_description');
         });
     }
 
