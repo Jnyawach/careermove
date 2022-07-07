@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Models\Company;
 use App\Models\Job;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class JobEdit extends Component
@@ -24,7 +23,6 @@ class JobEdit extends Component
     }
     public function mount(){
         $this->title=$this->job->title;
-
         $this->experienceId=$this->job->experience_id;
         $this->locationId=$this->job->location_id;
         $this->professionId=$this->job->profession_id;
@@ -32,7 +30,7 @@ class JobEdit extends Component
         $this->link=$this->job->link;
         $this->deadline=$this->job->deadline;
         $this->content=$this->job->description;
-        $this->tags=$this->job->meta_decription;
+        $this->tags=$this->job->meta_description;
         $this->typeId=$this->job->type_id;
         $this->rangeId=$this->job->range_id;
 
@@ -131,6 +129,7 @@ class JobEdit extends Component
 
     public function render()
     {
+
         $company=Company::when($this->search, function ($query){
             return $query->where('name', 'like', '%'.$this->search.'%')->first();
         });

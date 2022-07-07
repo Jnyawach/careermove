@@ -1,9 +1,11 @@
 <div>
+
     <div class="stepwizard">
         <!--step one-->
         <div class="row setup-content {{ $currentStep != 1 ? 'display-none' : '' }}" id="step-1">
             <div class="col-12 mx-auto">
-                <h6>Create Listing</h6>
+
+                <h6>Edit Listing</h6>
                 <div class="form-group mt-5">
                     @if ($change==true)
                     <img src="{{asset($job->company->getFirstMediaUrl('logo')
@@ -194,6 +196,7 @@
                     <label for="tags" class="control-label">Meta Description:</label>
                     <textarea name="tags" class="form-control mt-2" id="tags" required
                               wire:model.lazy="tags">{{$tags}}</textarea>
+
 
 
                     <small>Provide Meta description for the Jobs (About 100 words and must contain keywords)</small>
