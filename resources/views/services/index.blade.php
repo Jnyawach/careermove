@@ -73,7 +73,7 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
                         <div class="col-12 col-sm-6 col-md-4 mx-auto p-2">
                             <div class="written text-center">
                                 <img src="{{asset('images/resume.png')}}" class="img-fluid" style="height: 60px">
-                                <h2 class="mt-3">{{$orders}}</h2>
+                                <h2 class="mt-3">48</h2>
                                 <p>CVs we have written</p>
                             </div>
 

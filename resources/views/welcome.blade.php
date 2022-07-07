@@ -12,7 +12,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
             <h1 class="mt-5">Let a Professional review and write your CV</h1>
             <p class="mt-3">Enhance your <mark>credibility</mark>, Grab <mark>attention</mark> & Paint your <mark>Career Journey</mark></p>
             <div class="con-btn mt-3">
-                <a href="{{route('professional-resume')}}" class="btn btn-primary">Get a Professional CV</a>
+                <a href="{{route('services.index')}}" class="btn btn-primary">Get a Professional CV</a>
 
             </div>
 
