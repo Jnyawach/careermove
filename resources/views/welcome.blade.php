@@ -36,7 +36,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
                 </p>
               @endforeach
 
-              <p class="fs-5 fw-bold d-inline-block ms-2"><span>{{$review->sum()/$review->count()}}</span> based on <span>{{$review->count()}}</span> Reviews</p>
+              <p class="fs-5 fw-bold d-inline-block ms-2"><span>{{number_format($review->sum()/$review->count(),2)}}</span> based on <span>{{$review->count()}}</span> Reviews</p>
 
             </div>
                 @endif
