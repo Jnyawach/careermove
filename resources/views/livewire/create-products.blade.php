@@ -1,13 +1,13 @@
 <div>
    <section class="p-5">
     <form wire:submit.prevent='createProduct'>
-        <div class="form-group">
+        <div class="form-group required">
             <label class="control-label" for="name">Product Name:</label>
             <input type="text" name="name" id="name" required wire:model="name" class="form-control mt-3">
             @error('name') <span class="error">{{ $message }}</span> @enderror
 
         </div>
-        <div class="form-group row mt-3">
+        <div class="form-group row mt-3 required">
             <div class="col-12 col-md-6 col-lg-4">
                 <label class="control-label" for="category">Category:</label>
                 <select class="form-select mt-3" id="education_level" name="category" required wire:model.lazy="category">
@@ -31,13 +31,13 @@
 
             <div class="col-12 col-md-6 col-lg-4">
                 <label class="control-label" for="price">Price(KES):</label>
-                <input type="text" name="sprice" id="price" required wire:model.lazy="price" class="form-control mt-3">
+                <input type="text" name="price" id="price" required wire:model.lazy="price" class="form-control mt-3">
                 @error('price') <span class="error">{{ $message }}</span> @enderror
 
             </div>
 
         </div>
-        <div class="form-group mt-3">
+        <div class="form-group required mt-3">
             <label for="description" class="control-label">Study summary</label>
             <div>
                 <small>Briefly describe the product</small>
@@ -47,6 +47,17 @@
             <textarea class="form-control mt-2" id="description" wire:model.lazy="description" style="height: 200px"
                 name="description" required>{{$description}}</textarea>
             @error('description') <span class="error">{{ $message }}</span> @enderror
+
+        </div>
+        <div class="form-group required mt-3">
+            <label for="skills" class="control-label">Product Offers:</label>
+            <div>
+                <small>Use colon separated points for example,<span> Uniqueness: Visually Impressive: Credibility</span></small>
+            </div>
+
+            <textarea class="form-control mt-2" placeholder="Type product offers here" id="offers"
+                      style="height: 150px" name="offers" required wire:model.lazy="offers">{{$offers}}</textarea>
+            @error('offers') <span class="error">{{ $message }}</span> @enderror
 
         </div>
         <div class="form-group mt-3 row">

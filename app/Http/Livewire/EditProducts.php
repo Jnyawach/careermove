@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Rules\Colon;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -18,6 +19,7 @@ class EditProducts extends Component
     public $price;
     public $photo;
     public $product;
+    public $offers;
 
     public function mount(){
         $this->description=$this->product->description;
@@ -25,9 +27,11 @@ class EditProducts extends Component
         $this->category=$this->product->category_id;
         $this->sale_price=$this->product->sale_price;
         $this->price=$this->product->price;
+        $this->offers=$this->product->offers;
     }
     protected $rules=[
         'description'=>'required',
+        'offers'=>'required',
         'name'=>'required|string|max:150|min:10',
         'price'=>'required|integer',
         'sale_price'=>'required|integer',
@@ -57,7 +61,7 @@ class EditProducts extends Component
     public function updateProduct(){
 
         $this->validate();
-
+        $this->validate(['offers'=>new Colon]);
 
         $product=Product::findOrFail($this->product->id);
         $product->update([
@@ -67,6 +71,7 @@ class EditProducts extends Component
             'price'=>$this->price,
             'sale_price'=>$this->sale_price,
             'category_id'=>$this->category,
+            'offers'=>$this->offers
 
         ]);
 

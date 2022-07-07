@@ -24,7 +24,7 @@ class ServiceController extends Controller
         $rating=Testimony::avg('rating');
         $review=Testimony::pluck('rating');
         $testimonies=Testimony::inRandomOrder()->take(3)->get();
-        $products=Product::where('category_id',1)->get();
+        $products=Product::where('category_id',1)->orWhere('category_id',4)->get();
         return  view('services.index', compact('jobs','orders','rating','review','testimonies',
         'products'));
     }
@@ -60,8 +60,8 @@ class ServiceController extends Controller
     {
         //
         $product=Product::findBySlugOrFail($id);
-        $coverletter=Product::where('category_id',3)->first();
-        return view('services.show', compact('product','coverletter'));
+
+        return view('services.show', compact('product'));
     }
 
     /**

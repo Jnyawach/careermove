@@ -10,7 +10,10 @@
                 <h1 class="fs-3 text-center">Your details</h1>
                 <hr>
 
-                <form class="mt-5">
+                <form class="mt-5" action="{{route('cart.store')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @honeypot
+                    <input type="hidden" name="product" value="{{$product->id}}">
                     <div class="row form-group">
                         <div class="col-12 col-md-6 p-2">
                             <label class="control-label" for="name">Your Name:</label>
@@ -59,7 +62,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="1" id="addCoverletter" name="coverletter">
                             <label class="form-check-label fw-bold" for="addCoverletter">
-                                Add cover letter for KES. {{$coverletter->price}}
+                                Add cover letter for KES. 0.00
                             </label>
                         </div>
                         <button type="submit" class="btn btn-primary mt-5">Order Now</button>

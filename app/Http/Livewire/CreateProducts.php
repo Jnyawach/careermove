@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Rules\Colon;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -17,6 +18,7 @@ class CreateProducts extends Component
     public $sale_price;
     public $price;
     public $photo;
+    public $offers;
 
     protected $rules=[
         'description'=>'required',
@@ -24,6 +26,7 @@ class CreateProducts extends Component
         'price'=>'required|integer',
         'sale_price'=>'required|integer',
         'category'=>'integer|required',
+        'offers'=>'required',
         'photo'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:width=874,height=1240',
     ];
     protected $messages=[
@@ -56,6 +59,7 @@ class CreateProducts extends Component
     public function createProduct(){
 
         $this->validate();
+        $this->validate(['offers'=>new Colon]);
         $sku=Carbon::now()->timestamp."CER";
 
         $product=Product::create([
@@ -65,7 +69,8 @@ class CreateProducts extends Component
             'price'=>$this->price,
             'sale_price'=>$this->sale_price,
             'category_id'=>$this->category,
-            'sku'=>$sku
+            'sku'=>$sku,
+            'offers'=>$this->offers
         ]);
 
         if($files=$this->photo){

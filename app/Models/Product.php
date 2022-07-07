@@ -15,7 +15,7 @@ class Product extends Model implements HasMedia
     use HasFactory, InteractsWithMedia, Sluggable,SluggableScopeHelpers;
 
     protected $fillable=['name','price','sale_price','sku','status',
-    'category_id','description'
+    'category_id','description','offers'
 ];
  public function category(){
     return $this->belongsTo(category::class);

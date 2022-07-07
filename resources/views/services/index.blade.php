@@ -7,7 +7,7 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
     <section class="resume-header p-2  p-md-5 mb-5">
         <div class="row mt-5 mb-5">
             @foreach($products as $product)
-            <div class="col-11 col-sm-6 col-md-4 col-lg-3 p-2 mx-auto">
+            <div class="col-11 col-sm-6 col-md-6 col-lg-3 p-2 mx-auto">
                 <div class="card shadow">
                     <div class="card-header text-center">
                         <h6>{{$product->name}}</h6>
@@ -17,10 +17,9 @@ Professional CV Writing service, CV Review in Kenya, Jobs in Kenya')
                         <h5 class="card-title text-center mt-4 mb-3">KES. {{$product->price}}</h5>
                         <p>{{$product->description}}</p>
                         <ul class="list-unstyled p-3 text-start mx-auto">
-                            <li><span class="me-2"><i class="fa-solid fa-check"></i></span>Unique for your profession</li>
-                            <li><span class="me-2"><i class="fa-solid fa-check"></i></span>Customized for the job</li>
-                            <li><span class="me-2"><i class="fa-solid fa-check"></i></span>Credibility</li>
-                            <li><span class="me-2"><i class="fa-solid fa-check"></i></span>Visually appealing</li>
+                            @foreach(explode(':',$product->offers) as $offer)
+                            <li><span class="me-2"><i class="fa-solid fa-check"></i></span>{{$offer}}</li>
+                            @endforeach
                         </ul>
                         <div class="text-center mt-5">
                             <a href="{{route('services.show',$product->slug)}}" class="btn btn-junior">Select Package</a>

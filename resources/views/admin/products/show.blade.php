@@ -33,6 +33,7 @@
                 <p class="p-0 m-0"><span>Sku:</span> {{$product->sku}}</p>
                 <p class="p-0 m-0"><span>Category:</span> {{$product->category->name}}</p>
                 <p class="p-0 mt-3"><span>Description:</span>{{$product->description}}</p>
+                <p class="p-0 mt-3"><span>Offers:</span>{{$product->offers}}</p>
             </div>
         </div>
     </div>

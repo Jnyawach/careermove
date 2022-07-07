@@ -13,7 +13,7 @@ class Order extends Model implements HasMedia
 
     protected $fillable=[
         'name','email','cellphone','user_id','product_id','progress_id',
-        'comment','paid', 'order_number','trans_id'
+        'comment','paid', 'order_number','trans_id','coverletter'
     ];
 
     public function progress(){

@@ -57,9 +57,15 @@ class CartController extends Controller
             'string'=>':attribute should be a string',
             'old_cv.mimes'=>'Only accepts pdf,doc or docx file types'
         ]);
-        $product=Product::where('sku','1655820467CER')->latest()->first();
+        $product=Product::findOrFail($request->product);
 
        $order_number= Str::random(8)."CER";
+
+       if ($request->coverletter){
+           $coveletter=1;
+       }else{
+           $coveletter=0;
+       }
         $order=Order::create([
             'name'=>$validated['name'],
             'email'=>$validated['email'],
@@ -68,6 +74,7 @@ class CartController extends Controller
             'progress_id'=>1,
             'product_id'=>$product->id,
             'order_number'=>$order_number,
+            'coverletter'=>$coveletter
         ]);
 
         if($files=$request['old_cv']){

@@ -56,6 +56,17 @@
                         @error('description') <span class="error">{{ $message }}</span> @enderror
 
                     </div>
+                    <div class="form-group required mt-5">
+                        <label for="skills" class="control-label">Product Offers:</label>
+                        <div>
+                            <small>Use colon separated points for example,<span> Uniqueness: Visually Impressive: Credibility</span></small>
+                        </div>
+
+                        <textarea class="form-control mt-2" placeholder="Type your skills here" id="offers"
+                                  style="height: 150px" name="offers" required wire:model.lazy="offers">{{$offers}}</textarea>
+                        @error('offers') <span class="error">{{ $message }}</span> @enderror
+
+                    </div>
                     <div class="form-group mt-3 row">
                         <div class="col-md-6">
                             <label for="photo" class="form-label">Product Image:</label>
