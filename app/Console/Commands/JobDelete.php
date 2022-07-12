@@ -4,7 +4,9 @@ namespace App\Console\Commands;
 
 use App\Models\Job;
 use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
+use Google_Client;
+use Google_Service_Indexing;
+use Google_Service_Indexing_UrlNotification;
 
 class JobDelete extends Command
 {
@@ -13,7 +15,7 @@ class JobDelete extends Command
      *
      * @var string
      */
-    protected $signature = 'site:delete';
+    protected $signature = 'url:delete';
 
     /**
      * The console command description.
