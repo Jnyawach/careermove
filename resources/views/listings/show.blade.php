@@ -49,6 +49,24 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
         }
 </script>
 
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Careermove",
+        "item": "https://careermove.co.ke/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Jobs",
+        "item": "https://careermove.co.ke/listings"
+      }]
+    }
+    </script>
+
 
 @endsection
 @section('content')
