@@ -31,7 +31,7 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
             "address": {
             "@type": "PostalAddress",
             "streetAddress": "null",
-            "addressLocality": "{{$job->location}}",
+            "addressLocality": "{{$job->location->name}}",
             "addressRegion": "Kenya",
             "postalCode": "null",
             "addressCountry": "KE"
