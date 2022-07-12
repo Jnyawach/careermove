@@ -65,7 +65,9 @@ class JobDelete extends Command
 
             $results = $batch->execute();
 
-           $jobs->delete();
+            foreach($jobs as $job){
+                $job->delete();
+            }
 
 
         }
