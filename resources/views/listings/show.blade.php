@@ -49,6 +49,7 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
         }
 </script>
 
+
 @endsection
 @section('content')
 
