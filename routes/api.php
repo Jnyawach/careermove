@@ -25,7 +25,7 @@ Route::post('v1/cerve/callback/{id}',[MpesaC2BController::class,'callbackTrx']);
 Route::post('v1/cerve/register',[CartPage::class,'mpesaRegisterUrls']);
 
 
-Route::post('v1/cerve/confirm/{id}',[MpesaC2BController::class,'confirmTrx']);
+Route::post('v1/cerve/confirm/{id}',[MpesaC2BController::class,'C2BConfirmation']);
 Route::post('v1/cerve/validate/{id}',[MpesaC2BController::class,'validateTrx']);
 Route::post('v1/cerve/accessToken',[CartPage::class,'generateAccessToken']);
 Route::post('v1/cerve/stkpush',[CartPage::class,'customerMpesaSTKPush']);
