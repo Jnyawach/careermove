@@ -40,7 +40,7 @@ class MpesaC2BController extends Controller
 
             $mpesa_confirm->save();
         }*/
-        Log::info($content);
+        Log::info($callback);
 
 
     }
@@ -66,6 +66,6 @@ class MpesaC2BController extends Controller
         $middleName=$callbackData->MiddleName;
         $lastName=$callbackData->LastName;
 
-        Log::info($callbackData);
+        Log::info($callbackJSONData);
     }
 }
