@@ -27,7 +27,7 @@ class MpesaC2BController extends Controller
         $content=json_decode($callback);
 
 
-        /*if ($content->Body->stkCallback->ResultCode==0){
+        if ($content->Body->stkCallback->ResultCode==0){
             $mpesa_confirm=new MpesaStkPush();
             $mpesa_confirm->result_desc=$content->Body->stkCallback->ResultDesc;
             $mpesa_confirm->result_code=$content->Body->stkCallback->ResultCode;
@@ -39,8 +39,8 @@ class MpesaC2BController extends Controller
             $mpesa_confirm->phone_number= $content->Body->stkCallback->CallbackMetadata->Item[4]->Value;
 
             $mpesa_confirm->save();
-        }*/
-        Log::info($callback);
+        }
+        //Log::info($callback);
 
 
     }
