@@ -36,7 +36,7 @@ class MpesaC2BController extends Controller
             $mpesa_confirm->amount= $content->Body->stkCallback->CallbackMetadata->Item[0]->Value;
             $mpesa_confirm->mpesa_receipt_number= $content->Body->stkCallback->CallbackMetadata->Item[1]->Value;
             $mpesa_confirm->transaction_date= $content->Body->stkCallback->CallbackMetadata->Item[3]->Value;
-            $mpesa_confirm->phone_number= $content->Body->stkCallback->CallbackMetadata->Item[4]->Value;
+            //$mpesa_confirm->phone_number= $content->Body->stkCallback->CallbackMetadata->Item[4]->Value;
 
             $mpesa_confirm->save();
         }
