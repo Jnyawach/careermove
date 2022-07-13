@@ -43,4 +43,28 @@ class MpesaC2BController extends Controller
 
 
     }
+
+    /**
+     * Use this function to process the C2B Confirmation result callback
+     * @return string
+     */
+    public static function C2BConfirmation(){
+        $callbackJSONData=file_get_contents('php://input');
+        $callbackData=json_decode($callbackJSONData);
+        $transactionType=$callbackData->TransactionType;
+        $transID=$callbackData->TransID;
+        $transTime=$callbackData->TransTime;
+        $transAmount=$callbackData->TransAmount;
+        $businessShortCode=$callbackData->BusinessShortCode;
+        $billRefNumber=$callbackData->BillRefNumber;
+        $invoiceNumber=$callbackData->InvoiceNumber;
+        $orgAccountBalance=$callbackData->OrgAccountBalance;
+        $thirdPartyTransID=$callbackData->ThirdPartyTransID;
+        $MSISDN=$callbackData->MSISDN;
+        $firstName=$callbackData->FirstName;
+        $middleName=$callbackData->MiddleName;
+        $lastName=$callbackData->LastName;
+
+        Log::info($callbackData);
+    }
 }
