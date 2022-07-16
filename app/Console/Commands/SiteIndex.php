@@ -90,6 +90,7 @@ class SiteIndex extends Command
                 foreach($jobs as $job){
                     $job->update(['index_status'=>1]);
                 }
+                Log::info($results->status());
             }else{
                 Log::info($results->status());
             }
