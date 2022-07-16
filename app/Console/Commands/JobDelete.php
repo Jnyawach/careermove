@@ -7,6 +7,7 @@ use Illuminate\Console\Command;
 use Google_Client;
 use Google_Service_Indexing;
 use Google_Service_Indexing_UrlNotification;
+use Illuminate\Support\Facades\Log;
 
 class JobDelete extends Command
 {
@@ -65,8 +66,13 @@ class JobDelete extends Command
 
             $results = $batch->execute();
 
-            foreach($jobs as $job){
-                $job->delete();
+
+            if($results->status() === 200){
+                foreach($jobs as $job){
+                    $job->delete();
+                }
+            }else{
+                Log::info($results->status());
             }
 
 

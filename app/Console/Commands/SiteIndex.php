@@ -8,6 +8,7 @@ use Google_Client;
 use Google_Service_Indexing;
 use Google_Service_Indexing_UrlNotification;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 
 
 class SiteIndex extends Command
@@ -85,9 +86,17 @@ class SiteIndex extends Command
                 ]
             );
 
-            foreach($jobs as $job){
-                $job->update(['index_status'=>1]);
+            if($results->status() === 200){
+                foreach($jobs as $job){
+                    $job->update(['index_status'=>1]);
+                }
+            }else{
+                Log::info($results->status());
             }
+
+
+
+
 
 
 
