@@ -69,4 +69,8 @@ class HomeController extends Controller
     public function confirmation(){
         return view('confirmation');
     }
+
+    public function resume(){
+        return view('templates.oxford.index');
+    }
 }

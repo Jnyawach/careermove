@@ -1,0 +1,50 @@
+@import url("font/stylesheet.css");
+body{
+    background-color: #ebebeb;
+}
+.resume-content{
+    font-family: 'Roboto', sans-serif;
+    width: 21cm;
+    height: 29.7cm;
+    background-color: white;
+
+
+
+}
+.name-content{
+    border:1px solid #07333d;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name-container{
+    background-color: #07333d;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name-abbr{
+    color: white;
+    font-weight: 500;
+    font-size: 36px;
+}
+.name-head{
+    font-weight: 700;
+    font-size: 36px;
+}
+.name-head span{
+    font-weight: 100;
+}
+.head-address{
+    font-weight: 600;
+    font-size: 14px !important;
+}
+.dotted{
+    background: none;
+    opacity: 1 !important;
+    border-top: 0.2px dotted #07333d;
+}

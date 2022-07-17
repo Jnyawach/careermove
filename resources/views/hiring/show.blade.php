@@ -6,7 +6,9 @@
 @section('keywords')
 Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hiring today, Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for jobs today
 @endsection
-
+@section('styles')
+    <meta name="robots" content="max-image-preview:large">
+@endsection
 @section('content')
     <section class="hiring p-5">
         <div class="row">

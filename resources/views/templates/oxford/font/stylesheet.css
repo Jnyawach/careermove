@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'Bebas Neue Pro Book';
+    src: url('BebasNeuePro-BookItalic.woff2') format('woff2'),
+        url('BebasNeuePro-BookItalic.woff') format('woff'),
+        url('BebasNeuePro-BookItalic.ttf') format('truetype'),
+        url('BebasNeuePro-BookItalic.svg#BebasNeuePro-BookItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Pro';
+    src: url('BebasNeuePro-Italic.woff2') format('woff2'),
+        url('BebasNeuePro-Italic.woff') format('woff'),
+        url('BebasNeuePro-Italic.ttf') format('truetype'),
+        url('BebasNeuePro-Italic.svg#BebasNeuePro-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Pro';
+    src: url('BebasNeuePro-LightItalic.woff2') format('woff2'),
+        url('BebasNeuePro-LightItalic.woff') format('woff'),
+        url('BebasNeuePro-LightItalic.ttf') format('truetype'),
+        url('BebasNeuePro-LightItalic.svg#BebasNeuePro-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Pro';
+    src: url('BebasNeuePro-Bold.woff2') format('woff2'),
+        url('BebasNeuePro-Bold.woff') format('woff'),
+        url('BebasNeuePro-Bold.ttf') format('truetype'),
+        url('BebasNeuePro-Bold.svg#BebasNeuePro-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Pro';
+    src: url('BebasNeuePro-BoldItalic.woff2') format('woff2'),
+        url('BebasNeuePro-BoldItalic.woff') format('woff'),
+        url('BebasNeuePro-BoldItalic.ttf') format('truetype'),
+        url('BebasNeuePro-BoldItalic.svg#BebasNeuePro-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Pro Book';
+    src: url('BebasNeuePro-Book.woff2') format('woff2'),
+        url('BebasNeuePro-Book.woff') format('woff'),
+        url('BebasNeuePro-Book.ttf') format('truetype'),
+        url('BebasNeuePro-Book.svg#BebasNeuePro-Book') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Pro';
+    src: url('BebasNeuePro-ThinItalic.woff2') format('woff2'),
+        url('BebasNeuePro-ThinItalic.woff') format('woff'),
+        url('BebasNeuePro-ThinItalic.ttf') format('truetype'),
+        url('BebasNeuePro-ThinItalic.svg#BebasNeuePro-ThinItalic') format('svg');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Pro';
+    src: url('BebasNeuePro-Light.woff2') format('woff2'),
+        url('BebasNeuePro-Light.woff') format('woff'),
+        url('BebasNeuePro-Light.ttf') format('truetype'),
+        url('BebasNeuePro-Light.svg#BebasNeuePro-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Pro';
+    src: url('BebasNeuePro-Regular.woff2') format('woff2'),
+        url('BebasNeuePro-Regular.woff') format('woff'),
+        url('BebasNeuePro-Regular.ttf') format('truetype'),
+        url('BebasNeuePro-Regular.svg#BebasNeuePro-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Pro';
+    src: url('BebasNeuePro-Thin.woff2') format('woff2'),
+        url('BebasNeuePro-Thin.woff') format('woff'),
+        url('BebasNeuePro-Thin.ttf') format('truetype'),
+        url('BebasNeuePro-Thin.svg#BebasNeuePro-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+

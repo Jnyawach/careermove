@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\DisableAds;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\AdminTestimonyController;
+use App\Http\Controllers\Admin\AdminMpesaController;
 
 
 /*General*/
@@ -69,6 +70,7 @@ Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],func
     Route::patch('ads-disable/{id}',  ['as'=>'ads-disable', 'uses'=>DisableAds::class]);
     Route::patch('testimony-status/{id}',  [AdminTestimonyController::class, 'testimony'])->name('testimony-status');
     Route::get('admin/orders/order-status/{id}',  [AdminOrderController::class, 'orderStatus'])->name('order-status');
+    Route::resource('admin/payments',AdminMpesaController::class);
     Route::resource('admin/testimony',AdminTestimonyController::class);
     Route::resource('admin/orders',AdminOrderController::class);
     Route::resource('admin/products',AdminProductController::class);
@@ -99,6 +101,7 @@ Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],func
 });
 
 Route::group([],function (){
+    Route::get('templates/oxford',  [HomeController::class, 'resume'])->name('resume');
     Route::get('confirmation',  [HomeController::class, 'confirmation'])->name('confirmation');
     Route::get('thank-you',  [HomeController::class, 'thank'])->name('thank-you');
     Route::get('about',  [HomeController::class, 'about'])->name('about');

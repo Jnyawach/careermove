@@ -462,6 +462,10 @@
                                         <li><a href="{{route('orders.index')}}" title="Products">Orders</a> </li>
 
                                     </ul>
+                                    <ul class="list-unstyled folders">
+                                        <li><a href="{{route('payments.index')}}" title="Products">Payments</a> </li>
+
+                                    </ul>
 
 
                                 </div>
