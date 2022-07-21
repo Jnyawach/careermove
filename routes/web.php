@@ -41,6 +41,7 @@ use \App\Http\Controllers\General\CartController;
 use \App\Http\Controllers\General\OrderTracker;
 use \App\Http\Controllers\General\RatingController;
 use \App\Http\Controllers\General\ServiceController;
+use \App\Http\Controllers\General\ResumeBuilder;
 
 
 
@@ -109,6 +110,7 @@ Route::group([],function (){
     Route::get('privacy-policy',  [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
     Route::get('professional-resume',  [HomeController::class, 'professionaResume'])->name('professional-resume');
     Route::post('report-job/{id}',['as'=>'report-job','uses'=>ReportJob::class]);
+    Route::resource('resume-template',ResumeBuilder::class);
     Route::resource('newsletter',NewsLetterController::class);
     Route::resource('cart',CartController::class);
     Route::resource('rating',RatingController::class);

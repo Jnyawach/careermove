@@ -1,19 +1,17 @@
-@extends('layouts.resume')
-@section('styles')
 
-    <link href="{{asset('css/awesome/css/all.css')}}" rel="stylesheet">
+
+
     <style>
         @import url("font/stylesheet.css");
-        body{
-            background-color: #ebebeb;
-        }
         .resume-content{
             font-family: 'Bebas Neue Pro';
-            width: 21cm;
+            max-width: 22cm;
             height:auto;
             background-color: white;
-            font-size: 16px;
+
             line-height: 32px;
+            font-size: 1vw;
+
 
 
 
@@ -86,31 +84,37 @@
 
 
     </style>
-@endsection
 
-@section('content')
-    <section class="p-5 resume-content mx-auto m-3 shadow-sm">
+
+
+
+    <section class="p-5 resume-content mx-auto shadow-sm content">
         <div class="row mt-4">
             <div class="col-3 text-center">
                 <div class="name-content rounded-circle p-1 text-center">
                     <div class="name-container rounded-circle">
-                        <h1 class="m-0 p-0 name-abbr">DM</h1>
+                        <h1 class="m-0 p-0 name-abbr">{{$user->name[0]}}{{$user->profile->lastName[0]}}</h1>
                     </div>
                 </div>
 
             </div>
             <div class="col-9 align-self-center mx-auto text-center">
-                <h1 class="name-head text-uppercase">Donald <span>Masika</span></h1>
-             <p class="p-0 m-0 text-uppercase head-address">(+254) 717 109280&nbsp;&nbsp; &bull;&nbsp;&nbsp;donaldmasika@gmail.com</p>
+                <h1 class="name-head text-uppercase">{{$user->name?$user->name:'Donald'}} <span>{{$user->profile?$user->profile->lastName:'Masika'}}</span></h1>
+             <p class="p-0 m-0 text-uppercase head-address">{{$user->profile->cellphone?$user->profile->cellphone:'(+254) 712 23543'}}&nbsp;&nbsp; &bull;&nbsp;&nbsp;{{$user->email?$user->email:'donaldmasika@gmail.com'}}</p>
             </div>
         </div>
         <hr class="mt-4 dotted">
         <div class="row mt-4">
             <div class="col-12">
                 <p class="resume-summary"><span>SUMMARY:</span>
-                    Creative full-stack web developer with a flair for bringing innovative UX design to life.
-                    2+ experience with Javascript, Ajax, PHP, Laravel, REST Api, Livewire, Bootstrap, and Tailwind CSS. Passionate about
-                    implementing user-friendly platforms with simple and dynamic functionality. Seeking to develop my skills in a challenging  environment.
+                    @if($user->summary)
+                        {{$user->summary->summary}}
+                    @else
+                        Creative full-stack web developer with a flair for bringing innovative UX design to life.
+                        2+ experience with Javascript, Ajax, PHP, Laravel, REST Api, Livewire, Bootstrap, and Tailwind CSS. Passionate about
+                        implementing user-friendly platforms with simple and dynamic functionality. Seeking to develop my skills in a challenging  environment.
+                    @endif
+
 
                 </p>
             </div>
@@ -121,8 +125,8 @@
                 <div class="col-5">
                     <h2 >Get in Touch</h2>
                     <div class="resume-address">
-                        <p class="p-0 m-0"><span class="me-2"><i class="fa-solid fa-mobile-screen-button"></i></span>+254 717 109280</p>
-                        <p class="p-0 m-0"><span class="me-2"><i class="fa-regular fa-envelope"></i></span>donaldmasika@gmail.com</p>
+                        <p class="p-0 m-0"><span class="me-2"><i class="fa-solid fa-mobile-screen-button"></i></span>{{$user->profile->cellphone?$user->profile->cellphone:'(+254) 712 23543'}}</p>
+                        <p class="p-0 m-0"><span class="me-2"><i class="fa-regular fa-envelope"></i></span>{{$user->email?$user->email:'donaldmasika@gmail.com'}}</p>
                     </div>
                     <div class="social-media mt-4">
                         <h2 >Social Media</h2>
@@ -261,6 +265,6 @@
         <hr class="mt-4 dotted">
         <p class="text-uppercase text-end">Donald Masika</p>
     </section>
-@endsection
+
 
 

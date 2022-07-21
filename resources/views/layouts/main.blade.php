@@ -7,12 +7,17 @@
     <link rel = "icon" href =
         "{{asset('images/careermove-icon.png')}}"
           type = "image/x-icon">
-          <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PZXDP9D');</script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-219568547-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-219568547-1');
+    </script>
+
     <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('description')">
@@ -56,6 +61,9 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('services.index')}}">Professional CV</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('resume-template.index')}}">Templates</a>
                         </li>
 
 
@@ -212,6 +220,10 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('services.index')}}">Professional CV
+                                    <i class="fa-solid fa-chevron-right float-end"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('resume-template.index')}}">Templates
                                     <i class="fa-solid fa-chevron-right float-end"></i></a>
                             </li>
 

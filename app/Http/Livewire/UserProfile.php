@@ -62,7 +62,7 @@ class UserProfile extends Component
         'cellphone.required'=>'Please provide a cellphone number',
         'cellphone.min'=>'Please provide a valid cellphone number',
         'cellphone.max'=>'Please provide a valid cellphone number',
-        'birthday.required'=>'Please provide a bithdate',
+        'birthday.required'=>'Please provide a birthdate',
         'linkedin.max'=>'The provided link is too long. Enter a shorter link',
         'website.max'=>'The provided link is too long. Enter a shorter link',
 

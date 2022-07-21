@@ -1030,4 +1030,50 @@ input[type=radio]:checked{
     font-size: 22px;
     margin-top: 5px;
 }
+/* Resume Building*/
+.login-request h1{
+    font-family: 'Assistant';
+    color: var(--dark);
+}
+.login-request table tr td span{
+    background-color: rgba(25, 114,120, 0.1);
+    font-family: 'Assistant';
+    font-weight: 600;
+    font-size: 24px;
+
+}
+.login-request table tr td{
+    font-size: 18px;
+    font-weight: 600;
+}
+.login-request table td{
+    padding-top: 40px !important;
+}
+.resume-preview{
+    background-color: #ebebeb;
+
+
+
+}
+.cv-preview::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+.cv-preview{
+    max-height: 600px;
+
+    overflow: scroll;
+}
+.resume-container{
+    transform:scale(1, 1) ;
+    display: table-cell;
+
+}
+
+
+.resume-form input{
+    height: 45px;
+    border-radius: 0px;
+}
+
 

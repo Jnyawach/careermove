@@ -10,4 +10,8 @@ class Summary extends Model
     use HasFactory;
 
     protected $fillable=['summary'];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
