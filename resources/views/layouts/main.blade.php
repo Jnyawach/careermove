@@ -17,7 +17,7 @@
         })(window,document,'script','dataLayer','GTM-PZXDP9D');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- End Google Tag Manager -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
