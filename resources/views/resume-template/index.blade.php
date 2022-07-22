@@ -2,6 +2,7 @@
 @section('title','Resume Templates')
 @section('content')
     <section>
-        <a href="{{route('resume-template.show',1)}}">Use this template</a>
+        <h2>**This  page is still under development**</h2>
+
     </section>
 @endsection

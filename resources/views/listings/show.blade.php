@@ -6,47 +6,43 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
 @endsection
 @section('styles')
 
+
 <script type="application/ld+json">
-    {
-          "@context" : "https://schema.org/",
-          "@type" : "JobPosting",
-          "title" : "{{$job->title}}",
-          "description" : "{!!$job->description!!}",
-          "identifier": {
-            "@type": "PropertyValue",
-            "name": "Careermove",
-            "value": "{{$job->id}}"
-          },
-          "datePosted" : "{{$job->created_at->todatestring()}}",
-          "validThrough" : "{{$job->deadline}}T00:00",
-          "employmentType" : "{{$job->type->name}}",
-          "hiringOrganization" : {
-            "@type" : "Organization",
-            "name" : "Careermove",
-            "sameAs" : "https://www.careermove.co.ke",
-            "logo" : "https://www.careermove.co.ke/careermove-logo.png"
-          },
-          "jobLocation": {
-          "@type": "Place",
-            "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "null",
-            "addressLocality": "{{$job->location->name}}",
-            "addressRegion": "Kenya",
-            "postalCode": "null",
-            "addressCountry": "KE"
-            }
-          },
-          "baseSalary": {
-            "@type": "MonetaryAmount",
-            "currency": "KES",
-            "value": {
-              "@type": "QuantitativeValue",
-              "value": "null",
-              "unitText": "MONTH"
-            }
-          }
-        }
+    //<![CDATA[
+
+					{
+						"@context": "https://schema.org/",
+						"@type": "JobPosting",
+						"datePosted": "{{$job->created_at->todatestring()}}",
+						"validThrough": "{{$job->deadline}}T00:00",
+						"title": "{{$job->title}}",
+						"baseSalary": {
+							"@type": "MonetaryAmount",
+							"currency": "KES",
+							"minValue": "",
+							"maxValue": "",
+							"unitText": ""
+						},
+						"hiringOrganization": {
+							"@type": "Organization",
+							"name": "{{$job->company->name}}",
+							"logo": "{{asset($job->company->getFirstMediaUrl('logo')
+                                        ?$job->company->getFirstMediaUrl('logo'):'company-icon.jpg')}}"
+						},
+						"jobLocation": {
+							"@type": "Place",
+							"address": {
+								"@type": "PostalAddress",
+								"addressLocality": "{{$job->location->name}}",
+								"addressRegion": null,
+								"addressCountry": "KE"
+							}
+
+						},
+						"description": "{!! $job->description !!}",
+						"employmentType": "{{$job->type->name}}"
+					}
+					    //]]>
 </script>
 
 <script type="application/ld+json">
