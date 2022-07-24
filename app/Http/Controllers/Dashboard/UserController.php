@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\Job;
 use App\Models\Profession;
+use App\Models\Template;
 use App\Models\Wishlist;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -94,5 +95,10 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public  function resumeBuilder($id){
+        $template=Template::findBySlugOrFail($id);
+
     }
 }

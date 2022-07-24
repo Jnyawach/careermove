@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
+use App\Models\Template;
 use Illuminate\Http\Request;
 
-class ResumeBuilder extends Controller
+class ResumeTemplates extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class ResumeBuilder extends Controller
     public function index()
     {
         //
-
+        $templates=Template::where('status',1)->get();
+        return view('resume-template.index', compact('templates'));
     }
 
     /**
@@ -48,7 +50,8 @@ class ResumeBuilder extends Controller
     public function show($id)
     {
         //
-
+        $template='oxford';
+        return view('resume-template.show',compact('template'));
     }
 
     /**

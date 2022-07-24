@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Summary;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -16,6 +17,7 @@ class ResumeBuilder extends Component
     public $email;
     public $summary;
     public $page=1;
+    public $resume;
 
     public function mount(){
         $this->user=Auth::user();
@@ -31,44 +33,20 @@ class ResumeBuilder extends Component
 
 
     }
+
+
     public function render()
     {
         return view('livewire.resume-builder');
     }
 
-    public function PersonalDetails(){
-        $this->validate([
-            'name' => 'required|string|max:50',
-            'lastName' => 'required|string|max:50',
-            'cellphone'=>'required|min:10|string|max:13',
-            'summary'=>'required'
-        ],
-        [
-            'required'=>':attribute is required',
-            'max'=>':attribute is too long',
-            'min'=>':attribute is too short'
-        ]);
 
-        $user=User::findOrFail($this->user->id);
-        $user->update([
-            'name'=>$this->name
-        ]);
-        $user->profile()->update([
-            'cellphone'=>$this->cellphone,
-            'lastName'=>$this->lastName
-        ]);
-
-        $user->summary()->delete();
-
-        $user->summary()->updateOrCreate([
-            'summary'=>$this->summary
-        ]);
-         $this->user=$user;
-         $this->page=2;
-
-    }
 
     public function Previous(){
         $this->page=$this->page-1;
+    }
+    public function nextPage(){
+        $this->page=$this->page+1;
+
     }
 }

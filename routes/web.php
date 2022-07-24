@@ -25,6 +25,8 @@ use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\AdminTestimonyController;
 use App\Http\Controllers\Admin\AdminMpesaController;
+use App\Http\Controllers\Admin\AdminTemplateController;
+
 
 
 /*General*/
@@ -42,6 +44,7 @@ use \App\Http\Controllers\General\OrderTracker;
 use \App\Http\Controllers\General\RatingController;
 use \App\Http\Controllers\General\ServiceController;
 use \App\Http\Controllers\General\ResumeBuilder;
+use \App\Http\Controllers\General\ResumeTemplates;
 
 
 
@@ -71,6 +74,7 @@ Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],func
     Route::patch('ads-disable/{id}',  ['as'=>'ads-disable', 'uses'=>DisableAds::class]);
     Route::patch('testimony-status/{id}',  [AdminTestimonyController::class, 'testimony'])->name('testimony-status');
     Route::get('admin/orders/order-status/{id}',  [AdminOrderController::class, 'orderStatus'])->name('order-status');
+    Route::resource('admin/cv_templates',AdminTemplateController::class);
     Route::resource('admin/payments',AdminMpesaController::class);
     Route::resource('admin/testimony',AdminTestimonyController::class);
     Route::resource('admin/orders',AdminOrderController::class);
@@ -110,7 +114,7 @@ Route::group([],function (){
     Route::get('privacy-policy',  [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
     Route::get('professional-resume',  [HomeController::class, 'professionaResume'])->name('professional-resume');
     Route::post('report-job/{id}',['as'=>'report-job','uses'=>ReportJob::class]);
-    Route::resource('resume-template',ResumeBuilder::class);
+    Route::resource('resume-template',ResumeTemplates::class);
     Route::resource('newsletter',NewsLetterController::class);
     Route::resource('cart',CartController::class);
     Route::resource('rating',RatingController::class);

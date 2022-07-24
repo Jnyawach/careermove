@@ -107,15 +107,13 @@
         <div class="row mt-4">
             <div class="col-12">
                 <p class="resume-summary"><span>SUMMARY:</span>
-                    @if($user->summary)
+                    @if($user->summary()->exists())
                         {{$user->summary->summary}}
                     @else
-                        Creative full-stack web developer with a flair for bringing innovative UX design to life.
-                        2+ experience with Javascript, Ajax, PHP, Laravel, REST Api, Livewire, Bootstrap, and Tailwind CSS. Passionate about
-                        implementing user-friendly platforms with simple and dynamic functionality. Seeking to develop my skills in a challenging  environment.
+                    Creative full-stack web developer with a flair for bringing innovative UX design to life.
+                    2+ experience with Javascript, Ajax, PHP, Laravel, REST Api, Livewire, Bootstrap, and Tailwind CSS. Passionate about
+                    implementing user-friendly platforms with simple and dynamic functionality. Seeking to develop my skills in a challenging  environment.
                     @endif
-
-
                 </p>
             </div>
         </div>
@@ -148,7 +146,7 @@
                     </div>
                     <div class="hard-skills mt-4">
                         <h2 >Hard Skills</h2>
-                        <div class="d-inline-block">
+                        <div class="d-inline-block" contenteditable="true">
                             <small><span class="badge skill-badge">Illustrator</span></small>
                             <small><span class="badge skill-badge">Photoshop</span></small>
                             <small><span class="badge skill-badge">Indesign</span></small>
@@ -186,7 +184,7 @@
                     <div class="experience mt-4">
                         <h3>Founder and Full-Stack Web Developer</h3>
                         <h4>Careemove LTD&nbsp;&nbsp; &bull;&nbsp;&nbsp;Nairobi, Kenya&nbsp;&nbsp; &bull;&nbsp;&nbsp;2019-2021</h4>
-                       <ul>
+                       <ul contenteditable="true">
                            <li>Full-stack web developer responsible for end-to-end development and deployment</li>
                            <li>Optimized Careermove website for SEO which increased the site visits to over 5,000 within two weeks of deployment</li>
                            <li>Developed an email subscription program that received 167 subscriptions in two weeks of deployment.</li>

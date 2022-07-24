@@ -1076,4 +1076,23 @@ input[type=radio]:checked{
     border-radius: 0px;
 }
 
+.cv-templates h1{
+    font-family: 'Assistant';
+}
+.details-prev h2{
+    color: var(--junior);
+    font-weight: 800;
+}
+.details-prev p{
+    color: black;
+    font-size: 18px;
+}
+.resume-image{
+    background-color: var(--secondary);
+}
+.preview-body{
+    background-color: var(--teal);
+}
+
+
 

@@ -459,6 +459,10 @@
 
                                     </ul>
                                     <ul class="list-unstyled folders">
+                                        <li><a href="{{route('cv_templates.index')}}" title="Products">CV Templates</a> </li>
+
+                                    </ul>
+                                    <ul class="list-unstyled folders">
                                         <li><a href="{{route('orders.index')}}" title="Products">Orders</a> </li>
 
                                     </ul>
