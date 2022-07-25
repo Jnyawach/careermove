@@ -4,9 +4,10 @@
     @livewireStyles
 @endsection
 @section('content')
-    @livewire('resume-builder',['template'=>$template])
+    @livewire('resume-builder',['template'=>$template,'resume'=>$resume])
 @endsection
 @section('scripts')
     @livewireScripts
 
 @endsection
+

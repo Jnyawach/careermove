@@ -68,6 +68,7 @@ use App\Http\Controllers\Dashboard\LanguageController;
 use App\Http\Controllers\Dashboard\AwardsController;
 use App\Http\Controllers\Dashboard\AssociationController;
 use App\Http\Controllers\Dashboard\ReferenceController;
+use App\Http\Controllers\Dashboard\UserResumeBuilder;
 use App\Http\Controllers\General\RestoreCart;
 
 Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],function (){
@@ -140,6 +141,7 @@ Route::group(['middleware'=>['auth','role:super-admin|Employer','verified']],fun
 
 });
 Route::group(['middleware'=>['auth','role:super-admin|User','verified']],function (){
+    Route::resource('dashboard/resume-builder',UserResumeBuilder::class);
     Route::resource('dashboard/associations',AssociationController::class);
     Route::resource('dashboard/awards',AwardsController::class);
     Route::resource('dashboard/references',ReferenceController::class);

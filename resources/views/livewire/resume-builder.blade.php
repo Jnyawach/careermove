@@ -22,14 +22,24 @@
                    <div class="category-selection">
                        <h1 class="fs-4">What category do you want to show?</h1>
                        <div class="category switch">
-                           <div class="form-group">
-                               <div class="form-check form-switch">
-                                   <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                   <label class="form-check-label fw-bold" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                               </div>
-                           </div>
+                           <table class="table">
+                               <tbody >
+                               <tr>
+                                   <td class="fw-bold">1. Personal Info</td>
+                                   <td>
+                                       <button type="button" class="btn btn-view fs-6" wire:click="AddressDisable">remove</button>
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td class="fw-bold">2. Professional Summary</td>
+                                   <td>
+                                       <button type="button" class="btn btn-view fs-6">remove</button>
+                                   </td>
+                               </tr>
+                               </tbody>
+                           </table>
                        </div>
-                       <hr class="mt-5">
+
                        <button type="button" class="btn btn-primary" wire:click="Previous">Previous</button>
                        <button type="button" class="btn btn-primary" wire:click="nextPage">Next</button>
                    </div>
@@ -46,7 +56,22 @@
 
                </div>
               <div class="text-center  mt-4">
-                  <button type="button" class="btn btn-primary">
+                  <div class="d-inline-block ms-3">
+                      <div wire:loading.delay>
+                          <div class="spinner-grow spinner-grow-sm spin" role="status">
+                              <span class="sr-only">Loading...</span>
+                          </div>
+                          <div class="spinner-grow spinner-grow-sm spin " role="status">
+                              <span class="sr-only">Loading...</span>
+                          </div>
+                          <div class="spinner-grow spinner-grow-sm spin" role="status">
+                              <span class="sr-only">Loading...</span>
+                          </div>
+                      </div>
+
+
+                  </div>
+                  <button type="button" class="btn btn-primary" wire:loading.remove>
                       <i class="fa-solid fa-download me-3"></i>Download
                   </button>
               </div>

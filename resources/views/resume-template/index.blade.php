@@ -41,7 +41,7 @@
                    <div class="details-prev mt-4 ms-1">
                        <h2 class="fs-5">{{$template->name}}</h2>
                        <p>{{$template->description}}</p>
-                       <a href="#" class="btn btn-view m-1">Use this template</a>
+                       <a href="{{route('resume-builder.edit',$template->slug)}}" class="btn btn-view m-1">Use this template</a>
                        <button class="btn btn-secondary m-1" data-bs-toggle="modal" data-bs-target="#TemplateModal{{$template->id}}"><i class="fa-regular fa-eye"></i> preview</button>
 
                    </div>

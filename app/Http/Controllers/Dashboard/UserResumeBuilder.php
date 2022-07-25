@@ -3,16 +3,12 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Company;
-use App\Models\Job;
-use App\Models\Profession;
+use App\Models\Resume;
 use App\Models\Template;
-use App\Models\Wishlist;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class UserResumeBuilder extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,13 +18,6 @@ class UserController extends Controller
     public function index()
     {
         //
-        $saves=Wishlist::where('user_id',Auth::id())->limit(4)->get();
-        $professions=Auth::user()->profession()->pluck('profession_id');
-        $jobs=Job::where('status_id',2)->whereIn('profession_id',$professions)->limit(8)->get();
-        $companies=Company::whereHas('jobs', function (Builder $query){
-            $query->where('status_id',2);
-        })->limit(9)->get();
-        return  view('dashboard.index',compact('saves','jobs','companies'));
     }
 
     /**
@@ -72,6 +61,26 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $template=Template::findBySlugOrFail($id);
+        $resume=Resume::create([
+            'user_id'=>1,
+            'template_id'=>1,
+            'personal_info'=>1,
+            'intro'=>1,
+            'education'=>1,
+            'experience'=>1,
+            'social_media'=>1,
+            'hard_skills'=>1,
+            'soft_skills'=>1,
+            'language'=>1,
+            'references'=>1,
+            'certifications'=>1,
+            'status'=>0,
+            'user_id'=>Auth::id(),
+            'template_id'=>$template->id
+        ]);
+        return view('dashboard.resume-builder.edit', compact('template','resume'));
+
     }
 
     /**
@@ -96,6 +105,4 @@ class UserController extends Controller
     {
         //
     }
-
-
 }

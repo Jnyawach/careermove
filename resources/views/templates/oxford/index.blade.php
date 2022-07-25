@@ -103,7 +103,9 @@
              <p class="p-0 m-0 text-uppercase head-address">{{$user->profile->cellphone?$user->profile->cellphone:'(+254) 712 23543'}}&nbsp;&nbsp; &bull;&nbsp;&nbsp;{{$user->email?$user->email:'donaldmasika@gmail.com'}}</p>
             </div>
         </div>
-        <hr class="mt-4 dotted">
+
+        @if($resume->intro==1)
+            <hr class="mt-4 dotted">
         <div class="row mt-4">
             <div class="col-12">
                 <p class="resume-summary"><span>SUMMARY:</span>
@@ -117,6 +119,7 @@
                 </p>
             </div>
         </div>
+        @endif
         <hr class="mt-4 dotted">
         <section>
             <div class="row">
