@@ -9,4 +9,8 @@ class Social extends Model
 {
     use HasFactory;
     protected  $fillable=['name','icon'];
+
+    public  function links(){
+        return $this->hasMany(Link::class);
+    }
 }

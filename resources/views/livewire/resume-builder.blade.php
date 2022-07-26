@@ -37,7 +37,11 @@
                                <tr>
                                    <td class="fw-bold">2. Professional Summary</td>
                                    <td>
-                                       <button type="button" class="btn-sm btn-danger ">Remove</button>
+                                       @if($resume->intro==1)
+                                       <button type="button" class="btn-sm btn-danger "  wire:click="SummaryDisable">Remove</button>
+                                       @else
+                                           <button type="button" class="btn-sm btn-secondary" wire:click="SummaryEnable">Add</button>
+                                       @endif
                                    </td>
                                </tr>
                                </tbody>

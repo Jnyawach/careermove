@@ -20,8 +20,8 @@ class UserProfile extends Component
     public $experience;
     public $gender;
     public $birthday;
-    public $website;
-    public $linkedin;
+
+
     public $photo;
 
 
@@ -34,8 +34,7 @@ class UserProfile extends Component
         $this->title=$this->user->profile->title;
         $this->gender=$this->user->profile->gender;
         $this->birthday=$this->user->profile->birthday;
-        $this->linkedin=$this->user->profile->linkedin;
-        $this->website=$this->user->profile->website;
+
 
     }
 
@@ -45,9 +44,8 @@ class UserProfile extends Component
         'lastName'=>'required|string|max:120',
         'gender'=>'required|string|max:120',
         'cellphone'=>'required|min:10|string|max:13',
-        'linkedin'=>'nullable|string|max:255',
-        'website'=>'nullable|string|max:255',
-        'birthday'=>'required|string|max:255|date',
+
+
 
     ];
 
@@ -63,8 +61,7 @@ class UserProfile extends Component
         'cellphone.min'=>'Please provide a valid cellphone number',
         'cellphone.max'=>'Please provide a valid cellphone number',
         'birthday.required'=>'Please provide a birthdate',
-        'linkedin.max'=>'The provided link is too long. Enter a shorter link',
-        'website.max'=>'The provided link is too long. Enter a shorter link',
+
 
 
     ];
@@ -89,10 +86,8 @@ class UserProfile extends Component
         ]);
         $this->user->profile()->update([
             'lastName'=>$this->lastName,
-            'website'=>$this->website,
             'experience_id'=>$this->experience,
             'birthday'=>$this->birthday,
-            'linkedin'=>$this->linkedin,
             'gender'=>$this->gender,
             'cellphone'=>$this->cellphone,
         ]);

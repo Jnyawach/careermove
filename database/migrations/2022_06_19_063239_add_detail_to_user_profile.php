@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::table('profiles', function (Blueprint $table) {
             //
             $table->string('gender')->nullable();
-            $table->string('linkedin')->nullable();
-            $table->string('website')->nullable();
             $table->string('cellphone')->nullable();
             $table->date('birthday')->nullable();
         });

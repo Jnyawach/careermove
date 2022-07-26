@@ -29,8 +29,8 @@
                                 <p><span><i class="fa-solid fa-mobile"></i></span>{{Auth::user()->profile->cellphone}}</p>
                             </div>
                             <div class="col-12 col-md-6">
-                                <p><span><i class="fa-solid fa-link me-2"></i></span> {{Auth::user()->profile->website?Auth::user()->profile->website:'Missing Website'}}</p>
-                                <p><span><i class="fa-brands fa-linkedin me-2"></i></span> {{Auth::user()->profile->linkedin?Auth::user()->profile->linkedin:'Missing Linkedin Profile'}}</p>
+                                <p><span><i class="fa-solid fa-link me-2"></i></span> {{Auth::user()->profile->title}}</p>
+
                             </div>
                         </div>
 
@@ -427,7 +427,7 @@
                     </div>
                 @endforeach
                 @else
-                <h6>No Associations attached to your profile. Please add at least on assciations</h6>
+                <h6>No Associations attached to your profile. Please add at least one association</h6>
                 @endif
 
 
@@ -438,6 +438,34 @@
 
 
                 </div>
+
+
+            </div>
+
+            <!--social Media-->
+            <div class="card mt-2">
+                <div class="card-header">
+                    <h2 class="fs-5 mt-2 d-inline-block"><span class="profile-icon"><i class="fa-solid fa-message"></i></span> Social Media</h2>
+                    <a href="{{route('social-media.create')}}" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
+                </div>
+                <div class="card-body">
+                    @if ($links->count()>0)
+                        <div class="row">
+                            @foreach($links as $link)
+                                <div class="col-12 col-md-6">
+                                    <p><span class="me-2">{!! $link->social->icon !!}</span> {{$link->link}}
+                                        <span><a href="{{route('social-media.edit',$link->id)}}" class="text-decoration-none"><i class="fa-solid fa-square-pen"></i> Edit</a> </span>
+                                        <span class="ms-2 text-danger" wire:click="SocialDelete({{$link->id}})" style="cursor: pointer"><i class="fa-solid fa-trash-can"></i> Delete</span></p>
+                                </div>
+                            @endforeach
+                        </div>
+
+                    @else
+                        <h6>No Social Media link attached to your profile. Please add at least one link</h6>
+                    @endif
+
+                </div>
+
 
 
             </div>
@@ -465,7 +493,7 @@
 
 
             </div>
-            
+
 
         </div>
     </div>

@@ -97,7 +97,7 @@
                     <div class="form-group required mt-3">
                         <label for="responsibility" class="control-label">Responsibilities:</label>
                         <div>
-                        <small>Tell briefly about your work: what disciplines did you study, what projects did you do? </small>
+                            <small>Tell briefly about your responsibilities </small>
                         <small>Use colon separated points for example,<span> Print and Embroidery designer: Junior design and production manager</span></small>
                         </div>
 
@@ -110,8 +110,8 @@
                     <div class="form-group required mt-3">
                         <label for="achievement" class="control-label">Achievements:</label>
                         <div>
-                        <small>Tell briefly about your work: what disciplines did you study, what projects did you do? </small>
-                        <small>Use colon separated points for example,<span> Print and Embroidery designer: Junior design and production manager</span></small>
+                            <small>Tell briefly about your achievements.  </small>
+                            <small>Use colon separated points for example,<span> Spearheaded the introduction of peer-to-peer user communication : Helped the company grow sales by 10%</span></small>
                         </div>
 
                         <textarea class="form-control mt-2" id="achievement" wire:model.lazy="achievement"

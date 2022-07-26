@@ -9,8 +9,8 @@ class Profile extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'lastName','title','experience_id','user_id','birthday','website',
-        'linkedin','gender','cellphone'
+        'lastName','title','experience_id','user_id','birthday',
+        'gender','cellphone'
     ];
 
     public function users(){

@@ -37,6 +37,16 @@ class ResumeBuilder extends Component
         $resume->update(['personal_info'=>1]);
         $this->resume=$resume;
     }
+    public function SummaryEnable(){
+        $resume=Resume::findOrFail($this->resume->id);
+        $resume->update(['intro'=>1]);
+        $this->resume=$resume;
+    }
+    public function SummaryDisable(){
+        $resume=Resume::findOrFail($this->resume->id);
+        $resume->update(['intro'=>0]);
+        $this->resume=$resume;
+    }
 
 
 

@@ -112,23 +112,9 @@
                         </div>
                     </div>
 
-                    <hr class="dotted">
-                    <h6>Social links</h6>
-                    <div class="form-group mt-2 row">
 
-                        <div class="col-12 col-md-6">
-                            <label class="control-label" for="linkedin">LinkedIn (optional)</label>
-                            <input type="text" name="linkedin" id="linkedin"  class="form-control mt-3"
-                            placeholder="https://www.linkedin.com/in/your-profile-a654211a4/" wire:model="linkedin">
-                            @error('linkedin') <span class="error">{{ $message }}</span> @enderror
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label class="control-label" for="website">Website (optional)</label>
-                            <input type="text" name="website" id="website"  class="form-control mt-3"
-                            placeholder="https://www.yourprofile.com" wire:model="website">
-                            @error('website') <span class="error">{{ $message }}</span> @enderror
-                        </div>
-                    </div>
+
+
 
                     <div class="form-group mt-3 text-end">
                         <a href="{{route('dashboard.index')}}" class="btn btn-view">Cancel</a>
