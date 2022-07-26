@@ -27,13 +27,17 @@
                                <tr>
                                    <td class="fw-bold">1. Personal Info</td>
                                    <td>
-                                       <button type="button" class="btn btn-view fs-6" wire:click="AddressDisable">remove</button>
+                                       @if($resume->personal_info==1)
+                                       <button type="button" class="btn-sm btn-danger" wire:click="AddressDisable">Remove</button>
+                                       @else
+                                           <button type="button" class="btn-sm btn-secondary" wire:click="AddressEnable">Add</button>
+                                       @endif
                                    </td>
                                </tr>
                                <tr>
                                    <td class="fw-bold">2. Professional Summary</td>
                                    <td>
-                                       <button type="button" class="btn btn-view fs-6">remove</button>
+                                       <button type="button" class="btn-sm btn-danger ">Remove</button>
                                    </td>
                                </tr>
                                </tbody>

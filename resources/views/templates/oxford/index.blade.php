@@ -89,6 +89,7 @@
 
 
     <section class="p-5 resume-content mx-auto shadow-sm content">
+        @if($resume->personal_info==1)
         <div class="row mt-4">
             <div class="col-3 text-center">
                 <div class="name-content rounded-circle p-1 text-center">
@@ -103,6 +104,7 @@
              <p class="p-0 m-0 text-uppercase head-address">{{$user->profile->cellphone?$user->profile->cellphone:'(+254) 712 23543'}}&nbsp;&nbsp; &bull;&nbsp;&nbsp;{{$user->email?$user->email:'donaldmasika@gmail.com'}}</p>
             </div>
         </div>
+        @endif
 
         @if($resume->intro==1)
             <hr class="mt-4 dotted">
@@ -124,11 +126,13 @@
         <section>
             <div class="row">
                 <div class="col-5">
+                    @if($resume->personal_info==1)
                     <h2 >Get in Touch</h2>
                     <div class="resume-address">
                         <p class="p-0 m-0"><span class="me-2"><i class="fa-solid fa-mobile-screen-button"></i></span>{{$user->profile->cellphone?$user->profile->cellphone:'(+254) 712 23543'}}</p>
                         <p class="p-0 m-0"><span class="me-2"><i class="fa-regular fa-envelope"></i></span>{{$user->email?$user->email:'donaldmasika@gmail.com'}}</p>
                     </div>
+                    @endif
                     <div class="social-media mt-4">
                         <h2 >Social Media</h2>
                         <p class="p-0 m-0"><span class="me-2"><i class="fa-brands fa-linkedin"></i></span>https://www.linkedin.com/donald-masika</p>

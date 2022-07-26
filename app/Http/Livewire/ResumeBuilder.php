@@ -26,11 +26,16 @@ class ResumeBuilder extends Component
     }
 
     public function AddressDisable(){
+        $resume=Resume::findOrFail($this->resume->id);
+        $resume->update(['personal_info'=>0]);
+        $this->resume=$resume;
 
     }
 
     public function AddressEnable(){
-
+        $resume=Resume::findOrFail($this->resume->id);
+        $resume->update(['personal_info'=>1]);
+        $this->resume=$resume;
     }
 
 

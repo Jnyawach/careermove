@@ -227,6 +227,15 @@ input[type=radio]:checked{
 .btn:focus{
     box-shadow: none;
 }
+.btn-sm{
+    text-align: center;
+    background-color: transparent;
+    border: 2px solid transparent;
+    font-size: 13px !important;
+    padding: 6px 10px 6px 10px !important;
+    font-weight: bold !important;
+    box-shadow: none !important;
+}
 .btn-link{
     color: var(--junior);
     border: none;
@@ -305,7 +314,12 @@ input[type=radio]:checked{
     border: none !important;
 }
 .btn-danger{
-    background: red;
+    background: red !important;
+    color: white;
+    border: none;
+}
+.btn-success{
+    background: #198754 !important;
     color: white;
     border: none;
 }
