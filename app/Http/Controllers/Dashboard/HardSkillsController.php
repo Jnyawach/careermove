@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Reference;
+use App\Models\HardSkill;
+use App\Rules\Colon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 
-class ReferenceController extends Controller
+class HardSkillsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,7 +29,7 @@ class ReferenceController extends Controller
     public function create()
     {
         //
-        return view('dashboard.references.create');
+        return view('dashboard.hard-skills.create');
     }
 
     /**
@@ -42,28 +42,16 @@ class ReferenceController extends Controller
     {
         //
         $validated=$request->validate([
-            'name'=>'required|string|max:100',
-            'title'=>'required|string|max:100',
-            'organization'=>'required|string|max:100',
-            'relation'=>'required|string|max:50',
-            'email'=>'email|string|required',
-            'cellphone'=>'required'
+            'skills'=>['required',new Colon],
+        ]);
+        $user=Auth::user();
 
+        $user->hard()->create([
+            'skills'=>$validated['skills']
+        ]);
 
-           ]);
-
-           $user=Auth::user();
-           $user->references()->create([
-               'name'=>$validated['name'],
-               'title'=>$validated['title'],
-               'organization'=>$validated['organization'],
-               'relation'=>$validated['relation'],
-               'email'=>$validated['email'],
-               'cellphone'=>$validated['cellphone'],
-               'visibility'=>1
-           ]);
-           return redirect('dashboard')
-           ->with('status','Reference Successfully added');
+        return redirect('dashboard')
+            ->with('status','Skills Successfully added');
     }
 
     /**
@@ -86,8 +74,8 @@ class ReferenceController extends Controller
     public function edit($id)
     {
         //
-        $reference=Reference::findOrFail($id);
-        return view('dashboard.references.edit', compact('reference'));
+        $skill=HardSkill::findOrFail($id);
+        return view('dashboard.hard-skills.edit', compact('skill'));
     }
 
     /**
@@ -100,19 +88,19 @@ class ReferenceController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $reference=Reference::findOrFail($id);
         $validated=$request->validate([
-            'name'=>'required|string|max:100',
-            'title'=>'required|string|max:100',
-            'organization'=>'required|string|max:100',
-            'relation'=>'required|string|max:50',
-            'email'=>'email|string|required',
-            'cellphone'=>'required'
+            'skills'=>['required',new Colon],
+        ]);
 
-           ]);
-           $reference->update($validated);
-           return redirect('dashboard')
-           ->with('status','Reference Successfully updated');
+
+        $skill=HardSkill::findOrFail($id);
+
+        $skill->update([
+            'skills'=>$validated['skills']
+        ]);
+
+        return redirect('dashboard')
+            ->with('status','Skills Successfully Updated');
     }
 
     /**

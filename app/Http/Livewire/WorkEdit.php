@@ -11,7 +11,6 @@ use Livewire\Component;
 class WorkEdit extends Component
 {
     public $current;
-    public $responsibility;
     public $achievement;
     public $organization;
     public $title;
@@ -24,7 +23,6 @@ class WorkEdit extends Component
 
     public function mount(){
         $this->current=$this->work->current;
-        $this->responsibility=$this->work->responsibility;
         $this->achievement= $this->work->achievement;
         $this->organization=$this->work->organization;
         $this->title=$this->work->title;
@@ -44,7 +42,7 @@ class WorkEdit extends Component
         'start'=>'required|string|max:255|date',
         'end'=>'nullable|required_without:current|max:255|date',
         'achievement'=>'required',
-        'responsibility'=>'required',
+
 
 
     ];
@@ -57,7 +55,7 @@ class WorkEdit extends Component
         'start.required'=>'Please provide a start date',
         'end.required_without'=>'Please provide end date',
         'achievement.required'=>'Please provide work achievement',
-        'responsibility.required'=>'Please provide job responsibility',
+
 
 
 
@@ -83,7 +81,6 @@ class WorkEdit extends Component
     public function updateWork(){
         $this->validate();
         $this->validate(['achievement'=>new Colon]);
-        $this->validate(['responsibility'=>new Colon]);
         $work=Work::findOrFail($this->work->id);
 
         $work->update([
@@ -91,7 +88,6 @@ class WorkEdit extends Component
             'title'=>$this->title,
             'size'=>$this->size,
             'achievement'=>$this->achievement,
-            'responsibility'=>$this->responsibility,
             'start'=>$this->start,
             'end'=>$this->end,
             'profession_id'=>$this->profession,

@@ -94,23 +94,11 @@
                         </div>
 
                     </div>
-                    <div class="form-group required mt-3">
-                        <label for="responsibility" class="control-label">Responsibilities:</label>
-                        <div>
-                        <small>Tell briefly about your responsibilities </small>
-                        <small>Use colon separated points for example,<span> Print and Embroidery designer: Junior design and production manager</span></small>
-                        </div>
-
-                        <textarea class="form-control mt-2" id="responsibility" wire:model.lazy="responsibility"
-                            style="height: 150px" name="responsibility" required placeholder="Use colon separated points">{{$responsibility}}</textarea>
-                            @error('responsibility') <span class="error">{{ $message }}</span> @enderror
-
-                    </div>
 
                     <div class="form-group required mt-3">
-                        <label for="achievement" class="control-label">Achievements:</label>
+                        <label for="achievement" class="control-label">Work Experience Summary:</label>
                         <div>
-                        <small>Tell briefly about your achievements.  </small>
+                        <small>Tell briefly about your achievements and responsibilities.  </small>
                         <small>Use colon separated points for example,<span> Spearheaded the introduction of peer-to-peer user communication : Helped the company grow sales by 10%</span></small>
                         </div>
 

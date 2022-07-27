@@ -21,7 +21,7 @@
                @if($page==2)
                    <div class="category-selection">
                        <h1 class="fs-4">What category do you want to show?</h1>
-                       <div class="category switch">
+                       <div class="category switch mt-5">
                            <table class="table">
                                <tbody >
                                <tr>
@@ -44,6 +44,48 @@
                                        @endif
                                    </td>
                                </tr>
+                               <tr>
+                                   <td class="fw-bold">3. Work Experience</td>
+                                   <td>
+                                       @if($resume->experience==1)
+                                           <button type="button" class="btn-sm btn-danger "  wire:click="ExperienceDisable">Remove</button>
+                                       @else
+                                           <button type="button" class="btn-sm btn-secondary" wire:click="ExperienceEnable">Add</button>
+                                       @endif
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td class="fw-bold">4. Education</td>
+                                   <td>
+                                       @if($resume->education==1)
+                                           <button type="button" class="btn-sm btn-danger "  wire:click="EducationDisable">Remove</button>
+                                       @else
+                                           <button type="button" class="btn-sm btn-secondary" wire:click="EducationEnable">Add</button>
+                                       @endif
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td class="fw-bold">5. Certifications/Awards</td>
+                                   <td>
+                                       @if($resume->certifications==1)
+                                           <button type="button" class="btn-sm btn-danger "  wire:click="AwardDisable">Remove</button>
+                                       @else
+                                           <button type="button" class="btn-sm btn-secondary" wire:click="AwardEnable">Add</button>
+                                       @endif
+                                   </td>
+                               </tr>
+
+                               <tr>
+                                   <td class="fw-bold">6. References</td>
+                                   <td>
+                                       @if($resume->references==1)
+                                           <button type="button" class="btn-sm btn-danger "  wire:click="ReferenceDisable">Remove</button>
+                                       @else
+                                           <button type="button" class="btn-sm btn-secondary" wire:click="ReferenceEnable">Add</button>
+                                       @endif
+                                   </td>
+                               </tr>
+
                                </tbody>
                            </table>
                        </div>
@@ -53,7 +95,79 @@
                    </div>
 
                    @endif
+               @if($page==3)
+                       <h1 class="fs-4">What category do you want to show?</h1>
+                       <div class="category switch mt-5">
+                           <table class="table">
+                               <tbody >
 
+                               <tr>
+                                   <td class="fw-bold">7. Soft Skills</td>
+                                   <td>
+                                       @if($resume->soft_skills==1)
+                                           <button type="button" class="btn-sm btn-danger "  wire:click="SoftDisable">Remove</button>
+                                       @else
+                                           <button type="button" class="btn-sm btn-secondary" wire:click="SoftEnable">Add</button>
+                                       @endif
+                                   </td>
+                               </tr>
+
+                               <tr>
+                                   <td class="fw-bold">8. Hard Skills</td>
+                                   <td>
+                                       @if($resume->hard_skills==1)
+                                           <button type="button" class="btn-sm btn-danger "  wire:click="HardDisable">Remove</button>
+                                       @else
+                                           <button type="button" class="btn-sm btn-secondary" wire:click="HardEnable">Add</button>
+                                       @endif
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td class="fw-bold">9. Language</td>
+                                   <td>
+                                       @if($resume->language==1)
+                                           <button type="button" class="btn-sm btn-danger "  wire:click="LanguageDisable">Remove</button>
+                                       @else
+                                           <button type="button" class="btn-sm btn-secondary" wire:click="LanguageEnable">Add</button>
+                                       @endif
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td class="fw-bold">10. Hobbies</td>
+                                   <td>
+                                       @if($resume->hobbies==1)
+                                           <button type="button" class="btn-sm btn-danger "  wire:click="HobbiesDisable">Remove</button>
+                                       @else
+                                           <button type="button" class="btn-sm btn-secondary" wire:click="HobbiesEnable">Add</button>
+                                       @endif
+                                   </td>
+                               </tr>
+                               <tr>
+                                   <td class="fw-bold">11. Social Media</td>
+                                   <td>
+                                       @if($resume->social_media==1)
+                                           <button type="button" class="btn-sm btn-danger"  wire:click="SocialDisable">Remove</button>
+                                       @else
+                                           <button type="button" class="btn-sm btn-secondary" wire:click="SocialEnable">Add</button>
+                                       @endif
+                                   </td>
+                               </tr>
+
+
+                               </tbody>
+                           </table>
+                       </div>
+                       <button type="button" class="btn btn-primary" wire:click="Previous">Previous</button>
+                       <button type="button" class="btn btn-primary" wire:click="nextPage">Next</button>
+                   @endif
+               @if($page==4)
+                       <h1 class="fs-4">What work experience do you want to keep?</h1>
+                   <div class="mt-5">
+
+                   </div>
+                       <button type="button" class="btn btn-primary" wire:click="Previous">Previous</button>
+                       <button type="button" class="btn btn-primary" wire:click="nextPage">Next</button>
+                   @endif
            </div>
            <div class="d-none d-md-block col-md-6  p-2 resume-preview">
                <div class="cv-preview p-3">

@@ -56,7 +56,7 @@ class EducationCreate extends Component
     public function createEducation(){
         $this->validate();
         $this->validate(['education_summary'=>new Colon]);
-       
+
 
         $education=Education::create([
             'institution'=>$this->institution,
@@ -67,7 +67,8 @@ class EducationCreate extends Component
             'end'=>$this->end,
             'current'=>$this->current,
             'grade'=>$this->grade,
-            'user_id'=>Auth::id()
+            'user_id'=>Auth::id(),
+            'visibility'=>1
 
         ]);
 

@@ -13,21 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('works', function (Blueprint $table) {
+        Schema::create('hard_skills', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->string('organization');
-            $table->string('title');
-            $table->string('size');
-            $table->integer('current')->nullable();
-            $table->mediumText('achievement');
-            $table->bigInteger('profession_id')->unsigned()->index();
-            $table->bigInteger('industry_id')->unsigned()->index();
-            $table->date('start');
-            $table->date('end')->nullable();
+            $table->mediumText('skills');
             $table->foreign('user_id')->references('id')
                 ->on('users')->cascadeOnDelete();
+
         });
     }
 
@@ -38,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('works');
+        Schema::dropIfExists('hard_skills');
     }
 };

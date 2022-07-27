@@ -75,6 +75,7 @@ class UserResumeBuilder extends Controller
             'language'=>1,
             'references'=>1,
             'certifications'=>1,
+            'hobbies'=>1,
             'status'=>0,
             'user_id'=>Auth::id(),
             'template_id'=>$template->id

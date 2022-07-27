@@ -133,83 +133,95 @@
                         <p class="p-0 m-0"><span class="me-2"><i class="fa-regular fa-envelope"></i></span>{{$user->email?$user->email:'donaldmasika@gmail.com'}}</p>
                     </div>
                     @endif
-                    <div class="social-media mt-4">
-                        <h2 >Social Media</h2>
-                        <p class="p-0 m-0"><span class="me-2"><i class="fa-brands fa-linkedin"></i></span>https://www.linkedin.com/donald-masika</p>
-                        <p class="p-0 m-0"><span class="me-2"><i class="fa-brands fa-facebook-square"></i></span>https://www.facebook.com/donald-masika</p>
-                        <p class="p-0 m-0"><span class="me-2"><i class="fa-brands fa-github-square"></i></span>https://github.com/Dmasika</p>
-                        <p class="p-0 m-0"><span class="me-2"><i class="fa-brands fa-twitter-square"></i></span>https://twitter.com/JNyawach</p>
-                    </div>
+                        @if($resume->social_media==1)
+                            <div class="social-media mt-4">
+                                <h2>Social Media</h2>
+                                @if($user->links()->exists())
+                                    @foreach($user->links as $link)
+                                        <p class="p-0 m-0"><span class="me-2">{!! $link->social->icon !!}</span>{{$link->link}}
+                                        </p>
+                                    @endforeach
+                                @endif
+                            </div>
+                        @endif
+                        @if($resume->soft_skills==1)
                     <div class="soft-skills mt-4">
                         <h2 >Soft Skills</h2>
+                        @if($user->skill()->exists())
                         <div class="d-inline-block">
-                           <small><span class="badge skill-badge">Communication</span></small>
-                            <small><span class="badge skill-badge">Creativity</span></small>
-                            <small><span class="badge skill-badge">Leadership</span></small>
-                            <small><span class="badge skill-badge">Enthusiasm</span></small>
-                            <small><span class="badge skill-badge">Researching</span></small>
-                            <small><span class="badge skill-badge">Problem-solving</span></small>
+                            @foreach (explode(':', $user->skill->skills) as $pill)
+                           <small><span class="badge skill-badge">{{$pill}}</span></small>
+                            @endforeach
+
                         </div>
+                        @endif
                     </div>
+                        @endif
+                        @if($resume->hard_skills==1)
                     <div class="hard-skills mt-4">
-                        <h2 >Hard Skills</h2>
-                        <div class="d-inline-block" contenteditable="true">
-                            <small><span class="badge skill-badge">Illustrator</span></small>
-                            <small><span class="badge skill-badge">Photoshop</span></small>
-                            <small><span class="badge skill-badge">Indesign</span></small>
-                            <small><span class="badge skill-badge">Corel Draw</span></small>
-                            <small><span class="badge skill-badge">Debugging</span></small>
-                            <small><span class="badge skill-badge">Tailwind CSS</span></small>
-                            <small><span class="badge skill-badge">Bootstrap CSS</span></small>
-                            <small><span class="badge skill-badge">Livewire</span></small>
+                        <h2>Hard Skills</h2>
+                        @if($user->hard()->exists())
+                        <div class="d-inline-block">
+                            @foreach (explode(':', $user->hard->skills) as $pill)
+                            <small><span class="badge skill-badge">{{$pill}}</span></small>
+                                @endforeach
                         </div>
+                        @endif
                     </div>
+                        @endif
+
+                        @if($resume->language==1)
 
                     <div class="languages mt-4">
                         <h2>Languages</h2>
+                        @if($user->languages()->exists())
                         <div >
-                            <p class="d-inline-block m-0 me-2 p-0"><span>English: </span>Fluent</p>
-                            <p class="d-inline-block m-0 me-2 p-0"><span>Swahili: </span>Native</p>
-                            <p class="d-inline-block m-0 me-2 p-0"><span>French: </span>Fluent</p>
+                            @foreach($user->languages as $language)
+                            <p class="d-inline-block m-0 me-2 p-0"><span>{{$language->name}}: </span>{{$language->writen}}</p>
 
 
+                            @endforeach
                         </div>
+                        @endif
                     </div>
+                        @endif
+                        @if($resume->hobbies==1)
 
-                    <div class="hobbies mt-4">
-                        <h2 >Hobbies</h2>
-                        <div class="d-inline-block">
-                            <small><span class="badge skill-badge">Painting</span></small>
-                            <small><span class="badge skill-badge">Singing</span></small>
-                            <small><span class="badge skill-badge">Reading</span></small>
-
-                        </div>
-                    </div>
+                            <div class="hobbies mt-4">
+                                <h2>Hobbies</h2>
+                                @if($user->hobby()->exists())
+                                <div class="d-inline-block">
+                                    @foreach (explode(':', $user->hobby->hobbies) as $hobby)
+                                    <small><span class="badge skill-badge">{{$hobby}}</span></small>
+                                    @endforeach
+                                </div>
+                                @endif
+                            </div>
+                        @endif
                 </div>
                 <div class="col-7 p-1">
+                    @if($resume->experience==1)
                     <h2>WORK EXPERIENCE</h2>
+                    @if($user->work()->exists())
+                        @foreach($user->work->where('visibility',1)->sortByDesc('start') as $work)
                     <div class="experience mt-4">
-                        <h3>Founder and Full-Stack Web Developer</h3>
-                        <h4>Careemove LTD&nbsp;&nbsp; &bull;&nbsp;&nbsp;Nairobi, Kenya&nbsp;&nbsp; &bull;&nbsp;&nbsp;2019-2021</h4>
-                       <ul contenteditable="true">
-                           <li>Full-stack web developer responsible for end-to-end development and deployment</li>
-                           <li>Optimized Careermove website for SEO which increased the site visits to over 5,000 within two weeks of deployment</li>
-                           <li>Developed an email subscription program that received 167 subscriptions in two weeks of deployment.</li>
-                           <li>Monitoring MYSQL Database and rectifying errors that may arise</li>
-                           <li>Currently in charge of a three-member team that is tasked with content creation at Careermove</li>
-                       </ul>
-                    </div>
-                    <div class="experience mt-4">
-                        <h3>Graphic & Embroidery Designer</h3>
-                        <h4>Global Inc.&nbsp;&nbsp; &bull;&nbsp;&nbsp;Nairobi, Kenya&nbsp;&nbsp; &bull;&nbsp;&nbsp;2019-2021</h4>
-                        <ul>
-                            <li>Developed the company website and optimized it for SEO</li>
-                            <li>Led the introduction of embroidery services after independently taking embroidery classes online and being the main embroidery designer</li>
-                            <li>Was promoted to junior production manager within 4 months of taking up the role and increased the overall production speed by introducing a job card system</li>
+                        <h3>{{$work->title}}</h3>
+                        <h4>{{$work->organization}}&nbsp;&nbsp; &bull;&nbsp;&nbsp;{{\Carbon\Carbon::parse($work->start)->isoFormat('MMM YYYY')}} - {{$work->end?\Carbon\Carbon::parse($work->end)->isoFormat('MMM YYYY'):'Currently'}}</h4>
 
-                        </ul>
+                        <ul class="p-0 m-0 ms-3">
+                            @foreach (explode(':', $work->achievement) as $achievement)
+                           <li>{{$achievement}}</li>
+                            @endforeach
+                       </ul>
+
                     </div>
-                    <hr class="mt-4 dotted">
+                            @endforeach
+                        @endif
+
+                        <hr class="mt-4 dotted">
+                    @endif
+                    @if($resume->education==1)
+
                     <h2 class="mt-4">EDUCATION</h2>
                     <div class="education mt-4">
                         <h3>Computer Science</h3>
@@ -245,6 +257,8 @@
                         </ul>
                     </div>
                     <hr class="mt-4 dotted">
+                        @endif
+                        @if($resume->certifications==1)
                     <h2 class="mt-4">CERTIFICATIONS/AWARDS</h2>
                     <div class="education mt-2">
                         <ol>
@@ -257,18 +271,23 @@
 
                     </div>
                     <hr class="mt-4 dotted">
-                    <h2 class="mt-4">REFEREES</h2>
+                        @endif
+                        @if($resume->references==1)
+                    <h2 class="mt-4">REFERENCES</h2>
                     <div class="referee mt-2">
-                     <p class="p-0 m-0"><span>John Doe, Marketing Director, Azam Global Inc.</span></p>
-                        <p class="p-0 m-0">Tel: +254 710 19384, Email: johndoe@azamglobal.com</p>
+                        @foreach($user->references as $reference)
+                     <p class="p-0 m-0"><span>{{$reference->name}}, {{$reference->title}}, {{$reference->organization}}</span></p>
+                        <p class="p-0 m-0">Tel: {{$reference->cellphone}}, Email: {{$reference->email}}</p>
+                            @endforeach
                     </div>
+                            @endif
 
                 </div>
             </div>
         </section>
 
         <hr class="mt-4 dotted">
-        <p class="text-uppercase text-end">Donald Masika</p>
+        <p class="text-uppercase text-end">{{$user->name}} {{$user->profile->lastName}}</p>
     </section>
 
 

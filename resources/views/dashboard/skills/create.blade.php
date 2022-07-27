@@ -11,7 +11,7 @@
             <form method="POST" action="{{route('skills.store')}}">
                 @csrf
                 <div class="form-group required">
-                    <label for="skills" class="control-label">Skills set:</label>
+                    <label for="skills" class="control-label">Soft Skills set:</label>
                     <div>
                         <small>Use colon separated points for example,<span> Graphic design: Painting: Creative thinking</span></small>
                     </div>

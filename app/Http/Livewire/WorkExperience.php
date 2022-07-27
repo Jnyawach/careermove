@@ -12,7 +12,6 @@ use Livewire\Component;
 class WorkExperience extends Component
 {
     public $current;
-    public $responsibility;
     public $achievement;
     public $organization;
     public $title;
@@ -32,7 +31,7 @@ class WorkExperience extends Component
         'start'=>'required|string|max:255|date',
         'end'=>'nullable|required_without:current|max:255|date',
         'achievement'=>'required',
-        'responsibility'=>'required',
+
 
 
     ];
@@ -45,7 +44,7 @@ class WorkExperience extends Component
         'start.required'=>'Please provide a start date',
         'end.required_without'=>'Please provide end date',
         'achievement.required'=>'Please provide work achievement',
-        'responsibility.required'=>'Please provide job responsibility',
+
 
 
 
@@ -71,19 +70,18 @@ class WorkExperience extends Component
     public function createWork(){
         $this->validate();
         $this->validate(['achievement'=>new Colon]);
-        $this->validate(['responsibility'=>new Colon]);
         $work=Work::create([
             'organization'=>$this->organization,
             'title'=>$this->title,
             'size'=>$this->size,
             'achievement'=>$this->achievement,
-            'responsibility'=>$this->responsibility,
             'start'=>$this->start,
             'end'=>$this->end,
             'profession_id'=>$this->profession,
             'industry_id'=>$this->industry,
             'user_id'=>Auth::id(),
-            'current'=>$this->current
+            'current'=>$this->current,
+            'visibility'=>1
         ]);
 
         return redirect('dashboard')

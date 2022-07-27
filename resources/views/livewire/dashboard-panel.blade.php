@@ -26,6 +26,7 @@
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <p><span><i class="fa-regular fa-envelope"></i></span> {{Auth::user()->email}}</p>
+                                <p><span><i class="fa-regular fa-envelope"></i></span> {{Auth::user()->email}}</p>
                                 <p><span><i class="fa-solid fa-mobile"></i></span>{{Auth::user()->profile->cellphone}}</p>
                             </div>
                             <div class="col-12 col-md-6">
@@ -85,16 +86,13 @@
                         <div wire:loading.remove>
                             <div class="work-experience">
                                 <h6 class="fw-bold">{{$work->title}}</h6>
-                                <p class="fw-bold mb-0">{{$work->organization}}</p>
-                                <p class="mt-0"><span>{{\Carbon\Carbon::parse($work->start)->isoFormat('MMM YYYY')}} - {{$work->end?\Carbon\Carbon::parse($work->end)->isoFormat('MMM YYYY'):'Currently'}}</span></p>
-                                <p><span>Responsibilities</span></p>
-                                <ul class="fw-bold">
-                                    @foreach (explode(':',$work->responsibility) as $responsibility )
-                                    <li>{{$responsibility}}</li>
+                                <div>
+                                    <p class="fw-bold mb-0 d-inline-block">{{$work->organization}}</p>
+                                    <p class="mt-0 d-inline-block"><span>{{\Carbon\Carbon::parse($work->start)->isoFormat('MMM YYYY')}} - {{$work->end?\Carbon\Carbon::parse($work->end)->isoFormat('MMM YYYY'):'Currently'}}</span></p>
+                                </div>
 
-                                    @endforeach
-                                </ul>
-                                <p><span>Achievements</span></p>
+
+                                <p><span>Summary</span></p>
                                 <ul class="fw-bold">
                                     @foreach (explode(':',$work->achievement) as $achievement )
                                     <li>{{$achievement}}</li>
@@ -173,21 +171,18 @@
             <div class="card mt-2">
                 <div class="card-header">
                     <h2 class="fs-5 mt-2 d-inline-block"><span class="profile-icon"><i class="fa-solid fa-trophy"></i></span> Skills Set</h2>
-                    @if ($skills->count()<1)
-                    <a href="{{route('skills.create')}}" class="btn btn-view d-inline-block float-end"> <i class="fa-solid fa-plus me-1"></i>Add</a>
-                    @endif
-
 
                 </div>
                 <div class="card-body">
+                    <h6>Soft Skills</h6>
                     @if ($skills->count()>0)
+
                     @foreach ($skills as $skill )
                     <div class="experience">
+
                         <div class="text-end">
                             <a href="{{route('skills.edit', $skill->id)}}" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
                                 Edit</a>
-
-
                         </div>
                         <div class="work-experience mb-3">
                             @foreach (explode(':', $skill->skills) as $pill)
@@ -200,11 +195,36 @@
                     @endforeach
 
                     @else
-                    <h6>You don't have any skills. Please add a few<h6>
+                        <a href="{{route('skills.create')}}" class="btn btn-view d-inline-block"> <i class="fa-solid fa-plus me-1"></i>Add</a>
 
                     @endif
 
+                    <h6>Hard Skills</h6>
 
+                    @if ($hard_skills->count()>0)
+
+                        @foreach ($hard_skills as $hard )
+                            <div class="experience">
+
+                                <div class="text-end">
+                                    <a href="{{route('hard-skills.edit',$hard ->id)}}" title="Edit" class="fw-bold  text-decoration-none m-2"><i class="fa-solid fa-square-pen"></i>
+                                        Edit</a>
+                                </div>
+                                <div class="work-experience mb-3">
+                                    @foreach (explode(':', $hard->skills) as $pill)
+                                        <span class="badge skills-set">{{$pill}}</span>
+                                    @endforeach
+
+
+                                </div>
+                            </div>
+                        @endforeach
+
+                    @else
+
+                        <a href="{{route('hard-skills.create')}}" class="btn btn-view d-inline-block"> <i class="fa-solid fa-plus me-1"></i>Add</a>
+
+                    @endif
 
 
 

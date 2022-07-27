@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Association;
 use App\Models\Award;
 use App\Models\Education;
+use App\Models\HardSkill;
 use App\Models\Hobby;
 use App\Models\Language;
 use App\Models\Link;
@@ -45,6 +46,7 @@ class DashboardPanel extends Component
         $associations=Association::where('user_id',Auth::id())->get();
         $references=Reference::where('user_id',Auth::id())->get();
         $links=Link::where('user_id',Auth::id())->get();
+        $hard_skills=HardSkill::where('user_id',Auth::id())->get();
         return view('livewire.dashboard-panel',[
             'educations'=>$educations,
             'works'=>$works,
@@ -55,6 +57,7 @@ class DashboardPanel extends Component
             'associations'=>$associations,
             'references'=>$references,
             'links'=>$links,
+            'hard_skills'=>$hard_skills,
         ]);
     }
 

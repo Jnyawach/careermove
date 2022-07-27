@@ -69,6 +69,9 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
     public  function skill(){
         return $this->hasOne(Skill::class);
     }
+    public  function hard(){
+        return $this->hasOne(HardSkill::class);
+    }
 
     public  function hobby(){
         return $this->hasOne(Hobby::class);
@@ -90,6 +93,10 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
 
     public  function links(){
         return $this->hasMany(Link::class);
+    }
+
+    public  function work(){
+        return $this->hasMany(Work::class);
     }
 
 

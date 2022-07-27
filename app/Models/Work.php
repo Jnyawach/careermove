@@ -10,7 +10,7 @@ class Work extends Model
     use HasFactory;
 
     protected $fillable=[
-        'user_id','organization','title','size','current','responsibility',
-        'achievement','profession_id','industry_id','start','end'
+        'user_id','organization','title','size','current',
+        'achievement','profession_id','industry_id','start','end','visibility'
     ];
 }
