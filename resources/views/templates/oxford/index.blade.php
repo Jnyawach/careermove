@@ -223,59 +223,45 @@
                     @if($resume->education==1)
 
                     <h2 class="mt-4">EDUCATION</h2>
-                    <div class="education mt-4">
-                        <h3>Computer Science</h3>
-                        <h4>Bachelor's Degree&nbsp;&nbsp; &bull;&nbsp;&nbsp;Nairobi University&nbsp;&nbsp; &bull;&nbsp;&nbsp;Nairobi, Kenya&nbsp;&nbsp; &bull;&nbsp;&nbsp;2019-2021</h4>
-                        <ul>
-                            <li>Excelled in LEMP Stack</li>
-                            <li>Conducted a study on urban inclusivity and small-scale traders within Upperhill Nairobi</li>
-                            <li>Scored Second Class Upper Division</li>
+                        @if($user->education()->exists())
+                                @foreach($user->education->where('visibility',1)->sortByDesc('start') as $education)
+                                    <div class="education mt-4">
+                                        <h3>{{$education->degree}}</h3>
+                                        <h4>{{$education->education_level}}&nbsp;&nbsp; &bull;&nbsp;&nbsp;{{$education->institution}}&nbsp;&nbsp;
+                                            &bull;&nbsp;&nbsp;&nbsp;&nbsp;{{\Carbon\Carbon::parse($education->start)->isoFormat('MMM YYYY')}} - {{$work->end?\Carbon\Carbon::parse($education->end)->isoFormat('MMM YYYY'):'Currently'}}</h4>
+                                        <ul class="p-0 m-0 ms-3">
+                                            @foreach (explode(':', $education->education_summary) as $summary)
+                                                <li>{{$summary}}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endforeach
+                            @endif
 
-                        </ul>
-                    </div>
-
-                    <div class="education mt-4">
-                        <h3>Introduction to PHP and MYSQL Database beginner to advance</h3>
-                        <h4>Certificate&nbsp;&nbsp; &bull;&nbsp;&nbsp;Udemy&nbsp;&nbsp; &bull;&nbsp;&nbsp;Nairobi, Kenya&nbsp;&nbsp; &bull;&nbsp;&nbsp;2019-2021</h4>
-                        <ul>
-                            <li>Learnt the PHP Language and MYSQL database Queries</li>
-                            <li>Developed my first dynamic website to test the progress and mastery of the course</li>
-
-
-                        </ul>
-                    </div>
-
-                    <div class="education mt-4">
-                        <h3>Start with TALL: Use Tailwind, Alpine JS, Laravel & Livewire</h3>
-                        <h4>Certificate&nbsp;&nbsp; &bull;&nbsp;&nbsp;Udemy&nbsp;&nbsp; &bull;&nbsp;&nbsp;Nairobi, Kenya&nbsp;&nbsp; &bull;&nbsp;&nbsp;2019-2021</h4>
-                        <ul>
-                            <li>Advanced my knowledge in web development</li>
-                            <li>Learnt how to develop more interactive and user-friendly web pages</li>
-                            <li>Developed my first web application using the TALL stack</li>
-
-
-                        </ul>
-                    </div>
                     <hr class="mt-4 dotted">
                         @endif
                         @if($resume->certifications==1)
                     <h2 class="mt-4">CERTIFICATIONS/AWARDS</h2>
-                    <div class="education mt-2">
-                        <ol>
-                            <li>Google SEO Fundamentals- Coursera 2022</li>
-                            <li>Social Media Marketing Mastery Learn Ads on 10+ Platforms-Udemy 2022</li>
-                            <li>Fundamentals of digital marketing- Google 2022-ongoing</li>
+                            @if($user->awards()->exists())
+                                <div class="education mt-2">
 
-                        </ol>
+                                    <ol class="m-0 p-0 ms-3">
+                                        @foreach($user->awards->sortByDesc('when') as $award)
+                                        <li>{{$award->title}}- {{$award->organization}} {{\Carbon\Carbon::parse($award->when)->isoFormat('MMM YYYY')}}</li>
+                                        @endforeach
+
+                                    </ol>
 
 
-                    </div>
+
+                                </div>
+                            @endif
                     <hr class="mt-4 dotted">
                         @endif
                         @if($resume->references==1)
                     <h2 class="mt-4">REFERENCES</h2>
                     <div class="referee mt-2">
-                        @foreach($user->references as $reference)
+                        @foreach($user->references->where('visibility',1) as $reference)
                      <p class="p-0 m-0"><span>{{$reference->name}}, {{$reference->title}}, {{$reference->organization}}</span></p>
                         <p class="p-0 m-0">Tel: {{$reference->cellphone}}, Email: {{$reference->email}}</p>
                             @endforeach

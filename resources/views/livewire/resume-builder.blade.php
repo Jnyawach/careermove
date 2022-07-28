@@ -160,13 +160,105 @@
                        <button type="button" class="btn btn-primary" wire:click="Previous">Previous</button>
                        <button type="button" class="btn btn-primary" wire:click="nextPage">Next</button>
                    @endif
-               @if($page==4)
+                   @if($page==4)
                        <h1 class="fs-4">What work experience do you want to keep?</h1>
-                   <div class="mt-5">
+                       <div class="mt-5">
+                           <table class="table">
+                               <tbody>
+                               @if($user->work()->exists())
+                               @foreach($user->work->sortByDesc('start') as $work)
+                                   <tr>
+                                       <td class="fw-bold"> {{$work->title}}-<span>{{$work->organization}}</span></td>
+                                       <td>
+                                           @if($work->visibility==1)
+                                               <button type="button" class="btn-sm btn-danger "
+                                                       wire:click="WorkVisibilityDisable({{$work->id}})">Remove
+                                               </button>
+                                           @else
+                                               <button type="button" class="btn-sm btn-secondary"
+                                                       wire:click="WorkVisibilityEnable({{$work->id}})">Add
+                                               </button>
+                                           @endif
+                                       </td>
 
-                   </div>
+                                   </tr>
+                               @endforeach
+                                   @endif
+                               </tbody>
+
+                           </table>
+
+
+                       </div>
                        <button type="button" class="btn btn-primary" wire:click="Previous">Previous</button>
                        <button type="button" class="btn btn-primary" wire:click="nextPage">Next</button>
+                   @endif
+
+                   @if($page==5)
+                       <h1 class="fs-4">Which education do you want to keep?</h1>
+                       <div class="mt-5">
+                           <table class="table">
+                               <tbody>
+                               @if($user->education()->exists())
+                               @foreach($user->education->sortByDesc('start') as $education)
+                                   <tr>
+                                       <td class="fw-bold"> {{$education->degree}}-<span>{{$education->institution}}</span></td>
+                                       <td>
+                                           @if($education->visibility==1)
+                                               <button type="button" class="btn-sm btn-danger "
+                                                       wire:click="EducationVisibilityDisable({{$education->id}})">Remove
+                                               </button>
+                                           @else
+                                               <button type="button" class="btn-sm btn-secondary"
+                                                       wire:click="EducationVisibilityEnable({{$education->id}})">Add
+                                               </button>
+                                           @endif
+                                       </td>
+
+                                   </tr>
+                               @endforeach
+                               @endif
+                               </tbody>
+
+                           </table>
+
+
+                       </div>
+                       <button type="button" class="btn btn-primary" wire:click="Previous">Previous</button>
+                       <button type="button" class="btn btn-primary" wire:click="nextPage">Next</button>
+                   @endif
+                   @if($page==6)
+                       <h1 class="fs-4">Which references do you want to keep?</h1>
+                       <div class="mt-5">
+                           <table class="table">
+                               <tbody>
+                               @if($user->references()->exists())
+                               @foreach($user->references as $reference)
+                                   <tr>
+                                       <td class="fw-bold"> {{$reference->name}}-<span>{{$reference->title}} at {{$reference->organization}}</span></td>
+                                       <td>
+                                           @if($reference->visibility==1)
+                                               <button type="button" class="btn-sm btn-danger "
+                                                       wire:click="ReferenceVisibilityDisable({{$reference->id}})">Remove
+                                               </button>
+                                           @else
+                                               <button type="button" class="btn-sm btn-secondary"
+                                                       wire:click="ReferenceVisibilityEnable({{$reference->id}})">Add
+                                               </button>
+                                           @endif
+                                       </td>
+
+                                   </tr>
+                               @endforeach
+                               @endif
+                               </tbody>
+
+                           </table>
+
+
+                       </div>
+                       <button type="button" class="btn btn-primary" wire:click="Previous">Previous</button>
+                       <button type="button" class="btn btn-primary" >Finish & Download</button>
                    @endif
            </div>
            <div class="d-none d-md-block col-md-6  p-2 resume-preview">

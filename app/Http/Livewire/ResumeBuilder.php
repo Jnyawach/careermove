@@ -2,9 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Education;
+use App\Models\Reference;
 use App\Models\Resume;
 use App\Models\Summary;
 use App\Models\User;
+use App\Models\Work;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -145,6 +148,39 @@ class ResumeBuilder extends Component
         $resume=Resume::findOrFail($this->resume->id);
         $resume->update(['social_media'=>0]);
         $this->resume=$resume;
+    }
+
+    public function WorkVisibilityEnable($id){
+        $work=Work::findOrFail($id);
+        $work->update(['visibility'=>1]);
+        $this->user=Auth::user();
+    }
+    public function WorkVisibilityDisable($id){
+        $work=Work::findOrFail($id);
+        $work->update(['visibility'=>0]);
+        $this->user=Auth::user();
+    }
+
+    public function EducationVisibilityEnable($id){
+        $education=Education::findOrFail($id);
+        $education->update(['visibility'=>1]);
+        $this->user=Auth::user();
+    }
+    public function EducationVisibilityDisable($id){
+        $education=Education::findOrFail($id);
+        $education->update(['visibility'=>0]);
+        $this->user=Auth::user();
+    }
+
+    public function ReferenceVisibilityEnable($id){
+        $reference=Reference::findOrFail($id);
+        $reference->update(['visibility'=>1]);
+        $this->user=Auth::user();
+    }
+    public function ReferenceVisibilityDisable($id){
+        $reference=Reference::findOrFail($id);
+        $reference->update(['visibility'=>0]);
+        $this->user=Auth::user();
     }
 
 
