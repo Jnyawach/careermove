@@ -18,6 +18,7 @@ class ResumeBuilder extends Component
     public $page=1;
     public $resume;
     public $template;
+    public $preview=false;
 
     public function mount(){
         $this->user=Auth::user();
@@ -181,6 +182,20 @@ class ResumeBuilder extends Component
         $reference=Reference::findOrFail($id);
         $reference->update(['visibility'=>0]);
         $this->user=Auth::user();
+    }
+
+    public function CompleteResume(){
+        $resume=Resume::findOrFail($this->resume->id);
+        $resume->update(['status'=>1]);
+        return redirect('dashboard/saved-resumes');
+    }
+
+    public function ShowPreview(){
+       $this->preview=true;
+    }
+
+    public function ClosePreview(){
+        $this->preview=false;
     }
 
 

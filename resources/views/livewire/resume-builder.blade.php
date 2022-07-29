@@ -1,5 +1,40 @@
 <div>
-   <section class="">
+    @if($preview==false)
+    <section>
+        <div class="row">
+            <div class="col-12 d-block d-lg-none text-end p-5">
+                <button type="button" class="btn btn-success" wire:click="ShowPreview">
+                    <i class="fa-regular fa-eye me-3"></i>Preview
+                </button>
+            </div>
+        </div>
+    </section>
+    @endif
+    @if($preview)
+        <section>
+            <div class="row">
+                <div class="col-12 p-2 resume-preview mx-auto">
+                    <div class="cv-preview p-3 d-flex justify-content-center">
+                        <div class="resume-container">
+
+                            @include('templates.oxford.index')
+                        </div>
+
+
+                    </div>
+                    <div class="text-center  mt-4">
+
+                        <button type="button" class="btn btn-primary" wire:click="ClosePreview">
+                            <i class="fa-solid fa-xmark me-3"></i>Close
+                        </button>
+                        <button type="button" class="btn btn-primary" wire:click="CompleteResume">Finish & Download</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+    @if($preview==false)
+   <section >
        <div class="row">
            <div class="col-12 col-lg-6 p-3 p-lg-5">
                @if($page==1)
@@ -258,10 +293,10 @@
 
                        </div>
                        <button type="button" class="btn btn-primary" wire:click="Previous">Previous</button>
-                       <button type="button" class="btn btn-primary" >Finish & Download</button>
+                       <button type="button" class="btn btn-primary" wire:click="CompleteResume">Finish & Download</button>
                    @endif
            </div>
-           <div class="d-none d-md-block col-md-6  p-2 resume-preview">
+           <div class="d-none d-lg-block col-lg-6  p-2 resume-preview">
                <div class="cv-preview p-3">
                    <div class="resume-container">
                        @include('templates.oxford.index')
@@ -285,12 +320,13 @@
 
 
                   </div>
-                  <button type="button" class="btn btn-primary" wire:loading.remove>
-                      <i class="fa-solid fa-download me-3"></i>Download
+                  <button type="button" class="btn btn-primary" wire:loading.remove wire:click="ShowPreview">
+                      <i class="fa-regular fa-eye me-3"></i>Preview
                   </button>
               </div>
 
            </div>
        </div>
    </section>
+        @endif
 </div>

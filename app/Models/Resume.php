@@ -14,4 +14,8 @@ class Resume extends Model
      'experience','social_media','hard_skills','soft_skills',
      'language','references','certifications','status','hobbies'
     ];
+
+    public function template(){
+        return $this->belongsTo(Template::class);
+    }
 }

@@ -71,6 +71,7 @@ use App\Http\Controllers\Dashboard\ReferenceController;
 use App\Http\Controllers\Dashboard\UserResumeBuilder;
 use App\Http\Controllers\Dashboard\SocialMediaController;
 use App\Http\Controllers\Dashboard\HardSkillsController;
+use App\Http\Controllers\Dashboard\SavedResumes;
 use App\Http\Controllers\General\RestoreCart;
 
 Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],function (){
@@ -143,6 +144,7 @@ Route::group(['middleware'=>['auth','role:super-admin|Employer','verified']],fun
 
 });
 Route::group(['middleware'=>['auth','role:super-admin|User','verified']],function (){
+    Route::resource('dashboard/saved-resumes',SavedResumes::class);
     Route::resource('dashboard/hard-skills',HardSkillsController::class);
     Route::resource('dashboard/social-media',SocialMediaController::class);
     Route::resource('dashboard/resume-builder',UserResumeBuilder::class);
