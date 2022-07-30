@@ -17,7 +17,7 @@
                     <div class="cv-preview p-3 d-flex justify-content-center">
                         <div class="resume-container">
 
-                            @include('templates.oxford.index')
+                            @include('templates.'.$resume->template->folder.'.index')
                         </div>
 
 
@@ -299,7 +299,7 @@
            <div class="d-none d-lg-block col-lg-6  p-2 resume-preview">
                <div class="cv-preview p-3">
                    <div class="resume-container">
-                       @include('templates.oxford.index')
+                       @include('templates.'.$resume->template->folder.'.index')
                    </div>
 
 

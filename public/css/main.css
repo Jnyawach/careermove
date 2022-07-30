@@ -1105,7 +1105,11 @@ input[type=radio]:checked{
     background-color: var(--secondary);
 }
 .preview-body{
-    background-color: var(--teal);
+    height: 300px;
+    overflow: hidden;
+}
+.preview-sample span{
+    font-weight: bold;
 }
 
 

@@ -9,11 +9,16 @@
             <div class="row">
                 @foreach($resumes as $resume)
                     <div class="col-12 col-md-4">
-                        <div class="shadow-sm preview-body p-3">
-                            <img src="{{asset($resume->template->getFirstMediaUrl('template')
-                                        ?$resume->template->getFirstMediaUrl('template','template-icon'):'company-icon.jpg')}}"
-                                 alt="{{$resume->template->name}}" class="img-fluid">
-                            <h2 class="mt-3">{{$resume->template->name}}</h2>
+                        <div class="  row">
+                            <div class="col-7">
+                                <div id="outer">
+                                    <div class="preview-body  shadow-sm" id="wrap">
+                                        @include('templates.'.$resume->template->folder.'.index')
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div>
 
                     </div>
@@ -33,3 +38,23 @@
 </section>
 @endsection
 
+@section('scripts')
+    <script>
+        let outer = document.getElementById('outer'),
+            wrapper = document.getElementById('wrap'),
+            maxWidth  = outer.clientWidth,
+            maxHeight = outer.clientHeight;
+        window.addEventListener("resize", resize);
+        resize();
+        function resize(){let scale,
+            width = window.innerWidth,
+            height = window.innerHeight,
+            isMax = width >= maxWidth && height >= maxHeight;
+
+            scale = Math.min(width/maxWidth, height/maxHeight);
+            outer.style.transform = isMax?'':'scale(' + scale + ')';
+            wrapper.style.width = isMax?'':maxWidth * scale;
+            wrapper.style.height = isMax?'':maxHeight * scale;
+        }
+    </script>
+@endsection
