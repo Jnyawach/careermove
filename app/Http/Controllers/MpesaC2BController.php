@@ -26,7 +26,7 @@ class MpesaC2BController extends Controller
         $callback=file_get_contents('php://input');
         $content=json_decode($callback);
 
-
+        Log::info($callback);
         if ($content->Body->stkCallback->ResultCode==0){
             $mpesa_confirm=new MpesaStkPush();
             $mpesa_confirm->result_desc=$content->Body->stkCallback->ResultDesc;
@@ -40,7 +40,7 @@ class MpesaC2BController extends Controller
 
             $mpesa_confirm->save();
         }
-        Log::info($callback);
+
 
 
     }
