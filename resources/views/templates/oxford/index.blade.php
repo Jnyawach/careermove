@@ -2,17 +2,15 @@
 
 
     <style>
-        @import url("font/stylesheet.css");
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400;500;600;700&display=swap');
         .resume-content{
-            font-family: 'Bebas Neue Pro';
+            font-family: 'Barlow Condensed', sans-serif;
             max-width: 22cm;
             height:auto;
             background-color: white;
-
             line-height: 32px;
             font-size: 16px;
-
-
+            font-weight: 400;
 
 
         }
@@ -28,7 +26,7 @@
         }
         h4{
             font-size: 16px;
-            font-weight:normal;
+            font-weight:bold;
             color: #07333d;
         }
         span{
@@ -78,8 +76,12 @@
             color: white;
             letter-spacing: 2px;
             font-size: 12px;
-            font-weight: normal;
+            font-weight: 600 !important;
             border-radius: 15px !important;
+            margin: 2px;
+        }
+        ul li{
+           font-weight: 400;
         }
 
 

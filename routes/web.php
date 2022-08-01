@@ -110,7 +110,7 @@ Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],func
 });
 
 Route::group([],function (){
-    Route::get('templates/oxford',  [HomeController::class, 'resume'])->name('resume');
+    Route::get('templates/{id}',  [HomeController::class, 'resume'])->name('resume');
     Route::get('confirmation',  [HomeController::class, 'confirmation'])->name('confirmation');
     Route::get('thank-you',  [HomeController::class, 'thank'])->name('thank-you');
     Route::get('about',  [HomeController::class, 'about'])->name('about');

@@ -7,9 +7,11 @@ use App\Models\Job;
 use App\Models\Order;
 use App\Models\Policy;
 use App\Models\Post;
+use App\Models\Resume;
 use App\Models\Testimony;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -70,7 +72,9 @@ class HomeController extends Controller
         return view('confirmation');
     }
 
-    public function resume(){
-        return view('templates.oxford.index');
+    public function resume($id){
+        $resume=Resume::findOrFail($id);
+        $user=Auth::user();
+        return view('templates.index', compact('resume','user'));
     }
 }

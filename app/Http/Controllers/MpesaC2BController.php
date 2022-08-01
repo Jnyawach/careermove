@@ -40,7 +40,7 @@ class MpesaC2BController extends Controller
 
             $mpesa_confirm->save();
         }
-        //Log::info($callback);
+        Log::info($callback);
 
 
     }
