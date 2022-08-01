@@ -116,7 +116,7 @@ class CartPage extends Component
             'Password' => $this->lipaNaMpesaPassword(),
             'Timestamp' => Carbon::rawParse('now')->format('YmdHms'),
             'TransactionType' => 'CustomerPayBillOnline',
-            'Amount' =>1,
+            'Amount' =>$this->amount,
             'PartyA' =>$this->cellphone,
             'PartyB' => Config::get('cervempesa.SHORTCODE'),
             'PhoneNumber' =>$this->cellphone,
