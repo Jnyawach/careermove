@@ -50,7 +50,7 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
       "hiringOrganization" : {
         "@type" : "Organization",
         "name" : "{{$job->company->name}}",
-        "sameAs" : "https://www.careermove.co.ke/hiring/{{$job->slug}}",
+        "sameAs" : "https://www.careermove.co.ke/hiring/{{$job->company->slug}}",
         "logo" : "{{asset($job->company->getFirstMediaUrl('logo')
                    ?$job->company->getFirstMediaUrl('logo'):'company-icon.jpg')}}"
       },
