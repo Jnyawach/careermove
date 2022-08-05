@@ -68,8 +68,8 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "KES",
-        "minValue": "",
-		"maxValue": "",
+        "minValue": "3733",
+		"maxValue": "93343",
 		"unitText": "MONTHLY"
       }
     }
