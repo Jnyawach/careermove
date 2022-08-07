@@ -9,13 +9,16 @@
             height:auto;
             background-color: white;
             line-height: 32px;
-            font-size: 16px;
+            font-size: 100%;
             font-weight: 400;
 
 
+
         }
+
+
         h2{
-            font-size: 18px;
+           font-size: 18px;
             font-weight: bold;
             color: #07333d;
         }
@@ -287,8 +290,7 @@
             </div>
         </section>
 
-        <hr class="mt-4 dotted">
-        <p class="text-uppercase text-end">{{$user->name}} {{$user->profile->lastName}}</p>
+
     </section>
 
 

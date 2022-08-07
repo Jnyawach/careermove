@@ -274,7 +274,7 @@ input[type=radio]:checked{
 }
 .btn-junior:hover{
 
-    background-color:rgba(25, 114,120, 0.8);;
+    background-color:rgba(25, 114,120, 0.8);
     color: white;
     border: 1px solid var(--junior);
 }
@@ -1105,11 +1105,21 @@ input[type=radio]:checked{
     background-color: var(--secondary);
 }
 .preview-body{
-    height: 300px;
-    overflow: hidden;
+    border: 1px solid var(--dark);
+
+
 }
-.preview-sample span{
-    font-weight: bold;
+
+.preview-text{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+}
+
+.saved-resumes{
+    background-color: var(--teal);
 }
 
 

@@ -147,6 +147,7 @@ Route::group(['middleware'=>['auth','role:super-admin|User','verified']],functio
     Route::resource('dashboard/saved-resumes',SavedResumes::class);
     Route::resource('dashboard/hard-skills',HardSkillsController::class);
     Route::resource('dashboard/social-media',SocialMediaController::class);
+    Route::get('dashboard/resume-builder/app/{id}', [UserResumeBuilder::class,'resumeApp'])->name('resume-app');
     Route::resource('dashboard/resume-builder',UserResumeBuilder::class);
     Route::resource('dashboard/associations',AssociationController::class);
     Route::resource('dashboard/awards',AwardsController::class);

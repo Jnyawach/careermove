@@ -28,6 +28,7 @@ class UserResumeBuilder extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -61,25 +62,9 @@ class UserResumeBuilder extends Controller
     public function edit($id)
     {
         //
-        $template=Template::findBySlugOrFail($id);
-        $resume=Resume::create([
-            'user_id'=>1,
-            'template_id'=>1,
-            'personal_info'=>1,
-            'intro'=>1,
-            'education'=>1,
-            'experience'=>1,
-            'social_media'=>1,
-            'hard_skills'=>1,
-            'soft_skills'=>1,
-            'language'=>1,
-            'references'=>1,
-            'certifications'=>1,
-            'hobbies'=>1,
-            'status'=>0,
-            'user_id'=>Auth::id(),
-            'template_id'=>$template->id
-        ]);
+        $resume=Resume::findOrFail($id);
+        $template=Template::findOrFail($resume->template->id);
+
         return view('dashboard.resume-builder.edit', compact('template','resume'));
 
     }
@@ -106,4 +91,27 @@ class UserResumeBuilder extends Controller
     {
         //
     }
+
+    public  function resumeApp($id){
+        $template=Template::findBySlugOrFail($id);
+        $resume=Resume::create([
+            'user_id'=>1,
+            'template_id'=>1,
+            'personal_info'=>1,
+            'intro'=>1,
+            'education'=>1,
+            'experience'=>1,
+            'social_media'=>1,
+            'hard_skills'=>1,
+            'soft_skills'=>1,
+            'language'=>1,
+            'references'=>1,
+            'certifications'=>1,
+            'hobbies'=>1,
+            'status'=>0,
+            'user_id'=>Auth::id(),
+            'template_id'=>$template->id
+        ]);
+       return view('dashboard/resume-builder/app', compact('template','resume'));
+   }
 }

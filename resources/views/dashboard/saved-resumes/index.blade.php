@@ -8,17 +8,31 @@
         @if($resumes->count()>0)
             <div class="row">
                 @foreach($resumes as $resume)
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-6 col-lg-4">
 
 
                         <div class=" row">
-                            <div class="col-12">
-                                <div >
-                                    <div class=" shadow-sm" >
-                                        @include('templates.'.$resume->template->folder.'.index')
+                            <div class="col-12 ">
+                                <div class="saved-resumes p-3 shadow-sm">
+                                    <div class="row">
+                                        <div class="col-6 text-center position-relative">
+                                            <img src="{{asset($resume->template->getFirstMediaUrl('template')
+                                        ?$resume->template->getFirstMediaUrl('template','template-icon'):'company-icon.jpg')}}" class="img-fluid shadow-sm preview-body">
 
+                                            <button type="button" class="btn btn-secondary preview-text">PREVIEW</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <h6 class="fw-bold mt-3" style="font-size: 14px">Updated on {{$resume->updated_at->isoFormat('DD MMM YYYY ')}}</h6>
+                                            <div class="mt-4">
+                                                <a href="{{route('resume-builder.edit',$resume->id)}}" class="text-decoration-none"><h5 class="fw-bold fs-6"><i class="fa-solid fa-square-pen me-2"></i>Edit</h5></a>
+                                                <a href="{{route('resume-builder.edit',$resume->id)}}" class="text-decoration-none"><h5 class="fw-bold fs-6"><i class="fa-solid fa-arrow-down me-2"></i>Download PDF</h5></a>
+                                                <a href="{{route('resume-builder.edit',$resume->id)}}" class="text-decoration-none"><h5 class="fw-bold fs-6"><i class="fa-solid fa-trash-can me-2"></i>Delete</h5></a>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
+
 
                             </div>
 
