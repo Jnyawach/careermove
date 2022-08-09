@@ -8,7 +8,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
 @section('content')
 <section class="cv-conversion">
     <div class="row">
-        <div class="col-12 col-md-6 col-lg-7 p-3 p-lg-5">
+        <div class="col-12 col-md-6 col-lg-6 p-3 p-lg-5">
             <h1 class="mt-5">Let a Professional review and write your CV</h1>
             <p class="mt-3">Enhance your <mark>credibility</mark>, Grab <mark>attention</mark> & Paint your <mark>Career Journey</mark></p>
             <div class="con-btn mt-3">
@@ -43,8 +43,8 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
 
 
         </div>
-        <div class="col-md-6 col-lg-5 d-none d-md-block align-self-end">
-            <img src="{{asset('images/frustrated-person-2.png')}}" class="img-fluid ">
+        <div class="col-md-6 col-lg-6 d-none d-md-block align-self-end">
+            <img src="{{asset('images/cv-writting.png')}}" class="img-fluid ">
         </div>
     </div>
 
