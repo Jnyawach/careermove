@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Resume;
 use App\Models\Template;
-use Spatie\Browsershot\Browsershot;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
