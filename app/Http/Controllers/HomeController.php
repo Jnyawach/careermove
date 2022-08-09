@@ -72,9 +72,9 @@ class HomeController extends Controller
         return view('confirmation');
     }
 
-    public function resume($id){
+   /* public function resume($id){
         $resume=Resume::findOrFail($id);
         $user=Auth::user();
         return view('templates.index', compact('resume','user'));
-    }
+    }*/
 }

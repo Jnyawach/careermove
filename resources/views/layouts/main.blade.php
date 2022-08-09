@@ -61,9 +61,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('services.index')}}">Professional CV</a>
                         </li>
+                        <!--
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('resume-template.index')}}">Templates</a>
-                        </li>
+                            <a class="nav-link" href="#">Templates</a>
+                        </li> -->
 
 
                         <li class="nav-item">
@@ -221,10 +222,11 @@
                                 <a class="nav-link" href="{{route('services.index')}}">Professional CV
                                     <i class="fa-solid fa-chevron-right float-end"></i></a>
                             </li>
+                            <!--
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('resume-template.index')}}">Templates
+                                <a class="nav-link" href="#">Templates
                                     <i class="fa-solid fa-chevron-right float-end"></i></a>
-                            </li>
+                            </li> -->
 
                             <li class="dropdown-divider"><hr></li>
                             <li class="nav-item">

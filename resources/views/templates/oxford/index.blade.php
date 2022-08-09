@@ -1,5 +1,5 @@
-
-
+@extends('layouts.resume')
+@section('styles')
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400;500;600;700&display=swap');
@@ -89,7 +89,8 @@
 
 
     </style>
-
+@endsection
+@section('content')
 
     <section class="p-5 resume-content mx-auto shadow-sm content">
         @if($resume->personal_info==1)
@@ -293,5 +294,5 @@
 
     </section>
 
-
+@endsection
 

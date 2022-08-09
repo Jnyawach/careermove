@@ -90,6 +90,7 @@ class UserResumeBuilder extends Controller
     public function destroy($id)
     {
         //
+
     }
 
     public  function resumeApp($id){

@@ -5,6 +5,7 @@
     <!--Dashboard Menu-->
     @include('includes.dashboard-menu')
     <section class="resume-body p-5">
+        @include('includes.status')
         @if($resumes->count()>0)
             <div class="row">
                 @foreach($resumes as $resume)
@@ -25,8 +26,15 @@
                                             <h6 class="fw-bold mt-3" style="font-size: 14px">Updated on {{$resume->updated_at->isoFormat('DD MMM YYYY ')}}</h6>
                                             <div class="mt-4">
                                                 <a href="{{route('resume-builder.edit',$resume->id)}}" class="text-decoration-none"><h5 class="fw-bold fs-6"><i class="fa-solid fa-square-pen me-2"></i>Edit</h5></a>
-                                                <a href="{{route('resume-builder.edit',$resume->id)}}" class="text-decoration-none"><h5 class="fw-bold fs-6"><i class="fa-solid fa-arrow-down me-2"></i>Download PDF</h5></a>
-                                                <a href="{{route('resume-builder.edit',$resume->id)}}" class="text-decoration-none"><h5 class="fw-bold fs-6"><i class="fa-solid fa-trash-can me-2"></i>Delete</h5></a>
+                                                <a href="{{route('resume-download',$resume->id)}}" class="text-decoration-none"><h5 class="fw-bold fs-6"><i class="fa-solid fa-arrow-down me-2"></i>Download PDF</h5></a>
+                                                <a href="{{ route('saved-resumes.destroy',$resume->id) }}" class="text-decoration-none" onclick="event.preventDefault(); document.getElementById('delete-form').submit();"><h5 class="fw-bold fs-6"><i class="fa-solid fa-trash-can me-2" ></i>Delete</h5></a>
+
+                                                <form id="delete-form" action="{{ route('saved-resumes.destroy',$resume->id) }}" method="POST" class="d-none">
+                                                    @csrf
+                                                    @method('DELETE')
+
+
+                                                </form>
                                             </div>
 
                                         </div>

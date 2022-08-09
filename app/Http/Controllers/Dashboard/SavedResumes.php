@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Resume;
+use App\Models\Template;
+use Spatie\Browsershot\Browsershot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -86,5 +88,19 @@ class SavedResumes extends Controller
     public function destroy($id)
     {
         //
+        $resume=Resume::findOrFail($id);
+        $resume->delete();
+        return redirect('dashboard/saved-resumes')
+            ->with('status','Resume Successfully deleted');
+    }
+
+    public function resumeDownload($id){
+       $resume=Resume::findOrFail($id);
+       $template=Template::findOrFail($resume->template_id);
+       $user=Auth::user();
+
+
+
+       //return view('templates.'.$template->folder.'.index', compact('resume','user'));
     }
 }
