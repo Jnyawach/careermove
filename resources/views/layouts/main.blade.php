@@ -30,13 +30,13 @@
     @yield('styles')
 
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column main-body">
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZXDP9D"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-
+<section class="main-content">
 <header>
     <!--Big menu-->
     <section class="big-menu">
@@ -277,14 +277,17 @@
 
 
     </section>
+    <!--
     <section id="convert" class="shadow-sm">
-        <ul class="nav justify-content-end">
 
-            <li class="nav-item m-2">
-              <a href="{{route('services.index')}}" class="nav-link btn btn-primary me-3" title="Get a Professional CV">Get a professional CV today</a>
-            </li>
-          </ul>
-    </section>
+                <ul class="nav justify-content-end">
+
+                    <li class="nav-item m-2">
+                        <a href="#" class="nav-link btn btn-primary me-3" title="Get a Professional CV">Get a professional CV today</a>
+                    </li>
+                </ul>
+
+    </section> -->
 
 
 </header>
@@ -346,6 +349,7 @@
     <p class="p-3">&copy; {{date('Y')}} Careermove is a Cerve Ltd Company</p>
 
 </footer>
+</section>
 
 
 <script src="{{asset('js/app.js')}}"></script>

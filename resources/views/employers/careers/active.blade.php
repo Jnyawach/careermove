@@ -6,7 +6,7 @@
             <div class="row">
 
                 @foreach($jobs as $job)
-                    <div class="col-md-6 p-2">
+                    <div class=" col-12 col-md-6 p-2">
 
                         <div class="card job-card">
                             <div class="card-body">
@@ -41,19 +41,21 @@
 
                                     </div>
                                 </div>
-                                <p>{!! \Illuminate\Support\Str::limit($job->description, 180, $end='...')  !!}</p>
+
 
                             </div>
                         </div>
 
 
                     </div>
-                @endforeach
-                @else
 
+                @endforeach
 
 
             </div>
+
+        @else
+
             <div class="p-5">
                 <h5>You have no Active Job Listings</h5>
             </div>

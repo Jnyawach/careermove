@@ -24,11 +24,21 @@
 }
 body{
     font-family: 'Zen Kaku Gothic Antique', sans-serif;
+
+
+
+
+}
+.main-body{
+    background-image: url('/images/back.jpg');
+    /*background-color:var(--slate);*/
+    background-attachment: fixed;
+}
+.main-content{
     max-width: 1280px;
     margin: auto;
     color: black;
-
-
+    background-color: white;
 }
 
 h1, h2,h3,h4,h5,h6{
@@ -61,9 +71,9 @@ a:hover{
     color: var(--bright);
 }
 #convert{
-  position: fixed;
+  position: absolute;
   top: -60px;
-  width: 100%;
+
   display: block;
   transition: top 0.3s;
   z-index: 999;

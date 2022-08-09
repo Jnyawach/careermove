@@ -41,7 +41,7 @@
 
                                 </div>
                             </div>
-                            <p>{!! \Illuminate\Support\Str::limit($job->description, 180, $end='...')  !!}</p>
+
                                     <p>Status: <span>{{$job->status->name}}</span></p>
 
                         </div>
