@@ -7,7 +7,10 @@
 Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hiring today, Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for jobs today
 @endsection
 @section('styles')
-    <meta name="robots" content="max-image-preview:large">
+    <meta property="og:title" content="{{$company->name}}" />
+    <meta property="og:description" content="{{$company->name}} is hiring today in Kenya" />
+    <meta property="og:image" content="{{asset($company->getFirstMediaUrl('logo')
+                             ?$company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}" />
 @endsection
 @section('content')
     <section class="hiring p-5">

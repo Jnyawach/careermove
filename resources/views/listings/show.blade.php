@@ -5,7 +5,10 @@
 Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for jobs today,{{$job->tags}}
 @endsection
 @section('styles')
-
+    <meta property="og:title" content="{{$job->title}}" />
+    <meta property="og:description" content="{{$job->meta_description}}" />
+    <meta property="og:image" content="{{asset($job->company->getFirstMediaUrl('logo')
+                             ?$job->company->getFirstMediaUrl('logo','logo-icon'):'company-icon.jpg')}}" />
 
 <script type="application/ld+json">
     {

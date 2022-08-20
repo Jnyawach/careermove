@@ -304,6 +304,20 @@
 </main>
 
 <footer class="pt-5">
+    <section>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link"  href="#"><h6 class="fw-bold">Connect</h6></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.linkedin.com/company/careermovekenya/"><i class="fa-brands fa-linkedin"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://web.facebook.com/hiringinKenyaToday"><i class="fab fa-facebook-square"></i></a>
+            </li>
+
+        </ul>
+    </section>
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
