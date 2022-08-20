@@ -8,7 +8,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
 @livewireStyles
 <meta property="og:title" content="Job alerts, Career advice in Kenya-{{date('Y')}}" />
 <meta property="og:description" content="Latest job vacancies in Kenya. Search and apply for verified job vacancies in top companies hiring across Kenya. Signup  today and  to kickstart your career" />
-<meta property="og:image" content="{{asset('careermove-logo.png')}}" />
+<meta property="og:image" content="{{asset('images/careermove-logo.png')}}" />
 @endsection
 @section('content')
 @livewire('blog-page')

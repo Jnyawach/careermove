@@ -9,7 +9,7 @@ hiring near me, companies hiring, get jobs,jobs in Nairobi, Jobs in Mombasa, job
 @livewireStyles
 <meta property="og:title" content="Find and apply latest jobs alerts in Kenya {{date('Y')}}" />
 <meta property="og:description" content="Explore and discover verified new jobs near me" />
-<meta property="og:image" content="{{asset('careermove-logo.png')}}" />
+<meta property="og:image" content="{{asset('images/careermove-logo.png')}}" />
 @endsection
 @section('content')
 @livewire('job-listing')
