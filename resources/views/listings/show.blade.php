@@ -2,7 +2,7 @@
 @section('title',$job->title)
 @section('description', $job->meta_description)
 @section('keywords')
-Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for jobs today,{{$job->tags}}
+Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for jobs today,{{$job->keywords}}
 @endsection
 @section('styles')
     <meta property="og:title" content="{{$job->title}}" />
