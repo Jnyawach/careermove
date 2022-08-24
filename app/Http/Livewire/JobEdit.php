@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class JobEdit extends Component
 {
-    public $title, $industryId,$professionId,$deadline,
+    public $title, $industryId,$professionId,$deadline,$keywords,
         $locationId, $experienceId,$tags,$link,$content,$industries,$locations,
         $companies,$professions, $experiences,$user_id,$job, $types,$typeId,$ranges,$rangeId;
     public $success=false;
@@ -33,6 +33,7 @@ class JobEdit extends Component
         $this->tags=$this->job->meta_description;
         $this->typeId=$this->job->type_id;
         $this->rangeId=$this->job->range_id;
+        $this->keywords=$this->job->keywords;
 
 
     }
@@ -92,10 +93,12 @@ class JobEdit extends Component
         $validatedData=$this->validate([
             'content'=>'required',
             'tags'=>'required',
+            'keywords'=>'required'
         ],
         [
             'content.required'=>'Please provide job description',
-            'tags.required'=>'Please provide a meta description'
+            'tags.required'=>'Please provide a meta description',
+             'keywords.required'=>'Please provide keywords'
         ]);
         $job=Job::findOrFail($this->job->id);
 
@@ -109,7 +112,7 @@ class JobEdit extends Component
             'location_id'=>$this->locationId,
             'industry_id'=>$this->industryId,
             'type_id'=>$this->typeId,
-
+            'keywords'=>$this->keywords,
             'description'=>$this->content,
             'deadline'=>$this->deadline,
             'meta_description'=>$this->tags,

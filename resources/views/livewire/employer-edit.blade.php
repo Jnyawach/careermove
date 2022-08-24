@@ -149,6 +149,15 @@
         <div class="row setup-content {{ $currentStep != 2 ? 'display-none' : '' }}" id="step-2">
             <div class="col-12 mx-auto">
                 <div class="form-group">
+                    <label for="keywords" class="control-label">Keywords:</label>
+                    <textarea name="tags" class="form-control mt-2" id="keywords" required
+                              wire:model.lazy="keywords">{{$tags}}</textarea>
+
+
+                    <small>Use comma separated Keyword e.g. Accounting jobs in Kenya, Accounting Jobs at Safaricom</small>
+                    @error('keywords') <span class="error">{{ $message }}</span> @enderror<br>
+                </div>
+                <div class="form-group mt-3">
                     <label for="tags" class="control-label">Meta Description:</label>
                     <textarea name="tags" class="form-control mt-2" id="tags" required
                               wire:model.lazy="tags">{{$tags}}</textarea>

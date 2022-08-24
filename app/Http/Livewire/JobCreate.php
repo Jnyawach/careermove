@@ -12,7 +12,7 @@ use Livewire\Component;
 
 class JobCreate extends Component
 {
-    public $title, $industryId,$professionId,$deadline,
+    public $title, $industryId,$professionId,$deadline,$keywords,
     $locationId, $experienceId,$tags,$link,$content,$industries,$locations,
     $companies,$professions, $experiences,$user_id,$types,$typeId,$ranges,$rangeId;
     public $success=false;
@@ -98,9 +98,11 @@ class JobCreate extends Component
         $validatedData=$this->validate([
             'content'=>'required',
             'tags'=>'required',
+            'keywords'=>'required'
         ],[
             'content.required'=>'Please provide job description',
-            'tags.required'=>'Please provide meta description'
+            'tags.required'=>'Please provide meta description',
+            'keywords.required'=>'Please Provide Keywords'
         ]);
 
         $job=Job::create([
@@ -118,6 +120,7 @@ class JobCreate extends Component
             'status_id'=>2,
             'meta_description'=>$this->tags,
             'range_id'=>$this->rangeId,
+            'keywords'=>$this->keywords
         ]);
 
         $this->clearForm();

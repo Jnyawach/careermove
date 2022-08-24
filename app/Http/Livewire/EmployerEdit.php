@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class EmployerEdit extends Component
 {
-    public $title, $industryId,$professionId,$companyId,$deadline,
+    public $title, $industryId,$professionId,$companyId,$deadline,$keywords,
         $locationId, $experienceId,$tags,$link,$content,$industries,$locations,
         $companies,$professions, $experiences,$user_id,$job, $types,$typeId,$ranges,$rangeId;
     public $success=false;
@@ -29,6 +29,7 @@ class EmployerEdit extends Component
         $this->tags=$this->job->meta_description;
         $this->rangeId=$this->job->range_id;
         $this->typeId=$this->job->type_id;
+        $this->keywords=$this->job->keywords;
     }
 
     public function firstStepSubmit(){
@@ -64,10 +65,12 @@ class EmployerEdit extends Component
         $validatedData=$this->validate([
             'content'=>'required',
             'tags'=>'required',
+            'keywords'=>'required'
         ],
         [
             'content.required'=>'Please provide job description',
-            'tags.required'=>'Please provide tags associated with the job'
+            'tags.required'=>'Please provide tags associated with the job',
+            'keywords.required'=>'Please provide keywords'
         ]);
         $job=Job::findOrFail($this->job->id);
 
@@ -85,9 +88,11 @@ class EmployerEdit extends Component
             'meta_description'=>$this->tags,
             'status_id'=>1,
             'range_id'=>$this->rangeId,
+            'keywords'=>$this->keywords,
 
         ]);
-        $this->success="Job Listing Updated Successfully";
+        return redirect('employers/careers')
+            ->with('status','Job Updated Successfully');
     }
 
     public function render()
