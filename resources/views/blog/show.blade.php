@@ -5,7 +5,7 @@
 @section('styles')
 <meta property="og:title" content="{{$post->title}}">
 <meta property="og:description" content="{{$post->summary}}">
-<meta property="og:image" content="{{asset($post->getFirstMediaUrl('imageCard')}}">
+<meta property="og:image" content="{!!asset($post->getFirstMediaUrl('imageCard'))!!}">
 <meta property="og:url" content="{{url()->current()}}">
 <meta name="twitter:title" content="{{$post->title}}">
 <meta name="twitter:description" content="{{$post->summary}}">
