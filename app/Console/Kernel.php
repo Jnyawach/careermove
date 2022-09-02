@@ -21,7 +21,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('backup:run')->daily()->at('01:30')->withoutOverlapping()->onOneServer();
         $schedule->command('job:deactivate')->daily()->withoutOverlapping()->onOneServer();
         $schedule->command('site:index')->twiceDaily(1, 13)->withoutOverlapping()->onOneServer();
-        $schedule->command('url:delete')->daily()->withoutOverlapping()->onOneServer();
+        //$schedule->command('url:delete')->daily()->withoutOverlapping()->onOneServer();
     }
 
     /**
