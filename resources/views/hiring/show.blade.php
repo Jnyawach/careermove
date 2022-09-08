@@ -83,6 +83,7 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
             @endforeach
         </div>
 
+
     </section>
     @if($companies->count()>0)
         <section class="mt-5">
