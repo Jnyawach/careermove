@@ -110,6 +110,19 @@ Jobs at {{$company->name}}, Work at {{$company->name}}, {{$company->name}} is hi
 
                             </div>
                         @endforeach
+                        <div class="col-sm-6 col-md-4 col-lg-3 p-1">
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1649231050054855"
+                                    crossorigin="anonymous"></script>
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-format="fluid"
+                                 data-ad-layout-key="-gf+c-1b-27+96"
+                                 data-ad-client="ca-pub-1649231050054855"
+                                 data-ad-slot="5699050947"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </div>
                     </div>
 
                 </div>
