@@ -22,6 +22,7 @@
                 <thead>
                 <tr>
                     <th>Id</th>
+                    <td>Date</td>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Payment</th>
@@ -36,6 +37,7 @@
                     @foreach($progress->orders as $order)
                         <tr>
                             <td>{{$order->id}}</td>
+                            <td>{{$order->created_at->isoFormat('MMM Do YY')}}</td>
                             <td>{{$order->name}}</td>
                             <td>{{$order->email}}</td>
                             <td>{{$order->payment?$order->payment->mpesa_receipt_number:'N/A'}}</td>

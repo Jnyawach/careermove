@@ -164,6 +164,7 @@ Route::group(['middleware'=>['auth','role:super-admin|User','verified']],functio
 });
 
 Auth::routes();
+Route::feeds();
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

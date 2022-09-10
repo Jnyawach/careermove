@@ -7,8 +7,10 @@ use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
-class Job extends Model
+class Job extends Model implements Feedable
 {
     use HasFactory, Sluggable, SluggableScopeHelpers, Searchable;
     protected $fillable=['status_id','title','industry_id','meta_description',
@@ -18,6 +20,7 @@ class Job extends Model
     *
     * @return array
     */
+
     public function sluggable(): array
     {
         return [
@@ -25,6 +28,22 @@ class Job extends Model
                 'source' => 'title'
             ]
         ];
+    }
+    public function toFeedItem(): FeedItem
+    {
+        return FeedItem::create()
+            ->id($this->slug)
+            ->title($this->title)
+            ->summary($this->meta_description)
+            ->updated($this->updated_at)
+            ->link(route('listings.show',$this->slug))
+            ->authorName('Careermove');
+    }
+    // app/NewsItem.php
+
+    public static function getFeedItems()
+    {
+        return Job::all();
     }
     public function searchableAs()
     {

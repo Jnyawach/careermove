@@ -30,8 +30,8 @@ body{
 
 }
 .main-body{
-    background-image: url('/images/back.jpg');
-    /*background-color:var(--slate);*/
+
+    background-color:#FAFAFA;
     background-attachment: fixed;
 }
 .main-content{
