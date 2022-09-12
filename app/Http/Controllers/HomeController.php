@@ -77,4 +77,9 @@ class HomeController extends Controller
         $user=Auth::user();
         return view('templates.index', compact('resume','user'));
     }*/
+
+    public function feed(){
+        $posts=Post::latest()->get();
+        return response()->view('feeds', ['posts'=>$posts])->header('Content-Type', 'text/xml');
+    }
 }
