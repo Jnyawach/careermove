@@ -7,8 +7,7 @@ use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
-use Spatie\Feed\Feedable;
-use Spatie\Feed\FeedItem;
+
 
 class Job extends Model implements Feedable
 {
@@ -29,22 +28,7 @@ class Job extends Model implements Feedable
             ]
         ];
     }
-    public function toFeedItem(): FeedItem
-    {
-        return FeedItem::create()
-            ->id($this->slug)
-            ->title($this->title)
-            ->summary($this->meta_description)
-            ->updated($this->updated_at)
-            ->link(route('listings.show',$this->slug))
-            ->authorName('Careermove');
-    }
-    // app/NewsItem.php
 
-    public static function getFeedItems()
-    {
-        return Job::all();
-    }
     public function searchableAs()
     {
         return 'title';

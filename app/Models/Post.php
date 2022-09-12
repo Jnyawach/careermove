@@ -10,8 +10,10 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Laravel\Scout\Searchable;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
-class Post extends Model implements HasMedia
+class Post extends Model implements HasMedia,Feedable
 {
     use HasFactory, InteractsWithMedia, Sluggable, SluggableScopeHelpers,
     Searchable;
@@ -23,6 +25,23 @@ class Post extends Model implements HasMedia
                 'source' => 'title'
             ]
         ];
+    }
+    public function toFeedItem(): FeedItem
+    {
+
+        return FeedItem::create()
+            ->id($this->slug)
+            ->title($this->title)
+            ->summary($this->summary)
+            ->updated($this->updated_at)
+            ->link(route('blog.show',$this->slug))
+            ->authorName($this->author->first_name.' '.$this->author->last_name);
+    }
+    // app/NewsItem.php
+
+    public static function getFeedItems()
+    {
+        return Post::all();
     }
     public function searchableAs()
     {
