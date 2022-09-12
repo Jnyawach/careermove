@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
 
-class Job extends Model implements
+class Job extends Model
 {
     use HasFactory, Sluggable, SluggableScopeHelpers, Searchable;
     protected $fillable=['status_id','title','industry_id','meta_description',
