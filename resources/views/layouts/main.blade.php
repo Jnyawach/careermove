@@ -28,7 +28,7 @@
 
     <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
     @yield('styles')
-    @include('feed::links')
+
 
 </head>
 <body class="d-flex flex-column main-body">

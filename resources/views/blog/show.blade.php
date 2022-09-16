@@ -77,7 +77,7 @@
                 <p class="fw-bold fs-6 mt-3 p-0 about-post">@if($post->readers>0)<mark class="p-1"><i class="fa-solid fa-eye"></i> {{$post->readers}}</mark>@endif <mark class="p-1"><i class="fa-solid fa-thumbs-up"></i> {{$post->like}}</mark> <mark class="p-1"> <i class="fa-solid fa-thumbs-down"></i> {{$post->dislike}}</mark> <mark class="p-1"><i class="fa-solid fa-message"></i> {{$post->comments()->count()}}</mark></p>
 
                     <!----Professonal CV Adver-->
-                @include('includes.pro-cv')
+
                 <div class="post-content">{!! $post->content !!}</div>
 
                 <p class="mt-3">
@@ -87,7 +87,7 @@
                 </p>
                 <h6>Posted: {{$post->created_at->diffForHUmans()}}</h6>
                 <!----Professonal CV Adver-->
-                @include('includes.pro-cv')
+
                 <hr>
                 @livewire('comment-page',['post'=>$post])
 
