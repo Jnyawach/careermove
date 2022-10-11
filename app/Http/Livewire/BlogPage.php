@@ -18,12 +18,12 @@ class BlogPage extends Component
     }
     public function render()
     {
-        $posts=Post::orderBy('updated_at','desc')->where('status',1)->get();
+        $posts=Post::orderBy('created_at','desc')->where('status',1)->get();
         $intro=$posts[0];
         $header=$posts->slice(1,3);
 
         $you=$posts->slice(4,4);
-        $trending=Post::orderBy('updated_at','desc')->where('status',1)->limit($this->loadAmount)->get();
+        $trending=Post::orderBy('created_at','desc')->where('status',1)->limit($this->loadAmount)->get();
         return view('livewire.blog-page',[
             'intro'=>$intro,
             'header'=>$header,
