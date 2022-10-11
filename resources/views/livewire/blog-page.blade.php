@@ -13,7 +13,7 @@
                     <p class="fw-bold fs-6 m-0 p-0 about-post">@if($intro->readers>0)<mark class="p-1"><i class="fa-solid fa-eye"></i> {{$intro->readers}}</mark>@endif <mark class="p-1"><i class="fa-solid fa-thumbs-up"></i> {{$intro->like}}</mark> <mark class="p-1"> <i class="fa-solid fa-thumbs-down"></i> {{$intro->dislike}}</mark> <mark class="p-1"><i class="fa-solid fa-message"></i> {{$intro->comments()->count()}}</mark></p>
                     <h1 class="mb-0">{{$intro->title}}</h1>
 
-                    <h6 class="fw-bold">{{$intro->author->first_name}} {{$intro->author->last_name}}:{{$intro->created_at->diffForHumans()}}</h6>
+                    <h6 class="fw-bold">{{$intro->author->first_name}} {{$intro->author->last_name}}: {{$intro->created_at->diffForHumans()}}</h6>
                 </a>
 
 
