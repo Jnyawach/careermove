@@ -11,6 +11,7 @@
 <meta name="twitter:description" content="{{$post->summary}}">
 <meta name="twitter:url" content="{{url()->current()}}">
 <meta name="twitter:card" content="{{$post->summary}}">
+<link rel="alternate" type="application/rss+xml" href="https://careermove.co.ke/feeds" />
     @livewireStyles
     <script type="application/ld+json">
         {
