@@ -1,5 +1,5 @@
 <div>
-    
+
     <form wire:submit.prevent="updatePost">
         <div class="form-group row mt-3">
             <div class="col-12 col-md-6">
@@ -76,7 +76,7 @@
 
                 <input class="form-control" type="file" id="imageCard" name="image_card" wire:model="image_card">
                 @error('image_card') <span class="error">{{ $message }}</span> @enderror<br>
-                <small>Should be a banner image Size 960px by 540px </small>
+                <small>Should be a banner image Size 1200px by 675px </small>
             </div>
         </div>
 

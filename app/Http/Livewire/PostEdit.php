@@ -15,7 +15,7 @@ class PostEdit extends Component
     use WithFileUploads;
     public $post,$title, $content,$summary,$author,$image_credit,$image_card,$tags;
     protected $messages=[
-        'image_card.dimensions'=>'The image dimensions should be strictly 960px by 540px',
+        'image_card.dimensions'=>'The image dimensions should be strictly 1200px by 675px',
         'author.required'=>'Please select at least one author',
         'summary.max'=>'the summary cannot exceed 850 characters'
     ];
@@ -27,7 +27,7 @@ class PostEdit extends Component
         'summary'=>'required|min:10|string|max:850',
         'tags'=>'required|string',
         'content'=>'required',
-        'image_card'=>'nullable|image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:width=960,height=540',
+        'image_card'=>'nullable|image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:width=1200,height=675',
 
 
     ];
