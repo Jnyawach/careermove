@@ -28,6 +28,9 @@
     <link href="{{asset('css/awesome/css/all.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
+    <link rel="alternate" type="application/rss+xml" href="https://careermove.co.ke/feeds"/>
+    <link rel="alternate" type="application/rss+xml" href="https://careermove.co.ke/hiring/feeds"/>
+    <link rel="alternate" type="application/rss+xml" href="https://careermove.co.ke/listings/feeds"/>
     @yield('styles')
 
 

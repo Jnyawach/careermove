@@ -111,6 +111,8 @@ Route::group(['middleware'=>['auth','role:super-admin|Manager','verified']],func
 
 Route::group([],function (){
     //Route::get('templates/{id}',  [HomeController::class, 'resume'])->name('resume');
+    Route::get('listings/feeds',  [HomeController::class, 'jobFeeds'])->name('job-feeds');
+    Route::get('hiring/feeds',  [HomeController::class, 'hiringFeeds'])->name('hiring-feeds');
     Route::get('feeds',  [HomeController::class, 'feed'])->name('feeds');
     Route::get('confirmation',  [HomeController::class, 'confirmation'])->name('confirmation');
     Route::get('thank-you',  [HomeController::class, 'thank'])->name('thank-you');

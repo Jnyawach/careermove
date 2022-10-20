@@ -82,4 +82,20 @@ class HomeController extends Controller
         $posts=Post::latest()->get();
         return response()->view('feeds', ['posts'=>$posts])->header('Content-Type', 'text/xml');
     }
+
+    public function hiringFeeds(){
+        $companies=Company::whereHas('jobs', function (Builder $query){
+            $query->where('status_id',2);
+        })->get();
+
+        return response()->view('hiring/feeds', ['companies'=>$companies])->header('Content-Type', 'text/xml');
+
+    }
+
+    public function jobFeeds(){
+        $jobs=Job::active()->get();
+
+        return response()->view('listings/feeds', ['jobs'=>$jobs])->header('Content-Type', 'text/xml');
+
+    }
 }
