@@ -117,10 +117,12 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
                             data-bs-toggle="modal" data-bs-target="#shareJobModal{{$job->id}}">
                             <i class="fa-solid fa-share-nodes me-2"></i>Share Job
                         </button>
+                        <!--
                         <button type="button" class="btn btn-link d-inline-block text-decoration-none fw-bold"
                             data-bs-toggle="modal" data-bs-target="#reportJobModal{{$job->id}}">
                             <i class="fa-solid fa-flag me-2"></i>Report Job
                         </button>
+                    -->
                         <!-- Modal -->
                         <div class="modal fade" id="shareJobModal{{$job->id}}" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -157,7 +159,7 @@ Jobs in kenya, job vacancies in kenya, latest job vacancies in kenya, apply for 
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="POST" action="{{route('report-job',$job->id)}}"
+                                        <form method="POST" action="#"
                                             id="reportJob{{$job->id}}">
                                             @csrf
                                             @honeypot
